@@ -1,0 +1,323 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #f0e9c9;
+    background-size: cover;
+    background-repeat: round;
+    background-attachment: fixed;
+    cursor: default;
+    user-select: none;
+}
+
+@keyframes showNice {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#headerOfPruds {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+    #headerOfPruds {
+        display: grid;
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    #headerOfPruds {
+        display: grid;
+        font-size: 20px;
+    }
+}
+
+.container {
+    display: none;
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #d4cbabc0;
+    width: 90%;
+    height: 90%;
+    transition: all 100ms ease-in-out;
+    animation: showNice 0.5s ease-in-out;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.container:hover {
+    background-color: #d4cbabda;
+}
+
+h1 {
+    /* height: 7%; */
+    font-size: calc(2.375rem + 1.5vw);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #c2bba1a8;
+}
+
+*::-webkit-scrollbar {
+    width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #c4c1b6c0;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #969287;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #797464;
+}
+
+#form {
+    width: 100%;
+    display: inline-block;
+    background-color: #c4c1b6c0;
+}
+
+#form li,
+#form select {
+    background-color: #c4c1b6c0;
+}
+
+#form:hover {
+    background-color: #c4c1b6;
+}
+
+#priceContainer {
+    display: flex;
+    direction: rtl;
+    justify-content: center;
+}
+
+input#discount {
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    transition: all 100ms ease-in-out;
+}
+
+input::placeholder#discount {
+    font-size: 17px;
+}
+
+input:hover#discount {
+    background-color: #aca588;
+}
+
+input:focus#discount {
+    background-color: #b1a883;
+}
+
+input.personalInfo {
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    text-align: center;
+    width: 265px;
+    height: 40px;
+    transition: all 100ms ease-in-out;
+}
+
+input::placeholder.personalInfo {
+    font-size: 17px;
+}
+
+input:hover.personalInfo {
+    background-color: #aca588;
+}
+
+input:focus.personalInfo {
+    background-color: #b1a883;
+}
+
+.card {
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card-img,
+.card-img-top {
+    border-radius: calc(15px - 1px);
+}
+
+.card-img,
+.card-img-bottom,
+.card-img-top {
+    width: 90%;
+    margin-top: 15px;
+}
+
+.card-link {
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    background-color: #f5ebbd;
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+.card-link:hover {
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    background-color: #bbb496;
+}
+
+input {
+    color: black;
+}
+
+#shoppingCartIcon,
+#shoppingCartCancel,
+#infoCardCancel {
+    cursor: pointer;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 30px;
+}
+
+#title {
+    padding-left: 15px;
+}
+
+#infoIcon {
+    right: 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    font-size: 30px;
+}
+
+#cartInfo,
+#infoCard {
+    width: 40%;
+    height: 80%;
+    background-color: #d4cbab;
+}
+
+#infoCard {
+    height: 40%;
+    top: 229px;
+    right: 115px;
+}
+
+@media only screen and (max-width: 800px) {
+    #infoCard {
+        width: 90%;
+        height: 40%;
+        right: auto;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #cartInfo {
+        width: 90%;
+        height: 90%;
+        background-color: #d4cbab;
+    }
+}
+
+.devInfo {
+    width: 100%;
+    display: inline-block;
+    background-color: #c4c1b6c0;
+}
+
+#websiteAddress:hover {
+    font-weight: bolder;
+}
+
+#groupOfTitles {
+    font-size: 15px;
+}
+
+#groupOfPrices {
+    font-size: 25px;
+}
+
+#discountContainer,
+#personalInfoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.submitCodeEnabled {
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    background-color: #f5ebbd;
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+    font-weight: bold;
+    width: 80px;
+    height: 40px;
+}
+
+.submitCodeEnabled:hover {
+    background-color: #bbb496;
+}
+
+.submitCodeDisabled {
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    background-color: #3d323a57;
+    transition: all 100ms ease-in-out;
+    cursor: default;
+    font-weight: bold;
+    width: 80px;
+    height: 40px;
+}
+
+.submitCodeDisabled:hover {
+    cursor: default;
+}
+
+.cartAnimation {
+    animation: cartAnimation 0.1s linear;
+}
+
+@keyframes cartAnimation {
+    0% {
+        font-size: 30px;
+    }
+    50% {
+        font-size: 35px;
+    }
+    100% {
+        font-size: 30px;
+    }
+}

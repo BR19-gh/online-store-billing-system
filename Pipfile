@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+dj-database-url = "*"
+psycopg2 = "*"
+flask-cors = "*"
+flask-limiter = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

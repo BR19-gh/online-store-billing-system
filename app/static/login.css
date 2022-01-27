@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #f0e9c9;
+    background-size: cover;
+    background-repeat: round;
+    background-attachment: fixed;
+    cursor: default;
+    user-select: none;
+}
+
+@keyframes showNice {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#container {
+    display: none;
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #c5c0adc0;
+    width: 350px;
+    transition: all 100ms ease-in-out;
+    animation: showNice 1s;
+}
+
+#container:hover {
+    background-color: #c5c0adda;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#form {
+    width: 100%;
+    display: inline-block;
+}
+
+.label {
+    font-size: 25px;
+}
+
+input {
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    transition: all 100ms ease-in-out;
+}
+
+input::placeholder {
+    font-size: 17px;
+}
+
+input:hover {
+    background-color: #aca588;
+}
+
+input:focus {
+    background-color: #b1a883;
+}
+
+::-webkit-input-placeholder {
+    color: transparent;
+    transition: all 100ms ease-in-out;
+}
+
+ :hover::-webkit-input-placeholder {
+    color: #564b5f;
+}
+
+ :focus::-webkit-input-placeholder {
+    color: #3c303f;
+}
+
+#loginBtn {
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    background-color: #f5ebbd;
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input {
+    color: black;
+}
+
+#loginBtn:hover {
+    background-color: #8f8d85;
+}
