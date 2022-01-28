@@ -79,11 +79,16 @@ b {
     justify-content: center;
 }
 
+h5.card-title {
+    display: inline-grid;
+}
+
 .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
     width: 100px;
+    z-index: 0;
 }
 
 button.btn.btn-outline-secondary.dropdown-toggle {
@@ -121,7 +126,7 @@ h1 {
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: #c2bba1a8;
+    background-color: #c2bba1d0;
 }
 
 *::-webkit-scrollbar {
