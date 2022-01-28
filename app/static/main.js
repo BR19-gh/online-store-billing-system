@@ -86,20 +86,19 @@ fetch('/products', {
                                     document.getElementById('infoCard').style.display = "none";
                                 });
 
-                                let num = '1'
+                                let num = 1
+                                let numNotRepeat = 0;
                                 let container = document.getElementById('cardContainer');
                                 for (let i = 0; i < Object.keys(data).length; i++) {
                                     if (data.statCode == 204) { document.getElementById('msgNotFetched').style.display = "block"; break; } else { document.getElementById('msgNotFetched').style.display = "none"; }
-                                    if (num == '1') {
-                                        num = '2'
-                                    } else {
-                                        num = '1'
-                                    }
+                                    num = Math.floor(Math.random() * 8) + 1;
+                                    while (num == numNotRepeat) { num = Math.floor(Math.random() * 8) + 1; }
+                                    numNotRepeat = num;
 
                                     container.innerHTML +=
                                         ` 
     <div id="form" class="card" style="width: 18rem;">
-        <img style="width: 257px; height: 257px;" src="../static/img/cookies${num}.jpg" class="card-img-top" alt="cookies">
+        <img style="width: 257px; height: 257px;" src="../static/img/img${num}.jpg" class="card-img-top" alt="cookies">
         <div class="card-body">
             <h5 class="card-title">${data[i]["title"]}</h5>
         </div>
