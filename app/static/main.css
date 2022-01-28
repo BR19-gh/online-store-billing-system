@@ -121,7 +121,7 @@ input#discount {
 }
 
 input::placeholder#discount {
-    font-size: 17px;
+    font-size: 14px;
 }
 
 input:hover#discount {
@@ -142,7 +142,7 @@ input.personalInfo {
 }
 
 input::placeholder.personalInfo {
-    font-size: 17px;
+    font-size: 14px;
 }
 
 input:hover.personalInfo {

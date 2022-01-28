@@ -70,7 +70,7 @@ input {
 }
 
 input::placeholder {
-    font-size: 17px;
+    font-size: 14px;
 }
 
 input:hover {

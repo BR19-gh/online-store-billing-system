@@ -21,6 +21,11 @@ body {
     }
 }
 
+button#countryCodeTitle {
+    font-size: 13px;
+    font-weight: 800;
+}
+
 @media only screen and (max-width: 800px) {
     #title {
         line-height: 60px;
@@ -176,7 +181,7 @@ input {
 }
 
 input::placeholder {
-    font-size: 17px;
+    font-size: 14px;
 }
 
 input:hover {
@@ -194,10 +199,6 @@ input {
     width: 254px;
     height: 40px;
     transition: all 100ms ease-in-out;
-}
-
-input::placeholder {
-    font-size: 17px;
 }
 
 input:hover {
