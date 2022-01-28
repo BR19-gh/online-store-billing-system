@@ -90,6 +90,16 @@ h1 {
     background-color: #797464;
 }
 
+select {
+    border: 1px #8f8d85 solid;
+    border-radius: 15px;
+    background-color: #f5ebbd;
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 7.5px 15px 7.5px 25px;
+}
+
 #form {
     width: 100%;
     display: inline-block;
