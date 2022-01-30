@@ -410,71 +410,58 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
 //// fetches
 
-fetch('/products', {
-        headers: {
+function firstFetch() {
 
-            'Method': 'GET',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        method: 'GET',
-    })
-    .then((response) => {
-        return response.json();
-    }).then((responseJson) => {
-        console.log(responseJson);
-        if (responseJson.statCode == 204) { return; }
-        document.getElementById('productsList').innerHTML = '<b>(الرقم،  العنوان،   السعر)</b>'
-        for (let i = 0; i < Object.keys(responseJson).length; i++) {
+    fetch('/products', {
+            headers: {
 
-            if (i == Object.keys(responseJson).length) {
-                document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']})`;
+                'Method': 'GET',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'GET',
+        })
+        .then((response) => {
+            return response.json();
+        }).then((responseJson) => {
+            console.log(responseJson);
+            if (responseJson.statCode == 204) { return; }
+            document.getElementById('productsList').innerHTML = '<b>(الرقم،  العنوان،   السعر)</b>'
+            for (let i = 0; i < Object.keys(responseJson).length; i++) {
+
+                if (i == Object.keys(responseJson).length) {
+                    document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']})`;
+                }
+                document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']})<br>`;
             }
-            document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']})<br>`;
-        }
 
-    });
+        });
 
-fetch('/promocodes', {
-        headers: {
+    fetch('/promocodes', {
+            headers: {
 
-            'Method': 'GET',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        method: 'GET',
-    })
-    .then((response) => {
-        return response.json();
-    }).then((responseJson) => {
-        console.log(responseJson);
-        if (responseJson.statCode == 204) { return; }
-        document.getElementById('codesList').innerHTML = '<b>(الرقم،  الاسم،   النسبة)</b>'
-        for (let i = 0; i < Object.keys(responseJson).length; i++) {
+                'Method': 'GET',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'GET',
+        })
+        .then((response) => {
+            return response.json();
+        }).then((responseJson) => {
+            console.log(responseJson);
+            if (responseJson.statCode == 204) { return; }
+            document.getElementById('codesList').innerHTML = '<b>(الرقم،  الاسم،   النسبة)</b>'
+            for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
-            if (i == Object.keys(responseJson).length) {
-                document.getElementById('codesList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['code']}, ${responseJson[i]['amount']*100}%)`;
+                if (i == Object.keys(responseJson).length) {
+                    document.getElementById('codesList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['code']}, ${responseJson[i]['amount']*100}%)`;
+                }
+                document.getElementById('codesList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['code']}, ${responseJson[i]['amount']*100}%)<br>`;
             }
-            document.getElementById('codesList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['code']}, ${responseJson[i]['amount']*100}%)<br>`;
-        }
-    });
+        });
 
-fetch('/storeNum', {
-    headers: {
-
-        'Method': 'GET',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    },
-    method: 'GET',
-}).then((responseNum) => {
-    return responseNum.json();
-}).then((responseJson) => {
-    document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
-
-});
-
-fetch('/storeName', {
+    fetch('/storeNum', {
         headers: {
 
             'Method': 'GET',
@@ -482,18 +469,31 @@ fetch('/storeName', {
             'Accept': 'application/json'
         },
         method: 'GET',
-    })
-    .then((responseName) => {
-        return responseName.json();
+    }).then((responseNum) => {
+        return responseNum.json();
     }).then((responseJson) => {
-        document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
+        document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
+
     });
-// let timedelay = setInterval(() => {
-//     if ((document.getElementsByClassName('numAndName')[0].innerText != 'none/لايوجد') && (document.getElementsByClassName('numAndName')[1].innerText != 'none/لايوجد')) {
-//         document.getElementById('addInfo').style.display = "none";
-//     }
-// }, 100);
-// json for countrey codes
+
+    fetch('/storeName', {
+            headers: {
+
+                'Method': 'GET',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'GET',
+        })
+        .then((responseName) => {
+            return responseName.json();
+        }).then((responseJson) => {
+            document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
+        });
+}
+
+firstFetch();
+
 
 
 const countriesCodes = {
