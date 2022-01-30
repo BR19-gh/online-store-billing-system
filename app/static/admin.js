@@ -412,7 +412,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
 function firstFetch() {
 
-    fetch('/products', {
+    fetch('../products', {
             headers: {
 
                 'Method': 'GET',
@@ -437,7 +437,7 @@ function firstFetch() {
 
         });
 
-    fetch('/promocodes', {
+    fetch('../promocodes', {
             headers: {
 
                 'Method': 'GET',
@@ -461,7 +461,7 @@ function firstFetch() {
             }
         });
 
-    fetch('/storeNum', {
+    fetch('../storeNum', {
         headers: {
 
             'Method': 'GET',
@@ -476,7 +476,7 @@ function firstFetch() {
 
     });
 
-    fetch('/storeName', {
+    fetch('../storeName', {
             headers: {
 
                 'Method': 'GET',
