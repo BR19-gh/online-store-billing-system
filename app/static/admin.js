@@ -410,7 +410,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
 //// fetches
 
-function firstFetch() {
+async function firstFetch() {
 
     fetch('/products', {
             headers: {
@@ -422,7 +422,7 @@ function firstFetch() {
             method: 'GET',
         })
         .then((response) => {
-            return response.json();
+            return await response.json();
         }).then((responseJson) => {
             console.log(responseJson);
             if (responseJson.statCode == 204) { return; }
@@ -447,7 +447,7 @@ function firstFetch() {
             method: 'GET',
         })
         .then((response) => {
-            return response.json();
+            return await response.json();
         }).then((responseJson) => {
             console.log(responseJson);
             if (responseJson.statCode == 204) { return; }
@@ -470,7 +470,7 @@ function firstFetch() {
         },
         method: 'GET',
     }).then((responseNum) => {
-        return responseNum.json();
+        return await responseNum.json();
     }).then((responseJson) => {
         document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
 
@@ -486,7 +486,7 @@ function firstFetch() {
             method: 'GET',
         })
         .then((responseName) => {
-            return responseName.json();
+            return await responseName.json();
         }).then((responseJson) => {
             document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
         });
