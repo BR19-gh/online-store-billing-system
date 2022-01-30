@@ -461,6 +461,7 @@ function firstFetch() {
             }
         });
 
+
     fetch('../storeNum', {
         headers: {
 
