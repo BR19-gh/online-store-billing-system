@@ -32,7 +32,7 @@ function firstFetch() {
                     data2 = responseJson;
 
 
-                    fetch('/storeName', {
+                    fetch('/storeName/show', {
                             headers: {
 
                                 'Method': 'GET',
@@ -56,7 +56,7 @@ function firstFetch() {
                                 document.getElementById('storeName').innerText = data3['storeName'];
                             }
 
-                            fetch('/storeNum', {
+                            fetch('/storeNum/show', {
                                     headers: {
 
                                         'Method': 'GET',

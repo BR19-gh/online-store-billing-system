@@ -1,5 +1,5 @@
 function firstFetch() {
-    fetch("/storeName").then((response) => {
+    fetch("/storeName/show").then((response) => {
         return response.json()
     }).then((responseJson) => {
         if (responseJson.storeName == '') document.getElementById('storeName').innerText = ''

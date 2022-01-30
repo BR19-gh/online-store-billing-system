@@ -461,7 +461,7 @@ function firstFetch() {
             }
         });
 
-    fetch('/storeNum', {
+    fetch('/storeNum/show', {
         headers: {
 
             'Method': 'GET',
@@ -476,7 +476,7 @@ function firstFetch() {
 
     });
 
-    fetch('/storeName', {
+    fetch('/storeName/show', {
             headers: {
 
                 'Method': 'GET',
