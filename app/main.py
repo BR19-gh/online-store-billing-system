@@ -236,8 +236,7 @@ def admin_view():
 
 @app.route("/product", methods=['POST'])
 @app.route("/product/<int:idIn>", methods=['PUT', 'DELETE', 'GET'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['POST', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def product(idIn=None):
     print('The ip address: ', get_remote_address())
     newObj = ProductsTable()
@@ -330,8 +329,7 @@ def products():
 
 @app.route("/promocode", methods=['POST'])
 @app.route("/promocode/<int:idIn>", methods=['PUT', 'DELETE', 'GET'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['POST', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def promocode(idIn=None):
     print('The ip address: ', get_remote_address())
     newObj = PromocodesTable()
@@ -422,10 +420,8 @@ def promocodes():
         return jsonify(dictOfResult)
 
 
-@app.route("/storeName", methods=['POST', 'PUT', 'DELETE', 'GET'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['POST', 'DELETE'])
-@limiter.exempt(methods=['GET'])
+@app.route("/storeName", methods=['POST', 'PUT', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeName():
     print('The ip address: ', get_remote_address())
     newObj = StoreNameTable()
@@ -440,12 +436,6 @@ def storeName():
             return jsonify({"msg": f"Success 201: storeName:{storeName} is recorded, the storeName matches {(newObj.search())[0]}", "statCode": 201})
         else:
             return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not recorded, the storeName doesn't match {(newObj.search())[0]}", "statCode": 500})
-
-    elif request.method == 'GET':
-        if newObj.search() == None:
-            return jsonify({"storeName": "none/لايوجد"})
-        else:
-            return jsonify({"storeName": newObj.search()})
 
     elif request.method == 'PUT':
         data = request.get_json()
@@ -480,10 +470,19 @@ def storeName():
         abort(405)
 
 
-@app.route("/storeNum", methods=['POST', 'PUT', 'DELETE', 'GET'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['POST', 'DELETE'])
-@limiter.exempt(methods=['GET'])
+@app.route("/storeName/show", methods=['GET'])
+@limiter.exempt
+def storeNameGet():
+    print('The ip address: ', get_remote_address())
+    newObj = StoreNameTable()
+    if newObj.search() == None:
+        return jsonify({"storeName": "none/لايوجد"})
+    else:
+        return jsonify({"storeName": newObj.search()})
+
+
+@app.route("/storeNum", methods=['POST', 'PUT', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeNum():
     print('The ip address: ', get_remote_address())
     newObj = StoreNumTable()
@@ -500,12 +499,6 @@ def storeNum():
             return jsonify({"msg": f"Bad Request 400: storeNum was not added, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
         else:
             return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not recorded, the storeNum doesn't match {(newObj.search())[0]}", "statCode": 500})
-
-    elif request.method == 'GET':
-        if newObj.search() == None:
-            return jsonify({"storeNum": "none/لايوجد"})
-        else:
-            return jsonify({"storeNum": newObj.search()})
 
     elif request.method == 'PUT':
         data = request.get_json()
@@ -540,6 +533,17 @@ def storeNum():
     else:
         print(2)
         abort(405)
+
+
+@app.route("/storeNum/show", methods=['GET'])
+@limiter.exempt
+def storeNumGet():
+    print('The ip address: ', get_remote_address())
+    newObj = StoreNumTable()
+    if newObj.search() == None:
+        return jsonify({"storeNum": "none/لايوجد"})
+    else:
+        return jsonify({"storeNum": newObj.search()})
 
 # errors
 

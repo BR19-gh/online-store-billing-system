@@ -422,7 +422,7 @@ function firstFetch() {
             method: 'GET',
         })
         .then((response) => {
-            return response.text();
+            return response.json();
         }).then((responseJson) => {
             console.log(responseJson);
             if (responseJson.statCode == 204) { return; }
@@ -447,7 +447,7 @@ function firstFetch() {
             method: 'GET',
         })
         .then((response) => {
-            return response.text();
+            return response.json();
         }).then((responseJson) => {
             console.log(responseJson);
             if (responseJson.statCode == 204) { return; }
@@ -470,9 +470,8 @@ function firstFetch() {
         },
         method: 'GET',
     }).then((responseNum) => {
-        return responseNum.text();
+        return responseNum.json();
     }).then((responseJson) => {
-        console.log(responseJson);
         document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
 
     });
@@ -487,9 +486,8 @@ function firstFetch() {
             method: 'GET',
         })
         .then((responseName) => {
-            return responseName.text();
+            return responseName.json();
         }).then((responseJson) => {
-            console.log(responseJson);
             document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
         });
 }
