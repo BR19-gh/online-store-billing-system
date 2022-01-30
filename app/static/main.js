@@ -30,7 +30,7 @@ function firstFetch() {
                     return response.json();
                 }).then((responseJson) => {
                     data2 = responseJson;
-                    console.log(responseJson);
+
 
                     fetch('/storeName', {
                             headers: {
