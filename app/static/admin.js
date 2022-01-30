@@ -472,6 +472,7 @@ function firstFetch() {
     }).then((responseNum) => {
         return responseNum.text();
     }).then((responseJson) => {
+        console.log(responseJson);
         document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
 
     });
@@ -488,6 +489,7 @@ function firstFetch() {
         .then((responseName) => {
             return responseName.text();
         }).then((responseJson) => {
+            console.log(responseJson);
             document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
         });
 }
