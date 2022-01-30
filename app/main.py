@@ -311,6 +311,7 @@ def product(idIn=None):
 
 
 @app.route("/products", methods=['GET'])
+@limiter.exempt
 def products():
     newObj = ProductsTable()
 
@@ -404,6 +405,7 @@ def promocode(idIn=None):
 
 
 @app.route("/promocodes", methods=['GET'])
+@limiter.exempt
 def promocodes():
     newObj = PromocodesTable()
 
@@ -423,6 +425,7 @@ def promocodes():
 @app.route("/storeName", methods=['POST', 'PUT', 'DELETE', 'GET'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['POST', 'DELETE'])
+@limiter.exempt(methods=['GET'])
 def storeName():
     print('The ip address: ', get_remote_address())
     newObj = StoreNameTable()
@@ -480,6 +483,7 @@ def storeName():
 @app.route("/storeNum", methods=['POST', 'PUT', 'DELETE', 'GET'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['POST', 'DELETE'])
+@limiter.exempt(methods=['GET'])
 def storeNum():
     print('The ip address: ', get_remote_address())
     newObj = StoreNumTable()
