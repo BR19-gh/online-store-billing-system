@@ -263,8 +263,13 @@ def product(idIn=None):
         else:
             return jsonify({"msg": f"Status Code 403: the product_id:{id} exists", "statCode": 403})
 
+        if imgFilename == '':
+            imgFilename = 'no image was provided'
+        else:
+            f.save(
+                f'app/static/img/products_imgs/{secure_filename(imgFilename)}')
+
         newObj.insert(id, title, price, imgFilename)
-        f.save(f'/static/img/products_imgs/{secure_filename(imgFilename)}')
 
         recordSearched = newObj.search(id)
         if (recordSearched[0] == int(id)):
@@ -284,15 +289,19 @@ def product(idIn=None):
         price = data['price']
 
         oldPrudRecord = newObj.search(idIn)
-        os.remove(f"/static/img/products_imgs/{oldPrudRecord[3]}")
-
+        if imgFilename == '':
+            imgFilename = 'no image was provided'
         newObj.update(idIn, title, price, imgFilename)
-        f.save(f'/static/img/products_imgs/{secure_filename(imgFilename)}')
 
         recordSearched = newObj.search(idIn)
         if recordSearched == None:
             return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
         elif (recordSearched[0] == idIn):
+            if imgFilename == 'no image was provided':
+                os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
+            else:
+                os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
+                f.save(f'app/static/img/products_imgs/{secure_filename(imgFilename)}')
             return jsonify({"msg": f"Success 200: product_idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
         elif (isinstance(int(idIn), int) == False or isinstance(int(price), int) == False):
             return jsonify({"msg": f"Bad Request 400: product was not updated, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
@@ -334,7 +343,8 @@ def products():
     dictOfResult = {}
     j = 0
     for i in result:
-        dictOfResult[j] = {'id': i[0], 'title': i[1], 'price': i[2], 'imgName': i[3]}
+        dictOfResult[j] = {'id': i[0], 'title': i[1],
+                           'price': i[2], 'imgName': i[3]}
         j += 1
 
     if(dictOfResult == {}):
