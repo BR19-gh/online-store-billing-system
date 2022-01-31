@@ -43,7 +43,9 @@ document.getElementById('addProd').addEventListener('click', () => {
             }
             if (document.getElementById('productID').value == '' ||
                 document.getElementById('productTitle').value == '' ||
-                document.getElementById('productPrice').value == '') {
+                document.getElementById('productPrice').value == '' ||
+                document.getElementById('productImg').value == '') {
+                alert('يجب ملئ جميع الخانات أولا');
                 return;
             }
             location.reload();
@@ -79,7 +81,9 @@ document.getElementById('updProd').addEventListener('click', () => {
             }
             if (document.getElementById('productID').value == '' ||
                 document.getElementById('productTitle').value == '' ||
-                document.getElementById('productPrice').value == '') {
+                document.getElementById('productPrice').value == '' ||
+                document.getElementById('productImg').value == '') {
+                alert('يجب ملئ جميع الخانات أولا');
                 return;
             }
             location.reload();
