@@ -14,19 +14,19 @@ document.getElementById('pressToNotShowBtn').addEventListener('click', () => {
 ///// btns
 
 document.getElementById('addProd').addEventListener('click', () => {
+    let uploadImgForm = new FormData(document.getElementById('uploadImgForm'));
     fetch('/product', {
             headers: {
 
                 'Method': 'POST',
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
             },
             method: 'POST',
             body: JSON.stringify({
                 id: document.getElementById('productID').value,
                 title: document.getElementById('productTitle').value,
                 price: document.getElementById('productPrice').value
-            })
+            }),
+            data: uploadImgForm,
         })
         .then((response) => {
             return response.json();
@@ -57,14 +57,13 @@ document.getElementById('updProd').addEventListener('click', () => {
             headers: {
 
                 'Method': 'PUT',
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
             },
             method: 'PUT',
             body: JSON.stringify({
                 title: document.getElementById('productTitle').value,
                 price: document.getElementById('productPrice').value
-            })
+            }),
+            data: uploadImgForm
         })
         .then((response) => {
             return response.json();
@@ -426,13 +425,13 @@ function firstFetch() {
         }).then((responseJson) => {
             console.log(responseJson);
             if (responseJson.statCode == 204) { return; }
-            document.getElementById('productsList').innerHTML = '<b>(الرقم،  العنوان،   السعر)</b>'
+            document.getElementById('productsList').innerHTML = '<b>(الرقم،  العنوان،   السعر، الصورة)</b>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
-                    document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']})`;
+                    document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']}, <img style="width: 50px; height: 50px; margin: 0;" src="/img/products_imgs/${responseJson[i]['imgName']}" alt="image name: ${responseJson[i]['imgName']}">)`;
                 }
-                document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']})<br>`;
+                document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']}, <img style="width: 50px; height: 50px; margin: 0;" src="/img/products_imgs/${responseJson[i]['imgName']}" alt="image name: ${responseJson[i]['imgName']}">)<br>`;
             }
 
         });

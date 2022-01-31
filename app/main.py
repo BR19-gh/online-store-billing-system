@@ -2,6 +2,7 @@ import sqlite3
 from urllib import response
 from flask import Flask, render_template, jsonify, request, abort, redirect
 import os
+from dotenv import load_dotenv
 from flask.helpers import send_from_directory
 from flask.wrappers import Response
 import psycopg2
@@ -9,6 +10,8 @@ import psycopg2.extras as ext
 from flask_cors import CORS, cross_origin
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from werkzeug.utils import secure_filename
+from werkzeug.datastructures import FileStorage
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
@@ -16,6 +19,7 @@ DATABASE_URL = os.environ.get('DATABASE_URL')
 USERNAME = os.environ.get('USERNAME')
 PASSWORD = os.environ.get('PASSWORD')
 
+print(USERNAME, PASSWORD)
 
 app = Flask(__name__, template_folder='templates')
 # cors = CORS(app)
@@ -33,7 +37,7 @@ class ProductsTable:
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS products (id INTEGER NOT NULL,title TEXT NOT NULL,price INTEGER NOT NULL)")
+            "CREATE TABLE IF NOT EXISTS products (id INTEGER NOT NULL,title TEXT NOT NULL,price INTEGER NOT NULL,imgName TEXT NOT NULL)")
 
     def display(self):
         self.cur.execute("SELECT * FROM products")
@@ -45,19 +49,21 @@ class ProductsTable:
         self.record = self.cur.fetchone()
         return self.record
 
-    def insert(self, id, title, price):
+    def insert(self, id, title, price, imgName):
         if (id == "" or price == "" or title == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
-        INSERT INTO products (id, title, price) VALUES {(id ,title, price)};
+        INSERT INTO products (id, title, price, imgName) VALUES {(id ,title, price, imgName)};
         """)
         self.conn.commit()
 
-    def update(self, id, title, price):
+    def update(self, id, title, price, imgName):
         self.cur.execute(
             f"UPDATE products SET title = '{title}' WHERE id = '{id}'")
         self.cur.execute(
             f"UPDATE products SET price = '{price}' WHERE id = '{id}'")
+        self.cur.execute(
+            f"UPDATE products SET imgName = '{imgName}' WHERE id = '{id}'")
         self.conn.commit()
 
     def delete(self, id):
@@ -243,6 +249,9 @@ def product(idIn=None):
 
     if request.method == 'POST':
 
+        f = request.files['image']
+        imgFilename = f.filename
+
         data = request.get_json()
         id = data['id']
         title = data['title']
@@ -254,7 +263,8 @@ def product(idIn=None):
         else:
             return jsonify({"msg": f"Status Code 403: the product_id:{id} exists", "statCode": 403})
 
-        newObj.insert(id, title, price)
+        newObj.insert(id, title, price, imgFilename)
+        f.save(f'app/static/img/products_imgs/{secure_filename(imgFilename)}')
 
         recordSearched = newObj.search(id)
         if (recordSearched[0] == int(id)):
@@ -266,13 +276,18 @@ def product(idIn=None):
 
     elif request.method == 'PUT':
 
+        f = request.files['image']
+        imgFilename = f.filename
+
         data = request.get_json()
         title = data['title']
         price = data['price']
 
         oldPrudRecord = newObj.search(idIn)
+        os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
 
-        newObj.update(idIn, title, price)
+        newObj.update(idIn, title, price, imgFilename)
+        f.save(f'app/static/img/products_imgs/{secure_filename(imgFilename)}')
 
         recordSearched = newObj.search(idIn)
         if recordSearched == None:
@@ -299,6 +314,7 @@ def product(idIn=None):
         if result == None:
             return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not found, it may doesn't exist", "statCode": 404})
 
+        os.remove(f"app/static/img/products_imgs/{result[3]}")
         newObj.delete(idIn)
 
         result = newObj.search(idIn)
@@ -318,7 +334,7 @@ def products():
     dictOfResult = {}
     j = 0
     for i in result:
-        dictOfResult[j] = {'id': i[0], 'title': i[1], 'price': i[2]}
+        dictOfResult[j] = {'id': i[0], 'title': i[1], 'price': i[2], 'imgName': i[3]}
         j += 1
 
     if(dictOfResult == {}):
@@ -572,7 +588,7 @@ def ratelimit_handler(e):
 @app.errorhandler(503)
 def ratelimit_handler(e):
 
-    msg = '{"msg": f"Error 503: something in our side went wrong, surly we are working to fix it soon, please try again later", "statCode": 503}'
+    msg = '{"msg": f"Error 503: server is down due to maintenance, please try again later", "statCode": 503}'
     return render_template('err/err503.html', msg=msg)
 
 
