@@ -276,6 +276,12 @@ input::-webkit-file-upload-button {
     border-top-left-radius: 15px;
 }
 
+@media only screen and (max-width: 300px) {
+    input::-webkit-file-upload-button {
+        height: 38px;
+    }
+}
+
 input#productImg {
     font-size: 17px;
     background-color: white;
