@@ -264,7 +264,7 @@ def product(idIn=None):
             return jsonify({"msg": f"Status Code 403: the product_id:{id} exists", "statCode": 403})
 
         newObj.insert(id, title, price, imgFilename)
-        f.save(f'app/static/img/products_imgs/{secure_filename(imgFilename)}')
+        f.save(f'/static/img/products_imgs/{secure_filename(imgFilename)}')
 
         recordSearched = newObj.search(id)
         if (recordSearched[0] == int(id)):
@@ -284,10 +284,10 @@ def product(idIn=None):
         price = data['price']
 
         oldPrudRecord = newObj.search(idIn)
-        os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
+        os.remove(f"/static/img/products_imgs/{oldPrudRecord[3]}")
 
         newObj.update(idIn, title, price, imgFilename)
-        f.save(f'app/static/img/products_imgs/{secure_filename(imgFilename)}')
+        f.save(f'/static/img/products_imgs/{secure_filename(imgFilename)}')
 
         recordSearched = newObj.search(idIn)
         if recordSearched == None:
@@ -314,7 +314,7 @@ def product(idIn=None):
         if result == None:
             return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not found, it may doesn't exist", "statCode": 404})
 
-        os.remove(f"app/static/img/products_imgs/{result[3]}")
+        os.remove(f"/static/img/products_imgs/{result[3]}")
         newObj.delete(idIn)
 
         result = newObj.search(idIn)
