@@ -260,7 +260,7 @@ def product(idIn=None):
 
         file = request.files['image']
         # fileName = file.filename
-        imgFile = file.read()
+        imgFile = render_picture(file.read())
         # render_file = render_picture(imgFile)
 
 
@@ -292,7 +292,7 @@ def product(idIn=None):
 
         file = request.files['image']
         # fileName = file.filename
-        imgFile = file.read()
+        imgFile = render_picture(file.read())
         # render_file = render_picture(imgFile)
 
         data = request.headers
@@ -350,7 +350,7 @@ def products():
     j = 0
     for i in result:
         dictOfResult[j] = {'id': i[0], 'title': i[1],
-                           'price': i[2], 'imgName': render_picture(i[3])}
+                           'price': i[2], 'imgName': i[3]}
         j += 1
 
     if(dictOfResult == {}):
