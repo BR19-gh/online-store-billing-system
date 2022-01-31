@@ -267,7 +267,7 @@ def product(idIn=None):
             imgFilename = 'no image was provided'
         else:
             f.save(
-                f'app/static/img/products_imgs/{secure_filename(imgFilename)}')
+                f'../../static/img/products_imgs/{secure_filename(imgFilename)}')
 
         newObj.insert(id, title, price, imgFilename)
 
