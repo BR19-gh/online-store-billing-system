@@ -422,7 +422,7 @@ function firstFetch() {
         }).then((responseJson) => {
             console.log(responseJson);
             if (responseJson.statCode == 204) { return; }
-            document.getElementById('productsList').innerHTML = '<b>(الرقم،  العنوان،   السعر، الصورة)</b>'
+            document.getElementById('productsList').innerHTML = '<b>(الرقم،  العنوان،   السعر، الصورة)</b><br>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
