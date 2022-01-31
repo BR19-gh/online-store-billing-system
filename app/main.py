@@ -39,7 +39,7 @@ class ProductsTable:
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS products (id INTEGER NOT NULL,title TEXT NOT NULL,price INTEGER NOT NULL,img BYTEA NOT NULL)")
+            "CREATE TABLE IF NOT EXISTS products (id INTEGER NOT NULL,title TEXT NOT NULL,price INTEGER NOT NULL,img TEXT NOT NULL)")
 
     def display(self):
         self.cur.execute("SELECT * FROM products")
