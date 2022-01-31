@@ -10,8 +10,10 @@ import psycopg2.extras as ext
 from flask_cors import CORS, cross_origin
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from werkzeug.utils import secure_filename
-from werkzeug.datastructures import FileStorage
+from base64 import b64encode
+import base64
+from io import BytesIO #Converts data from Database into bytes
+
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
@@ -239,6 +241,11 @@ def admin_view():
 
 # Backend
 
+def render_picture(data):
+
+    render_pic = base64.b64encode(data).decode('ascii') 
+    return render_pic
+
 
 @app.route("/product", methods=['POST'])
 @app.route("/product/<int:idIn>", methods=['PUT', 'DELETE', 'GET'])
@@ -249,9 +256,13 @@ def product(idIn=None):
 
     if request.method == 'POST':
 
-        f = request.files['image']
-        imgFile= f.read()
-        imgFilename = f.filename
+
+
+        file = request.files['image']
+        # fileName = file.filename
+        imgFile = file.read()
+        # render_file = render_picture(imgFile)
+
 
         data = request.headers
         id = data['id']
@@ -264,11 +275,10 @@ def product(idIn=None):
         else:
             return jsonify({"msg": f"Status Code 403: the product_id:{id} exists", "statCode": 403})
 
-        if imgFilename == '':
-            imgFile = 'no image was provided'
+        # if imgFilename == '':
+        #     imgFile = 'no image was provided'
 
         newObj.insert(id, title, price, imgFile)
-        f.close()
 
         recordSearched = newObj.search(id)
         if (recordSearched[0] == int(id)):
@@ -280,17 +290,18 @@ def product(idIn=None):
 
     elif request.method == 'PUT':
 
-        f = request.files['image']
-        imgFile= f.read()
-        imgFilename = f.filename
+        file = request.files['image']
+        # fileName = file.filename
+        imgFile = file.read()
+        # render_file = render_picture(imgFile)
 
         data = request.headers
         title = data['title']
         price = data['price']
 
         oldPrudRecord = newObj.search(idIn)
-        if imgFilename == '':
-            imgFilename = 'no image was provided'
+        # if imgFilename == '':
+        #     imgFilename = 'no image was provided'
 
         newObj.update(idIn, title, price, imgFile)
 
@@ -339,7 +350,7 @@ def products():
     j = 0
     for i in result:
         dictOfResult[j] = {'id': i[0], 'title': i[1],
-                           'price': i[2], 'imgName': i[3]}
+                           'price': i[2], 'imgName': render_picture(i[3])}
         j += 1
 
     if(dictOfResult == {}):
