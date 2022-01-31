@@ -298,9 +298,13 @@ def product(idIn=None):
             return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
         elif (recordSearched[0] == idIn):
             if imgFilename == 'no image was provided':
-                os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
+                try:
+                    os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
+                except: pass
             else:
-                os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
+                try:
+                    os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
+                except: pass
                 f.save(f'app/static/img/products_imgs/{secure_filename(imgFilename)}')
             return jsonify({"msg": f"Success 200: product_idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
         elif (isinstance(int(idIn), int) == False or isinstance(int(price), int) == False):
@@ -322,8 +326,10 @@ def product(idIn=None):
         result = newObj.search(idIn)
         if result == None:
             return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not found, it may doesn't exist", "statCode": 404})
+        try:
+            os.remove(f"app/static/img/products_imgs/{result[3]}")
+        except: pass
 
-        os.remove(f"/static/img/products_imgs/{result[3]}")
         newObj.delete(idIn)
 
         result = newObj.search(idIn)
