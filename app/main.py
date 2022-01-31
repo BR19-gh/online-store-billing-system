@@ -19,7 +19,7 @@ DATABASE_URL = os.environ.get('DATABASE_URL')
 USERNAME = os.environ.get('USERNAME')
 PASSWORD = os.environ.get('PASSWORD')
 
-print(USERNAME, PASSWORD)
+# print(USERNAME, PASSWORD)
 
 app = Flask(__name__, template_folder='templates')
 # cors = CORS(app)
@@ -252,7 +252,7 @@ def product(idIn=None):
         f = request.files['image']
         imgFilename = f.filename
 
-        data = request.get_json()
+        data = request.headers
         id = data['id']
         title = data['title']
         price = data['price']
@@ -279,7 +279,7 @@ def product(idIn=None):
         f = request.files['image']
         imgFilename = f.filename
 
-        data = request.get_json()
+        data = request.headers
         title = data['title']
         price = data['price']
 

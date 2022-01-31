@@ -14,19 +14,17 @@ document.getElementById('pressToNotShowBtn').addEventListener('click', () => {
 ///// btns
 
 document.getElementById('addProd').addEventListener('click', () => {
-    let uploadImgForm = new FormData(document.getElementById('uploadImgForm'));
+    let productImg = document.getElementById('productImg');
+    let uploadImgForm = new FormData();
+    uploadImgForm.append('image', productImg.files[0]);
     fetch('/product', {
             headers: {
-
-                'Method': 'POST',
+                'id': document.getElementById('productID').value,
+                'title': document.getElementById('productTitle').value,
+                'price': document.getElementById('productPrice').value
             },
             method: 'POST',
-            body: JSON.stringify({
-                id: document.getElementById('productID').value,
-                title: document.getElementById('productTitle').value,
-                price: document.getElementById('productPrice').value
-            }),
-            data: uploadImgForm,
+            body: uploadImgForm,
         })
         .then((response) => {
             return response.json();
@@ -53,17 +51,16 @@ document.getElementById('addProd').addEventListener('click', () => {
 });
 
 document.getElementById('updProd').addEventListener('click', () => {
+    let productImg = document.getElementById('productImg');
+    let uploadImgForm = new FormData();
+    uploadImgForm.append('image', productImg.files[0]);
     fetch(`/product/${document.getElementById('productID').value}`, {
             headers: {
-
-                'Method': 'PUT',
+                'title': document.getElementById('productTitle').value,
+                'price': document.getElementById('productPrice').value
             },
             method: 'PUT',
-            body: JSON.stringify({
-                title: document.getElementById('productTitle').value,
-                price: document.getElementById('productPrice').value
-            }),
-            data: uploadImgForm
+            body: uploadImgForm,
         })
         .then((response) => {
             return response.json();
