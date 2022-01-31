@@ -274,6 +274,10 @@ input::-webkit-file-upload-button {
     font-weight: bold;
 }
 
+input#productImg {
+    font-size: 17px;
+}
+
 .btnsContainer {
     height: 50px;
     display: flex;
