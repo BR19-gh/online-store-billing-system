@@ -37,7 +37,7 @@ class ProductsTable:
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS products (id INTEGER NOT NULL,title TEXT NOT NULL,price INTEGER NOT NULL,imgName TEXT NOT NULL)")
+            "CREATE TABLE IF NOT EXISTS products (id INTEGER NOT NULL,title TEXT NOT NULL,price INTEGER NOT NULL,img BYTEA NOT NULL)")
 
     def display(self):
         self.cur.execute("SELECT * FROM products")
@@ -49,21 +49,21 @@ class ProductsTable:
         self.record = self.cur.fetchone()
         return self.record
 
-    def insert(self, id, title, price, imgName):
+    def insert(self, id, title, price, img):
         if (id == "" or price == "" or title == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
-        INSERT INTO products (id, title, price, imgName) VALUES {(id ,title, price, imgName)};
+        INSERT INTO products (id, title, price, img) VALUES {(id ,title, price, img)};
         """)
         self.conn.commit()
 
-    def update(self, id, title, price, imgName):
+    def update(self, id, title, price, img):
         self.cur.execute(
             f"UPDATE products SET title = '{title}' WHERE id = '{id}'")
         self.cur.execute(
             f"UPDATE products SET price = '{price}' WHERE id = '{id}'")
         self.cur.execute(
-            f"UPDATE products SET imgName = '{imgName}' WHERE id = '{id}'")
+            f"UPDATE products SET img = '{img}' WHERE id = '{id}'")
         self.conn.commit()
 
     def delete(self, id):
@@ -250,6 +250,7 @@ def product(idIn=None):
     if request.method == 'POST':
 
         f = request.files['image']
+        imgFile= f.read()
         imgFilename = f.filename
 
         data = request.headers
@@ -264,12 +265,10 @@ def product(idIn=None):
             return jsonify({"msg": f"Status Code 403: the product_id:{id} exists", "statCode": 403})
 
         if imgFilename == '':
-            imgFilename = 'no image was provided'
-        else:
-            f.save(
-                f'../../static/img/products_imgs/{secure_filename(imgFilename)}')
+            imgFile = 'no image was provided'
 
-        newObj.insert(id, title, price, imgFilename)
+        newObj.insert(id, title, price, imgFile)
+        f.close()
 
         recordSearched = newObj.search(id)
         if (recordSearched[0] == int(id)):
@@ -282,6 +281,7 @@ def product(idIn=None):
     elif request.method == 'PUT':
 
         f = request.files['image']
+        imgFile= f.read()
         imgFilename = f.filename
 
         data = request.headers
@@ -291,21 +291,13 @@ def product(idIn=None):
         oldPrudRecord = newObj.search(idIn)
         if imgFilename == '':
             imgFilename = 'no image was provided'
-        newObj.update(idIn, title, price, imgFilename)
+
+        newObj.update(idIn, title, price, imgFile)
 
         recordSearched = newObj.search(idIn)
         if recordSearched == None:
             return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
         elif (recordSearched[0] == idIn):
-            if imgFilename == 'no image was provided':
-                try:
-                    os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
-                except: pass
-            else:
-                try:
-                    os.remove(f"app/static/img/products_imgs/{oldPrudRecord[3]}")
-                except: pass
-                f.save(f'app/static/img/products_imgs/{secure_filename(imgFilename)}')
             return jsonify({"msg": f"Success 200: product_idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
         elif (isinstance(int(idIn), int) == False or isinstance(int(price), int) == False):
             return jsonify({"msg": f"Bad Request 400: product was not updated, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
@@ -326,9 +318,6 @@ def product(idIn=None):
         result = newObj.search(idIn)
         if result == None:
             return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not found, it may doesn't exist", "statCode": 404})
-        try:
-            os.remove(f"app/static/img/products_imgs/{result[3]}")
-        except: pass
 
         newObj.delete(idIn)
 
