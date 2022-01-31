@@ -276,6 +276,7 @@ input::-webkit-file-upload-button {
 
 input#productImg {
     font-size: 17px;
+    background-color: white;
 }
 
 .btnsContainer {
