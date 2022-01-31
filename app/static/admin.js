@@ -19,9 +19,9 @@ document.getElementById('addProd').addEventListener('click', () => {
     uploadImgForm.append('image', productImg.files[0]);
     fetch('/product', {
             headers: {
-                'id': document.getElementById('productID').value,
-                'title': document.getElementById('productTitle').value,
-                'price': document.getElementById('productPrice').value
+                'id': encodeURIComponent(document.getElementById('productID').value),
+                'title': encodeURIComponent(document.getElementById('productTitle').value),
+                'price': encodeURIComponent(document.getElementById('productPrice').value)
             },
             method: 'POST',
             body: uploadImgForm,
@@ -58,8 +58,8 @@ document.getElementById('updProd').addEventListener('click', () => {
     uploadImgForm.append('image', productImg.files[0]);
     fetch(`/product/${document.getElementById('productID').value}`, {
             headers: {
-                'title': document.getElementById('productTitle').value,
-                'price': document.getElementById('productPrice').value
+                'title': encodeURIComponent(document.getElementById('productTitle').value),
+                'price': encodeURIComponent(document.getElementById('productPrice').value)
             },
             method: 'PUT',
             body: uploadImgForm,

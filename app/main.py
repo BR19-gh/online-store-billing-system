@@ -13,6 +13,8 @@ from flask_limiter.util import get_remote_address
 from base64 import b64encode
 import base64
 from io import BytesIO #Converts data from Database into bytes
+from urllib.parse import unquote
+
 
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
@@ -265,9 +267,9 @@ def product(idIn=None):
 
 
         data = request.headers
-        id = data['id']
-        title = data['title']
-        price = data['price']
+        id = unquote(data['id'])
+        title = unquote(data['title'])
+        price = unquote(data['price'])
 
         result = newObj.search(id)
         if result == None:
@@ -296,8 +298,8 @@ def product(idIn=None):
         # render_file = render_picture(imgFile)
 
         data = request.headers
-        title = data['title']
-        price = data['price']
+        title = unquote(data['title'])
+        price = unquote(data['price'])
 
         oldPrudRecord = newObj.search(idIn)
         # if imgFilename == '':
@@ -322,7 +324,7 @@ def product(idIn=None):
         if result == None:
             return jsonify({"msg": f"Success 202: the product_idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
         else:
-            return jsonify({"msg": f"Status Code 403: the product_idIn {idIn} exists, {newObj.search(idIn)}", "statCode": 403})
+            return jsonify({"msg": f"Status Code 403: the product_idIn {idIn} exists, {newObj.search(idIn)[0::2]}", "statCode": 403})
 
     elif request.method == 'DELETE':
 
