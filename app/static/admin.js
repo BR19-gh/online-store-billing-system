@@ -426,9 +426,9 @@ function firstFetch() {
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
-                    document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']}, <img style="width: 50px; height: 50px; margin: 0;" src="/img/products_imgs/${responseJson[i]['imgName']}" alt="image name: ${responseJson[i]['imgName']}">)`;
+                    document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']}, <img style="width: 50px; height: 50px; margin: 0;" src="data:image/png;base64,${responseJson[i]['imgName']}" alt="img">)`;
                 }
-                document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']}, <img style="width: 50px; height: 50px; margin: 0;" src="/img/products_imgs/${responseJson[i]['imgName']}" alt="image name: ${responseJson[i]['imgName']}">)<br>`;
+                document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']}, <img style="width: 50px; height: 50px; margin: 0;" src="data:image/png;base64,${responseJson[i]['imgName']}" alt="img">)<br>`;
             }
 
         });
