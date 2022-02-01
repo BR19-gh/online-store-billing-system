@@ -273,7 +273,7 @@ input::-webkit-file-upload-button {
     font-size: 15px;
     font-weight: bold;
     border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
+    border-top-left-radius: 16px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
     background-color: #f5ebbd;
