@@ -105,6 +105,7 @@ select {
     font-weight: bold;
     padding: 7.5px 15px 7.5px 25px;
     text-decoration: none;
+    color: black;
 }
 
 #form {
