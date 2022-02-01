@@ -275,13 +275,12 @@ input::-webkit-file-upload-button {
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
     background-color: #f5ebbd;
-    color: black;
+    border: 1px #8f8d85 solid;
 }
 
 @media only screen and (max-width: 300px) {
     input::-webkit-file-upload-button {
         height: 38px;
-        border: 0px;
     }
 }
 
