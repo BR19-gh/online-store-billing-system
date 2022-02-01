@@ -24,6 +24,8 @@ body {
 button#countryCodeTitle {
     font-size: 13px;
     font-weight: 800;
+    border: #8f8d85 1px solid;
+    border-right: 0px;
 }
 
 @media only screen and (max-width: 800px) {
