@@ -90,6 +90,12 @@ h1 {
     background-color: #797464;
 }
 
+@media only screen and (max-width: 300px) {
+    div#title {
+        line-height: 75px;
+    }
+}
+
 select {
     border: 1px #8f8d85 solid;
     border-radius: 15px;
