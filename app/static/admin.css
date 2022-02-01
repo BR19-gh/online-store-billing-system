@@ -269,7 +269,7 @@ button.btn.btn-outline-secondary:hover {
 }
 
 input::-webkit-file-upload-button {
-    height: 39px;
+    height: 38px;
     font-size: 15px;
     font-weight: bold;
     border-bottom-left-radius: 15px;
