@@ -330,7 +330,7 @@ def product(idIn=None):
 
         result = newObj.search(idIn)
         if result == None:
-            return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not found, it may doesn't exist", "statCode": 404})
+            return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not found, it may not exist", "statCode": 404})
 
         newObj.delete(idIn)
 
@@ -352,7 +352,7 @@ def products():
     j = 0
     for i in result:
         dictOfResult[j] = {'id': i[0], 'title': i[1],
-                           'price': i[2], 'imgName': i[3]}
+                           'price': i[2], 'img': i[3]}
         j += 1
 
     if(dictOfResult == {}):
@@ -424,7 +424,7 @@ def promocode(idIn=None):
 
         result = newObj.search(idIn)
         if result == None:
-            return jsonify({"msg": f"Error 404: code_idIn:{idIn} was not found, it may doesn't exist", "statCode": 404})
+            return jsonify({"msg": f"Error 404: code_idIn:{idIn} was not found, it may not exist", "statCode": 404})
 
         newObj.delete(idIn)
 
@@ -489,7 +489,7 @@ def storeName():
         result = newObj.search()
 
         if result == None:
-            return jsonify({"msg": f"Error 404: storeName:{result} was not found, it may doesn't exist", "statCode": 404})
+            return jsonify({"msg": f"Error 404: storeName:{result} was not found, it may not exist", "statCode": 404})
 
         newObj.delete(newObj.search()[0])
 
@@ -554,7 +554,7 @@ def storeNum():
         result = newObj.search()
 
         if result == None:
-            return jsonify({"msg": f"Error 404: storeNum:{result} was not found, it may doesn't exist", "statCode": 404})
+            return jsonify({"msg": f"Error 404: storeNum:{result} was not found, it may not exist", "statCode": 404})
 
         newObj.delete(newObj.search()[0])
 
