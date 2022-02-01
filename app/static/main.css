@@ -91,7 +91,7 @@ h1 {
 }
 
 @media only screen and (max-width: 300px) {
-    div#title {
+    #title {
         line-height: 75px;
     }
 }
