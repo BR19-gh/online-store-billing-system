@@ -274,6 +274,8 @@ input::-webkit-file-upload-button {
     font-weight: bold;
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
+    background-color: #f5ebbd;
+    color: black;
 }
 
 @media only screen and (max-width: 300px) {
