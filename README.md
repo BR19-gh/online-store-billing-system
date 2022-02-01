@@ -6,7 +6,7 @@
 
 A full-stack online store model that gives the store owner the ability to add products and their prices, the ability to add promocodes which their customers can use, and the ability of a customer to send their bill to the owner's WhatsApp, The store uses Flask as its backend, PostgreSQL as database, and CSS, HTML, and JS as its frontend.
 
-The application is deployed on Heroku and can be accessed at <br>  [http://onlinestore.br19.me](http://onlinestore.br19.me)
+The application is deployed on Heroku and can be accessed at <br>  [onlinestore.br19.me](http://onlinestore.br19.me)
 
   
 ## Running the Project Locally
