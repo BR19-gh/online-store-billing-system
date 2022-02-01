@@ -273,12 +273,12 @@ input::-webkit-file-upload-button {
     font-size: 15px;
     font-weight: bold;
     border-bottom-left-radius: 15px;
-    border-top-left-radius: 16px;
+    border-top-left-radius: 14px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
     background-color: #f5ebbd;
     color: black;
-    border: 1px #8f8d85 solid;
+    border: 0px;
 }
 
 input#productImg {
