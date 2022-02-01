@@ -90,7 +90,7 @@ h1 {
     background-color: #797464;
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 500px) {
     #title {
         line-height: 75px;
     }
