@@ -1284,5 +1284,5 @@ There are 8 `HTML` files in `app/templates` folder 5 of them are pages for [Erro
 ![loading spinner](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/loading.png "loading spinner")
 
 - Below are some error pages that will be shown to the user:
-![err404.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/err404.png "cc: Error404: Page you're looking for doesn't not exits")
+![err404.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/err404.png "cc: Error404: Page you're looking for doesn't exits")
 ![err401](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/err401.png "cc: Error401: Unauthrized access")
