@@ -1161,7 +1161,7 @@ or some forms JSON if fails according to the error, like unknown error happens:
 
 "msg":"Success 200: storeNum:{storeNum} is updated, old data:{result}, new data:{newObj.search()}",
 
-"statCode": 200"
+"statCode": 200
 
 }
 
