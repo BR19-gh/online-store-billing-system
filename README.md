@@ -112,8 +112,6 @@ This will install all the required packages as mentioned within the `requirement
 
 ### Database Setup
 
-**SQLite** is the database for this project
-
 *  `spdb.db` is database file for local running
 
 * PostgreSQL is the database for production environment, because of that, you have to comment out this line of code in all of `app/main.py`:
