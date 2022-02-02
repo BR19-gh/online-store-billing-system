@@ -957,11 +957,10 @@ or some forms of JSON if fails according to the error, like if an unknown error 
 
   
 
-##### PUT'/storeName/&lt;int:idIn&gt;'
+##### PUT'/storeName/'
 
-- This route will update the name of the store in the database using the following body and the id:
+- This route will update the name of the store in the database using the following body:
 
-  
 
 ```json
 
@@ -1006,9 +1005,9 @@ or some forms JSON if fails according to the error, like if the id was not found
 <hr>
   
 
-##### DELETE'/storeName/&lt;int:idIn&gt;'
+##### DELETE'/storeName/'
 
-- This route will delete the name of the store in the database using the id:
+- This route will delete the name of the store in the database:
 
   
 
@@ -1034,7 +1033,7 @@ or some forms JSON if fails according to the error, like if the id was not found
 
 ```
 
-or some forms JSON if fails according to the error, like if the id was not found:
+or some forms JSON if fails according to the error, like if the name was not found:
 
 ```json
 
@@ -1135,9 +1134,9 @@ or some forms of JSON if fails according to the error, like unknown error happen
 
   
 
-##### PUT'/storeNum/&lt;int:idIn&gt;'
+##### PUT'/storeNum/'
 
-- This route will update the number of the store in the database using the following body and the id:
+- This route will update the number of the store in the database using the following body:
 
   
 
@@ -1167,7 +1166,7 @@ or some forms of JSON if fails according to the error, like unknown error happen
 
 ```
 
-or some form of JSON if fails according to the error, like if the id was not found:
+or some form of JSON if fails according to the error, like if the number was not found:
 
 ```json
 
@@ -1184,9 +1183,9 @@ or some form of JSON if fails according to the error, like if the id was not fou
 <hr>
   
 
-##### DELETE'/storeNum/&lt;int:idIn&gt;'
+##### DELETE'/storeNum/'
 
-- This route will delete the number of the store in the database using the id:
+- This route will delete the number of the store in the database:
 
   
 
@@ -1212,7 +1211,7 @@ or some form of JSON if fails according to the error, like if the id was not fou
 
 ```
 
-or some form of JSON if fails according to the error, like if the id was not found:
+or some form of JSON if fails according to the error, like if the number was not found:
 
 ```json
 
