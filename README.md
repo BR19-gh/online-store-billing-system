@@ -985,7 +985,7 @@ and returns if success:
 
 "msg":"Success 200: storeName:{storeName} is updated, old data:{result}, new data:{newObj.search()}",
 
-"statCode": 200"
+"statCode": "200"
 
 }
 
