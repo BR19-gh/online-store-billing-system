@@ -100,7 +100,7 @@ This will install all the required packages as mentioned within the `requirement
 
 -  [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension to use for handling cross-origin requests from our frontend server when running the project locally.
 
-- after installing this dependency, uncomment the following line in `app/main.py` for the app to work locally:
+   - after installing this dependency, uncomment the following line in `app/main.py` for the app to work locally:
 
 ``` python
 # cors = CORS(app)
