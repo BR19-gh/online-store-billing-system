@@ -221,9 +221,9 @@ def login_view():
     return render_template('login.html')
 
 
-@app.route("/verfiy/<username>/<password>")
+@app.route("/verify/<username>/<password>")
 @limiter.exempt
-def verfiy(username, password):
+def verify(username, password):
 
     if(username == USERNAME and password == PASSWORD):
         print(200)

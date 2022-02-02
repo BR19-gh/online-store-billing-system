@@ -10,7 +10,7 @@ function firstFetch() {
 firstFetch();
 
 function login() {
-    location.assign(`/verfiy/${document.getElementById('username').value}/${document.getElementById('password').value}`)
+    location.assign(`/verify/${document.getElementById('username').value}/${document.getElementById('password').value}`)
 
 }
 document.getElementById('loginBtn').addEventListener('click', (event) => {
