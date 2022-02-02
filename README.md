@@ -1260,24 +1260,28 @@ There are 8 `HTML` files in `app/templates` folder 5 of them are pages for <b hr
 - main.html
 	- in this page, all products which been added by admin will be shown to the customer:
 	![main.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/menu.png "menu")
-![main.html][cart.png (2736×1510) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/cart.png "cart")
+![main.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/cart.png "cart")
 
 - admin.html
 	- in this page, admin can add, delete, or updates products and promocodes, and can change the name and WhatsApp number of their store:
-	![admin.html][leadings.png (2736×1504) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/leadings.png "leading")
-	![admin.html][storeInfo.png (2736×1488) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/storeInfo.png "store info")
-	![admin.html][products.png (2736×1502) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/products.png "products")
-	![admin.html][promocodes.png (2736×1494) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/promocodes.png "promocodes")
+	![admin.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/leadings.png "leading")
+	![admin.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/storeInfo.png "store info")
+	![admin.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/products.png "products")
+	![admin.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/promocodes.png "promocodes")
 - login.html
 	- in this page, the admin can verify their identity by providing `<username>` and `<password>` , then via `/verify/<username>/<password>` route, the user will be verified:
-	![login.html][login.png (2736×1497) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/login.png "login")
+	![login.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/login.png "login")
 
 #### Additional UI Features
 - The frontend follows a fully responsive design, below are examples of some pages in an **1170×2532** iOS device:
-![main.html][menuIOS.jpg (1170×1982) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/menuIOS.jpg "menu in iOS")
-![main.html][cartIOS.jpg (1170×1995) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/cartIOS.jpg "cart in iOS")
-![admin.html][dbIOS.jpg (1170×1981) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/dbIOS.jpg "dashboard in iOS")
-![login.html][loginIOS.jpg (1170×1982) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/loginIOS.jpg "login in iOS")
+![main.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/menuIOS.jpg "menu in iOS")
+![main.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/cartIOS.jpg "cart in iOS")
+![admin.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/dbIOS.jpg "dashboard in iOS")
+![login.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/loginIOS.jpg "login in iOS")
 
-- A loading spinner will be shown in every page for short time to make the content load smoothly
-![loading spinner][loading.png (2736×1511) (raw.githubusercontent.com)](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/loading.png "loading spinner")
+- A loading spinner will be shown in every page for short time to make the content load smoothly:
+![loading spinner](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/loading.png "loading spinner")
+
+- Below are some error pages that will be shown to the user:
+![err404.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/err404.png "cc: Error404: Page you're looking for doesn't not exits")
+![err401](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/err401.png "cc: Error401: Unauthrized access")
