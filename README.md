@@ -29,7 +29,7 @@ Install Here: [python docs](https://docs.python.org/3/using/unix.html#getting-an
 
   
 
-#### Virtual Enviornment
+#### Virtual Environment
 
   
 
@@ -73,7 +73,7 @@ pip install -r requirements.txt
 
   
 
-This will install all of the required packages as mentioned within the `requirements.txt` file.
+This will install all the required packages as mentioned within the `requirements.txt` file.
 
   
 
@@ -113,7 +113,7 @@ This will install all of the required packages as mentioned within the `requirem
 
   
 * `spdb.db` is database file for local running
-	* PostgreSQL is the database for production enviromnt, because of that, you have to comment out this line of code in all of `app/main.py`:
+	* PostgreSQL is the database for production environment, because of that, you have to comment out this line of code in all of `app/main.py`:
 		``` python
 		self.conn  =  psycopg2.connect(DATABASE_URL, sslmode='require')
 		```
@@ -175,7 +175,7 @@ flask run
 
   
 
-- External URL: The app is also hosted on Heroku and can be accessed at [http://onlinestore.br19.me](http://onlinestore.br19.me/)
+- External URL: The app is also hosted on Heroku and can be accessed at [onlinestore.br19.me](http://onlinestore.br19.me/)
 
 
   
@@ -187,13 +187,13 @@ flask run
   
 
 The API will return the following error codes and status codes
- when requests failorsuccesss:
+ when requests fail or successs:
 
  - 200: Entity is Updated
 
 - 201: Entity is Created
 
-- 202:  Accepted for Processing
+- 202: Accepted for Processing
 
  - 204: Deleted Successfully or No Content to Return
 
@@ -276,10 +276,10 @@ Other errors and status codes are returned as JSON objects in the following form
   
 <hr>
 
-##### GET '/verfiy/&lt;username&gt;/&lt;password&gt;'
+##### GET '/verify/&lt;username&gt;/&lt;password&gt;'
 
 
-- Checks if username  =  USERNAME in env  and  password  =  PASSWORD in env then redirect to `app/templates/admin.html`.
+- Checks if username = USERNAME in env and password = PASSWORD in env then redirect to `app/templates/admin.html`.
   
 
 
@@ -340,7 +340,7 @@ Other errors and status codes are returned as JSON objects in the following form
 	"id":1
 	},
 "1":{
-	"amount":0.3,'
+	"amount":0.3,
 	"code":"promo2",
 	"id":2
 	}
@@ -556,7 +556,7 @@ or some forms of JSON if fails according to the error, like if the `id` is found
 "statCode": 204
 }
 ```
-or some forms of jJSONif fails according to the error, like if the `id` is not found:
+or some forms of JSON if fails according to the error, like if the `id` is not found:
 ```json
 {
 "msg": "Error 404: code_idIn:{idIn} was not found, it may not exist", 
@@ -584,7 +584,7 @@ or some forms of jJSONif fails according to the error, like if the `id` is not f
 	"statCode": 201
 	}
 	```
-	or some forms of jJSONif fails according to the error, like if uan unknownerror happens:
+	or some forms of JSON if fails according to the error, like if an unknown error happens:
 	```json
 	{
 	"msg": "Unkown Error 500: storeName:{storeName} was not recorded, the storeName doesn't match {(newObj.search())[0]}", 
@@ -603,14 +603,14 @@ or some forms of jJSONif fails according to the error, like if the `id` is not f
 	}
 	```
 
-	 , and returns if success:
+	and returns if success:
 	```json
 	{
 	"msg":"Success 200: storeName:{storeName} is updated, old data:{result}, new data:{newObj.search()}", 
 	"statCode": 200"
 	}
 	```
-	or some forms JSONson if fails according to the error, like if the id was not found:
+	or some forms JSON if fails according to the error, like if the id was not found:
 	```json
 	{
 	"msg": "Error 404: storeName:{storeName} was not updated because it didn't have a record before (maybe first time adding?) ", 
@@ -632,7 +632,7 @@ or some forms of jJSONif fails according to the error, like if the `id` is not f
 	{
 	"msg": "Success 204: store name is deleted successfully", "statCode": 204}
 	```
-	or some forms JSONson if fails according to the error, like if the id was not found:
+	or some forms JSON if fails according to the error, like if the id was not found:
 	```json
 	{
 	"msg": "Error 404: storeName:{result} was not found, it may not exist", 
@@ -673,7 +673,7 @@ or some forms of jJSONif fails according to the error, like if the `id` is not f
 	"statCode": 201
 	}
 	```
-	or some forms JSONson if fails according to the error, like unknownunkown error happens:
+	or some forms JSON if fails according to the error, like unknown error happens:
 	```json
 	{
 	"msg": "Unkown Error 500: storeNum:{storeNum} was not recorded, the storeNum doesn't match {(newObj.search())[0]}", 
@@ -699,7 +699,7 @@ or some forms of jJSONif fails according to the error, like if the `id` is not f
 	"statCode": 200"
 	}
 	```
-	or some foJSONof json if fails according to the error, like if the id was not found:
+	or some form of JSON if fails according to the error, like if the id was not found:
 	```json
 	{
 	"msg": "Error 404: storeNum:{storeNum} was not updated because it didn't have a record before (maybe first time adding?) ", 
@@ -721,7 +721,7 @@ or some forms of jJSONif fails according to the error, like if the `id` is not f
 	{
 	"msg": "Success 204: store number is deleted successfully", "statCode": 204}
 	```
-	or some foJSONof json if fails according to the error, like if the id was not found:
+	or some form of JSON if fails according to the error, like if the id was not found:
 	```json
 	{
 	"msg": "Error 404: storeNum:{result} was not found, it may not exist", 
