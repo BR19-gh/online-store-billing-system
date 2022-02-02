@@ -620,7 +620,7 @@ or some forms of JSON if fails according to the error, like if the `id` was not 
 
 ##### GET'/product/&lt;int:idIn&gt;'
 
-- This route will get a product in the database using the `id` to check if it can be added, and returns if successful:
+- This route will get a product from the database using the `id` to check if it can be added, and returns if successful:
 
 ```json
 
