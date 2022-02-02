@@ -22,6 +22,7 @@ body {
 }
 
 #container {
+    padding-top: 10px;
     display: none;
     border: 1px #8f8d85 solid;
     border-radius: 15px;
