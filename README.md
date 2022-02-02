@@ -1257,7 +1257,7 @@ and if there's no name for the store it will return:
 <hr>
 
 ### Frontend
-There are 8 `HTML` files in `app/templates` folder 5 of them are pages for <b href="#Error">Error Handling and Status Codes</b> and the other 3 is the main pages with 3 `CSS` files and 3 `JavaScript` files:
+There are 8 `HTML` files in `app/templates` folder 5 of them are pages for [Error Handling and Status Codes](#error-handling-and-status-codes) and the other 3 is the main pages with 3 `CSS` files and 3 `JavaScript` files:
 - main.html
 	- in this page, all products which been added by admin will be shown to the customer:
 	![main.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/menu.png "menu")
