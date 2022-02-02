@@ -263,7 +263,7 @@ when requests fail or success:
 
   
 
-An example of 401 error due to PASSWORD and USERNAME not provided by the frontend not matching what is in env:
+An example of 401 error due to PASSWORD and USERNAME provided by the frontend user not matching what is in `.env`:
 
   
 
