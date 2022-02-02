@@ -702,11 +702,11 @@ or some forms of JSON if fails according to the error, like if the `id` is not f
 
 {
 
-"id"  =  "value",
+"id": "value",
 
-"code"  =  "value1",
+"code": "value1",
 
-"amount"  =  "value2"
+"amount": "value2"
 
 }
 
