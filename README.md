@@ -132,7 +132,7 @@ for database connections to work locally
 ### Environment variables
   
 
-* Create .env file in the root directory and put the following values in:
+* Create `.env` file in the root directory and put the following values in:
 
 ```
 USERNAME = xxxx
@@ -225,7 +225,7 @@ when requests fail or success:
   
   
 
-- 401: Unauthorized
+- 401: Unauthorized Access
 
   
   
@@ -281,7 +281,7 @@ return render_template('err/err401.html', msg=msg) # it will render 401 error pa
 
   
 
-Other errors and status codes are returned as JSON objects in the following format:
+Other errors and status codes are returned as JSON in the following format:
 
   
 
@@ -1003,6 +1003,7 @@ or some forms JSON if fails according to the error, like if the id was not found
 
 ```
 
+<hr>
   
 
 ##### DELETE'/storeName/&lt;int:idIn&gt;'
@@ -1047,6 +1048,7 @@ or some forms JSON if fails according to the error, like if the id was not found
 
 ```
 
+<hr>
   
 
 ##### GET'/storeName/show'
@@ -1113,7 +1115,7 @@ and if there's no name for the store it will return:
 
 ```
 
-or some forms JSON if fails according to the error, like unknown error happens:
+or some forms of JSON if fails according to the error, like unknown error happens:
 
 ```json
 
@@ -1179,6 +1181,7 @@ or some form of JSON if fails according to the error, like if the id was not fou
 
 ```
 
+<hr>
   
 
 ##### DELETE'/storeNum/&lt;int:idIn&gt;'
@@ -1223,6 +1226,8 @@ or some form of JSON if fails according to the error, like if the id was not fou
 
 ```
 
+
+<hr>
   
 
 ##### GET'/storeNum/show'
@@ -1252,6 +1257,7 @@ and if there's no name for the store it will return:
 }
 
 ```
+
 <hr>
 
 ### Frontend
