@@ -512,7 +512,7 @@ and returns if success:
 
 ```
 
-or some forms of JSON if fails according to the error, like if the body was not formed correctly:
+or some forms of JSON if fails according to the error, like if the header was not formed correctly:
 
 ```json
 
