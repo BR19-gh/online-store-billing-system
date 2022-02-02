@@ -263,7 +263,7 @@ when requests fail or success:
 
   
 
-An example of 401 error due to PASSWORD and USERNAME provided by the frontend user not matching what is in `.env`:
+An example of 401 error due to `PASSWORD` and `USERNAME` provided by the frontend user not matching what is in `.env`:
 
   
 
@@ -352,7 +352,7 @@ Other errors and status codes are returned as JSON objects in the following form
   
   
 
-- Checks if `<username>` = USERNAME in `.env` and `<password>` = PASSWORD in `.env` then redirect to `app/templates/admin.html`.
+- Checks if `<username>` = `USERNAME` in `.env` and `<password>` = `PASSWORD` in `.env` then redirect to `app/templates/admin.html`.
 
   
   
