@@ -478,7 +478,7 @@ Example:
 
 ##### POST'/product'
 
-- This route will add a product to the database using the following header:
+- This route will add a product to the database using the following `encodeURIComponent()`'ed header:
 
 ```json
 
@@ -490,11 +490,11 @@ Example:
 
 "price" : "value2",
 
-"img" : "value3 /* an image in form of base64 encoding */"
-
 }
 
 ```
+
+with a body containing the uploaded image,
 
 and returns if success:
 
@@ -530,7 +530,7 @@ or some forms of JSON if fails according to the error, like if the header was no
 
 ##### PUT'/product/&lt;int:idIn&gt;'
 
-- This route will update a product in the database using the following header:
+- This route will update a product in the database using the following `encodeURIComponent()`'ed header:
 
 ```json
 
@@ -540,11 +540,11 @@ or some forms of JSON if fails according to the error, like if the header was no
 
 "price" : "value2",
 
-"img" : "value3 /* an image in form of base64 encoding */"
-
 }
 
 ```
+
+with a body containing the uploaded image,
 
 and returns if success:
 
