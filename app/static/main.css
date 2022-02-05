@@ -24,6 +24,9 @@ body {
 #headerOfPruds {
     display: flex;
     justify-content: center;
+    backdrop-filter: blur(10px);
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -62,12 +65,14 @@ body {
 }
 
 h1 {
-    /* height: 7%; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    backdrop-filter: blur(10px);
     font-size: calc(2.375rem + 1.5vw);
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: #c2bba1a8;
+    background-color: #c2bba1a0;
 }
 
 *::-webkit-scrollbar {
