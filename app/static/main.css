@@ -242,13 +242,19 @@ input {
     position: absolute;
     top: 10px;
     font-size: 30px;
+    margin-top: 15px;
+}
+
+div#shoppingCartIcon {
+    margin-top: 15px;
 }
 
 #cartInfo,
 #infoCard {
     width: 40%;
     height: 85%;
-    background-color: #d4cbab;
+    backdrop-filter: blur(10px);
+    background-color: #d4cbaba8;
 }
 
 #infoCard {
@@ -269,13 +275,17 @@ input {
     #cartInfo {
         width: 90%;
         height: 90%;
-        background-color: #d4cbab;
     }
 }
 
 .devInfo {
     width: 100%;
     display: inline-block;
+}
+
+.frosted {
+    backdrop-filter: blur(10px);
+    background-color: #d4cbab00;
 }
 
 #websiteAddress:hover {
