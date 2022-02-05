@@ -140,6 +140,12 @@ h1 {
     background-color: #c2bba1a0;
 }
 
+@media only screen and (max-width: 500px) {
+    h1 {
+        background-color: #c2bba1d0;
+    }
+}
+
 *::-webkit-scrollbar {
     width: 15px;
 }

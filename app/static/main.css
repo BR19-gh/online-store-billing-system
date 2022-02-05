@@ -292,6 +292,12 @@ div#shoppingCartIcon {
     background-color: #d4cbab00;
 }
 
+@media only screen and (min-width: 500px) {
+    .forsted {
+        background-color: #d4cbabd0;
+    }
+}
+
 #websiteAddress:hover {
     font-weight: bolder;
 }
