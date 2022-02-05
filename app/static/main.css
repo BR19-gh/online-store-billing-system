@@ -272,6 +272,10 @@ div#shoppingCartIcon {
         height: 40%;
         right: auto;
     }
+    #cartInfo,
+    #infoCard {
+        background-color: #d4cbab;
+    }
 }
 
 @media only screen and (max-width: 800px) {
