@@ -293,7 +293,7 @@ div#shoppingCartIcon {
 .forsted {
     backdrop-filter: blur(10px);
     -webkit-backdrop-backdrop-filter: blur(10px);
-    background-color: #d4cbab00;
+    background-color: #c2bba1;
 }
 
 @media only screen and (min-width: 500px) {
