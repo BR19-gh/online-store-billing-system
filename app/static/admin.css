@@ -38,6 +38,7 @@ button#countryCodeTitle {
     display: flex;
     justify-content: space-evenly;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-backdrop-filter: blur(10px);
     padding-top: 5px;
     padding-bottom: 5px;
 }
