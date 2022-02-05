@@ -37,6 +37,9 @@ button#countryCodeTitle {
 #headerOfPruds {
     display: flex;
     justify-content: space-evenly;
+    backdrop-filter: blur(10px);
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .dbInfo {
@@ -125,7 +128,7 @@ input#storeNum {
 }
 
 .container:hover {
-    background-color: #d4cbabda;
+    background-color: #d4cbaba0;
 }
 
 h1 {
@@ -307,6 +310,7 @@ input#productImg {
     left: 15px;
     top: 10px;
     font-size: 30px;
+    margin-top: 6px;
 }
 
 #loginPageIcon {
