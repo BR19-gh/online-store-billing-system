@@ -283,7 +283,7 @@ div#shoppingCartIcon {
     display: inline-block;
 }
 
-.frosted {
+.forsted {
     backdrop-filter: blur(10px);
     background-color: #d4cbab00;
 }
