@@ -125,7 +125,7 @@ function firstFetch() {
     </div>
 `
                                     }
-                                    var allButtons = document.querySelectorAll('a.addToCartBtn]');
+                                    var allButtons = document.querySelectorAll('a.addToCartBtn');
                                     console.log("Found", allButtons.length, 'a which class:"addToCartBtn".');
                                     for (var i = 0; i < allButtons.length; i++) {
                                         allButtons[i].addEventListener('click', function() {
