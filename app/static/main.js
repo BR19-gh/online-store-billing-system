@@ -138,7 +138,7 @@ function firstFetch() {
                                             }
                                             // END
                                             // to know prud id, and its quentity
-                                            let content = this.innerHTML;
+                                            let content = this.parentElement.innerHTML;
                                             content = content.split("<br><br>");
                                             id = content[1];
                                             console.log("You clicked:", id);
