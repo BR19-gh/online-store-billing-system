@@ -120,7 +120,7 @@ function firstFetch() {
             </li>
         </ul>
         <div style="direction: rtl;" class="card-body">
-            <div class="addToCartBtn"><a  class="card-link">إضافة إلى <i class="fas fa-shopping-cart"></i></a><br><br>${i+1}</div>
+            <div><a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a><br><br>${i+1}</div>
         </div>
     </div>
 `
