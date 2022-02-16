@@ -113,6 +113,11 @@ select {
     padding: 7.5px 15px 7.5px 25px;
     text-decoration: none;
     color: black;
+    transition: all 100ms ease-in-out;
+}
+
+select:hover {
+    background-color: #bbb496;
 }
 
 #form {
@@ -215,8 +220,6 @@ a:hover {
 }
 
 .card-link:hover {
-    border: 1px #8f8d85 solid;
-    border-radius: 15px;
     background-color: #bbb496;
 }
 
