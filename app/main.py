@@ -586,6 +586,7 @@ def storeNumGet():
 def ratelimit_handler(e):
 
     msg = '{"msg": f"Error 429: you have exceeded your rate-limit, any further requests will not be applied", "statCode": 429}'
+    print(msg)
     return render_template('err/err429.html', msg=msg)
 
 
@@ -593,6 +594,7 @@ def ratelimit_handler(e):
 def ratelimit_handler(e):
 
     msg = '{"msg": f"Error 401: unauthrized access", "statCode": 401}'
+    print(msg)
     return render_template('err/err401.html', msg=msg)
 
 
@@ -600,6 +602,7 @@ def ratelimit_handler(e):
 def ratelimit_handler(e):
 
     msg = '{"msg": f"Error 500: something in our side went wrong, surly we are working to fix it soon, please try again later", "statCode": 500}'
+    print(msg)
     return render_template('err/err500.html', msg=msg)
 
 
@@ -607,6 +610,7 @@ def ratelimit_handler(e):
 def ratelimit_handler(e):
 
     msg = '{"msg": f"Error 503: server is down due to maintenance, please try again later", "statCode": 503}'
+    print(msg)
     return render_template('err/err503.html', msg=msg)
 
 
@@ -620,6 +624,7 @@ def ratelimit_handler(e):
 def ratelimit_handler(e):
 
     msg = '{"msg": f"Error 404: the requested URL was not found on the server. If you entered the URL manually please check your spelling and try again", "statCode": 404}'
+    print(msg)
     return render_template('err/err404.html', msg=msg)
 
 
