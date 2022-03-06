@@ -187,6 +187,7 @@ function firstFetch() {
                                     let theCurrentDiscount;
                                     let fullPrice;
                                     document.getElementsByClassName('submitCode')[0].addEventListener('click', () => {
+                                        if (data2[0] == null) { alert("الكود غير صالح، جرب كودًا آخر"); return; }
                                         firstPassCart = 1;
                                         let totalPrice = document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0];
                                         for (let i = 0; i < Object.keys(data2).length; i++) {
