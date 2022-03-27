@@ -23,7 +23,7 @@ body {
 }
 
 button#countryCodeTitle {
-    font-size: 1vm;
+    font-size: 13px;
     font-weight: 800;
     border: #8f8d85 1px solid;
     border-right: 0px;
@@ -99,7 +99,7 @@ h5.card-title {
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
-    width: 35%;
+    width: 100px;
     z-index: 0;
 }
 
@@ -109,7 +109,7 @@ button.btn.btn-outline-secondary.dropdown-toggle {
 }
 
 input#storeNum {
-    width: 65%;
+    width: 140px;
 }
 
 .container {
@@ -209,7 +209,7 @@ input {
     border: 1px #8f8d85 solid;
     border-radius: 15px;
     text-align: center;
-    width: 100%;
+    width: 254px;
     height: 40px;
     transition: all 100ms ease-in-out;
 }
@@ -260,6 +260,10 @@ input {
 
 a:hover {
     color: black;
+}
+
+input#storeName {
+    width: 240px;
 }
 
 a.dropdown-item {
