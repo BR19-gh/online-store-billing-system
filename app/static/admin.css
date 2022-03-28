@@ -111,7 +111,13 @@ button.btn.btn-outline-secondary.dropdown-toggle {
 }
 
 input#storeNum {
-    width: 140px;
+    width: 68%;
+}
+
+@media only screen and (max-width: 800px) {
+    input#storeNum {
+        width: 80%;
+    }
 }
 
 .container {
