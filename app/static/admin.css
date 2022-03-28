@@ -33,6 +33,7 @@ button#countryCodeTitle {
 @media only screen and (max-width: 800px) {
     #title {
         line-height: 60px;
+        zoom: .85;
     }
 }
 
