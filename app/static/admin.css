@@ -97,11 +97,6 @@ h5.card-title {
     }
 }
 
-h5.card-title {
-    display: inline-grid;
-    width: 100%;
-}
-
 .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
     border-bottom-left-radius: 15px;
