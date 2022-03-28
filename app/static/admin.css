@@ -23,7 +23,7 @@ body {
 }
 
 button#countryCodeTitle {
-    font-size: 13px;
+    font-size: calc(1vw);
     font-weight: 800;
     border: #8f8d85 1px solid;
     border-right: 0px;
