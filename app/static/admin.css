@@ -86,13 +86,20 @@ b {
     font-size: 20px;
 }
 
-.input-group {
-    width: 100%;
-    justify-content: center;
+h5.card-title {
+    display: inline-grid;
+    width: 60%;
+}
+
+@media only screen and (max-width: 800px) {
+    h5.card-title {
+        width: 100%;
+    }
 }
 
 h5.card-title {
     display: inline-grid;
+    width: 100%;
 }
 
 .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),
