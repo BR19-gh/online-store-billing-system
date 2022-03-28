@@ -86,6 +86,11 @@ b {
     font-size: 20px;
 }
 
+.input-group {
+    width: 100%;
+    justify-content: center;
+}
+
 h5.card-title {
     display: inline-grid;
     width: 60%;
