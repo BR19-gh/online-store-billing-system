@@ -39,9 +39,9 @@ for (var i = 0; i < themeBtns.length; i++) {
                             alert('حدث خطأ في ' + method + '.')
                             return;
                         }
-                        // location.reload();
-                        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
-                            .then((responseJson) => { console.log('current theme is ' + responseJson['storeTheme']) })
+                        location.reload();
+                        // fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+                        //     .then((responseJson) => { console.log('current theme is ' + responseJson['storeTheme']) })
                     });
             });
 
