@@ -550,10 +550,11 @@ function firstFetch() {
     fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
         .then((responseJson) => {
 
-            document.getElementsByClassName("circleTheme-selected")[0].className = "circleTheme";
-
-            document.getElementById(`${responseJson['storeTheme']}`).className = "circleTheme-selected";
-
+            if (responseJson['storeTheme'] == "none/لايوجد") {
+                document.getElementsByClassName("circleTheme-selected")[0].className = "circleTheme";
+            } else {
+                document.getElementById(`${responseJson['storeTheme']}`).className = "circleTheme-selected";
+            }
             console.log('current theme is ' + responseJson['storeTheme'])
         })
 }
