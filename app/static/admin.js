@@ -6,18 +6,17 @@ for (var i = 0; i < themeBtns.length; i++) {
 
         document.getElementsByClassName("circleTheme-selected")[0].className = "circleTheme";
 
-        this.className = "circleTheme-selected"
+        this.className = "circleTheme-selected";
 
-        console.log(this.id)
+        console.log(this.id);
 
 
         fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
             .then((responseJson) => {
                 let method;
                 if (responseJson.storeTheme == "none/لايوجد") {
-                    method = "POST"
-
-                } else { method = "PUT" }
+                    method = "POST";
+                } else { method = "PUT"; }
 
                 fetch('/storeTheme', {
                         headers: {
@@ -40,7 +39,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                         }
                         // location.reload();
                         fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
-                            .then((responseJson) => { console.log('current theme is' + responseJson['storeTheme']) })
+                            .then((responseJson) => { console.log('current theme is ' + responseJson['storeTheme']) })
                     });
             });
 
@@ -549,7 +548,12 @@ function firstFetch() {
         });
 
     fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
-        .then((responseJson) => { console.log('current theme is' + responseJson['storeTheme']) })
+        .then((responseJson) => {
+
+            document.getElementById(`${responseJson['storeTheme']}`)[0].className = "circleTheme-selected";
+
+            console.log('current theme is ' + responseJson['storeTheme'])
+        })
 }
 
 firstFetch();

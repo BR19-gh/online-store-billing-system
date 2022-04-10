@@ -598,8 +598,7 @@ def storeTheme():
         print(2)
         abort(405)
 
-newObj = StoreThemeTable()
-newObj.delete('blueTheme')
+
 @app.route("/storeTheme/show", methods=['GET'])
 @limiter.exempt
 def storeThemeGet():
