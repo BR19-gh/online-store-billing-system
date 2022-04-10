@@ -285,7 +285,7 @@ input:focus {
 .card-link {
     border: 1px var(--borders) solid;
     border-radius: 15px;
-    background-color: #f5ebbd;
+    background-color: var(--btns);
     transition: all 100ms ease-in-out;
     cursor: pointer;
     font-weight: bold;
@@ -329,7 +329,7 @@ input::-webkit-file-upload-button {
     border-top-left-radius: 14px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
-    background-color: #f5ebbd;
+    background-color: var(--btns);
     color: black;
     border: 0px;
 }

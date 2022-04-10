@@ -298,7 +298,7 @@ div#shoppingCartIcon {
     }
     #cartInfo,
     #infoCard {
-        background-color: #d4cbab;
+        background-color: var(--infoCard);
     }
 }
 
