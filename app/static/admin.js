@@ -39,7 +39,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             return;
                         }
                         // location.reload();
-                        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { console.log(responseName.json()); })
+                        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); }).then((responseJson) => { console.log(responseJson) })
                     });
             });
 
