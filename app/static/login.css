@@ -1,10 +1,30 @@
+:root {
+    --body: #f0e9c9;
+    --borders: #8f8d85;
+    --btns: #f5ebbd;
+    --btnsHover: #bbb496;
+    --container: #d4cbabc0;
+    --containerHover: #d4cbaba0;
+    --h1: #c2bba1a0;
+    --h1OtherScreen: #c2bba1d0;
+    --form: #c4c1b6c0;
+    --formHover: #c4c1b6;
+    --input: #8f8d85;
+    --inputHover: #aca588;
+    --inputFocus: #b1a883;
+    --webkitScrollbarTrack: #c4c1b6c0;
+    --webkitScrollbarThumb: #969287;
+    --webkitScrollbarThumbHover: #797464;
+    --infoCard: #d6d6d6a8;
+}
+
 body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
     font-family: 'Tajawal', sans-serif;
-    background-color: #f0e9c9;
+    background-color: var(--body);
     background-size: cover;
     background-repeat: round;
     background-attachment: fixed;
@@ -25,20 +45,20 @@ body {
 #container {
     padding-top: 10px;
     display: none;
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
     margin: 0;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #c5c0adc0;
+    background-color: var(--container);
     width: 350px;
     transition: all 100ms ease-in-out;
     animation: showNice 1s;
 }
 
 #container:hover {
-    background-color: #c5c0adda;
+    background-color: var(--containerHover);
 }
 
 img {
@@ -63,7 +83,7 @@ h1 {
 }
 
 input {
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
     text-align: center;
     width: 150px;
@@ -76,11 +96,11 @@ input::placeholder {
 }
 
 input:hover {
-    background-color: #aca588;
+    background-color: var(--inputHover);
 }
 
 input:focus {
-    background-color: #b1a883;
+    background-color: var(--inputFocus);
 }
 
 ::-webkit-input-placeholder {
@@ -97,9 +117,9 @@ input:focus {
 }
 
 #loginBtn {
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
-    background-color: #f5ebbd;
+    background-color: var(--btns);
     transition: all 100ms ease-in-out;
     cursor: pointer;
     margin-bottom: 10px;
@@ -111,5 +131,5 @@ input {
 }
 
 #loginBtn:hover {
-    background-color: #8f8d85;
+    background-color: var(--btnsHover);
 }

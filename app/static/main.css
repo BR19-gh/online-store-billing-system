@@ -1,10 +1,30 @@
+:root {
+    --body: #f0e9c9;
+    --borders: #8f8d85;
+    --btns: #f5ebbd;
+    --btnsHover: #bbb496;
+    --container: #d4cbabc0;
+    --containerHover: #d4cbaba0;
+    --h1: #c2bba1a0;
+    --h1OtherScreen: #c2bba1d0;
+    --form: #c4c1b6c0;
+    --formHover: #c4c1b6;
+    --input: #8f8d85;
+    --inputHover: #aca588;
+    --inputFocus: #b1a883;
+    --webkitScrollbarTrack: #c4c1b6c0;
+    --webkitScrollbarThumb: #969287;
+    --webkitScrollbarThumbHover: #797464;
+    --infoCard: #d4cbaba8;
+}
+
 body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
     font-family: 'Tajawal', sans-serif;
-    background-color: #f0e9c9;
+    background-color: var(--body);
     background-size: cover;
     background-repeat: round;
     background-attachment: fixed;
@@ -47,13 +67,13 @@ body {
 
 .container {
     display: none;
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
     margin: 0;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #d4cbabc0;
+    background-color: var(--container);
     width: 90%;
     height: 90%;
     transition: all 100ms ease-in-out;
@@ -63,7 +83,7 @@ body {
 }
 
 .container:hover {
-    background-color: #d4cbabda;
+    background-color: var(--containerHover);
 }
 
 h1 {
@@ -75,7 +95,7 @@ h1 {
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: #c2bba1a0;
+    background-color: var(--h1);
 }
 
 *::-webkit-scrollbar {
@@ -83,19 +103,19 @@ h1 {
 }
 
 *::-webkit-scrollbar-track {
-    background-color: #c4c1b6c0;
+    background-color: var(--form);
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #969287;
+    background-color: var(--webkitScrollbarThumb);
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background-color: #797464;
+    background-color: var(--webkitScrollbarThumbHover);
 }
 
 @media only screen and (max-width: 500px) {
@@ -105,9 +125,9 @@ h1 {
 }
 
 select {
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
-    background-color: #f5ebbd;
+    background-color: var(--btns);
     transition: all 100ms ease-in-out;
     cursor: pointer;
     font-weight: bold;
@@ -118,21 +138,21 @@ select {
 }
 
 select:hover {
-    background-color: #bbb496;
+    background-color: var(--btnsHover);
 }
 
 #form {
     width: 100%;
     display: inline-block;
-    background-color: #c4c1b6c0;
+    background-color: var(--form);
 }
 
 #form li {
-    background-color: #c4c1b6c0;
+    background-color: var(--form);
 }
 
 #form:hover {
-    background-color: #c4c1b6;
+    background-color: var(--formHover);
 }
 
 #priceContainer {
@@ -142,7 +162,7 @@ select:hover {
 }
 
 input#discount {
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
     text-align: center;
     width: 150px;
@@ -155,15 +175,15 @@ input::placeholder#discount {
 }
 
 input:hover#discount {
-    background-color: #aca588;
+    background-color: var(--inputHover);
 }
 
 input:focus#discount {
-    background-color: #b1a883;
+    background-color: var(--inputFocus);
 }
 
 input.personalInfo {
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
     text-align: center;
     width: 265px;
@@ -176,11 +196,11 @@ input::placeholder.personalInfo {
 }
 
 input:hover.personalInfo {
-    background-color: #aca588;
+    background-color: var(--inputHover);
 }
 
 input:focus.personalInfo {
-    background-color: #b1a883;
+    background-color: var(--inputFocus);
 }
 
 .card {
@@ -201,9 +221,9 @@ input:focus.personalInfo {
 }
 
 .card-link {
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
-    background-color: #f5ebbd;
+    background-color: var(--btns);
     transition: all 100ms ease-in-out;
     cursor: pointer;
     margin-bottom: 10px;
@@ -221,7 +241,7 @@ a:hover {
 }
 
 .card-link:hover {
-    background-color: #bbb496;
+    background-color: var(--btnsHover);
 }
 
 input {
@@ -261,7 +281,7 @@ div#shoppingCartIcon {
     height: 85%;
     backdrop-filter: blur(10px);
     -webkit-backdrop-backdrop-filter: blur(10px);
-    background-color: #d4cbaba8;
+    background-color: var(--infoCard);
 }
 
 #infoCard {
@@ -297,12 +317,12 @@ div#shoppingCartIcon {
 .forsted {
     backdrop-filter: blur(10px);
     -webkit-backdrop-backdrop-filter: blur(10px);
-    background-color: #c2bba1d0;
+    background-color: var(--h1OtherScreen);
 }
 
 @media only screen and (min-width: 500px) {
     .forsted {
-        background-color: #d4cbaba0;
+        background-color: var(--containerHover);
     }
 }
 
@@ -326,9 +346,9 @@ div#shoppingCartIcon {
 }
 
 .submitCodeEnabled {
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
-    background-color: #f5ebbd;
+    background-color: var(--btns);
     transition: all 100ms ease-in-out;
     cursor: pointer;
     font-weight: bold;
@@ -337,11 +357,11 @@ div#shoppingCartIcon {
 }
 
 .submitCodeEnabled:hover {
-    background-color: #bbb496;
+    background-color: var(--btnsHover);
 }
 
 .submitCodeDisabled {
-    border: 1px #8f8d85 solid;
+    border: 1px var(--borders) solid;
     border-radius: 15px;
     background-color: #3d323a57;
     transition: all 100ms ease-in-out;
