@@ -39,7 +39,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             return;
                         }
                         // location.reload();
-                        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); }).then((responseJson) => { console.log(responseJson) })
+                        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); }).then((responseJson) => { console.log('current theme is' + responseJson) })
                     });
             });
 
@@ -546,6 +546,9 @@ function firstFetch() {
         }).then((responseJson) => {
             document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
         });
+
+    // fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+    //     .then((responseJson) => {})
 }
 
 firstFetch();
