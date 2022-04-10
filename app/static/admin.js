@@ -3,10 +3,12 @@ var themeBtns = document.querySelectorAll('div.circleTheme');
 for (var i = 0; i < themeBtns.length; i++) {
     themeBtns[i].onclick = function() {
 
-
-        document.getElementsByClassName("circleTheme-selected")[0].className = "circleTheme";
-
-        this.className = "circleTheme-selected";
+        if (document.getElementsByClassName("circleTheme-selected")[0] == undefined) {
+            this.className = "circleTheme-selected";
+        } else {
+            document.getElementsByClassName("circleTheme-selected")[0].className = "circleTheme";
+            this.className = "circleTheme-selected";
+        }
 
         console.log(this.id);
 
