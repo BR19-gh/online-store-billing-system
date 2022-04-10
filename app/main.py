@@ -12,9 +12,8 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from base64 import b64encode
 import base64
-from io import BytesIO #Converts data from Database into bytes
+from io import BytesIO  # Converts data from Database into bytes
 from urllib.parse import unquote
-
 
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
@@ -162,6 +161,44 @@ class StoreNameTable:
         self.conn.close()
 
 
+class StoreThemeTable:
+
+    def __init__(self):
+        self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+        #self.conn = sqlite3.connect("spdb.db")
+        self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
+        self.cur.execute(
+            "CREATE TABLE IF NOT EXISTS storeThemes (storeTheme TEXT NOT NULL)")
+
+    def search(self):
+        self.cur.execute(f"SELECT * FROM storeThemes")
+        self.record = self.cur.fetchone()
+        return self.record
+
+    def insert(self, storeTheme):
+        if (storeTheme == ""):
+            raise Exception("One of the entries is empty")
+        self.cur.execute(f"""
+        INSERT INTO storeThemes (storeTheme) VALUES ('{storeTheme}');
+        """)
+        self.conn.commit()
+
+    def update(self, storeTheme):
+        self.cur.execute(
+            f"UPDATE storeThemes SET storeTheme = '{storeTheme}'")
+        self.conn.commit()
+
+    def delete(self, storeTheme):
+        if (storeTheme == None):
+            raise Exception("You have to select an id to delete its values")
+        self.cur.execute(
+            f"DELETE FROM storeThemes WHERE storeTheme = '{storeTheme}'")
+        self.conn.commit()
+
+    def __del__(self):
+        self.conn.close()
+
+
 class StoreNumTable:
 
     def __init__(self):
@@ -245,7 +282,7 @@ def admin_view():
 
 def render_picture(data):
 
-    render_pic = base64.b64encode(data).decode('ascii') 
+    render_pic = base64.b64encode(data).decode('ascii')
     return render_pic
 
 
@@ -258,13 +295,10 @@ def product(idIn=None):
 
     if request.method == 'POST':
 
-
-
         file = request.files['image']
         # fileName = file.filename
         imgFile = render_picture(file.read())
         # render_file = render_picture(imgFile)
-
 
         data = request.headers
         id = unquote(data['id'])
@@ -513,6 +547,67 @@ def storeNameGet():
         return jsonify({"storeName": "none/لايوجد"})
     else:
         return jsonify({"storeName": newObj.search()})
+
+
+@app.route("/storeTheme", methods=['POST', 'PUT', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
+def storeTheme():
+    print('The ip address: ', get_remote_address())
+    newObj = StoreThemeTable()
+    if request.method == 'POST':
+        data = request.get_json()
+        storeTheme = data['storeTheme']
+
+        newObj.insert(storeTheme)
+
+        recordSearched = newObj.search()
+        if (recordSearched[0] == storeTheme):
+            return jsonify({"msg": f"Success 201: storeTheme:{storeTheme} is recorded, the storeTheme matches {(newObj.search())[0]}", "statCode": 201})
+        else:
+            return jsonify({"msg": f"Unkown Error 500: storeTheme:{storeTheme} was not recorded, the storeTheme doesn't match {(newObj.search())[0]}", "statCode": 500})
+
+    elif request.method == 'PUT':
+        data = request.get_json()
+        storeTheme = data['storeTheme']
+        result = newObj.search()
+        newObj.update(storeTheme)
+
+        recordSearched = newObj.search()
+        if recordSearched == None:
+            return jsonify({"msg": f"Error 404: storeTheme:{storeTheme} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
+        elif (recordSearched[0] == storeTheme):
+            return jsonify({"msg": f"Success 200: storeTheme:{storeTheme} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
+        else:
+            return jsonify({"msg": f"Unkown Error 500: storeTheme:{storeTheme} was not updated, old data:{result}, new data:{newObj.search()}", "statCode": 500})
+
+    elif request.method == 'DELETE':
+        result = newObj.search()
+
+        if result == None:
+            return jsonify({"msg": f"Error 404: storeTheme:{result} was not found, it may not exist", "statCode": 404})
+
+        newObj.delete(newObj.search()[0])
+
+        result = newObj.search()
+
+        if result == None:
+            return jsonify({"msg": f"Success 204: store name is deleted successfully", "statCode": 204})
+        else:
+            return jsonify({"msg": f"Error 500: failed to delete storeTheme:{result}, storeTheme:{result} still exists", "statCode": 500})
+    else:
+        print(2)
+        abort(405)
+
+
+@app.route("/storeTheme/show", methods=['GET'])
+@limiter.exempt
+def storeThemeGet():
+    print('The ip address: ', get_remote_address())
+    newObj = StoreThemeTable()
+    if newObj.search() == None:
+        return jsonify({"storeTheme": "none/لايوجد"})
+    else:
+        return jsonify({"storeTheme": newObj.search()})
 
 
 @app.route("/storeNum", methods=['POST', 'PUT', 'DELETE'])

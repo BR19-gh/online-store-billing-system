@@ -116,6 +116,38 @@ button.btn.btn-outline-secondary.dropdown-toggle {
     color: black;
 }
 
+.circleTheme {
+    transition: all 80ms ease-in-out;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: #8f8d85 1px solid;
+    margin: 5px;
+}
+
+.circleTheme-selected {
+    transition: all 80ms ease-in-out;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 5px;
+    border: #000000a0 3px solid;
+}
+
+.circleTheme:hover {
+    border: #00000060 3px solid;
+}
+
+.circleTheme:active {
+    border: #00000060 25px solid;
+}
+
+#themesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 input#storeNum {
     width: 80%;
 }
@@ -255,6 +287,7 @@ input:focus {
     cursor: pointer;
     font-weight: bold;
     padding: 10px;
+    margin: 1px;
 }
 
 a {

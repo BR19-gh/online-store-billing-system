@@ -1,3 +1,59 @@
+//// theme related
+var themeBtns = document.querySelectorAll('div.circleTheme');
+for (var i = 0; i < themeBtns.length; i++) {
+    themeBtns[i].onclick = function() {
+
+
+        document.getElementsByClassName("circleTheme-selected")[0].className = "circleTheme";
+
+        this.className = "circleTheme-selected"
+
+        console.log(this.id)
+
+
+        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+            .then((responseJson) => {
+                let method;
+                if (responseJson.storeTheme == "none/لايوجد") {
+                    method = "POST"
+
+                } else { method = "PUT" }
+
+                fetch('/storeTheme', {
+                        headers: {
+
+                            'Method': `${method}`,
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        method: `${method}`,
+                        body: JSON.stringify({
+                            storeTheme: this.id,
+                        })
+                    })
+                    .then((response) => {
+                        return response.json();
+                    }).then((responseJson) => {
+                        if (responseJson.statCode == 403) {
+                            alert('حدث خطأ في ' + method + '.')
+                            return;
+                        }
+                        // location.reload();
+                        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { console.log(responseName.json()); })
+                    });
+            });
+
+
+
+
+
+
+
+    }
+}
+
+
+
 ///// to show msg or not
 
 if (localStorage.pressToNotShowBtn == 'true') {
@@ -316,10 +372,10 @@ document.getElementById('addInfo').addEventListener('click', () => {
 
 document.getElementById('updInfo').addEventListener('click', () => {
 
-    fetch('/storeNum', { method: 'GET', }).then((responseNum) => { return responseNum.json(); })
+    fetch('/storeNum/show', { method: 'GET', }).then((responseNum) => { return responseNum.json(); })
         .then((responseJson) => { if (responseJson.storeNum == "none/لايوجد") { alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث"); return; } });
 
-    fetch('/storeName', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+    fetch('/storeName/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
         .then((responseJson) => { if (responseJson.storeName == "none/لايوجد") { alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث"); return; } });
 
 
