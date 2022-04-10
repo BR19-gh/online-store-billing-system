@@ -550,7 +550,9 @@ function firstFetch() {
     fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
         .then((responseJson) => {
 
-            document.getElementById(`${responseJson['storeTheme']}`)[0].className = "circleTheme-selected";
+            document.getElementsByClassName("circleTheme-selected")[0].className = "circleTheme";
+
+            document.getElementById(`${responseJson['storeTheme']}`).className = "circleTheme-selected";
 
             console.log('current theme is ' + responseJson['storeTheme'])
         })
