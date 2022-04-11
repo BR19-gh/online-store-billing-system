@@ -42,7 +42,7 @@ function firstFetch() {
                     document.documentElement.style.setProperty('--h1', '#a3a1c2a0');
                     document.documentElement.style.setProperty('--h1OtherScreen', '#a3a1c2d0');
                     document.documentElement.style.setProperty('--form', '#b6b6c4c0');
-                    document.documentElement.style.setProperty('--formHover', '#b6b7c4');
+                    document.documentElement.style.setProperty('--formHover', '#acaec5');
                     document.documentElement.style.setProperty('--input', '#85858f');
                     document.documentElement.style.setProperty('--inputHover', '#8889ac');
                     document.documentElement.style.setProperty('--inputFocus', '#8783b1');
