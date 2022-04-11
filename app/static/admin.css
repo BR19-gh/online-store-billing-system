@@ -143,6 +143,7 @@ button.btn.btn-outline-secondary.dropdown-toggle {
     border-radius: 100%;
     border: var(--borders) 1px solid;
     margin: 5px;
+    cursor: pointer;
 }
 
 .circleTheme-selected {
