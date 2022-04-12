@@ -1,4 +1,5 @@
 
+[New 2.0v Update Available !!!](#update_2.0v)
   
 
 # Online Store Billing System
@@ -165,13 +166,13 @@ flask run
   
   
 
-### API Reference
+## API Reference
 
   
 
   
 
-#### Getting Started
+### Getting Started
 
   
 
@@ -192,7 +193,7 @@ flask run
 
   
 
-#### <div id="Error">Error Handling and Status Codes</div>
+### <div id="Error">Error Handling and Status Codes</div>
 
   
 
@@ -299,7 +300,7 @@ Other errors and status codes are returned as JSON in the following format:
 
   
 
-#### API Endpoints
+### API Endpoints
 
   
   
@@ -1259,7 +1260,7 @@ and if there's no name for the store it will return:
 
 <hr>
 
-### Frontend
+## Frontend
 There are 8 `HTML` files in `app/templates` folder 5 of them are pages for [Error Handling and Status Codes](#error-handling-and-status-codes) and the other 3 is the main pages with 3 `CSS` files and 3 `JavaScript` files:
 - main.html
 	- in this page, all products which been added by admin will be shown to the customer:
@@ -1289,3 +1290,10 @@ There are 8 `HTML` files in `app/templates` folder 5 of them are pages for [Erro
 - Below are some error pages that will be shown to the user:
 ![err404.html](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/err404.png "cc: Error404: Page you're looking for doesn't exits")
 ![err401](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/err401.png "cc: Error401: Unauthrized access")
+
+
+## Updates
+### Update 2.0v
+Now the store owner can change the store theme! 
+There are 5 themes for now (red, blue, grey, green and original -yellow-):
+![Themes Section](https://raw.githubusercontent.com/BR19-gh/online-store-billing-system/master/imgs%20for%20github/themes.jpg"theme")
