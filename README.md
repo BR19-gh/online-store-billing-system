@@ -14,7 +14,7 @@ A full-stack online store model that gives the store owner the ability to add pr
 
   
 
-The application is deployed on Heroku and can be accessed at <br>  [b19-onlinestore.herokuapp.com](https://br19-onlinestore.herokuapp.com)
+The application is deployed on Heroku and can be accessed at <br> [br19-onlinestore.herokuapp.com](https://br19-onlinestore.herokuapp.com)
 
   
 
