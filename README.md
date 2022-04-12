@@ -1,5 +1,5 @@
 
-[New 2.0v Update Available !!!](#update_2.0v)
+[New 2.0v Update Available !!!](#update-20v)
   
 
 # Online Store Billing System
