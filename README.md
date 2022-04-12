@@ -1295,6 +1295,6 @@ There are 8 `HTML` files in `app/templates` folder 5 of them are pages for [Erro
 ## Updates
 ### Update 2.0v
 Now the store owner can change the store theme! 
-There are 5 themes for now (red, blue, grey, green and original "yellow"):
+There are 5 themes for now (red 🔴, blue 🔵, grey ⚫⚪, green 🟢 and original "yellow" 🟡):
 
 ![Themes Section](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/themes.jpg "cc: store theme")
