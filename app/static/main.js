@@ -333,8 +333,8 @@ function firstFetch() {
                     document.documentElement.style.setProperty('--borders', '#85868f');
                     document.documentElement.style.setProperty('--btns', '#bdbef5');
                     document.documentElement.style.setProperty('--btnsHover', '#9796bb');
-                    document.documentElement.style.setProperty('--container', '#6583dfc0');
-                    document.documentElement.style.setProperty('--containerHover', '#6583dfa0');
+                    document.documentElement.style.setProperty('--container', '#4169E1c0');
+                    document.documentElement.style.setProperty('--containerHover', '#4169E1a0');
                     document.documentElement.style.setProperty('--h1', '#a3a1c2a0');
                     document.documentElement.style.setProperty('--h1OtherScreen', '#a3a1c2d0');
                     document.documentElement.style.setProperty('--form', '#b6b6c4c0');
@@ -383,23 +383,23 @@ function firstFetch() {
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#796464');
                     document.documentElement.style.setProperty('--infoCard', '#d4ababa8');
                 } else {
-                    document.documentElement.style.setProperty('--body', '#464646');
-                    document.documentElement.style.setProperty('--borders', '#111111');
-                    document.documentElement.style.setProperty('--btns', '#7A7A7A');
-                    document.documentElement.style.setProperty('--btnsHover', '#5c5c5c');
-                    document.documentElement.style.setProperty('--container', '#404040c0');
-                    document.documentElement.style.setProperty('--containerHover', '#404040a0');
-                    document.documentElement.style.setProperty('--h1', '#232323a0');
-                    document.documentElement.style.setProperty('--h1OtherScreen', '#232323d0');
-                    document.documentElement.style.setProperty('--form', '#343434c0');
-                    document.documentElement.style.setProperty('--formHover', '#343434');
-                    document.documentElement.style.setProperty('--input', '#8e8e8e');
-                    document.documentElement.style.setProperty('--inputHover', '#aaaaaa');
-                    document.documentElement.style.setProperty('--inputFocus', '#bbbbbb');
-                    document.documentElement.style.setProperty('--webkitScrollbarTrack', '#bfbfbfc0');
-                    document.documentElement.style.setProperty('--webkitScrollbarThumb', '#949494');
-                    document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#7a7a7a');
-                    document.documentElement.style.setProperty('--infoCard', '#d6d6d6a8');
+                    document.documentElement.style.setProperty('--body', '#bbc0c6');
+                    document.documentElement.style.setProperty('--borders', '#888888');
+                    document.documentElement.style.setProperty('--btns', '#a7aaad');
+                    document.documentElement.style.setProperty('--btnsHover', '#94979b');
+                    document.documentElement.style.setProperty('--container', '#838690c0');
+                    document.documentElement.style.setProperty('--containerHover', '#838690a0');
+                    document.documentElement.style.setProperty('--h1', '#c2c2c2a0');
+                    document.documentElement.style.setProperty('--h1OtherScreen', '#c2c2c2d0');
+                    document.documentElement.style.setProperty('--form', '#cdcdcec0');
+                    document.documentElement.style.setProperty('--formHover', '#cdcdce');
+                    document.documentElement.style.setProperty('--input', '#8a8a8a');
+                    document.documentElement.style.setProperty('--inputHover', '#a9a9a9');
+                    document.documentElement.style.setProperty('--inputFocus', '#aeaeae');
+                    document.documentElement.style.setProperty('--webkitScrollbarTrack', '#b6b6c4c0');
+                    document.documentElement.style.setProperty('--webkitScrollbarThumb', '#969696');
+                    document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#727272');
+                    document.documentElement.style.setProperty('--infoCard', '#d1d1d1a8');
                 }
 
 
