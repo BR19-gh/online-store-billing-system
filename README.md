@@ -1258,7 +1258,187 @@ and if there's no name for the store it will return:
 
 ```
 
+
+
 <hr>
+
+
+##### POST'/storeTheme'
+
+- This route will add a name for the store in the database using the following body:
+
+  
+
+```json
+
+{
+
+"storeTheme":"value"
+
+}
+
+```
+
+  
+
+, and returns if success:
+
+```json
+
+{
+
+"msg": "Success 201: storeTheme:{storeTheme} is recorded, the storeTheme matches {(newObj.search())[0]}",
+
+"statCode": 201
+
+}
+
+```
+
+or some forms of JSON if fails according to the error, like if an unknown error happens:
+
+```json
+
+{
+
+"msg": "Unkown Error 500: storeTheme:{storeTheme} was not recorded, the storeTheme doesn't match {(newObj.search())[0]}",
+
+"statCode": 500
+
+}
+
+```
+
+  
+
+
+<hr>
+
+  
+
+##### PUT'/storeTheme/'
+
+- This route will update the name of the store in the database using the following body:
+
+
+```json
+
+{
+
+"storeTheme":"value"
+
+}
+
+```
+
+  
+
+and returns if success:
+
+```json
+
+{
+
+"msg":"Success 200: storeTheme:{storeTheme} is updated, old data:{result}, new data:{newObj.search()}",
+
+"statCode": 200
+
+}
+
+```
+
+or some forms JSON if fails according to the error, like if the id was not found:
+
+```json
+
+{
+
+"msg": "Error 404: storeTheme:{storeTheme} was not updated because it didn't have a record before (maybe first time adding?) ",
+
+"statCode": 404
+
+}
+
+```
+
+<hr>
+  
+
+##### DELETE'/storeTheme/'
+
+- This route will delete the name of the store in the database:
+
+  
+
+```json
+
+{
+
+"storeTheme":"value"
+
+}
+
+```
+
+  
+
+, and returns if success:
+
+```json
+
+{
+
+"msg": "Success 204: store name is deleted successfully", "statCode": 204}
+
+```
+
+or some forms JSON if fails according to the error, like if the name was not found:
+
+```json
+
+{
+
+"msg": "Error 404: storeTheme:{result} was not found, it may not exist",
+
+"statCode": 404
+
+}
+
+```
+
+<hr>
+  
+
+##### GET'/storeTheme/show'
+
+- This route will return the store name as:
+
+  
+
+```json
+
+{
+
+"storeTheme":"value"
+
+}
+
+```
+
+and if there's no name for the store it will return:
+
+```json
+
+{
+
+"storeTheme":"none/لايوجد"
+
+}
+
+```
+
+<hr>
+
 
 ## Frontend
 There are 8 `HTML` files in `app/templates` folder 5 of them are pages for [Error Handling and Status Codes](#error-handling-and-status-codes) and the other 3 is the main pages with 3 `CSS` files and 3 `JavaScript` files:
