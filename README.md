@@ -1246,7 +1246,7 @@ or some form of JSON if fails according to the error, like if the number was not
 
 ```
 
-and if there's no name for the store it will return:
+and if there's no number for the store it will return:
 
 ```json
 
@@ -1265,7 +1265,7 @@ and if there's no name for the store it will return:
 
 ##### POST'/storeTheme'
 
-- This route will add a name for the store in the database using the following body:
+- This route will add a theme for the store in the database using the following body:
 
   
 
@@ -1318,7 +1318,7 @@ or some forms of JSON if fails according to the error, like if an unknown error 
 
 ##### PUT'/storeTheme/'
 
-- This route will update the name of the store in the database using the following body:
+- This route will update the theme of the store in the database using the following body:
 
 
 ```json
@@ -1366,7 +1366,7 @@ or some forms JSON if fails according to the error, like if the id was not found
 
 ##### DELETE'/storeTheme/'
 
-- This route will delete the name of the store in the database:
+- This route will delete the theme of the store in the database:
 
   
 
@@ -1411,7 +1411,7 @@ or some forms JSON if fails according to the error, like if the name was not fou
 
 ##### GET'/storeTheme/show'
 
-- This route will return the store name as:
+- This route will return the store theme as:
 
   
 
@@ -1425,7 +1425,7 @@ or some forms JSON if fails according to the error, like if the name was not fou
 
 ```
 
-and if there's no name for the store it will return:
+and if there's no theme selected for the store it will return:
 
 ```json
 
