@@ -52,29 +52,31 @@
 
 
 
+
+
+    <script>
+        function startSpinner() {
+            var myVar = setTimeout(showPage, 500);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("container").style.display = "block";
+        }
+    </script>
+
+    <style>
+        .spinner-border {
+            width: 6rem;
+            height: 6rem;
+            border: 1em solid currentColor;
+            border-right-color: transparent;
+            margin-top: 300px;
+            z-index: 100;
+        }
+    </style>
+
 </body>
-
-<script>
-    function startSpinner() {
-        var myVar = setTimeout(showPage, 500);
-    }
-
-    function showPage() {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("container").style.display = "block";
-    }
-</script>
-
-<style>
-    .spinner-border {
-        width: 6rem;
-        height: 6rem;
-        border: 1em solid currentColor;
-        border-right-color: transparent;
-        margin-top: 300px;
-        z-index: 100;
-    }
-</style>
 
 
 <script>
