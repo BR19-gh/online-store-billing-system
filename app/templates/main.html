@@ -132,17 +132,8 @@
             }
         </style>
         <script type="module">
-            import * as fetchThemes from '../static/themesFetch.js';
-            fetchThemes();
-
-            function startSpinner() {
-                var myVar = setTimeout(showPage, 1000);
-            }
-
-            function showPage() {
-                document.getElementById("loader").style.display = "none";
-                document.getElementsByClassName("container")[0].style.display = "block";
-            }
+            import { fetchThemes } from '../static/themesFetch.js'; fetchThemes(); function startSpinner() { var myVar = setTimeout(showPage, 1000); } function showPage() { document.getElementById("loader").style.display = "none"; document.getElementsByClassName("container")[0].style.display
+            = "block"; }
         </script>
 
 </body>
