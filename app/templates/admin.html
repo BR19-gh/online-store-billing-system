@@ -10,15 +10,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7882c25953.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../static/admin.css">
 
@@ -37,11 +33,9 @@
 
     <div class="container">
         <h1 id="headerOfPruds">
-            <div id="productsPageIcon" title="صفحة المنتجات" onclick="location.assign('/main')"><i
-                    class="fas fa-apple-alt"></i></div>
+            <div id="productsPageIcon" title="صفحة المنتجات" onclick="location.assign('/main')"><i class="fas fa-apple-alt"></i></div>
             <div id="title">لوحة إدارة المتجر</div>
-            <div id="loginPageIcon" title="تسجيل الخروج" onclick="location.assign('/login')"><i
-                    class="fas fa-power-off"></i></div>
+            <div id="loginPageIcon" title="تسجيل الخروج" onclick="location.assign('/login')"><i class="fas fa-power-off"></i></div>
         </h1>
 
 
@@ -69,17 +63,14 @@
                         <div class="dashboardTitles">لوحة التخصيصات</div>
                         <h5 class="card-title">
                             <label for="productIDLabel" id="productIDLabel">اسم المتجر</label><br>
-                            <input style="direction: rtl;" type="text" id="storeName"
-                                placeholder="ليظهر في صفحة المنتجات"><br>
+                            <input style="direction: rtl;" type="text" id="storeName" placeholder="ليظهر في صفحة المنتجات"><br>
                             <label for="productIDLabel" id="productIDLabel">رقم الواتساب</label><br>
                             <div class="input-group mb-3">
-                                <button id="countryCodeTitle" class="btn btn-outline-secondary dropdown-toggle"
-                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">الدولة</button>
+                                <button id="countryCodeTitle" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">الدولة</button>
                                 <ul id="listOfCountriesCodes" class="dropdown-menu">
                                     حدثت مشكلة في التحميل الرجاء الإنتظار حتى حل المشكلة
                                 </ul>
-                                <input style="direction: rtl;" type="tel" placeholder="بدون كتابة أول صفر" id="storeNum"
-                                    aria-label="Text input with dropdown button" maxlength="9">
+                                <input style="direction: rtl;" type="tel" placeholder="بدون كتابة أول صفر" id="storeNum" aria-label="Text input with dropdown button" maxlength="9">
                             </div>
 
                         </h5>
@@ -99,13 +90,13 @@
                         <div class="circleTheme" id="blueTheme" style="background-color: #4169E1;"></div>
                         <div class="circleTheme" id="greenTheme" style="background-color: #097969;"></div>
                         <div class="circleTheme" id="redTheme" style="background-color: #AA4A44;"></div>
+                        <div class="circleTheme" id="pinkTheme" style="background-color: #ad5498;"></div>
                         <div class="circleTheme" id="greyTheme" style="background-color: #676767;"></div>
 
 
                     </div>
                     <ul id="infoList" style="direction: rtl;" class="list-group list-group-flush">
-                        <div id="name">سيظهرا إسم المتجر ورقمه عند إضافتهما، أو حدث الصفحة إذا كنت تعتقد ثم إنتظر قليلا
-                            أنك قد أضفتهما بالفعل</div>
+                        <div id="name">سيظهرا إسم المتجر ورقمه عند إضافتهما، أو حدث الصفحة إذا كنت تعتقد ثم إنتظر قليلا أنك قد أضفتهما بالفعل</div>
                         <div id="num"></div>
                     </ul>
                 </div>
@@ -119,14 +110,11 @@
                     <div class="dashboardTitles">لوحة المنتجات</div>
                     <h5 class="card-title">
                         <label for="productIDLabel" id="productIDLabel">الرقم التعريفي للمنتج</label>
-                        <input style="direction: rtl;" type="text" id="productID"
-                            placeholder="لحذف المنتج أو تحديثه لاحقا">
+                        <input style="direction: rtl;" type="text" id="productID" placeholder="لحذف المنتج أو تحديثه لاحقا">
                         <label for="productTitleLabel" id="productTitleLabel">عنوان المنتج</label>
-                        <input style="direction: rtl;" type="text" id="productTitle"
-                            placeholder="العنوان الذي سيقرأه العملاء">
+                        <input style="direction: rtl;" type="text" id="productTitle" placeholder="العنوان الذي سيقرأه العملاء">
                         <label for="productPriceLabel" id="productPriceLabel">سعر المنتج</label>
-                        <input style="direction: rtl;" style="direction: rtl;" type="text" id="productPrice"
-                            placeholder="سعر المنتج رقما">
+                        <input style="direction: rtl;" style="direction: rtl;" type="text" id="productPrice" placeholder="سعر المنتج رقما">
                         <label for="productImg">صورة للمنتج:</label>
                         <input name="productImg" id="productImg" type="file" accept="image/*">
                     </h5>
@@ -137,8 +125,7 @@
                     <div id="updProd" class="addToCartBtn"><a class="card-link">تحديث</a></div>
                     <div id="delProd" class="addToCartBtn"><a class="card-link">حــذف</a></div>
                 </div>
-                <ul id="productsList" style="direction: rtl; display: inline-block;"
-                    class="list-group list-group-flush">
+                <ul id="productsList" style="direction: rtl; display: inline-block;" class="list-group list-group-flush">
                     لا يوجد منتجات مضافة حتى الآن، أو حدث الصفحة ثم إنتظر قليلا إذا كنت تعتقد أنك قد أضفت بالفعل
                 </ul>
             </div>
@@ -149,11 +136,9 @@
                     <div class="dashboardTitles">لوحة الأكواد الترويجية</div>
                     <h5 class="card-title">
                         <label for="codeIDLabel" id="codeIDLabel">الرقم التعريفي للكود</label>
-                        <input style="direction: rtl;" style="direction: rtl;" type="text" id="codeID"
-                            placeholder="لحذف الكود أو تحديثه لاحقا">
+                        <input style="direction: rtl;" style="direction: rtl;" type="text" id="codeID" placeholder="لحذف الكود أو تحديثه لاحقا">
                         <label for="codeNameLabel" id="codeNameLabel">اسم الكود</label>
-                        <input style="direction: rtl;" style="direction: rtl;" type="text" id="codeName"
-                            placeholder="سيستخدمه العملاء للاستفادة من الكود">
+                        <input style="direction: rtl;" style="direction: rtl;" type="text" id="codeName" placeholder="سيستخدمه العملاء للاستفادة من الكود">
                         <label for="codeAmountLabel" id="codeAmountLabel">نسبة التخفيض</label>
                         <input style="direction: rtl;" type="text" id="codeAmount" placeholder="بدون كتابة %">
                     </h5>
@@ -186,6 +171,9 @@
             }
         </style>
         <script>
+            import * as fetchThemes from '../static/themesFetch.js';
+            fetchThemes();
+
             function startSpinner() {
                 var myVar = setTimeout(showPage, 1000);
             }
