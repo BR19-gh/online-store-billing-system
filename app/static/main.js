@@ -120,7 +120,7 @@ function firstFetch() {
             </li>
         </ul>
         <div style="direction: rtl;" class="card-body">
-            <div><a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a><br><br>${i+1}</div>
+            <div><a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a><br><br>${i + 1}</div>
         </div>
     </div>
 `
@@ -271,7 +271,7 @@ function firstFetch() {
                                         personalInfo['name'] = document.getElementById('personalInfoName').value.replace(/\s/gi, "%20");
                                         personalInfo['numb'] = document.getElementById('personalInfoNumb').value.replace(/\s/gi, "%20");
                                         personalInfo['addr'] = document.getElementById('personalInfoAddr').value.replace(/\s/gi, "%20");
-                                        personalInfo['time'] = (`${'وقت الاستلام: '+date}`).replace(/\s/gi, "%20");
+                                        personalInfo['time'] = (`${'وقت الاستلام: ' + date}`).replace(/\s/gi, "%20");
                                         if (personalInfo['name'] == '' || personalInfo['numb'] == '' || personalInfo['addr'] == '' || personalInfo['time'] == '') {
                                             alert('الرجاء تعبئة كل البيانات الشخصية')
                                             return;
