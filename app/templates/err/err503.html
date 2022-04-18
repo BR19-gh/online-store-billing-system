@@ -21,16 +21,7 @@
 
 </head>
 
-<style>
-    .spinner-border {
-        width: 6rem;
-        height: 6rem;
-        border: 1em solid currentColor;
-        border-right-color: transparent;
-        margin-top: 300px;
-        z-index: 100;
-    }
-</style>
+
 <script>
     function startSpinner() {
         var myVar = setTimeout(showPage, 500);
@@ -41,6 +32,17 @@
         document.getElementById("container").style.display = "block";
     }
 </script>
+
+<style>
+    .spinner-border {
+        width: 6rem;
+        height: 6rem;
+        border: 1em solid currentColor;
+        border-right-color: transparent;
+        margin-top: 300px;
+        z-index: 100;
+    }
+</style>
 <script type="module">
     import { fetchThemes } from '../../static/themesFetch.js'; fetchThemes();
 </script>
