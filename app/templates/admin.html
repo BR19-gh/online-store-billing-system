@@ -20,6 +20,21 @@
 
 
 </head>
+<style>
+    .spinner-border {
+        width: 6rem;
+        height: 6rem;
+        border: 1em solid currentColor;
+        border-right-color: transparent;
+        margin-top: 300px;
+        z-index: 100;
+    }
+</style>
+<script type="module">
+    import { fetchThemes } from '../static/themesFetch.js'; fetchThemes(); function startSpinner() { var myVar = setTimeout(showPage, 1000); } function showPage() { document.getElementById("loader").style.display = "none"; document.getElementsByClassName("container")[0].style.display
+    = "block"; }
+</script>
+
 
 <body onload="startSpinner()">
 
@@ -160,20 +175,6 @@
 
 
 
-        <style>
-            .spinner-border {
-                width: 6rem;
-                height: 6rem;
-                border: 1em solid currentColor;
-                border-right-color: transparent;
-                margin-top: 300px;
-                z-index: 100;
-            }
-        </style>
-        <script type="module">
-            import { fetchThemes } from '../static/themesFetch.js'; fetchThemes(); function startSpinner() { var myVar = setTimeout(showPage, 1000); } function showPage() { document.getElementById("loader").style.display = "none"; document.getElementsByClassName("container")[0].style.display
-            = "block"; }
-        </script>
 
 </body>
 <script src="../static/admin.js"></script>
