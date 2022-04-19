@@ -121,7 +121,7 @@ function firstFetch() {
         </ul>
         <div style="direction: rtl;" class="card-body">
             <div>
-                <a  class="card-link delToCartBtn"><i class="fa-solid fa-trash"></i></a>
+                <a  class="card-link delToCartBtn"><i class="fa-solid fa-trash-can"></i></a>
                 <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
                 <br><br>
                 ${i + 1}
@@ -214,8 +214,10 @@ function firstFetch() {
                                             }
                                             // count for quentity(select)
                                             for (let k = 0; k < valueOfQuentity; k++) {
-                                                cartInfo['titles'].pop(data[`${id}`]['title']);
-                                                cartInfo['prices'].pop(data[`${id}`]['price']);
+
+                                                cartInfo['titles'] = cartInfo['titles'].filter(item => item !== data[`${id}`]['title'])
+                                                cartInfo['prices'] = cartInfo['prices'].filter(item => item !== data[`${id}`]['price'])
+
                                             }
                                             // END
                                             if (cartInfo['prices'] == "") {
