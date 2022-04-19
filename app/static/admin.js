@@ -40,8 +40,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             return;
                         }
                         location.reload();
-                        // fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
-                        //     .then((responseJson) => { console.log('current theme is ' + responseJson['storeTheme']) })
+
                     });
             });
 
@@ -91,8 +90,8 @@ document.getElementById('addProd').addEventListener('click', () => {
                 alert('الرقم التعريفي للمنتج المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
                 return;
             }
-            if (responseJson.statCode == 403) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nمثلا: الرقم التعريفي أُدخل كنص')
+            if (responseJson.statCode == 400) {
+                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط')
                 return;
             }
             if (responseJson.statCode == 500) {
@@ -129,8 +128,8 @@ document.getElementById('updProd').addEventListener('click', () => {
                 alert('الرقم التعريفي للمنتج المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
                 return;
             }
-            if (responseJson.statCode == 403) {
-                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nمثلا: السعر أُدخل كنص')
+            if (responseJson.statCode == 400) {
+                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط')
                 return;
             }
             if (responseJson.statCode == 500) {
@@ -200,8 +199,8 @@ document.getElementById('addCode').addEventListener('click', () => {
                 alert('الرقم التعريفي للكود المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
                 return;
             }
-            if (responseJson.statCode == 403) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nمثلا: الرقم التعريفي أُدخل كنص')
+            if (responseJson.statCode == 400) {
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخلت فيه نص، يجب إدخالها على شكل رقم فقط')
                 return;
             }
             if (responseJson.statCode == 500) {
@@ -239,7 +238,7 @@ document.getElementById('updCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 403) {
-                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nمثلا: النسبة أُدخلت كنص')
+                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nنسبة التخفيض أُدخلت فيه نص، يجب إدخالها على شكل رقم فقط')
                 return;
             }
             if (responseJson.statCode == 500) {
@@ -303,8 +302,8 @@ document.getElementById('addInfo').addEventListener('click', () => {
             .then((response) => {
                 return response.json();
             }).then((responseJson) => {
-                if (responseJson.statCode == 403) {
-                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nمثلا: الرقم أُدخل كنص')
+                if (responseJson['num'].statCode == 400) {
+                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط')
                     return;
                 }
                 location.reload();
@@ -358,8 +357,8 @@ document.getElementById('addInfo').addEventListener('click', () => {
         ]).then(([responseNum, responseName]) => {
             return { num: responseNum.json(), name: responseName.json() };
         }).then((responseJson) => {
-            if (responseJson['num'].statCode == 403) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nمثلا: الرقم أُدخل كنص')
+            if (responseJson['num'].statCode == 400) {
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط')
                 return;
             }
             location.reload();
@@ -397,8 +396,8 @@ document.getElementById('updInfo').addEventListener('click', () => {
             .then((response) => {
                 return response.json();
             }).then((responseJson) => {
-                if (responseJson.statCode == 403) {
-                    alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nمثلا: الرقم أُدخل كنص')
+                if (responseJson['num'].statCode == 400) {
+                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط')
                     return;
                 }
                 location.reload();
@@ -453,8 +452,8 @@ document.getElementById('updInfo').addEventListener('click', () => {
         ]).then(([responseNum, responseName]) => {
             return { num: responseNum.json(), name: responseName.json() };
         }).then((responseJson) => {
-            if (responseJson['num'].statCode == 403) {
-                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nمثلا: الرقم أُدخل كنص')
+            if (responseJson['num'].statCode == 400) {
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط')
                 return;
             }
             location.reload();

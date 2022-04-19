@@ -238,7 +238,7 @@ class StoreNumTable:
         self.conn.close()
 
 
-# routes
+###### routes ######
 
 @app.route("/main")
 @limiter.exempt
@@ -278,7 +278,7 @@ def admin_view():
     return render_template('admin.html')
 
 
-# Backend
+###### Backend ######
 
 def render_picture(data):
 
@@ -674,7 +674,7 @@ def storeNumGet():
     else:
         return jsonify({"storeNum": newObj.search()})
 
-# errors
+###### errors ######
 
 
 @app.errorhandler(429)
@@ -723,4 +723,4 @@ def ratelimit_handler(e):
     return render_template('err/err404.html', msg=msg)
 
 
-# other
+###### other ######
