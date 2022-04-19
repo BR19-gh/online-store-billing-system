@@ -475,7 +475,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 return response.json();
             }).then((responseJson) => {
                 if (responseJson.statCode == 400) {
-                    alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                    alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                     return;
                 }
                 if (responseJson.statCode == 429) {
