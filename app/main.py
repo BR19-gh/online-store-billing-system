@@ -48,15 +48,11 @@ class ProductsTable:
         return self.records
 
     def search(self, id):
-        if (isinstance(id, int) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided id is not integer, or it contains illegal form of characters", "statCode": 400})
         self.cur.execute(f"SELECT * FROM products WHERE id = '{id}'")
         self.record = self.cur.fetchone()
         return self.record
 
     def insert(self, id, title, price, img):
-        if (isinstance(id, int) == False or isinstance(price, int) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided id or price is not integer, or it contains illegal form of characters", "statCode": 400})
         if (id == "" or price == "" or title == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
@@ -65,8 +61,6 @@ class ProductsTable:
         self.conn.commit()
 
     def update(self, id, title, price, img):
-        if (isinstance(id, int) == False or isinstance(price, int) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided id or price is not integer, or it contains illegal form of characters", "statCode": 400})
         self.cur.execute(
             f"UPDATE products SET title = '{title}' WHERE id = '{id}'")
         self.cur.execute(
@@ -76,8 +70,6 @@ class ProductsTable:
         self.conn.commit()
 
     def delete(self, id):
-        if (isinstance(id, int) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided id or price is not integer, or it contains illegal form of characters", "statCode": 400})
         if (id == None):
             raise Exception("You have to select an id to delete its values")
         self.cur.execute(f"DELETE FROM products WHERE id = '{id}'")
@@ -102,15 +94,11 @@ class PromocodesTable:
         return self.records
 
     def search(self, id):
-        if (isinstance(id, int) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided id is not integer, or it contains illegal form of characters", "statCode": 400})
         self.cur.execute(f"SELECT * FROM promocodes WHERE id = '{id}'")
         self.record = self.cur.fetchone()
         return self.record
 
     def insert(self, id, code, amount):
-        if (isinstance(id, int) == False or isinstance(amount, float) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided id is not integer or amount is not float, or it contains illegal form of characters", "statCode": 400})
         if (id == "" or code == "" or amount == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
@@ -119,8 +107,6 @@ class PromocodesTable:
         self.conn.commit()
 
     def update(self, id, code, amount):
-        if (isinstance(id, int) == False or isinstance(amount, float) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided id is not integer or amount is not float, or it contains illegal form of characters", "statCode": 400})
         self.cur.execute(
             f"UPDATE promocodes SET code = '{code}' WHERE id = '{id}'")
         self.cur.execute(
@@ -128,8 +114,6 @@ class PromocodesTable:
         self.conn.commit()
 
     def delete(self, id):
-        if (isinstance(id, int) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided id is not integer, or it contains illegal form of characters", "statCode": 400})
         if (id == None):
             raise Exception("You have to select an id to delete its values")
         self.cur.execute(f"DELETE FROM promocodes WHERE id = '{id}'")
@@ -230,8 +214,6 @@ class StoreNumTable:
         return self.record
 
     def insert(self, storeNum):
-        if (isinstance(storeNum, int) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
         if (storeNum == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
@@ -241,15 +223,11 @@ class StoreNumTable:
         self.conn.commit()
 
     def update(self, storeNum):
-        if (isinstance(storeNum, int) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
         self.cur.execute(
             f"UPDATE storeNums SET storeNum = '{storeNum}'")
         self.conn.commit()
 
     def delete(self, storeNum):
-        if (isinstance(storeNum, int) == False):
-            return jsonify({"msg": f"Bad Request 400: the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
         if (storeNum == None):
             raise Exception("You have to select an id to delete its values")
         self.cur.execute(
@@ -332,7 +310,6 @@ def product(idIn=None):
             if result == None:
                 pass
             else:
-                print("here")
                 return jsonify({"msg": f"Status Code 403: the product_id:{id} exists", "statCode": 403})
         except:
             if (isinstance(id, int) == False):
@@ -364,11 +341,11 @@ def product(idIn=None):
         title = unquote(data['title'])
         price = unquote(data['price'])
 
-        oldPrudRecord = newObj.search(idIn)
         # if imgFilename == '':
         #     imgFilename = 'no image was provided'
 
         try:
+            oldPrudRecord = newObj.search(idIn)
             newObj.update(idIn, title, price, imgFile)
 
             recordSearched = newObj.search(idIn)
@@ -477,9 +454,8 @@ def promocode(idIn=None):
         amount = int(data['amount'])/100
         code = data['code']
 
-        oldPrudRecord = newObj.search(idIn)
-
         try:
+            oldPrudRecord = newObj.search(idIn)
             newObj.update(idIn, code, amount)
 
             recordSearched = newObj.search(idIn)
@@ -550,7 +526,9 @@ def promocodes():
 def storeName():
     print('The ip address: ', get_remote_address())
     newObj = StoreNameTable()
+
     if request.method == 'POST':
+
         data = request.get_json()
         storeName = data['storeName']
 
