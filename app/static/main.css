@@ -379,12 +379,28 @@ div#shoppingCartIcon {
     animation: cartAnimation 0.1s linear;
 }
 
+.cartAnimationDel {
+    animation: cartAnimationDel 0.1s linear;
+}
+
 @keyframes cartAnimation {
     0% {
         font-size: 30px;
     }
     50% {
         font-size: 35px;
+    }
+    100% {
+        font-size: 30px;
+    }
+}
+
+@keyframes cartAnimationDel {
+    0% {
+        font-size: 30px;
+    }
+    50% {
+        font-size: 25px;
     }
     100% {
         font-size: 30px;

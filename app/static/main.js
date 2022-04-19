@@ -120,7 +120,7 @@ function firstFetch() {
             </li>
         </ul>
         <div style="direction: rtl;" class="card-body">
-            <div><a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a><br><br>${i + 1}</div>
+            <div><a  class="card-link delToCartBtn"><i class="fa-solid fa-trash-can"></i></a><a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a><br><br>${i + 1}</div>
         </div>
     </div>
 `
@@ -156,6 +156,61 @@ function firstFetch() {
                                             for (let k = 0; k < valueOfQuentity; k++) {
                                                 cartInfo['titles'].push(data[`${id}`]['title']);
                                                 cartInfo['prices'].push(data[`${id}`]['price']);
+                                            }
+                                            // END
+                                            let sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)) // sum all price array elements
+                                            let sumOfTitles = '';
+                                            let countsSumOfTitles = {};
+                                            cartInfo['titles'].forEach(function(x) { countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1; });
+                                            for (let j = 0; j < Object.keys(countsSumOfTitles).length; j++) {
+                                                sumOfTitles = sumOfTitles.concat(`المنتج:<b>${Object.keys(countsSumOfTitles)[j]}</b>، الكمية:<b>${Number(Object.values(countsSumOfTitles)[j])}</b> <br>`);
+                                            }
+                                            document.getElementById('groupOfTitles').innerHTML = `${sumOfTitles}`;;
+                                            document.getElementById('groupOfPrices').innerText = `المجموع: ${sumOfPrices} ﷼`
+                                                // to allow to enter promo code again
+                                            if (firstPassCart == 1) {
+                                                priceBeforeDiscount = Number(sumOfPrices);
+                                            }
+                                            // END
+                                            shoppingCartIcon = document.getElementById('shoppingCartIcon')
+                                            shoppingCartIcon.classList.add("cartAnimation");
+                                            setTimeout(() => {
+                                                shoppingCartIcon.classList.remove("cartAnimation");
+                                            }, 100);
+                                            // END
+                                        });
+                                    }
+                                    var allButtons = document.querySelectorAll('a.delToCartBtn');
+                                    console.log("Found", allButtons.length, 'a which class:"delToCartBtn".');
+                                    for (var i = 0; i < allButtons.length; i++) {
+                                        allButtons[i].addEventListener('click', function() {
+                                            // to allow to enter promo code again
+                                            if (firstPassCart == 1) {
+                                                beforeDiscount = undefined;
+                                                thereIsApastDiscount = true;
+                                                document.getElementsByClassName('submitCode')[0].classList.remove('submitCodeDisabled')
+                                                document.getElementsByClassName('submitCode')[0].classList.add('submitCodeEnabled')
+                                            }
+                                            // END
+                                            // to know prud id, and its quentity
+                                            let content = this.parentElement.innerHTML;
+                                            content = content.split("<br><br>");
+                                            id = content[1];
+                                            console.log("You clicked:", id);
+                                            id--;
+                                            let valueOfQuentity = Number(document.getElementById(`quentity-${id}`).value);
+                                            if (isNaN(valueOfQuentity) == true) {
+                                                valueOfQuentity = false;
+                                            }
+                                            // END
+                                            // to put titles and prices in cart
+                                            if (valueOfQuentity == false) {
+                                                valueOfQuentity = 1;
+                                            }
+                                            // count for quentity(select)
+                                            for (let k = 0; k < valueOfQuentity; k++) {
+                                                cartInfo['titles'].pop(data[`${id}`]['title']);
+                                                cartInfo['prices'].pop(data[`${id}`]['price']);
                                             }
                                             // END
                                             let sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)) // sum all price array elements
