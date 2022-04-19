@@ -321,7 +321,7 @@ def product(idIn=None):
             if (recordSearched[0] == int(id)):
                 return jsonify({"msg": f"Success 201: product_id:{id} is recorded, the id matches {(newObj.search(id))[0]}", "statCode": 201})
         except:
-            if (isinstance(int(id), int) == False or isinstance(int(price), int) == False):
+            if (isinstance(id, int) == False or isinstance(price, int) == False):
                 return jsonify({"msg": f"Bad Request 400: product was not added, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
             else:
                 return jsonify({"msg": f"Unkown Error 500: product_id:{id} was not recorded, the id doesn't match {(newObj.search(id))[0]}", "statCode": 500})
@@ -350,7 +350,7 @@ def product(idIn=None):
             elif (recordSearched[0] == idIn):
                 return jsonify({"msg": f"Success 200: product_idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
         except:
-            if (isinstance(int(idIn), int) == False or isinstance(int(price), int) == False):
+            if (isinstance(idIn, int) == False or isinstance(price, int) == False):
                 return jsonify({"msg": f"Bad Request 400: product was not updated, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
             else:
                 return jsonify({"msg": f"Unkown Error 500: product_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 500})
@@ -426,7 +426,7 @@ def promocode(idIn=None):
             if (recordSearched[0] == int(id)):
                 return jsonify({"msg": f"Success 201: code_id:{id} is recorded, the id matches {(newObj.search(id))[0]}", "statCode": 201})
         except:
-            if (isinstance(int(id), int) == False or isinstance(amount, float) == False):
+            if (isinstance(id, int) == False or isinstance(amount, float) == False):
                 return jsonify({"msg": f"Bad Request 400: code was not added, even the provided id or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
             else:
                 return jsonify({"msg": f"Unkown Error 500: code_id:{id} was not recorded, the id doesn't match {(newObj.search(id))[0]}", "statCode": 500})
@@ -448,7 +448,7 @@ def promocode(idIn=None):
             elif (recordSearched[0] == idIn):
                 return jsonify({"msg": f"Success 200: code_idIn::{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
         except:
-            if (isinstance(int(idIn), int) == False or isinstance(amount, float) == False):
+            if (isinstance(idIn, int) == False or isinstance(amount, float) == False):
                 return jsonify({"msg": f"Bad Request 400: code was not updated, even the provided idIn or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
             else:
                 return jsonify({"msg": f"Unkown Error 500: code_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 500})
@@ -639,7 +639,7 @@ def storeNum():
             if (int(recordSearched[0]) == (storeNum)):
                 return jsonify({"msg": f"Success 201: storeNum:{storeNum} is recorded, the storeNum matches {(newObj.search())[0]}", "statCode": 201})
         except:
-            if (isinstance(int(storeNum), int) == False):
+            if (isinstance(storeNum, int) == False):
                 return jsonify({"msg": f"Bad Request 400: storeNum was not added, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
             else:
                 return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not recorded, the storeNum doesn't match {(newObj.search())[0]}", "statCode": 500})
@@ -658,7 +658,7 @@ def storeNum():
             elif (int(recordSearched[0]) == int(storeNum)):
                 return jsonify({"msg": f"Success 200: storeNum:{storeNum} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
         except:
-            if (isinstance(int(storeNum), int) == False):
+            if (isinstance(storeNum, int) == False):
                 return jsonify({"msg": f"Bad Request 400: storeNum was not updated, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
             else:
                 return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not updated, old data:{result}, new data:{newObj.search()}", "statCode": 500})
