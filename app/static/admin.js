@@ -74,6 +74,13 @@ document.getElementById('addProd').addEventListener('click', () => {
     let productImg = document.getElementById('productImg');
     let uploadImgForm = new FormData();
     uploadImgForm.append('image', productImg.files[0]);
+    if (document.getElementById('productID').value == '' ||
+        document.getElementById('productTitle').value == '' ||
+        document.getElementById('productPrice').value == '' ||
+        document.getElementById('productImg').value == '') {
+        alert('يجب ملئ جميع الخانات أولا');
+        return;
+    }
     fetch('/product', {
             headers: {
                 'id': encodeURIComponent(document.getElementById('productID').value),
@@ -98,13 +105,7 @@ document.getElementById('addProd').addEventListener('click', () => {
                 alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
-            if (document.getElementById('productID').value == '' ||
-                document.getElementById('productTitle').value == '' ||
-                document.getElementById('productPrice').value == '' ||
-                document.getElementById('productImg').value == '') {
-                alert('يجب ملئ جميع الخانات أولا');
-                return;
-            }
+
             location.reload();
         });
 });
@@ -113,6 +114,13 @@ document.getElementById('updProd').addEventListener('click', () => {
     let productImg = document.getElementById('productImg');
     let uploadImgForm = new FormData();
     uploadImgForm.append('image', productImg.files[0]);
+    if (document.getElementById('productID').value == '' ||
+        document.getElementById('productTitle').value == '' ||
+        document.getElementById('productPrice').value == '' ||
+        document.getElementById('productImg').value == '') {
+        alert('يجب ملئ جميع الخانات أولا');
+        return;
+    }
     fetch(`/product/${document.getElementById('productID').value}`, {
             headers: {
                 'title': encodeURIComponent(document.getElementById('productTitle').value),
@@ -136,13 +144,7 @@ document.getElementById('updProd').addEventListener('click', () => {
                 alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
-            if (document.getElementById('productID').value == '' ||
-                document.getElementById('productTitle').value == '' ||
-                document.getElementById('productPrice').value == '' ||
-                document.getElementById('productImg').value == '') {
-                alert('يجب ملئ جميع الخانات أولا');
-                return;
-            }
+
             location.reload();
         });
 });
@@ -178,6 +180,11 @@ document.getElementById('delProd').addEventListener('click', () => {
 });
 
 document.getElementById('addCode').addEventListener('click', () => {
+    if (document.getElementById('codeID').value == '' ||
+        document.getElementById('codeName').value == '' ||
+        document.getElementById('codeAmount').value == '') {
+        return;
+    }
     fetch('/promocode', {
             headers: {
 
@@ -207,16 +214,17 @@ document.getElementById('addCode').addEventListener('click', () => {
                 alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
-            if (document.getElementById('codeID').value == '' ||
-                document.getElementById('codeName').value == '' ||
-                document.getElementById('codeAmount').value == '') {
-                return;
-            }
+
             location.reload();
         });
 });
 
 document.getElementById('updCode').addEventListener('click', () => {
+    if (document.getElementById('codeID').value == '' ||
+        document.getElementById('codeName').value == '' ||
+        document.getElementById('codeAmount').value == '') {
+        return;
+    }
     fetch(`/promocode/${document.getElementById('codeID').value}`, {
             headers: {
 
@@ -245,11 +253,7 @@ document.getElementById('updCode').addEventListener('click', () => {
                 alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
-            if (document.getElementById('codeID').value == '' ||
-                document.getElementById('codeName').value == '' ||
-                document.getElementById('codeAmount').value == '') {
-                return;
-            }
+
             location.reload();
         });
 });
