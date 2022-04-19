@@ -23,9 +23,9 @@
 
 
 
-<!-- <script type="module">
+<script type="module">
     import { fetchThemes } from '../static/themesFetch.js'; fetchThemes();
-</script> -->
+</script>
 
 
 <body onload="startSpinner()">
@@ -177,17 +177,14 @@
                 z-index: 100;
             }
         </style>
-
-
-
         <script>
             function startSpinner() {
-                var myVar = setTimeout(showPage, 500);
+                var myVar = setTimeout(showPage, 1000);
             }
 
             function showPage() {
                 document.getElementById("loader").style.display = "none";
-                document.getElementById("container").style.display = "block";
+                document.getElementsByClassName("container")[0].style.display = "block";
             }
         </script>
 
