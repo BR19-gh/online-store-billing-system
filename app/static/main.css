@@ -383,6 +383,10 @@ div#shoppingCartIcon {
     animation: cartAnimationDel 0.1s linear;
 }
 
+.cartAnimationDelFin {
+    animation: cartAnimationDel 0.1s linear;
+}
+
 @keyframes cartAnimation {
     0% {
         font-size: 30px;
@@ -404,5 +408,24 @@ div#shoppingCartIcon {
     }
     100% {
         font-size: 30px;
+    }
+}
+
+@keyframes cartAnimationDelFin {
+    0% {
+        font-size: 30px;
+        transform: rotate(0deg);
+    }
+    25% {
+        font-size: 25px;
+        transform: rotate(45deg);
+    }
+    50% {
+        font-size: 25px;
+        transform: rotate(-45deg);
+    }
+    100% {
+        font-size: 30px;
+        transform: rotate(0deg);
     }
 }

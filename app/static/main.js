@@ -219,6 +219,13 @@ function firstFetch() {
                                             }
                                             // END
                                             if (cartInfo['prices'] == "") {
+
+                                                shoppingCartIcon = document.getElementById('shoppingCartIcon')
+                                                shoppingCartIcon.classList.add("cartAnimationDelFin");
+                                                setTimeout(() => {
+                                                    shoppingCartIcon.classList.remove("cartAnimationDelFin");
+                                                }, 100);
+
                                                 document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
                                                 document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
                                                 return;
