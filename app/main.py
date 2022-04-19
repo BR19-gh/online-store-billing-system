@@ -424,7 +424,10 @@ def promocode(idIn=None):
         data = request.get_json()
         id = data['id']
         code = data['code']
-        amount = int(data['amount'])/100
+        try:
+            amount = int(data['amount'])/100
+        except:
+            return jsonify({"msg": f"Bad Request 400: code was not added, even the provided amount is not float, or it contains illegal form of characters", "statCode": 400})
 
         try:
             result = newObj.search(id)
@@ -451,8 +454,11 @@ def promocode(idIn=None):
     elif request.method == 'PUT':
 
         data = request.get_json()
-        amount = int(data['amount'])/100
         code = data['code']
+        try:
+            amount = int(data['amount'])/100
+        except:
+            return jsonify({"msg": f"Bad Request 400: code was not added, even the provided amount is not float, or it contains illegal form of characters", "statCode": 400})
 
         try:
             oldPrudRecord = newObj.search(idIn)
