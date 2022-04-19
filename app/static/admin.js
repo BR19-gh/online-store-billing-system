@@ -211,7 +211,7 @@ document.getElementById('addCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخلت فيه نص، يجب إدخالها على شكل رقم فقط')
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط')
                 return;
             }
             if (responseJson.statCode == 500) {
