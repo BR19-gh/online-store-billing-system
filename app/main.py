@@ -582,7 +582,7 @@ def storeName():
         else:
             return jsonify({"msg": f"Error 500: failed to delete storeName:{result}, storeName:{result} still exists", "statCode": 500})
     else:
-        print(2)
+        
         abort(405)
 
 
@@ -645,7 +645,7 @@ def storeTheme():
         else:
             return jsonify({"msg": f"Error 500: failed to delete storeTheme:{result}, storeTheme:{result} still exists", "statCode": 500})
     else:
-        print(2)
+        
         abort(405)
 
 
@@ -715,7 +715,7 @@ def storeNum():
         else:
             return jsonify({"msg": f"Error 500: failed to delete storeNum:{result}, storeNum:{result} still exists", "statCode": 500})
     else:
-        print(2)
+        
         abort(405)
 
 
