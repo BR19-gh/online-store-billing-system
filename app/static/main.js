@@ -121,7 +121,7 @@ function firstFetch() {
         </ul>
         <div style="direction: rtl;" class="card-body">
             <div>
-                <a  class="card-link delToCartBtn">حذف <i class="fa-solid fa-trash-can"></i></a>
+                <a  class="card-link delToCartBtn"><i class="fas fa-trash-alt"></i></a>
                 <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
                 <br><br>
                 ${i + 1}
