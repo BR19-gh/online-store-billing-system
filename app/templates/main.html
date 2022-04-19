@@ -131,17 +131,6 @@
 
 
 
-        <script>
-            function startSpinner() {
-                var myVar = setTimeout(showPage, 500);
-            }
-
-            function showPage() {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("container").style.display = "block";
-            }
-        </script>
-
         <style>
             .spinner-border {
                 width: 6rem;
@@ -152,6 +141,16 @@
                 z-index: 100;
             }
         </style>
+        <script>
+            function startSpinner() {
+                var myVar = setTimeout(showPage, 1000);
+            }
+
+            function showPage() {
+                document.getElementById("loader").style.display = "none";
+                document.getElementsByClassName("container")[0].style.display = "block";
+            }
+        </script>
 
 </body>
 
