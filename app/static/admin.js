@@ -36,7 +36,11 @@ for (var i = 0; i < themeBtns.length; i++) {
                         return response.json();
                     }).then((responseJson) => {
                         if (responseJson.statCode == 403) {
-                            alert('حدث خطأ في ' + method + '.')
+                            alert('حدث خطأ في ' + method + '. \n\n ErrCode: 403 : رمز الخطأ')
+                            return;
+                        }
+                        if (responseJson.statCode == 429) {
+                            alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                             return;
                         }
                         location.reload();
@@ -94,15 +98,19 @@ document.getElementById('addProd').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 403) {
-                alert('الرقم التعريفي للمنتج المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
+                alert('الرقم التعريفي للمنتج المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط')
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
 
@@ -133,15 +141,19 @@ document.getElementById('updProd').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 404) {
-                alert('الرقم التعريفي للمنتج المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
+                alert('الرقم التعريفي للمنتج المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط')
+                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
 
@@ -164,15 +176,19 @@ document.getElementById('delProd').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 404) {
-                alert('الرقم التعريفي للمنتج المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
+                alert('الرقم التعريفي للمنتج المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشل الحذف، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط')
+                alert('فشل الحذف، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
             if (document.getElementById('productID').value == '') {
@@ -207,15 +223,19 @@ document.getElementById('addCode').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 403) {
-                alert('الرقم التعريفي للكود المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
+                alert('الرقم التعريفي للكود المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط')
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
 
@@ -246,15 +266,19 @@ document.getElementById('updCode').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 404) {
-                alert('الرقم التعريفي للكود المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
+                alert('الرقم التعريفي للكود المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nنسبة التخفيض أُدخلت فيه نص، يجب إدخالها على شكل رقم فقط')
+                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nنسبة التخفيض أُدخلت فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
 
@@ -277,15 +301,19 @@ document.getElementById('delCode').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 404) {
-                alert('الرقم التعريفي للكود المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
+                alert('الرقم التعريفي للكود المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشل الحذف، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط')
+                alert('فشل الحذف، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (document.getElementById('codeID').value == '') {
@@ -315,7 +343,11 @@ document.getElementById('addInfo').addEventListener('click', () => {
                 return response.json();
             }).then((responseJson) => {
                 if (responseJson['num'].statCode == 400) {
-                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط')
+                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                    return;
+                }
+                if (responseJson.statCode == 429) {
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
                 location.reload();
@@ -370,7 +402,11 @@ document.getElementById('addInfo').addEventListener('click', () => {
             return { num: responseNum.json(), name: responseName.json() };
         }).then((responseJson) => {
             if (responseJson['num'].statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط')
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             location.reload();
@@ -409,7 +445,11 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 return response.json();
             }).then((responseJson) => {
                 if (responseJson['num'].statCode == 400) {
-                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط')
+                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                    return;
+                }
+                if (responseJson.statCode == 429) {
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
                 location.reload();
@@ -465,7 +505,11 @@ document.getElementById('updInfo').addEventListener('click', () => {
             return { num: responseNum.json(), name: responseName.json() };
         }).then((responseJson) => {
             if (responseJson['num'].statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط')
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             location.reload();
@@ -495,6 +539,10 @@ function firstFetch() {
         }).then((responseJson) => {
             console.log(responseJson);
             if (responseJson.statCode == 204) { return; }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                return;
+            }
             document.getElementById('productsList').innerHTML = '<b>(الرقم،  العنوان،   السعر، الصورة)</b><br>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
@@ -520,6 +568,10 @@ function firstFetch() {
         }).then((responseJson) => {
             console.log(responseJson);
             if (responseJson.statCode == 204) { return; }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
+                return;
+            }
             document.getElementById('codesList').innerHTML = '<b>(الرقم،  الاسم،   النسبة)</b>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 

@@ -287,7 +287,7 @@ def render_picture(data):
 
 
 @app.route("/product", methods=['POST'])
-@app.route("/product/<int:idIn>", methods=['PUT', 'DELETE', 'GET'])
+@app.route("/product/<idIn>", methods=['PUT', 'DELETE', 'GET'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def product(idIn=None):
     print('The ip address: ', get_remote_address())
@@ -413,7 +413,7 @@ def products():
 
 
 @app.route("/promocode", methods=['POST'])
-@app.route("/promocode/<int:idIn>", methods=['PUT', 'DELETE', 'GET'])
+@app.route("/promocode/<idIn>", methods=['PUT', 'DELETE', 'GET'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def promocode(idIn=None):
     print('The ip address: ', get_remote_address())
@@ -735,9 +735,7 @@ def storeNumGet():
 @app.errorhandler(429)
 def ratelimit_handler(e):
 
-    msg = '{"msg": f"Error 429: you have exceeded your rate-limit, any further requests will not be applied", "statCode": 429}'
-    print(msg)
-    return render_template('err/err429.html', msg=msg)
+    return jsonify({"msg": f"Error 429: you have exceeded your rate-limit, any further requests will not be applied", "statCode": 429})
 
 
 @app.errorhandler(401)
