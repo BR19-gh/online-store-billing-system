@@ -249,7 +249,7 @@ document.getElementById('updCode').addEventListener('click', () => {
                 alert('الرقم التعريفي للكود المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
                 return;
             }
-            if (responseJson.statCode == 403) {
+            if (responseJson.statCode == 400) {
                 alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nنسبة التخفيض أُدخلت فيه نص، يجب إدخالها على شكل رقم فقط')
                 return;
             }

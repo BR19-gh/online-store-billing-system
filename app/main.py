@@ -457,13 +457,13 @@ def promocode(idIn=None):
         code = data['code']
         try:
             amount = int(data['amount'])/100
-            print(111111111111111111111111111111)
+
         except:
-            print(2222222222222222222222222222222)
+
             return jsonify({"msg": f"Bad Request 400: code was not added, even the provided amount is not float, or it contains illegal form of characters", "statCode": 400})
 
         try:
-            print(33333333333333333333333333333)
+
             oldPrudRecord = newObj.search(idIn)
             newObj.update(idIn, code, amount)
 
@@ -473,7 +473,7 @@ def promocode(idIn=None):
             elif (recordSearched[0] == idIn):
                 return jsonify({"msg": f"Success 200: code_idIn::{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
         except:
-            print(44444444444444444444444444444444)
+
             if (isinstance(idIn, int) == False or isinstance(amount, float) == False):
                 return jsonify({"msg": f"Bad Request 400: code was not updated, even the provided idIn or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
             else:
@@ -582,7 +582,7 @@ def storeName():
         else:
             return jsonify({"msg": f"Error 500: failed to delete storeName:{result}, storeName:{result} still exists", "statCode": 500})
     else:
-        
+
         abort(405)
 
 
@@ -645,7 +645,7 @@ def storeTheme():
         else:
             return jsonify({"msg": f"Error 500: failed to delete storeTheme:{result}, storeTheme:{result} still exists", "statCode": 500})
     else:
-        
+
         abort(405)
 
 
@@ -715,7 +715,7 @@ def storeNum():
         else:
             return jsonify({"msg": f"Error 500: failed to delete storeNum:{result}, storeNum:{result} still exists", "statCode": 500})
     else:
-        
+
         abort(405)
 
 
