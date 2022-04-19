@@ -342,10 +342,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
             .then((response) => {
                 return response.json();
             }).then((responseJson) => {
-                if (responseJson['num'].statCode == 400) {
-                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
-                    return;
-                }
+
                 if (responseJson.statCode == 429) {
                     alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
@@ -369,6 +366,15 @@ document.getElementById('addInfo').addEventListener('click', () => {
             .then((response) => {
                 return response.json();
             }).then((responseJson) => {
+                if (responseJson.statCode == 400) {
+                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                    return;
+                }
+
+                if (responseJson.statCode == 429) {
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                    return;
+                }
                 location.reload();
             });
     } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
@@ -402,7 +408,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
             return { num: responseNum.json(), name: responseName.json() };
         }).then((responseJson) => {
             if (responseJson['num'].statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 429) {
@@ -444,10 +450,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
             .then((response) => {
                 return response.json();
             }).then((responseJson) => {
-                if (responseJson['num'].statCode == 400) {
-                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
-                    return;
-                }
+
                 if (responseJson.statCode == 429) {
                     alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
@@ -471,6 +474,14 @@ document.getElementById('updInfo').addEventListener('click', () => {
             .then((response) => {
                 return response.json();
             }).then((responseJson) => {
+                if (responseJson.statCode == 400) {
+                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                    return;
+                }
+                if (responseJson.statCode == 429) {
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                    return;
+                }
                 console.log(responseJson)
                 location.reload();
             });
