@@ -91,7 +91,7 @@ document.getElementById('addProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط')
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط')
                 return;
             }
             if (responseJson.statCode == 500) {
