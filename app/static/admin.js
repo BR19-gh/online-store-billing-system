@@ -203,6 +203,7 @@ document.getElementById('addCode').addEventListener('click', () => {
     if (document.getElementById('codeID').value == '' ||
         document.getElementById('codeName').value == '' ||
         document.getElementById('codeAmount').value == '') {
+        alert('يجب ملئ جميع الخانات أولا');
         return;
     }
     fetch('/promocode', {
@@ -247,6 +248,7 @@ document.getElementById('updCode').addEventListener('click', () => {
     if (document.getElementById('codeID').value == '' ||
         document.getElementById('codeName').value == '' ||
         document.getElementById('codeAmount').value == '') {
+        alert('يجب ملئ جميع الخانات أولا');
         return;
     }
     fetch(`/promocode/${document.getElementById('codeID').value}`, {
