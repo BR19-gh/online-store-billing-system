@@ -121,7 +121,7 @@ function firstFetch() {
         </ul>
         <div style="direction: rtl;" class="card-body">
             <div>
-                <a  class="card-link delToCartBtn"><i class="fa-solid fa-trash-can"></i></a>
+                <a  class="card-link delToCartBtn"><i class="fa-solid fa-trash"></i></a>
                 <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
                 <br><br>
                 ${i + 1}
@@ -218,6 +218,11 @@ function firstFetch() {
                                                 cartInfo['prices'].pop(data[`${id}`]['price']);
                                             }
                                             // END
+                                            if (cartInfo['prices'] == "") {
+                                                document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
+                                                document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
+                                                return;
+                                            }
                                             let sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)) // sum all price array elements
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
