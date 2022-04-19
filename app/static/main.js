@@ -214,10 +214,8 @@ function firstFetch() {
                                             }
                                             // count for quentity(select)
                                             for (let k = 0; k < valueOfQuentity; k++) {
-
-                                                cartInfo['titles'] = cartInfo['titles'].filter(item => item !== data[`${id}`]['title'])
-                                                cartInfo['prices'] = cartInfo['prices'].filter(item => item !== data[`${id}`]['price'])
-
+                                                cartInfo['titles'].splice(cartInfo['titles'].findIndex(a => a === data[`${id}`]['title']), 1);
+                                                cartInfo['prices'].splice(cartInfo['prices'].findIndex(a => a === data[`${id}`]['price']), 1);
                                             }
                                             // END
                                             if (cartInfo['prices'] == "") {
