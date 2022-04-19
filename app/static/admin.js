@@ -167,6 +167,10 @@ document.getElementById('delProd').addEventListener('click', () => {
                 alert('الرقم التعريفي للمنتج المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
                 return;
             }
+            if (responseJson.statCode == 400) {
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط')
+                return;
+            }
             if (responseJson.statCode == 500) {
                 alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
@@ -274,6 +278,10 @@ document.getElementById('delCode').addEventListener('click', () => {
         }).then((responseJson) => {
             if (responseJson.statCode == 404) {
                 alert('الرقم التعريفي للكود المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر')
+                return;
+            }
+            if (responseJson.statCode == 400) {
+                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط')
                 return;
             }
             if (responseJson.statCode == 500) {
