@@ -224,7 +224,7 @@ function firstFetch() {
                                                 shoppingCartIcon.classList.add("cartAnimationDelFin");
                                                 setTimeout(() => {
                                                     shoppingCartIcon.classList.remove("cartAnimationDelFin");
-                                                }, 100);
+                                                }, 500);
 
                                                 document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
                                                 document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;

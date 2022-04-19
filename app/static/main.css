@@ -384,7 +384,7 @@ div#shoppingCartIcon {
 }
 
 .cartAnimationDelFin {
-    animation: cartAnimationDel 0.1s linear;
+    animation: cartAnimationDel 0.5s linear;
 }
 
 @keyframes cartAnimation {
