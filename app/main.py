@@ -314,15 +314,17 @@ def product(idIn=None):
         # if imgFilename == '':
         #     imgFile = 'no image was provided'
 
-        newObj.insert(id, title, price, imgFile)
+        try:
+            newObj.insert(id, title, price, imgFile)
 
-        recordSearched = newObj.search(id)
-        if (recordSearched[0] == int(id)):
-            return jsonify({"msg": f"Success 201: product_id:{id} is recorded, the id matches {(newObj.search(id))[0]}", "statCode": 201})
-        elif (isinstance(int(id), int) == False or isinstance(int(price), int) == False):
-            return jsonify({"msg": f"Bad Request 400: product was not added, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
-        else:
-            return jsonify({"msg": f"Unkown Error 500: product_id:{id} was not recorded, the id doesn't match {(newObj.search(id))[0]}", "statCode": 500})
+            recordSearched = newObj.search(id)
+            if (recordSearched[0] == int(id)):
+                return jsonify({"msg": f"Success 201: product_id:{id} is recorded, the id matches {(newObj.search(id))[0]}", "statCode": 201})
+        except:
+            if (isinstance(int(id), int) == False or isinstance(int(price), int) == False):
+                return jsonify({"msg": f"Bad Request 400: product was not added, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
+            else:
+                return jsonify({"msg": f"Unkown Error 500: product_id:{id} was not recorded, the id doesn't match {(newObj.search(id))[0]}", "statCode": 500})
 
     elif request.method == 'PUT':
 
@@ -339,17 +341,19 @@ def product(idIn=None):
         # if imgFilename == '':
         #     imgFilename = 'no image was provided'
 
-        newObj.update(idIn, title, price, imgFile)
+        try:
+            newObj.update(idIn, title, price, imgFile)
 
-        recordSearched = newObj.search(idIn)
-        if recordSearched == None:
-            return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
-        elif (recordSearched[0] == idIn):
-            return jsonify({"msg": f"Success 200: product_idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
-        elif (isinstance(int(idIn), int) == False or isinstance(int(price), int) == False):
-            return jsonify({"msg": f"Bad Request 400: product was not updated, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
-        else:
-            return jsonify({"msg": f"Unkown Error 500: product_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 500})
+            recordSearched = newObj.search(idIn)
+            if recordSearched == None:
+                return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
+            elif (recordSearched[0] == idIn):
+                return jsonify({"msg": f"Success 200: product_idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
+        except:
+            if (isinstance(int(idIn), int) == False or isinstance(int(price), int) == False):
+                return jsonify({"msg": f"Bad Request 400: product was not updated, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
+            else:
+                return jsonify({"msg": f"Unkown Error 500: product_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 500})
 
     elif request.method == 'GET':
 
@@ -415,15 +419,17 @@ def promocode(idIn=None):
         else:
             return jsonify({"msg": f"Status Code 403: the code_id:{id} exists", "statCode": 403})
 
-        newObj.insert(id, code, amount)
+        try:
+            newObj.insert(id, code, amount)
 
-        recordSearched = newObj.search(id)
-        if (recordSearched[0] == int(id)):
-            return jsonify({"msg": f"Success 201: code_id:{id} is recorded, the id matches {(newObj.search(id))[0]}", "statCode": 201})
-        elif (isinstance(int(id), int) == False or isinstance(amount, float) == False):
-            return jsonify({"msg": f"Bad Request 400: code was not added, even the provided id or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
-        else:
-            return jsonify({"msg": f"Unkown Error 500: code_id:{id} was not recorded, the id doesn't match {(newObj.search(id))[0]}", "statCode": 500})
+            recordSearched = newObj.search(id)
+            if (recordSearched[0] == int(id)):
+                return jsonify({"msg": f"Success 201: code_id:{id} is recorded, the id matches {(newObj.search(id))[0]}", "statCode": 201})
+        except:
+            if (isinstance(int(id), int) == False or isinstance(amount, float) == False):
+                return jsonify({"msg": f"Bad Request 400: code was not added, even the provided id or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
+            else:
+                return jsonify({"msg": f"Unkown Error 500: code_id:{id} was not recorded, the id doesn't match {(newObj.search(id))[0]}", "statCode": 500})
 
     elif request.method == 'PUT':
 
@@ -433,17 +439,19 @@ def promocode(idIn=None):
 
         oldPrudRecord = newObj.search(idIn)
 
-        newObj.update(idIn, code, amount)
+        try:
+            newObj.update(idIn, code, amount)
 
-        recordSearched = newObj.search(idIn)
-        if recordSearched == None:
-            return jsonify({"msg": f"Error 404: code_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
-        elif (recordSearched[0] == idIn):
-            return jsonify({"msg": f"Success 200: code_idIn::{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
-        elif (isinstance(int(idIn), int) == False or isinstance(amount, float) == False):
-            return jsonify({"msg": f"Bad Request 400: code was not updated, even the provided idIn or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
-        else:
-            return jsonify({"msg": f"Unkown Error 500: code_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 500})
+            recordSearched = newObj.search(idIn)
+            if recordSearched == None:
+                return jsonify({"msg": f"Error 404: code_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
+            elif (recordSearched[0] == idIn):
+                return jsonify({"msg": f"Success 200: code_idIn::{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
+        except:
+            if (isinstance(int(idIn), int) == False or isinstance(amount, float) == False):
+                return jsonify({"msg": f"Bad Request 400: code was not updated, even the provided idIn or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
+            else:
+                return jsonify({"msg": f"Unkown Error 500: code_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 500})
 
     elif request.method == 'GET':
 
@@ -497,26 +505,29 @@ def storeName():
         data = request.get_json()
         storeName = data['storeName']
 
-        newObj.insert(storeName)
+        try:
+            newObj.insert(storeName)
 
-        recordSearched = newObj.search()
-        if (recordSearched[0] == storeName):
-            return jsonify({"msg": f"Success 201: storeName:{storeName} is recorded, the storeName matches {(newObj.search())[0]}", "statCode": 201})
-        else:
+            recordSearched = newObj.search()
+            if (recordSearched[0] == storeName):
+                return jsonify({"msg": f"Success 201: storeName:{storeName} is recorded, the storeName matches {(newObj.search())[0]}", "statCode": 201})
+        except:
             return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not recorded, the storeName doesn't match {(newObj.search())[0]}", "statCode": 500})
 
     elif request.method == 'PUT':
         data = request.get_json()
         storeName = data['storeName']
         result = newObj.search()
-        newObj.update(storeName)
 
-        recordSearched = newObj.search()
-        if recordSearched == None:
-            return jsonify({"msg": f"Error 404: storeName:{storeName} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
-        elif (recordSearched[0] == storeName):
-            return jsonify({"msg": f"Success 200: storeName:{storeName} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
-        else:
+        try:
+            newObj.update(storeName)
+
+            recordSearched = newObj.search()
+            if recordSearched == None:
+                return jsonify({"msg": f"Error 404: storeName:{storeName} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
+            elif (recordSearched[0] == storeName):
+                return jsonify({"msg": f"Success 200: storeName:{storeName} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
+        except:
             return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not updated, old data:{result}, new data:{newObj.search()}", "statCode": 500})
 
     elif request.method == 'DELETE':
@@ -558,26 +569,28 @@ def storeTheme():
         data = request.get_json()
         storeTheme = data['storeTheme']
 
-        newObj.insert(storeTheme)
+        try:
+            newObj.insert(storeTheme)
 
-        recordSearched = newObj.search()
-        if (recordSearched[0] == storeTheme):
-            return jsonify({"msg": f"Success 201: storeTheme:{storeTheme} is recorded, the storeTheme matches {(newObj.search())[0]}", "statCode": 201})
-        else:
+            recordSearched = newObj.search()
+            if (recordSearched[0] == storeTheme):
+                return jsonify({"msg": f"Success 201: storeTheme:{storeTheme} is recorded, the storeTheme matches {(newObj.search())[0]}", "statCode": 201})
+        except:
             return jsonify({"msg": f"Unkown Error 500: storeTheme:{storeTheme} was not recorded, the storeTheme doesn't match {(newObj.search())[0]}", "statCode": 500})
 
     elif request.method == 'PUT':
         data = request.get_json()
         storeTheme = data['storeTheme']
         result = newObj.search()
-        newObj.update(storeTheme)
+        try:
+            newObj.update(storeTheme)
 
-        recordSearched = newObj.search()
-        if recordSearched == None:
-            return jsonify({"msg": f"Error 404: storeTheme:{storeTheme} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
-        elif (recordSearched[0] == storeTheme):
-            return jsonify({"msg": f"Success 200: storeTheme:{storeTheme} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
-        else:
+            recordSearched = newObj.search()
+            if recordSearched == None:
+                return jsonify({"msg": f"Error 404: storeTheme:{storeTheme} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
+            elif (recordSearched[0] == storeTheme):
+                return jsonify({"msg": f"Success 200: storeTheme:{storeTheme} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
+        except:
             return jsonify({"msg": f"Unkown Error 500: storeTheme:{storeTheme} was not updated, old data:{result}, new data:{newObj.search()}", "statCode": 500})
 
     elif request.method == 'DELETE':
@@ -619,31 +632,36 @@ def storeNum():
         data = request.get_json()
         storeNum = data['storeNum']
 
-        newObj.insert(storeNum)
+        try:
+            newObj.insert(storeNum)
 
-        recordSearched = newObj.search()
-        if (int(recordSearched[0]) == (storeNum)):
-            return jsonify({"msg": f"Success 201: storeNum:{storeNum} is recorded, the storeNum matches {(newObj.search())[0]}", "statCode": 201})
-        elif (isinstance(int(storeNum), int) == False):
-            return jsonify({"msg": f"Bad Request 400: storeNum was not added, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
-        else:
-            return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not recorded, the storeNum doesn't match {(newObj.search())[0]}", "statCode": 500})
+            recordSearched = newObj.search()
+            if (int(recordSearched[0]) == (storeNum)):
+                return jsonify({"msg": f"Success 201: storeNum:{storeNum} is recorded, the storeNum matches {(newObj.search())[0]}", "statCode": 201})
+        except:
+            if (isinstance(int(storeNum), int) == False):
+                return jsonify({"msg": f"Bad Request 400: storeNum was not added, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
+            else:
+                return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not recorded, the storeNum doesn't match {(newObj.search())[0]}", "statCode": 500})
 
     elif request.method == 'PUT':
         data = request.get_json()
         storeNum = data['storeNum']
         result = newObj.search()
-        newObj.update(storeNum)
 
-        recordSearched = newObj.search()
-        if recordSearched == None:
-            return jsonify({"msg": f"Error 404: storeNum:{storeNum} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
-        elif (int(recordSearched[0]) == int(storeNum)):
-            return jsonify({"msg": f"Success 200: storeNum:{storeNum} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
-        elif (isinstance(int(storeNum), int) == False):
-            return jsonify({"msg": f"Bad Request 400: storeNum was not updated, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
-        else:
-            return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not updated, old data:{result}, new data:{newObj.search()}", "statCode": 500})
+        try:
+            newObj.update(storeNum)
+
+            recordSearched = newObj.search()
+            if recordSearched == None:
+                return jsonify({"msg": f"Error 404: storeNum:{storeNum} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
+            elif (int(recordSearched[0]) == int(storeNum)):
+                return jsonify({"msg": f"Success 200: storeNum:{storeNum} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
+        except:
+            if (isinstance(int(storeNum), int) == False):
+                return jsonify({"msg": f"Bad Request 400: storeNum was not updated, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
+            else:
+                return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not updated, old data:{result}, new data:{newObj.search()}", "statCode": 500})
 
     elif request.method == 'DELETE':
         result = newObj.search()

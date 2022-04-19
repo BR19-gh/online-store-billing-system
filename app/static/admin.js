@@ -95,7 +95,7 @@ document.getElementById('addProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
             if (document.getElementById('productID').value == '' ||
@@ -133,7 +133,7 @@ document.getElementById('updProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
             if (document.getElementById('productID').value == '' ||
@@ -166,7 +166,7 @@ document.getElementById('delProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
             if (document.getElementById('productID').value == '') {
@@ -204,7 +204,7 @@ document.getElementById('addCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
             if (document.getElementById('codeID').value == '' ||
@@ -242,7 +242,7 @@ document.getElementById('updCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
             if (document.getElementById('codeID').value == '' ||
@@ -273,7 +273,7 @@ document.getElementById('delCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق')
+                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور')
                 return;
             }
             if (document.getElementById('codeID').value == '') {
