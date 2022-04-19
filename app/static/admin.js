@@ -168,7 +168,7 @@ document.getElementById('delProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط')
+                alert('فشل الحذف، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط')
                 return;
             }
             if (responseJson.statCode == 500) {
@@ -281,7 +281,7 @@ document.getElementById('delCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط')
+                alert('فشل الحذف، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط')
                 return;
             }
             if (responseJson.statCode == 500) {
