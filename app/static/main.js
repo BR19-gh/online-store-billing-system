@@ -120,7 +120,12 @@ function firstFetch() {
             </li>
         </ul>
         <div style="direction: rtl;" class="card-body">
-            <div><a  class="card-link delToCartBtn"><i class="fa-solid fa-trash-can"></i></a><a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a><br><br>${i + 1}</div>
+            <div>
+                <a  class="card-link delToCartBtn"><i class="fa-solid fa-trash-can"></i></a>
+                <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
+                <br><br>
+                ${i + 1}
+            </div>
         </div>
     </div>
 `
@@ -228,9 +233,9 @@ function firstFetch() {
                                             }
                                             // END
                                             shoppingCartIcon = document.getElementById('shoppingCartIcon')
-                                            shoppingCartIcon.classList.add("cartAnimation");
+                                            shoppingCartIcon.classList.add("cartAnimationDel");
                                             setTimeout(() => {
-                                                shoppingCartIcon.classList.remove("cartAnimation");
+                                                shoppingCartIcon.classList.remove("cartAnimationDel");
                                             }, 100);
                                             // END
                                         });
