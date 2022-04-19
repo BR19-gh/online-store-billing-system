@@ -134,8 +134,6 @@ function firstFetch() {
                                     console.log("Found", allButtons.length, 'a which class:"addToCartBtn".');
                                     for (var i = 0; i < allButtons.length; i++) {
                                         allButtons[i].addEventListener('click', function() {
-                                            // for cart delete animation
-                                            firstTimeToBeZero = true;
                                             // to allow to enter promo code again
                                             if (firstPassCart == 1) {
                                                 beforeDiscount = undefined;
@@ -159,7 +157,6 @@ function firstFetch() {
                                             if (valueOfQuentity == false) {
                                                 valueOfQuentity = 1;
                                             }
-
                                             // count for quentity(select)
                                             for (let k = 0; k < valueOfQuentity; k++) {
                                                 cartInfo['titles'].push(data[`${id}`]['title']);
@@ -222,11 +219,6 @@ function firstFetch() {
                                             }
                                             // END
                                             if (cartInfo['prices'] == "") {
-                                                if (firstTimeToBeZero == true) {
-                                                    shoppingCartIcon = document.getElementById('shoppingCartIcon');
-                                                    shoppingCartIcon.classList.add("cartAnimationDel");
-                                                    firstTimeToBeZero = false;
-                                                }
                                                 document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
                                                 document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
                                                 return;
