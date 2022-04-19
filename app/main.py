@@ -332,6 +332,7 @@ def product(idIn=None):
             if result == None:
                 pass
             else:
+                print("here")
                 return jsonify({"msg": f"Status Code 403: the product_id:{id} exists", "statCode": 403})
         except:
             if (isinstance(id, int) == False):
