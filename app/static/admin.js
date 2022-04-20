@@ -180,7 +180,7 @@ document.getElementById('delProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشل الحذف، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 429) {
@@ -307,7 +307,7 @@ document.getElementById('delCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشل الحذف، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
