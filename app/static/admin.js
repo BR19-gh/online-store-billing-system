@@ -556,7 +556,7 @@ function firstFetch() {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
-            document.getElementById('productsList').innerHTML = '<div style="display: flex; justify-content: space-evenly; border-bottom: black solid 1px; padding-bottom: 3px;"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
+            document.getElementById('productsList').innerHTML = '<div style="display: flex; justify-content: space-evenly; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px;"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
@@ -586,7 +586,7 @@ function firstFetch() {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
-            document.getElementById('codesList').innerHTML = '<div style="display: flex; justify-content: space-evenly; border-bottom: black solid 1px; padding-bottom: 3px;"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
+            document.getElementById('codesList').innerHTML = '<div style="display: flex; justify-content: space-evenly; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px;"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
