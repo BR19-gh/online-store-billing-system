@@ -271,6 +271,11 @@ input:focus {
     margin: 15px;
 }
 
+#themeLabel {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
 .card-img,
 .card-img-top {
     border-radius: calc(15px - 1px);
