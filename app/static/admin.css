@@ -269,7 +269,6 @@ input:focus {
 .card {
     border-radius: 15px;
     margin: 15px;
-    border-color: black;
 }
 
 .card-img,
