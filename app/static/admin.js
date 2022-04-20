@@ -556,13 +556,14 @@ function firstFetch() {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
-            document.getElementById('productsList').innerHTML = '<b>(الرقم،  العنوان،   السعر، الصورة)</b><br>'
+            document.getElementById('productsList').innerHTML = '<div style="display: flex; justify-content: space-evenly; border-bottom: black solid 1px; padding-bottom: 3px;"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
-                    document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']}﷼, <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[i]['img']}" alt="img">)`;
+                    document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-evenly; border-bottom: black solid 1px; padding-bottom: 3px;"><b>${responseJson[i]['id']}</b><b>${responseJson[i]['title']}</b><b>${responseJson[i]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[i]['img']}" alt="img"></b></div>`;
                 }
-                document.getElementById('productsList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['title']}, ${responseJson[i]['price']}﷼, <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[i]['img']}" alt="img">)<br>`;
+
+                document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-evenly; border-bottom: black solid 1px; padding-bottom: 3px;"><b>${responseJson[i]['id']}</b><b>${responseJson[i]['title']}</b><b>${responseJson[i]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[i]['img']}" alt="img"></b></div><br>`;
             }
 
         });
@@ -589,9 +590,9 @@ function firstFetch() {
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
-                    document.getElementById('codesList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['code']}, ${responseJson[i]['amount']*100}%)`;
+                    document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-evenly; padding-bottom: 2px;"><b>${responseJson[i]['id']}</b><b>${responseJson[i]['code']}</b><b>${responseJson[i]['amount']*100}%</b></div>`;
                 }
-                document.getElementById('codesList').innerHTML += `(${responseJson[i]['id']}, ${responseJson[i]['code']}, ${responseJson[i]['amount']*100}%)<br>`;
+                document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-evenly; padding-bottom: 2px;"><b>${responseJson[i]['id']}</b><b>${responseJson[i]['code']}</b><b>${responseJson[i]['amount']*100}%</b></div><br>`;
             }
         });
 
