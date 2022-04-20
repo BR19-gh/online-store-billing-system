@@ -102,7 +102,7 @@ document.getElementById('addProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 429) {
@@ -145,7 +145,7 @@ document.getElementById('updProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 429) {
@@ -228,7 +228,7 @@ document.getElementById('addCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 429) {
@@ -272,7 +272,7 @@ document.getElementById('updCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nنسبة التخفيض أُدخلت فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nnالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 429) {
@@ -369,7 +369,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                 return response.json();
             }).then((responseJson) => {
                 if (responseJson.statCode == 400) {
-                    alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                    alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                     return;
                 }
 
@@ -410,7 +410,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
             return { num: responseNum.json(), name: responseName.json() };
         }).then((responseJson) => {
             if (responseJson['num'].statCode == 400) {
-                alert('فشلت الإضافة، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 429) {
@@ -477,7 +477,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 return response.json();
             }).then((responseJson) => {
                 if (responseJson.statCode == 400) {
-                    alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                    alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
                     return;
                 }
                 if (responseJson.statCode == 429) {
@@ -518,7 +518,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
             return { num: responseNum.json(), name: responseName.json() };
         }).then((responseJson) => {
             if (responseJson['num'].statCode == 400) {
-                alert('فشل التحديث، هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 429) {
