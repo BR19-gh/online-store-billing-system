@@ -408,7 +408,9 @@ def products():
 
     newIndex = sorted(dictOfResult, key=lambda d: dictOfResult[d]['id'])
     dictOfResult = {newIndex[k]: dictOfResult[k] for k in newIndex}
-    print(dictOfResult)
+    for key, value in dictOfResult.items():
+        if key not in dictOfResult['img']:
+            print(value)
 
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
