@@ -399,17 +399,17 @@ def products():
     newObj = ProductsTable()
 
     result = newObj.display()
-    dictOfResult = []
+    dictOfResult = {}
     j = 0
     for i in result:
         dictOfResult[j] = {'id': i[0], 'title': i[1],
                            'price': i[2], 'img': i[3]}
         j += 1
 
-    if(dictOfResult == []):
+    if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
     else:
-        dictOfResult = sorted(dictOfResult, key=lambda d: d['id'])
+        dictOfResult = sorted(dictOfResult, key=lambda x: dictOfResult[x]['id'])
         return jsonify(dictOfResult)
 
 
@@ -520,16 +520,16 @@ def promocodes():
     newObj = PromocodesTable()
 
     result = newObj.display()
-    dictOfResult = []
+    dictOfResult = {}
     j = 0
     for i in result:
         dictOfResult[j] = {'id': i[0], 'code': i[1], 'amount': i[2]}
         j += 1
 
-    if(dictOfResult == []):
+    if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
     else:
-        dictOfResult = sorted(dictOfResult, key=lambda d: d['id'])
+        dictOfResult = sorted(dictOfResult, key=lambda x: dictOfResult[x]['id'])
         return jsonify(dictOfResult)
 
 
