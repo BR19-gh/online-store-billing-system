@@ -529,7 +529,7 @@ def promocodes():
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
     else:
-        dictOfResult = sorted(dictOfResult, key=lambda d: d['id'])
+        print(dictOfResult) #= sorted(dictOfResult, key=lambda d: d['id'])
         return jsonify(dictOfResult)
 
 
