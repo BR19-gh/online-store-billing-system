@@ -1,4 +1,3 @@
-import collections
 import sqlite3
 from urllib import response
 from flask import Flask, render_template, jsonify, request, abort, redirect
@@ -407,11 +406,12 @@ def products():
                            'price': i[2], 'img': i[3]}
         j += 1
 
+    newIndex = sorted(dictOfResult, key=lambda d: dictOfResult[d]['id'])
+    dictOfResult = {newIndex[k]: dictOfResult[k] for k in newIndex}
+
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
     else:
-        dictOfResult = collections.OrderedDict(sorted(dictOfResult.values(), key=lambda t:t[1]["id"]))
-        print(dictOfResult)
         return jsonify(dictOfResult)
 
 
@@ -528,10 +528,12 @@ def promocodes():
         dictOfResult[j] = {'id': i[0], 'code': i[1], 'amount': i[2]}
         j += 1
 
+    newIndex = sorted(dictOfResult, key=lambda d: dictOfResult[d]['id'])
+    dictOfResult = {newIndex[k]: dictOfResult[k] for k in newIndex}
+
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
     else:
-        dictOfResult = collections.OrderedDict(sorted(dictOfResult.values(), key=lambda t:t[1]["id"]))
         return jsonify(dictOfResult)
 
 
