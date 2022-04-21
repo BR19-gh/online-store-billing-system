@@ -410,7 +410,7 @@ def products():
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
     else:
-        dictOfResult = collections.OrderedDict(sorted(dictOfResult.items(), key=lambda t:t[1]["order"]))
+        dictOfResult = collections.OrderedDict(sorted(dictOfResult.items(), key=lambda t:t[1]["id"]))
         print(dictOfResult)
         return jsonify(dictOfResult)
 
