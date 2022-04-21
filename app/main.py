@@ -527,11 +527,9 @@ def promocodes():
     for i in result:
         dictOfResult[j] = {'id': i[0], 'code': i[1], 'amount': i[2]}
         j += 1
-    print('dictOfResult before: ',dictOfResult)
+
     newIndex = sorted(dictOfResult, key=lambda d: dictOfResult[d]['id'])
-    print('newIndex: ',newIndex)
-    dictOfResult = {newIndex[k]: dictOfResult[k] for k in newIndex}
-    print('dictOfResult: ',dictOfResult)
+    dictOfResult = {newIndex[k]: dictOfResult[k] for k in len(newIndex)}
 
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
