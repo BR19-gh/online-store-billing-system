@@ -408,8 +408,10 @@ def products():
 
     newIndex = sorted(dictOfResult, key=lambda d: dictOfResult[d]['id'])
     dictOfResult = {newIndex[k]: dictOfResult[k] for k in newIndex}
-    for key, value in dictOfResult.items():
-        if key not in dictOfResult['img']:
+    k=0
+    for key, value in dictOfResult[k].items():
+        if key not in dictOfResult[k]['img']:
+            k += 1
             print(value)
 
     if(dictOfResult == {}):
