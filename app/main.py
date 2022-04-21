@@ -400,14 +400,14 @@ def products():
 
     result = newObj.display()
     dictOfResult = {}
+
     j = 0
     for i in result:
-        dictOfResult[j] = {'id': i[0], 'title': i[1],
-                           'price': i[2], 'img': i[3]}
-        j += 1
+        dictOfResult[i[0]] = {'id': i[0], 'title': i[1],
+                              'price': i[2], 'img': i[3]}
 
-    newIndex = sorted(dictOfResult, key=lambda d: dictOfResult[d]['id'])
-    dictOfResult = {newIndex[k]: dictOfResult[k] for k in newIndex}
+    newIndex = sorted(dictOfResult, key=lambda d: d)
+    dictOfResult = {k: dictOfResult[k] for k in newIndex}
 
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
@@ -523,13 +523,12 @@ def promocodes():
 
     result = newObj.display()
     dictOfResult = {}
-    j = 0
-    for i in result:
-        dictOfResult[j] = {'id': i[0], 'code': i[1], 'amount': i[2]}
-        j += 1
 
-    newIndex = sorted(dictOfResult, key=lambda d: dictOfResult[d]['id'])
-    dictOfResult = {newIndex[k]: dictOfResult[k] for k in len(newIndex)}
+    for i in result:
+        dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2]}
+
+    newIndex = sorted(dictOfResult, key=lambda d: d)
+    dictOfResult = {k: dictOfResult[k] for k in newIndex}
 
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
