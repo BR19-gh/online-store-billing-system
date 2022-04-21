@@ -408,11 +408,6 @@ def products():
 
     newIndex = sorted(dictOfResult, key=lambda d: dictOfResult[d]['id'])
     dictOfResult = {newIndex[k]: dictOfResult[k] for k in newIndex}
-    k=0
-    for key, value in dictOfResult[k].items():
-        if key not in dictOfResult[k]['img']:
-            k += 1
-            print(value)
 
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
@@ -534,7 +529,9 @@ def promocodes():
         j += 1
 
     newIndex = sorted(dictOfResult, key=lambda d: dictOfResult[d]['id'])
+    print('newIndex: ',newIndex)
     dictOfResult = {newIndex[k]: dictOfResult[k] for k in newIndex}
+    print('dictOfResult: ',dictOfResult)
 
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
