@@ -1,3 +1,4 @@
+import collections
 import sqlite3
 from urllib import response
 from flask import Flask, render_template, jsonify, request, abort, redirect
@@ -409,7 +410,7 @@ def products():
     if(dictOfResult == {}):
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
     else:
-        dictOfResult = sorted(dictOfResult, key=lambda x: dictOfResult[x]['id'])
+        dictOfResult = collections.OrderedDict(sorted(dictOfResult.items(), key=lambda t:t[1]["order"]))
         print(dictOfResult)
         return jsonify(dictOfResult)
 
