@@ -563,7 +563,7 @@ function firstFetch() {
                     document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-evenly; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
                 }
 
-                document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-evenly; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[Object.keys(responseJson)[i]]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br>`;
+                document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-evenly; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br>`;
             }
 
         });
