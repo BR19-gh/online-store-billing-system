@@ -410,6 +410,7 @@ def products():
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
     else:
         dictOfResult = sorted(dictOfResult, key=lambda x: dictOfResult[x]['id'])
+        print(dictOfResult)
         return jsonify(dictOfResult)
 
 
