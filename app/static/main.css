@@ -256,11 +256,6 @@ input#storeNum {
     margin: 0;
 }
 
-#expOrNarPromo:hover,
-#expOrNarProduct:hover {
-    font-weight: bold;
-}
-
 #shoppingCartIcon,
 #shoppingCartCancel,
 #infoCardCancel {

@@ -70,7 +70,7 @@ function expOrNarProduct(expOrNarProductKey) {
 function expOrNarPromo(expOrNarPromoKey) {
     if (expOrNarPromoKey == 1) {
         document.getElementById('codesList').style.height = "100%";
-        codesList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> إضغط لإخفاء المنتجات</div>';
+        codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> إضغط لإخفاء المنتجات</div>';
         codesList.childNodes[0].innerHTML = "";
 
     } else {

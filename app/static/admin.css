@@ -198,6 +198,11 @@ input#storeNum {
     background-color: var(--containerHover);
 }
 
+#expOrNarPromo:hover,
+#expOrNarProduct:hover {
+    font-weight: bold;
+}
+
 h1 {
     font-size: calc(2.375rem + 1.5vw);
     position: sticky;
