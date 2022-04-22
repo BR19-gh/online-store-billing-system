@@ -75,7 +75,7 @@ function expOrNarPromo(expOrNarPromoKey) {
 
     } else {
         document.getElementById('codesList').style.height = "30px";
-        codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإظهار الأكواد </div>';
+        codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div>';
     }
 
 }
