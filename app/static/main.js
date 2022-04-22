@@ -144,11 +144,10 @@ function firstFetch() {
                                             // END
                                             // to know prud id, and its quentity
                                             let content = this.parentElement.innerHTML;
-                                            content = content.split("<br><br>id:");
+                                            content = content.split(`id:`)[1].split(`\n`)[0];
                                             id = content[1];
                                             console.log("You clicked:", id);
-                                            console.log(document.getElementById(`quentity-${id}`))
-                                            console.log(Number(document.getElementById(`quentity-${id}`).value))
+
                                             let valueOfQuentity = Number(document.getElementById(`quentity-${id}`).value);
                                             if (isNaN(valueOfQuentity) == true) {
                                                 valueOfQuentity = false;
@@ -200,7 +199,7 @@ function firstFetch() {
                                             // END
                                             // to know prud id, and its quentity
                                             let content = this.parentElement.innerHTML;
-                                            content = content.split("<br><br>:id");
+                                            content = content.split(`id:`)[1].split(`\n`)[0];
                                             id = content[1];
                                             console.log("You clicked:", id);
                                             id--;
@@ -214,13 +213,14 @@ function firstFetch() {
                                                 valueOfQuentity = 1;
                                             }
                                             // count for quentity(select)
-                                            for (let k = 0; k < valueOfQuentity; k++) {
-                                                cartInfo['titles'].splice(cartInfo['titles'].findIndex(a => a === data[`${id}`]['title']), 1);
-                                                cartInfo['prices'].splice(cartInfo['prices'].findIndex(a => a === data[`${id}`]['price']), 1);
+                                            if (cartInfo['prices'] != []) {
+                                                for (let k = 0; k < valueOfQuentity; k++) {
+                                                    cartInfo['titles'].splice(cartInfo['titles'].findIndex(a => a === data[`${id}`]['title']), 1);
+                                                    cartInfo['prices'].splice(cartInfo['prices'].findIndex(a => a === data[`${id}`]['price']), 1);
+                                                }
                                             }
                                             // END
-                                            if (cartInfo['prices'] == "") {
-
+                                            else {
                                                 shoppingCartIcon = document.getElementById('shoppingCartIcon')
                                                 shoppingCartIcon.classList.add("cartAnimationDelFin");
                                                 setTimeout(() => {
@@ -355,7 +355,7 @@ function firstFetch() {
 
                                         discount = discount.replace(/\s/gi, "%20");
 
-                                        bill = personalInfoOutput + "%0a%0a" + titles + "%0a%0a" + discount + '%0a' + prices;
+                                        bill = `فاتورة متجر ${data3['storeName']}` + "%0a%0a" + personalInfoOutput + "%0a%0a" + titles + "%0a%0a" + discount + '%0a' + prices;
 
                                         if (Number(document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0]) == 0 ||
                                             isNaN(Number(document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0])) == true) {
