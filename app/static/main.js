@@ -100,13 +100,13 @@ function firstFetch() {
                                         container.innerHTML +=
                                             ` 
     <div id="form" class="card" style="width: 18rem;">
-        <img style="width: 257px; height: 257px;" src="data:image/png;base64,${data[i]["img"]}" class="card-img-top" alt="Product">
+        <img style="width: 257px; height: 257px;" src="data:image/png;base64,${data[Object.keys(data)[i]]["img"]}" class="card-img-top" alt="Product">
         <div class="card-body">
-            <h5 class="card-title">${data[i]["title"]}</h5>
+            <h5 class="card-title">${data[Object.keys(data)[i]]["title"]}</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item" id="priceContainer">
-                <div id="price">${data[i]["price"]}</div>﷼
+                <div id="price">${data[Object.keys(data)[i]]["price"]}</div>﷼
             </li>
             <li class="list-group-item">
                 <select name="quentity" id="quentity-${i}">
