@@ -220,11 +220,6 @@ function firstFetch() {
                                                     cartInfo['titles'].splice(cartInfo['titles'].findIndex(a => a === data[`${id}`]['title']), 1);
                                                     cartInfo['prices'].splice(cartInfo['prices'].findIndex(a => a === data[`${id}`]['price']), 1);
                                                 }
-                                                if (cartInfo['prices'].length == 0) {
-
-                                                    document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
-                                                    document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
-                                                }
                                             }
                                             // END
                                             else {
@@ -234,6 +229,10 @@ function firstFetch() {
                                                     shoppingCartIcon.classList.remove("cartAnimationDelFin");
                                                 }, 500);
 
+                                                if (cartInfo['prices'].length == 0) {
+                                                    document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
+                                                    document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
+                                                }
                                                 return;
                                             }
 
