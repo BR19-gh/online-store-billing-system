@@ -34,8 +34,8 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--containerHover', '#4169E1a0');
                     document.documentElement.style.setProperty('--h1', '#a3a1c2a0');
                     document.documentElement.style.setProperty('--h1OtherScreen', '#a3a1c2d0');
-                    document.documentElement.style.setProperty('--form', '#b6b6c4c0');
-                    document.documentElement.style.setProperty('--formHover', '#acaec5');
+                    document.documentElement.style.setProperty('--form', '#9696c1c0');
+                    document.documentElement.style.setProperty('--formHover', '#9696c1');
                     document.documentElement.style.setProperty('--input', '#85858f');
                     document.documentElement.style.setProperty('--inputHover', '#8889ac');
                     document.documentElement.style.setProperty('--inputFocus', '#8783b1');
