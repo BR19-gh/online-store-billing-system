@@ -215,7 +215,7 @@ function firstFetch() {
                                                 valueOfQuentity = 1;
                                             }
                                             // count for quentity(select)
-                                            if (findIndex(a => a === cartInfo['prices']) != -1) {
+                                            if (cartInfo['prices'].findIndex(a => a === data[`${id}`]['price']) != -1) {
                                                 for (let k = 0; k < valueOfQuentity; k++) {
                                                     cartInfo['titles'].splice(cartInfo['titles'].findIndex(a => a === data[`${id}`]['title']), 1);
                                                     cartInfo['prices'].splice(cartInfo['prices'].findIndex(a => a === data[`${id}`]['price']), 1);
