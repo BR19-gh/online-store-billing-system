@@ -228,18 +228,15 @@ function firstFetch() {
                                                 setTimeout(() => {
                                                     shoppingCartIcon.classList.remove("cartAnimationDelFin");
                                                 }, 500);
-                                                for (let i; i <= Object.keys(data).length; i++) {
-                                                    for (let x; x <= data[Object.keys(data)[i]]['price']; x++) {
 
-                                                        if (cartInfo['prices'].findIndex(a => a === data[Object.keys(data)[i]]['price']) != -1) {
-                                                            return;
-                                                        } else {
-                                                            document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
-                                                            document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
-                                                        }
+                                                if (cartInfo['prices'] == []) {
 
-                                                    }
+                                                    document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
+                                                    document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
                                                 }
+
+
+
 
                                                 return;
                                             }
