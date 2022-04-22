@@ -74,8 +74,8 @@ body {
     top: 50%;
     transform: translateY(-50%);
     background-color: var(--container);
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     transition: all 100ms ease-in-out;
     animation: showNice 0.5s ease-in-out;
     overflow-y: auto;
