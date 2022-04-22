@@ -164,11 +164,8 @@ function firstFetch() {
                                                 cartInfo['prices'].push(data[`${id}`]['price']);
                                             }
                                             // END
-                                            if (cartInfo['prices'] == []) {
-                                                sumOfPrices = 0;
-                                            } else {
-                                                sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b), 0); // sum all price array elements
-                                            }
+
+                                            let sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b), 0); // sum all price array elements
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
                                             cartInfo['titles'].forEach(function(x) { countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1; });
@@ -218,7 +215,7 @@ function firstFetch() {
                                                 valueOfQuentity = 1;
                                             }
                                             // count for quentity(select)
-                                            if (cartInfo['prices'] != []) {
+                                            if (findIndex(a => a === cartInfo['prices']) != -1) {
                                                 for (let k = 0; k < valueOfQuentity; k++) {
                                                     cartInfo['titles'].splice(cartInfo['titles'].findIndex(a => a === data[`${id}`]['title']), 1);
                                                     cartInfo['prices'].splice(cartInfo['prices'].findIndex(a => a === data[`${id}`]['price']), 1);
@@ -236,12 +233,8 @@ function firstFetch() {
                                                 document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
                                                 return;
                                             }
-                                            let sumOfPrices;
-                                            if (cartInfo['prices'] == []) {
-                                                sumOfPrices = 0;
-                                            } else {
-                                                sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b), 0); // sum all price array elements
-                                            }
+
+                                            let sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b), 0); // sum all price array elements
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
                                             cartInfo['titles'].forEach(function(x) { countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1; });
