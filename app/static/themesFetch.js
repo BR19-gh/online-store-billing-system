@@ -13,7 +13,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--btns', '#f5ebbd');
                     document.documentElement.style.setProperty('--btnsHover', '#bbb496');
                     document.documentElement.style.setProperty('--container', '#d4cbabc0');
-                    document.documentElement.style.setProperty('--containerHover', '#d4cbaba0');
+                    document.documentElement.style.setProperty('--containerHover', '#d4cbabb0');
                     document.documentElement.style.setProperty('--h1', '#c2bba1a0');
                     document.documentElement.style.setProperty('--h1OtherScreen', '#c2bba1d0');
                     document.documentElement.style.setProperty('--form', '#c4c1b6c0');
@@ -29,9 +29,9 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--body', '#c9cbf0');
                     document.documentElement.style.setProperty('--borders', '#85868f');
                     document.documentElement.style.setProperty('--btns', '#bdbef5');
-                    document.documentElement.style.setProperty('--btnsHover', '#9796bb');
+                    document.documentElement.style.setProperty('--btnsHover', '#8987ba');
                     document.documentElement.style.setProperty('--container', '#4169E1c0');
-                    document.documentElement.style.setProperty('--containerHover', '#4169E1a0');
+                    document.documentElement.style.setProperty('--containerHover', '#4169E1b0');
                     document.documentElement.style.setProperty('--h1', '#a3a1c2a0');
                     document.documentElement.style.setProperty('--h1OtherScreen', '#a3a1c2d0');
                     document.documentElement.style.setProperty('--form', '#9696c1c0');
@@ -49,7 +49,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--btns', '#bdf5be');
                     document.documentElement.style.setProperty('--btnsHover', '#96bb9a');
                     document.documentElement.style.setProperty('--container', '#1e796bc0');
-                    document.documentElement.style.setProperty('--containerHover', '#1e796ba0');
+                    document.documentElement.style.setProperty('--containerHover', '#1e796bb0');
                     document.documentElement.style.setProperty('--h1', '#a1c2a3a0');
                     document.documentElement.style.setProperty('--h1OtherScreen', '#a1c2a3d0');
                     document.documentElement.style.setProperty('--form', '#b6c4b7c0');
@@ -67,7 +67,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--btns', '#f5bdbd');
                     document.documentElement.style.setProperty('--btnsHover', '#bb9696');
                     document.documentElement.style.setProperty('--container', '#ad5a54c0');
-                    document.documentElement.style.setProperty('--containerHover', '#ad5a54a0');
+                    document.documentElement.style.setProperty('--containerHover', '#ad5a54b0');
                     document.documentElement.style.setProperty('--h1', '#c2a1a1a0');
                     document.documentElement.style.setProperty('--h1OtherScreen', '#c2a1a1d0');
                     document.documentElement.style.setProperty('--form', '#c4b6b6c0');
@@ -85,7 +85,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--btns', '#f3bdf5');
                     document.documentElement.style.setProperty('--btnsHover', '#bb96bb');
                     document.documentElement.style.setProperty('--container', '#ad5498c0');
-                    document.documentElement.style.setProperty('--containerHover', '#ad5498a0');
+                    document.documentElement.style.setProperty('--containerHover', '#ad5498b0');
                     document.documentElement.style.setProperty('--h1', '#c2a1b5d0');
                     document.documentElement.style.setProperty('--h1OtherScreen', '#c4b6c2c0');
                     document.documentElement.style.setProperty('--form', '#c4b6c4');
@@ -103,7 +103,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--btns', '#a7aaad');
                     document.documentElement.style.setProperty('--btnsHover', '#94979b');
                     document.documentElement.style.setProperty('--container', '#838690c0');
-                    document.documentElement.style.setProperty('--containerHover', '#838690a0');
+                    document.documentElement.style.setProperty('--containerHover', '#838690b0');
                     document.documentElement.style.setProperty('--h1', '#c2c2c2a0');
                     document.documentElement.style.setProperty('--h1OtherScreen', '#c2c2c2d0');
                     document.documentElement.style.setProperty('--form', '#cdcdcec0');
