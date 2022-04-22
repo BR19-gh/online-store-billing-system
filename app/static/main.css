@@ -250,6 +250,12 @@ a:hover {
 
 input {
     color: black;
+    margin: 7px 0px 20px;
+}
+
+input#storeName,
+input#storeNum {
+    margin: 0;
 }
 
 #shoppingCartIcon,
