@@ -147,7 +147,8 @@ function firstFetch() {
                                             content = content.split("<br><br>id:");
                                             id = content[1];
                                             console.log("You clicked:", id);
-
+                                            console.log(document.getElementById(`quentity-${id}`))
+                                            console.log(Number(document.getElementById(`quentity-${id}`).value))
                                             let valueOfQuentity = Number(document.getElementById(`quentity-${id}`).value);
                                             if (isNaN(valueOfQuentity) == true) {
                                                 valueOfQuentity = false;
