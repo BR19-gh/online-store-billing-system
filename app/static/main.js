@@ -16,7 +16,7 @@ function firstFetch() {
             return response.json();
         }).then((responseJson) => {
             data = responseJson;
-            console.log(responseJson);
+
             fetch('/promocodes', {
                     headers: {
 
@@ -30,7 +30,7 @@ function firstFetch() {
                     return response.json();
                 }).then((responseJson) => {
                     data2 = responseJson;
-                    console.log(data2)
+
 
 
                     fetch('/storeName/show', {
@@ -46,7 +46,7 @@ function firstFetch() {
                             return response.json();
                         }).then((responseJson) => {
                             data3 = responseJson;
-                            console.log(responseJson);
+
 
 
                             let cartInfo = {
@@ -70,7 +70,7 @@ function firstFetch() {
                                     return response.json();
                                 }).then((responseJson) => {
                                     data4 = responseJson;
-                                    console.log(responseJson);
+
                                     phoneNum = data4['storeNum']
 
                                     document.getElementById('shoppingCartIcon').addEventListener('click', () => {
@@ -132,7 +132,7 @@ function firstFetch() {
 `
                                     }
                                     var allButtons = document.querySelectorAll('a.addToCartBtn');
-                                    console.log("Found", allButtons.length, 'a which class:"addToCartBtn".');
+
                                     for (var i = 0; i < allButtons.length; i++) {
                                         allButtons[i].addEventListener('click', function() {
                                             // to allow to enter promo code again
@@ -167,7 +167,7 @@ function firstFetch() {
                                             if (cartInfo['prices'] == []) {
                                                 sumOfPrices = 0;
                                             } else {
-                                                sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)); // sum all price array elements
+                                                sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b), 0); // sum all price array elements
                                             }
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
@@ -191,7 +191,7 @@ function firstFetch() {
                                         });
                                     }
                                     var allButtons = document.querySelectorAll('a.delToCartBtn');
-                                    console.log("Found", allButtons.length, 'a which class:"delToCartBtn".');
+
                                     for (var i = 0; i < allButtons.length; i++) {
                                         allButtons[i].addEventListener('click', function() {
                                             // to allow to enter promo code again
@@ -240,7 +240,7 @@ function firstFetch() {
                                             if (cartInfo['prices'] == []) {
                                                 sumOfPrices = 0;
                                             } else {
-                                                sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)); // sum all price array elements
+                                                sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b), 0); // sum all price array elements
                                             }
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
@@ -294,7 +294,7 @@ function firstFetch() {
                                                 fullPrice = Number(totalPrice)
                                                 totalPrice = fullPrice - (Number(totalPrice) * data2[`${Object.keys(data2)[i]}`]['amount']);
                                                 document.getElementById('groupOfPrices').innerHTML = `المجموع: ${totalPrice} ﷼<br><small style='font-size: small; color: red; text-decoration: line-through;'>المجموع: ${priceBeforeDiscount}﷼</small>`
-                                                console.log(totalPrice)
+
                                                 dontAcceptOtherDiscount = 1;
                                                 document.getElementsByClassName('submitCode')[0].classList.add('submitCodeDisabled')
                                                 document.getElementsByClassName('submitCode')[0].classList.remove('submitCodeEnabled')
@@ -309,7 +309,7 @@ function firstFetch() {
 
                                                     totalPrice = Number(priceBeforeDiscount);
                                                 }
-                                                console.log(totalPrice)
+
                                                 document.getElementById('groupOfPrices').innerText = `المجموع: ${totalPrice} ﷼`
                                                 alert("الكود غير صالح، جرب كودًا آخر")
                                                 document.getElementsByClassName('submitCode')[0].classList.remove('submitCodeDisabled')
