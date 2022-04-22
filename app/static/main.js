@@ -228,8 +228,8 @@ function firstFetch() {
                                                 setTimeout(() => {
                                                     shoppingCartIcon.classList.remove("cartAnimationDelFin");
                                                 }, 500);
-
-                                                if (cartInfo['titles'] == []) {
+                                                console.log(cartInfo['prices'])
+                                                if (cartInfo['prices'] == []) {
 
                                                     document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
                                                     document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
