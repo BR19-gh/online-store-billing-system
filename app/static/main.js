@@ -163,8 +163,11 @@ function firstFetch() {
                                                 cartInfo['prices'].push(data[`${id}`]['price']);
                                             }
                                             // END
-                                            if (cartInfo['prices'] != []) sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)); // sum all price array elements
-                                            else sumOfPrices = 0;
+                                            if (cartInfo['prices'] == []) {
+                                                sumOfPrices = 0;
+                                            } else {
+                                                sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)); // sum all price array elements
+                                            }
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
                                             cartInfo['titles'].forEach(function(x) { countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1; });
@@ -233,8 +236,11 @@ function firstFetch() {
                                                 return;
                                             }
                                             let sumOfPrices;
-                                            if (cartInfo['prices'] != []) sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)); // sum all price array elements
-                                            else sumOfPrices = 0;
+                                            if (cartInfo['prices'] == []) {
+                                                sumOfPrices = 0;
+                                            } else {
+                                                sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)); // sum all price array elements
+                                            }
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
                                             cartInfo['titles'].forEach(function(x) { countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1; });
