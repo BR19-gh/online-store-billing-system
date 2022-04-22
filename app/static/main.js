@@ -124,7 +124,7 @@ function firstFetch() {
                 <a  class="card-link delToCartBtn"><i class="fas fa-trash-alt"></i></a>
                 <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
                 <br><br>
-                id:${Object.keys(data)[i]}
+                <div style="display: none;">id:${Object.keys(data)[i]}\t</div>
             </div>
         </div>
     </div>
@@ -144,8 +144,8 @@ function firstFetch() {
                                             // END
                                             // to know prud id, and its quentity
                                             let content = this.parentElement.innerHTML;
-                                            content = content.split(`id:`)[1].split(`\n`)[0];
-                                            id = content[1];
+                                            id = content.split(`id:`)[1].split(`\t`)[0];
+
                                             console.log("You clicked:", id);
 
                                             let valueOfQuentity = Number(document.getElementById(`quentity-${id}`).value);
@@ -199,8 +199,8 @@ function firstFetch() {
                                             // END
                                             // to know prud id, and its quentity
                                             let content = this.parentElement.innerHTML;
-                                            content = content.split(`id:`)[1].split(`\n`)[0];
-                                            id = content[1];
+                                            id = content.split(`id:`)[1].split(`\t`)[0];
+
                                             console.log("You clicked:", id);
                                             id--;
                                             let valueOfQuentity = Number(document.getElementById(`quentity-${id}`).value);
