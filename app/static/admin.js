@@ -61,7 +61,7 @@ function expOrNarProduct(expOrNarProductKey) {
         productsList.childNodes[0].innerHTML = "";
 
     } else {
-        document.getElementById('productsList').style.height = "50px";
+        document.getElementById('productsList').style.height = "30px";
         productsList.childNodes[0].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> إضغط لإظهار المنتجات</div>';
     }
 
@@ -74,7 +74,7 @@ function expOrNarPromo(expOrNarPromoKey) {
         codesList.childNodes[0].innerHTML = "";
 
     } else {
-        document.getElementById('codesList').style.height = "50px";
+        document.getElementById('codesList').style.height = "30px";
         codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> إضغط لإظهار الأكواد </div>';
     }
 
