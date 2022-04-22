@@ -163,7 +163,8 @@ function firstFetch() {
                                                 cartInfo['prices'].push(data[`${id}`]['price']);
                                             }
                                             // END
-                                            let sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)) // sum all price array elements
+                                            if (cartInfo['prices'] != []) sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)); // sum all price array elements
+                                            else sumOfPrices = 0;
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
                                             cartInfo['titles'].forEach(function(x) { countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1; });
@@ -202,7 +203,7 @@ function firstFetch() {
                                             id = content.split(`id:`)[1].split(`\t`)[0];
 
                                             console.log("You clicked:", id);
-                                            id--;
+
                                             let valueOfQuentity = Number(document.getElementById(`quentity-${id}`).value);
                                             if (isNaN(valueOfQuentity) == true) {
                                                 valueOfQuentity = false;
@@ -231,7 +232,9 @@ function firstFetch() {
                                                 document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
                                                 return;
                                             }
-                                            let sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)) // sum all price array elements
+                                            let sumOfPrices;
+                                            if (cartInfo['prices'] != []) sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b)); // sum all price array elements
+                                            else sumOfPrices = 0;
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
                                             cartInfo['titles'].forEach(function(x) { countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1; });
@@ -264,16 +267,16 @@ function firstFetch() {
                                         firstPassCart = 1;
                                         let totalPrice = document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0];
                                         for (let i = 0; i < Object.keys(data2).length; i++) {
-                                            if (document.getElementById('discount').value == data2[`${i}`]['code']) {
+                                            if (document.getElementById('discount').value == data2[`${Object.keys(data2)[i]}`]['code']) {
                                                 if (isNaN(Number(document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0])) == true) {
                                                     break;
                                                 }
-                                                theCurrentDiscount = data2[`${i}`]['code'];
-                                                if (beforeDiscount == data2[`${i}`]['code']) {
+                                                theCurrentDiscount = data2[`${Object.keys(data2)[i]}`]['code'];
+                                                if (beforeDiscount == data2[`${Object.keys(data2)[i]}`]['code']) {
                                                     thereIsApastDiscount = true;
                                                     break;
                                                 }
-                                                beforeDiscount = data2[`${i}`]['code'];
+                                                beforeDiscount = data2[`${Object.keys(data2)[i]}`]['code'];
                                                 if (thereIsApastDiscount == true) {
                                                     if (priceBeforeDiscount != NaN && priceBeforeDiscount != undefined && priceBeforeDiscount > 0) {
                                                         totalPrice = priceBeforeDiscount;
@@ -282,7 +285,7 @@ function firstFetch() {
                                                     priceBeforeDiscount = totalPrice;
                                                 }
                                                 fullPrice = Number(totalPrice)
-                                                totalPrice = fullPrice - (Number(totalPrice) * data2[`${i}`]['amount']);
+                                                totalPrice = fullPrice - (Number(totalPrice) * data2[`${Object.keys(data2)[i]}`]['amount']);
                                                 document.getElementById('groupOfPrices').innerHTML = `المجموع: ${totalPrice} ﷼<br><small style='font-size: small; color: red; text-decoration: line-through;'>المجموع: ${priceBeforeDiscount}﷼</small>`
                                                 console.log(totalPrice)
                                                 dontAcceptOtherDiscount = 1;
