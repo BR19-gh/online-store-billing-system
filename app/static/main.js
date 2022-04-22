@@ -228,7 +228,7 @@ function firstFetch() {
                                                 setTimeout(() => {
                                                     shoppingCartIcon.classList.remove("cartAnimationDelFin");
                                                 }, 500);
-                                                console.log(cartInfo['prices'])
+                                                console.log(cartInfo['prices'] == [])
                                                 if (cartInfo['prices'] == []) {
 
                                                     document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
