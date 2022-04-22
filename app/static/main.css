@@ -231,6 +231,10 @@ input:focus.personalInfo {
     padding: 10px;
 }
 
+.card-link+.card-link {
+    margin-left: 0rem;
+}
+
 a {
     text-decoration: none;
     color: black;
