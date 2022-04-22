@@ -120,7 +120,7 @@ function firstFetch() {
             </li>
         </ul>
         <div style="direction: rtl;" class="card-body">
-            <div>
+            <div style="height: 1.5rem;">
                 <a  class="card-link delToCartBtn"><i class="fas fa-trash-alt"></i></a>
                 <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
                 <br><br>
