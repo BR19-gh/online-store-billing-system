@@ -109,7 +109,7 @@ function firstFetch() {
                 <div id="price">${data[Object.keys(data)[i]]["price"]}</div>﷼
             </li>
             <li class="list-group-item">
-                <select name="quentity" id="quentity-${i}">
+                <select name="quentity" id="quentity-${Object.keys(data)[i]}">
                     <option selected disabled>الكمية</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -124,7 +124,7 @@ function firstFetch() {
                 <a  class="card-link delToCartBtn"><i class="fas fa-trash-alt"></i></a>
                 <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
                 <br><br>
-                ${i + 1}
+                id:${Object.keys(data)[i]}
             </div>
         </div>
     </div>
@@ -144,7 +144,7 @@ function firstFetch() {
                                             // END
                                             // to know prud id, and its quentity
                                             let content = this.parentElement.innerHTML;
-                                            content = content.split("<br><br>");
+                                            content = content.split("<br><br>id:");
                                             id = content[1];
                                             console.log("You clicked:", id);
                                             id--;
@@ -199,7 +199,7 @@ function firstFetch() {
                                             // END
                                             // to know prud id, and its quentity
                                             let content = this.parentElement.innerHTML;
-                                            content = content.split("<br><br>");
+                                            content = content.split("<br><br>:id");
                                             id = content[1];
                                             console.log("You clicked:", id);
                                             id--;
