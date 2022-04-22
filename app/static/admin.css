@@ -18,6 +18,10 @@
     --infoCard: #d6d6d6a8;
 }
 
+* {
+    transition: all 100ms ease-in-out;
+}
+
 body {
     display: flex;
     flex-wrap: wrap;

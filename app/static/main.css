@@ -18,6 +18,10 @@
     --infoCard: #d4cbaba8;
 }
 
+* {
+    transition: all 100ms ease-in-out;
+}
+
 body {
     display: flex;
     flex-wrap: wrap;
@@ -76,7 +80,6 @@ body {
     background-color: var(--container);
     width: 95%;
     height: 95%;
-    transition: all 100ms ease-in-out;
     animation: showNice 0.5s ease-in-out;
     overflow-y: auto;
     padding: 0;
@@ -128,13 +131,11 @@ select {
     border: 1px var(--borders) solid;
     border-radius: 15px;
     background-color: var(--btns);
-    transition: all 100ms ease-in-out;
     cursor: pointer;
     font-weight: bold;
     padding: 7.5px 15px 7.5px 25px;
     text-decoration: none;
     color: black;
-    transition: all 100ms ease-in-out;
 }
 
 select:hover {
@@ -167,7 +168,6 @@ input#discount {
     text-align: center;
     width: 150px;
     height: 40px;
-    transition: all 100ms ease-in-out;
 }
 
 input::placeholder#discount {
@@ -188,7 +188,6 @@ input.personalInfo {
     text-align: center;
     width: 265px;
     height: 40px;
-    transition: all 100ms ease-in-out;
 }
 
 input::placeholder.personalInfo {
@@ -224,7 +223,6 @@ input:focus.personalInfo {
     border: 1px var(--borders) solid;
     border-radius: 15px;
     background-color: var(--btns);
-    transition: all 100ms ease-in-out;
     cursor: pointer;
     margin-bottom: 10px;
     font-weight: bold;
@@ -256,6 +254,11 @@ input {
 input#storeName,
 input#storeNum {
     margin: 0;
+}
+
+#expOrNarPromo:hover,
+#expOrNarProduct:hover {
+    font-weight: bold;
 }
 
 #shoppingCartIcon,
@@ -359,7 +362,6 @@ div#shoppingCartIcon {
     border: 1px var(--borders) solid;
     border-radius: 15px;
     background-color: var(--btns);
-    transition: all 100ms ease-in-out;
     cursor: pointer;
     font-weight: bold;
     width: 80px;
@@ -374,7 +376,6 @@ div#shoppingCartIcon {
     border: 1px var(--borders) solid;
     border-radius: 15px;
     background-color: #3d323a57;
-    transition: all 100ms ease-in-out;
     cursor: default;
     font-weight: bold;
     width: 80px;
