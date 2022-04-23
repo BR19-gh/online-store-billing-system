@@ -342,6 +342,14 @@ button.btn.btn-outline-secondary:hover {
     animation: cartAnimation 0.1s linear;
 }
 
+.expandListAnimation {
+    animation: expandList 0.1s ease-in-out;
+}
+
+.narrowListAnimation {
+    animation: narrowList 0.1s ease-in-out;
+}
+
 input::-webkit-file-upload-button {
     height: 38px;
     font-size: 15px;
