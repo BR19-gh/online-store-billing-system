@@ -399,3 +399,21 @@ input#productImg {
         font-size: 30px;
     }
 }
+
+@keyframes expandList {
+    0% {
+        height: 30px;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes narrowList {
+    0% {
+        height: 100%;
+    }
+    100% {
+        height: 30px;
+    }
+}
