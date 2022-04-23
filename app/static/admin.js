@@ -1,4 +1,10 @@
 //// theme related
+
+fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+    .then((responseJson) => {
+        if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greenTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "blueTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "redTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greyTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "pinkTheme") { greenTheme.className = "circleTheme-selected" } else { greenTheme.className = "circleTheme-selected" }
+    });
+
 var themeBtns = document.querySelectorAll('div.circleTheme');
 for (var i = 0; i < themeBtns.length; i++) {
     themeBtns[i].onclick = function() {
