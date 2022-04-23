@@ -338,18 +338,6 @@ button.btn.btn-outline-secondary:hover {
     background-color: var(--btnsHover);
 }
 
-#productsList {
-    overflow: hidden;
-}
-
-.cartAnimation {
-    animation: cartAnimation 0.1s linear;
-}
-
-.expandListAnimation {
-    animation: expandList 0.1s ease-in-out;
-}
-
 .narrowListAnimation {
     animation: narrowList 0.1s ease-in-out;
 }
@@ -409,23 +397,5 @@ input#productImg {
     }
     100% {
         font-size: 30px;
-    }
-}
-
-@keyframes expandList {
-    0% {
-        height: 30px;
-    }
-    100% {
-        height: 100%;
-    }
-}
-
-@keyframes narrowList {
-    0% {
-        height: 100%;
-    }
-    100% {
-        height: 30px;
     }
 }
