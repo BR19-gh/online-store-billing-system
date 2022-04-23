@@ -338,6 +338,11 @@ button.btn.btn-outline-secondary:hover {
     background-color: var(--btnsHover);
 }
 
+#productList {
+    height: 30px;
+    overflow: hidden;
+}
+
 .cartAnimation {
     animation: cartAnimation 0.1s linear;
 }
