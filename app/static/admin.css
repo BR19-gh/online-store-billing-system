@@ -338,7 +338,7 @@ button.btn.btn-outline-secondary:hover {
     background-color: var(--btnsHover);
 }
 
-#productList {
+#productsList {
     height: 30px;
     overflow: hidden;
 }
