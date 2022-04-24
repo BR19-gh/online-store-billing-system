@@ -589,14 +589,14 @@ function firstFetch() {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
-            document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-evenly; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
+            document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
-                    document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-evenly; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
+                    document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 50px; height: 50px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
                 }
 
-                document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-evenly; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
+                document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 50px; height: 50px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
             }
 
         });
@@ -619,13 +619,13 @@ function firstFetch() {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
-            document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-evenly; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
+            document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
-                    document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-evenly; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div>`;
+                    document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div>`;
                 }
-                document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-evenly; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div><br><div></div>`;
+                document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div><br><div></div>`;
             }
         });
 
