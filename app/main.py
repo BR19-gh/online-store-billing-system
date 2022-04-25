@@ -264,14 +264,14 @@ def verify(username, password):
 
     if(username == USERNAME and password == PASSWORD):
         print(200)
-        return redirect('../../admin')
+        return redirect('../../adminbr191324656')
 
     else:
         print(401)
         abort(401)
 
 
-@app.route("/admin")
+@app.route("/adminbr191324656")
 @limiter.exempt
 def admin_view():
 
