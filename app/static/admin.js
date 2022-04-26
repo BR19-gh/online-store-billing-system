@@ -9,6 +9,12 @@ var themeBtns = document.querySelectorAll('div.circleTheme');
 for (var i = 0; i < themeBtns.length; i++) {
     themeBtns[i].onclick = function() {
 
+        for (let i = 0; i < themesContainer.length; i++) {
+            if (themesContainer.childNodes[i].nodeName == 'DIV') {
+                themesContainer.childNodes[i].className == "circleTheme"
+            }
+        }
+
         if (document.getElementsByClassName("circleTheme-selected")[0] == undefined) {
             this.className = "circleTheme-selected";
         } else {
