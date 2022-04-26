@@ -313,7 +313,7 @@ function fetchProducts() {
             return response.json();
         }).then((responseJson) => {
             console.log(responseJson);
-            if (responseJson.statCode == 204) { productsList.innerHTML = "حدث وانتظر قليلا إذا كنت قد أضفت بالفعل"; return; }
+            if (responseJson.statCode == 204) { productsList.innerHTML = "حدث وانتظر قليلا إذا كنت قد "; return; }
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
@@ -368,7 +368,7 @@ function fetchPromocodes() {
             return response.json();
         }).then((responseJson) => {
             console.log(responseJson);
-            if (responseJson.statCode == 204) { codesList.innerHTML = "حدث وانتظر قليلا إذا كنت قد أضفت بالفعل"; return; }
+            if (responseJson.statCode == 204) { codesList.innerHTML = "حدث وانتظر قليلا إذا كنت قد أضفت"; return; }
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
