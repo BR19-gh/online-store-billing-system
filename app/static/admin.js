@@ -9,7 +9,7 @@ var themeBtns = document.querySelectorAll('div.circleTheme');
 for (var i = 0; i < themeBtns.length; i++) {
     themeBtns[i].onclick = function() {
 
-        for (let i = 0; i < themesContainer.length; i++) {
+        for (let i = 0; i < themesContainer.childNodes.length; i++) {
 
             themesContainer.childNodes[i].className = "circleTheme"
 
