@@ -1,5 +1,35 @@
 import { fetchThemes } from '../static/themesFetch.js';
 
+function expOrNarProduct(expOrNarProductKey) {
+    if (expOrNarProductKey == 1) {
+        document.getElementById('productsList').style.height = "100%"
+        document.getElementById('productsList').style.overflow = "auto";
+        productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء المنتجات </div>';
+        productsList.childNodes[0].innerHTML = "";
+
+    } else {
+        document.getElementById('productsList').style.height = "30px"
+        document.getElementById('productsList').style.overflow = "hidden";
+        productsList.childNodes[0].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات</div>';
+    }
+
+}
+
+function expOrNarPromo(expOrNarPromoKey) {
+    if (expOrNarPromoKey == 1) {
+        document.getElementById('codesList').style.height = "100%"
+        document.getElementById('codesList').style.overflow = "auto";
+        codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء الأكواد </div>';
+        codesList.childNodes[0].innerHTML = "";
+
+    } else {
+        document.getElementById('codesList').style.height = "30px"
+        document.getElementById('codesList').style.overflow = "hidden";
+        codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div>';
+    }
+
+}
+
 /// fetch without refreshing related
 document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
 document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
@@ -62,35 +92,6 @@ for (var i = 0; i < themeBtns.length; i++) {
 
 
 
-function expOrNarProduct(expOrNarProductKey) {
-    if (expOrNarProductKey == 1) {
-        document.getElementById('productsList').style.height = "100%"
-        document.getElementById('productsList').style.overflow = "auto";
-        productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء المنتجات </div>';
-        productsList.childNodes[0].innerHTML = "";
-
-    } else {
-        document.getElementById('productsList').style.height = "30px"
-        document.getElementById('productsList').style.overflow = "hidden";
-        productsList.childNodes[0].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات</div>';
-    }
-
-}
-
-function expOrNarPromo(expOrNarPromoKey) {
-    if (expOrNarPromoKey == 1) {
-        document.getElementById('codesList').style.height = "100%"
-        document.getElementById('codesList').style.overflow = "auto";
-        codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء الأكواد </div>';
-        codesList.childNodes[0].innerHTML = "";
-
-    } else {
-        document.getElementById('codesList').style.height = "30px"
-        document.getElementById('codesList').style.overflow = "hidden";
-        codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div>';
-    }
-
-}
 
 
 
