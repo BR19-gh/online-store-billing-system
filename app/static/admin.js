@@ -1,3 +1,10 @@
+import { fetchThemes } from '../static/themesFetch.js';
+
+/// fetch without refreshing related
+document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
+document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
+
+
 //// theme related
 
 var themeBtns = document.querySelectorAll('div.circleTheme');
@@ -566,10 +573,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
 function firstFetch() {
 
-    fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
-        .then((responseJson) => {
-            if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") { originalTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greenTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "blueTheme") { blueTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "redTheme") { redTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greyTheme") { greyTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "pinkTheme") { pinkTheme.className = "circleTheme-selected" } else { originalTheme.className = "circleTheme-selected" }
-        });
+    fetchThemes();
 
 
     fetch('/storeNum/show', {
@@ -620,7 +624,6 @@ function firstFetch() {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
-            document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
@@ -650,7 +653,6 @@ function firstFetch() {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
-            document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
             for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
                 if (i == Object.keys(responseJson).length) {
