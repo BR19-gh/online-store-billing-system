@@ -274,7 +274,7 @@ function fetchStoreInfo() {
 
 // for fetchProducts()
 
-function isNarrowed() {
+function isNarrowed(responseJson) {
 
     document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
@@ -287,7 +287,7 @@ function isNarrowed() {
     }
 }
 
-function isExpanded() {
+function isExpanded(responseJson) {
 
 
     document.getElementById('productsList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
@@ -323,8 +323,8 @@ function fetchProducts() {
                 return;
             }
 
-            if (productsList.style.height == "30px") isNarrowed();
-            if (productsList.style.height == "100%") isExpanded();
+            if (productsList.style.height == "30px") isNarrowed(responseJson);
+            if (productsList.style.height == "100%") isExpanded(responseJson);
 
         });
 }
