@@ -435,7 +435,7 @@ document.getElementById('addProd').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+            alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
         });
 });
@@ -479,7 +479,7 @@ document.getElementById('updProd').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+            alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
         });
 });
@@ -519,7 +519,7 @@ document.getElementById('delProd').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+            alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
         });
 });
@@ -567,7 +567,7 @@ document.getElementById('addCode').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+            alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
         });
 });
@@ -612,7 +612,7 @@ document.getElementById('updCode').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+            alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
         });
 });
@@ -651,7 +651,7 @@ document.getElementById('delCode').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+            alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
         });
 });
@@ -681,7 +681,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                     return;
                 }
 
-                alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+                alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
             });
     } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
@@ -711,7 +711,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                     return;
                 }
 
-                alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+                alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
             });
     } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
@@ -753,7 +753,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+            alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchStoreInfo();
         });
     } else {
@@ -795,7 +795,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                     return;
                 }
 
-                alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+                alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
             });
     } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
@@ -825,7 +825,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 }
                 console.log(responseJson)
 
-                alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+                alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
             });
     } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
@@ -867,7 +867,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحريثات");
+            alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchStoreInfo();
         });
     } else {
