@@ -1,10 +1,5 @@
 //// theme related
 
-fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
-    .then((responseJson) => {
-        if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") { originalTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greenTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "blueTheme") { blueTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "redTheme") { redTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greyTheme") { greyTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "pinkTheme") { pinkTheme.className = "circleTheme-selected" } else { originalTheme.className = "circleTheme-selected" }
-    });
-
 var themeBtns = document.querySelectorAll('div.circleTheme');
 for (var i = 0; i < themeBtns.length; i++) {
     themeBtns[i].onclick = function() {
@@ -49,7 +44,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                             return;
                         }
-                        location.reload();
+                        firstFetch();
 
                     });
             });
@@ -147,7 +142,7 @@ document.getElementById('addProd').addEventListener('click', () => {
                 return;
             }
 
-            location.reload();
+            firstFetch();
         });
 });
 
@@ -190,7 +185,7 @@ document.getElementById('updProd').addEventListener('click', () => {
                 return;
             }
 
-            location.reload();
+            firstFetch();
         });
 });
 
@@ -228,7 +223,7 @@ document.getElementById('delProd').addEventListener('click', () => {
 
                 return;
             }
-            location.reload();
+            firstFetch();
         });
 });
 
@@ -273,7 +268,7 @@ document.getElementById('addCode').addEventListener('click', () => {
                 return;
             }
 
-            location.reload();
+            firstFetch();
         });
 });
 
@@ -317,7 +312,7 @@ document.getElementById('updCode').addEventListener('click', () => {
                 return;
             }
 
-            location.reload();
+            firstFetch();
         });
 });
 
@@ -354,7 +349,7 @@ document.getElementById('delCode').addEventListener('click', () => {
             if (document.getElementById('codeID').value == '') {
                 return;
             }
-            location.reload();
+            firstFetch();
         });
 });
 
@@ -382,7 +377,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                     alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
-                location.reload();
+                firstFetch();
             });
     } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -410,7 +405,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                     alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
-                location.reload();
+                firstFetch();
             });
     } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -450,7 +445,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
-            location.reload();
+            firstFetch();
         });
     } else {
 
@@ -490,7 +485,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                     alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
-                location.reload();
+                firstFetch();
             });
     } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -518,7 +513,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                     return;
                 }
                 console.log(responseJson)
-                location.reload();
+                firstFetch();
             });
     } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -558,7 +553,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
-            location.reload();
+            firstFetch();
         });
     } else {
         return;
@@ -570,6 +565,42 @@ document.getElementById('updInfo').addEventListener('click', () => {
 //// fetches
 
 function firstFetch() {
+
+    fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+        .then((responseJson) => {
+            if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") { originalTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greenTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "blueTheme") { blueTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "redTheme") { redTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greyTheme") { greyTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "pinkTheme") { pinkTheme.className = "circleTheme-selected" } else { originalTheme.className = "circleTheme-selected" }
+        });
+
+
+    fetch('/storeNum/show', {
+        headers: {
+
+            'Method': 'GET',
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        method: 'GET',
+    }).then((responseNum) => {
+        return responseNum.json();
+    }).then((responseJson) => {
+        document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
+
+    });
+
+    fetch('/storeName/show', {
+            headers: {
+
+                'Method': 'GET',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'GET',
+        })
+        .then((responseName) => {
+            return responseName.json();
+        }).then((responseJson) => {
+            document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
+        });
 
     fetch('/products', {
             headers: {
@@ -627,36 +658,6 @@ function firstFetch() {
                 }
                 document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div><br><div></div>`;
             }
-        });
-
-    fetch('/storeNum/show', {
-        headers: {
-
-            'Method': 'GET',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        method: 'GET',
-    }).then((responseNum) => {
-        return responseNum.json();
-    }).then((responseJson) => {
-        document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
-
-    });
-
-    fetch('/storeName/show', {
-            headers: {
-
-                'Method': 'GET',
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            method: 'GET',
-        })
-        .then((responseName) => {
-            return responseName.json();
-        }).then((responseJson) => {
-            document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
         });
 
 
