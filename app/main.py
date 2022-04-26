@@ -603,7 +603,7 @@ def storeNameGet():
 
 
 @app.route("/storeTheme", methods=['POST', 'PUT', 'DELETE'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
+@limiter.limit('1 per 5seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeTheme():
     print('The ip address: ', get_remote_address())
     newObj = StoreThemeTable()

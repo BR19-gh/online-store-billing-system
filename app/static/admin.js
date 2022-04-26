@@ -1,41 +1,6 @@
-import { fetchThemes } from '../static/themesFetch.js';
-
-function expOrNarProduct(expOrNarProductKey) {
-    if (expOrNarProductKey == 1) {
-        document.getElementById('productsList').style.height = "100%"
-        document.getElementById('productsList').style.overflow = "auto";
-        productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء المنتجات </div>';
-        productsList.childNodes[0].innerHTML = "";
-
-    } else {
-        document.getElementById('productsList').style.height = "30px"
-        document.getElementById('productsList').style.overflow = "hidden";
-        productsList.childNodes[0].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات</div>';
-    }
-
-}
-
-function expOrNarPromo(expOrNarPromoKey) {
-    if (expOrNarPromoKey == 1) {
-        document.getElementById('codesList').style.height = "100%"
-        document.getElementById('codesList').style.overflow = "auto";
-        codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء الأكواد </div>';
-        codesList.childNodes[0].innerHTML = "";
-
-    } else {
-        document.getElementById('codesList').style.height = "30px"
-        document.getElementById('codesList').style.overflow = "hidden";
-        codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div>';
-    }
-
-}
-
-/// fetch without refreshing related
-document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
-document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
-
-
 //// theme related
+
+import { fetchThemes } from "./themesFetch";
 
 var themeBtns = document.querySelectorAll('div.circleTheme');
 for (var i = 0; i < themeBtns.length; i++) {
@@ -81,7 +46,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                             return;
                         }
-                        firstFetch();
+                        fetchThemes();
 
                     });
             });
@@ -91,7 +56,154 @@ for (var i = 0; i < themeBtns.length; i++) {
 }
 
 
+/// expand or Narrow related
 
+function expOrNarProduct(expOrNarProductKey) {
+    if (expOrNarProductKey == 1) {
+        document.getElementById('productsList').style.height = "100%"
+        document.getElementById('productsList').style.overflow = "auto";
+        productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء المنتجات </div>';
+        productsList.childNodes[0].innerHTML = "";
+
+    } else {
+        document.getElementById('productsList').style.height = "30px"
+        document.getElementById('productsList').style.overflow = "hidden";
+        productsList.childNodes[0].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات</div>';
+    }
+
+}
+
+function expOrNarPromo(expOrNarPromoKey) {
+    if (expOrNarPromoKey == 1) {
+        document.getElementById('codesList').style.height = "100%"
+        document.getElementById('codesList').style.overflow = "auto";
+        codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء الأكواد </div>';
+        codesList.childNodes[0].innerHTML = "";
+
+    } else {
+        document.getElementById('codesList').style.height = "30px"
+        document.getElementById('codesList').style.overflow = "hidden";
+        codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div>';
+    }
+
+}
+
+
+
+//// fetches
+
+function firstFetches() {
+
+    fetchThemes();
+
+    fetchStoreInfo();
+
+    fetchProducts();
+
+    fetchPromocodes();
+
+}
+
+firstFetches();
+
+function fetchStoreInfo() {
+
+    fetch('/storeNum/show', {
+        headers: {
+
+            'Method': 'GET',
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        method: 'GET',
+    }).then((responseNum) => {
+        return responseNum.json();
+    }).then((responseJson) => {
+        document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
+
+    });
+
+
+    fetch('/storeName/show', {
+            headers: {
+
+                'Method': 'GET',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'GET',
+        })
+        .then((responseName) => {
+            return responseName.json();
+        }).then((responseJson) => {
+            document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
+        });
+}
+
+
+function fetchProducts() {
+
+    fetch('/products', {
+            headers: {
+
+                'Method': 'GET',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'GET',
+        })
+        .then((response) => {
+            return response.json();
+        }).then((responseJson) => {
+            console.log(responseJson);
+            if (responseJson.statCode == 204) { return; }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                return;
+            }
+            document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
+            for (let i = 0; i < Object.keys(responseJson).length; i++) {
+
+                if (i == Object.keys(responseJson).length) {
+                    document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
+                }
+
+                document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
+            }
+
+        });
+}
+
+function fetchPromocodes() {
+
+    fetch('/promocodes', {
+            headers: {
+
+                'Method': 'GET',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'GET',
+        })
+        .then((response) => {
+            return response.json();
+        }).then((responseJson) => {
+            console.log(responseJson);
+            if (responseJson.statCode == 204) { return; }
+            if (responseJson.statCode == 429) {
+                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
+                return;
+            }
+            document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
+            for (let i = 0; i < Object.keys(responseJson).length; i++) {
+
+                if (i == Object.keys(responseJson).length) {
+                    document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div>`;
+                }
+                document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div><br><div></div>`;
+            }
+        });
+}
 
 
 
@@ -150,7 +262,7 @@ document.getElementById('addProd').addEventListener('click', () => {
                 return;
             }
 
-            firstFetch();
+            fetchProducts();
         });
 });
 
@@ -193,7 +305,7 @@ document.getElementById('updProd').addEventListener('click', () => {
                 return;
             }
 
-            firstFetch();
+            fetchProducts();
         });
 });
 
@@ -231,9 +343,11 @@ document.getElementById('delProd').addEventListener('click', () => {
 
                 return;
             }
-            firstFetch();
+            fetchProducts();
         });
 });
+
+
 
 document.getElementById('addCode').addEventListener('click', () => {
     if (document.getElementById('codeID').value == '' ||
@@ -276,7 +390,7 @@ document.getElementById('addCode').addEventListener('click', () => {
                 return;
             }
 
-            firstFetch();
+            fetchPromocodes();
         });
 });
 
@@ -320,7 +434,7 @@ document.getElementById('updCode').addEventListener('click', () => {
                 return;
             }
 
-            firstFetch();
+            fetchPromocodes();
         });
 });
 
@@ -357,7 +471,7 @@ document.getElementById('delCode').addEventListener('click', () => {
             if (document.getElementById('codeID').value == '') {
                 return;
             }
-            firstFetch();
+            fetchPromocodes();
         });
 });
 
@@ -385,7 +499,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                     alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
-                firstFetch();
+                fetchStoreInfo();
             });
     } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -413,7 +527,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                     alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
-                firstFetch();
+                fetchStoreInfo();
             });
     } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -453,7 +567,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
-            firstFetch();
+            fetchStoreInfo();
         });
     } else {
 
@@ -493,7 +607,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                     alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
-                firstFetch();
+                fetchStoreInfo();
             });
     } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -521,7 +635,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                     return;
                 }
                 console.log(responseJson)
-                firstFetch();
+                fetchStoreInfo();
             });
     } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -561,113 +675,13 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
-            firstFetch();
+            fetchStoreInfo();
         });
     } else {
         return;
     }
 
 });
-
-
-//// fetches
-
-function firstFetch() {
-
-    fetchThemes();
-
-
-    fetch('/storeNum/show', {
-        headers: {
-
-            'Method': 'GET',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        method: 'GET',
-    }).then((responseNum) => {
-        return responseNum.json();
-    }).then((responseJson) => {
-        document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
-
-    });
-
-    fetch('/storeName/show', {
-            headers: {
-
-                'Method': 'GET',
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            method: 'GET',
-        })
-        .then((responseName) => {
-            return responseName.json();
-        }).then((responseJson) => {
-            document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
-        });
-
-    fetch('/products', {
-            headers: {
-
-                'Method': 'GET',
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            method: 'GET',
-        })
-        .then((response) => {
-            return response.json();
-        }).then((responseJson) => {
-            console.log(responseJson);
-            if (responseJson.statCode == 204) { return; }
-            if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
-                return;
-            }
-            for (let i = 0; i < Object.keys(responseJson).length; i++) {
-
-                if (i == Object.keys(responseJson).length) {
-                    document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
-                }
-
-                document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
-            }
-
-        });
-
-    fetch('/promocodes', {
-            headers: {
-
-                'Method': 'GET',
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            method: 'GET',
-        })
-        .then((response) => {
-            return response.json();
-        }).then((responseJson) => {
-            console.log(responseJson);
-            if (responseJson.statCode == 204) { return; }
-            if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
-                return;
-            }
-            for (let i = 0; i < Object.keys(responseJson).length; i++) {
-
-                if (i == Object.keys(responseJson).length) {
-                    document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div>`;
-                }
-                document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div><br><div></div>`;
-            }
-        });
-
-
-}
-
-firstFetch();
-
 
 
 const countriesCodes = {
