@@ -15,15 +15,7 @@ for (var i = 0; i < themeBtns.length; i++) {
 
         }
 
-        if (document.getElementsByClassName("circleTheme-selected")[0] == undefined) {
-            this.className = "circleTheme-selected";
-        } else {
-            document.getElementsByClassName("circleTheme-selected")[0].className = "circleTheme";
-            this.className = "circleTheme-selected";
-        }
-
         console.log(this.id);
-
 
         fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
             .then((responseJson) => {
@@ -55,6 +47,10 @@ for (var i = 0; i < themeBtns.length; i++) {
                             alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                             return;
                         }
+                        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+                            .then((responseJson) => {
+                                if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") { originalTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greenTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "blueTheme") { blueTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "redTheme") { redTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greyTheme") { greyTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "pinkTheme") { pinkTheme.className = "circleTheme-selected" } else { originalTheme.className = "circleTheme-selected" }
+                            });
                         fetchThemes();
 
                     });
