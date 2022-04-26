@@ -1,6 +1,6 @@
 //// theme related
 
-import { fetchThemes } from '../static/themesFetch.js';
+import { fetchThemes } from './themesFetch.js';
 
 var themeBtns = document.querySelectorAll('div.circleTheme');
 for (var i = 0; i < themeBtns.length; i++) {
