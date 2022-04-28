@@ -20,7 +20,7 @@ for (var i = 0; i < themeBtns.length; i++) {
         fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
             .then((responseJson) => {
                 let method;
-                if (responseJson.storeTheme == "none/لايوجد") {
+                if (responseJson.storeTheme == "none /لايوجد") {
                     method = "POST";
                 } else { method = "PUT"; }
 
