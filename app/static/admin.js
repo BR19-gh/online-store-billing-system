@@ -67,13 +67,13 @@ function expOrNarProduct(expOrNarProductKey) {
     if (expOrNarProductKey == 1) {
         document.getElementById('productsList').style.height = "100%"
         document.getElementById('productsList').style.overflow = "auto";
-        productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء المنتجات </div>';
+        productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
         productsList.childNodes[0].innerHTML = "";
 
     } else {
         document.getElementById('productsList').style.height = "30px"
         document.getElementById('productsList').style.overflow = "hidden";
-        productsList.childNodes[0].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات</div>';
+        productsList.childNodes[0].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات</div>';
     }
 
 }
@@ -82,13 +82,13 @@ function expOrNarPromo(expOrNarPromoKey) {
     if (expOrNarPromoKey == 1) {
         document.getElementById('codesList').style.height = "100%"
         document.getElementById('codesList').style.overflow = "auto";
-        codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء الأكواد </div>';
+        codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
         codesList.childNodes[0].innerHTML = "";
 
     } else {
         document.getElementById('codesList').style.height = "30px"
         document.getElementById('codesList').style.overflow = "hidden";
-        codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div>';
+        codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار الأكواد </div>';
     }
 
 }
@@ -272,7 +272,7 @@ function fetchStoreInfo() {
 
 function isNarrowed(responseJson) {
 
-    document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
+    document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
@@ -295,7 +295,7 @@ function isExpanded(responseJson) {
 
         document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
     }
-    productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء المنتجات </div>';
+    productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
 }
 
 function fetchProducts() {
@@ -329,7 +329,7 @@ function fetchProducts() {
 
 function isNarrowedCode(responseJson) {
 
-    document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
+    document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
@@ -350,7 +350,7 @@ function isExpandedCode(responseJson) {
         }
         document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div><br><div></div>`;
     }
-    codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> اضغط لإخفاء الأكواد </div>';
+    codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
 }
 
 function fetchPromocodes() {
