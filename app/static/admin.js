@@ -437,10 +437,10 @@ document.getElementById('addProd').addEventListener('click', () => {
 
             alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
-            document.getElementById('productID').value == '';
-            document.getElementById('productTitle').value == '';
-            document.getElementById('productPrice').value == '';
-            document.getElementById('productImg').value == '';
+            document.getElementById('productID').value = '';
+            document.getElementById('productTitle').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productImg').value = '';
         });
 });
 
@@ -485,10 +485,10 @@ document.getElementById('updProd').addEventListener('click', () => {
 
             alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
-            document.getElementById('productID').value == '';
-            document.getElementById('productTitle').value == '';
-            document.getElementById('productPrice').value == '';
-            document.getElementById('productImg').value == '';
+            document.getElementById('productID').value = '';
+            document.getElementById('productTitle').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productImg').value = '';
         });
 });
 
@@ -529,10 +529,10 @@ document.getElementById('delProd').addEventListener('click', () => {
 
             alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
-            document.getElementById('productID').value == '';
-            document.getElementById('productTitle').value == '';
-            document.getElementById('productPrice').value == '';
-            document.getElementById('productImg').value == '';
+            document.getElementById('productID').value = '';
+            document.getElementById('productTitle').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productImg').value = '';
         });
 });
 
@@ -581,9 +581,9 @@ document.getElementById('addCode').addEventListener('click', () => {
 
             alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
-            document.getElementById('codeID').value == '';
-            document.getElementById('codeName').value == '';
-            document.getElementById('codeAmount').value == '';
+            document.getElementById('codeID').value = '';
+            document.getElementById('codeName').value = '';
+            document.getElementById('codeAmount').value = '';
         });
 });
 
@@ -629,9 +629,9 @@ document.getElementById('updCode').addEventListener('click', () => {
 
             alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
-            document.getElementById('codeID').value == '';
-            document.getElementById('codeName').value == '';
-            document.getElementById('codeAmount').value == '';
+            document.getElementById('codeID').value = '';
+            document.getElementById('codeName').value = '';
+            document.getElementById('codeAmount').value = '';
         });
 });
 
@@ -671,9 +671,9 @@ document.getElementById('delCode').addEventListener('click', () => {
 
             alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
-            document.getElementById('codeID').value == '';
-            document.getElementById('codeName').value == '';
-            document.getElementById('codeAmount').value == '';
+            document.getElementById('codeID').value = '';
+            document.getElementById('codeName').value = '';
+            document.getElementById('codeAmount').value = '';
         });
 });
 
