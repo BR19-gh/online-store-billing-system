@@ -40,7 +40,6 @@ limiter = Limiter(
 
 ###### Models ######
 
-
 class ProductsTable:
 
     def __init__(self):
