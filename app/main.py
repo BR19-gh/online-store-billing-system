@@ -22,8 +22,6 @@ from urllib.parse import unquote
 ###### Configs ######
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
-
-
 USERNAME = os.environ.get('USERNAME')
 PASSWORD = os.environ.get('PASSWORD')
 ADMIN_ROUTE = os.environ.get('ADMIN_ROUTE')
