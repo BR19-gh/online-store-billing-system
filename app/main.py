@@ -14,6 +14,9 @@ from base64 import b64encode
 import base64
 from io import BytesIO  # Converts data from Database into bytes
 from urllib.parse import unquote
+import io
+import base64
+from PIL import Image
 
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
@@ -283,7 +286,13 @@ def admin_view():
 
 def render_picture(data):
 
-    render_pic = base64.b64encode(data).decode('ascii')
+    buffer = io.BytesIO()
+    imgdata = base64.b64decode(data)
+    img = Image.open(io.BytesIO(imgdata))
+    new_img = img.resize((2, 2))  # x, y
+    new_img.save(buffer, format="PNG")
+    render_pic = base64.b64encode(buffer.getvalue()).decode('ascii')
+
     return render_pic
 
 
