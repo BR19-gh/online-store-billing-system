@@ -1,3 +1,5 @@
+###### Imports ######
+
 import sqlite3
 from urllib import response
 from flask import Flask, render_template, jsonify, request, abort, redirect
@@ -14,6 +16,10 @@ from base64 import b64encode
 import base64
 from io import BytesIO  # Converts data from Database into bytes
 from urllib.parse import unquote
+
+###### Imports END ######
+
+###### Configs ######
 
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
@@ -32,6 +38,10 @@ limiter = Limiter(
     key_func=get_remote_address,
     default_limits=["1 per 30seconds", "50 per hour"]
 )
+
+###### Configs END ######
+
+###### Models ######
 
 
 class ProductsTable:
@@ -238,8 +248,10 @@ class StoreNumTable:
     def __del__(self):
         self.conn.close()
 
+###### Models END ######
 
-###### routes ######
+###### Routes ######
+
 
 @app.route("/main")
 @limiter.exempt
@@ -278,13 +290,9 @@ def admin_view():
 
     return render_template('admin.html')
 
+###### Routes END ######
 
-###### Backend ######
-
-def render_picture(data):
-
-    render_pic = base64.b64encode(data).decode('ascii')
-    return render_pic
+###### Backend APIs ######
 
 
 @app.route("/product", methods=['POST'])
@@ -735,7 +743,9 @@ def storeNumGet():
     else:
         return jsonify({"storeNum": newObj.search()})
 
-###### errors ######
+###### Backend APIs END ######
+
+###### Error Handlers ######
 
 
 @app.errorhandler(429)
@@ -781,5 +791,14 @@ def ratelimit_handler(e):
     print(msg)
     return render_template('err/err404.html', msg=msg)
 
+###### Error Handlers END ######
 
-###### other ######
+###### Other ######
+
+
+def render_picture(data):
+
+    render_pic = base64.b64encode(data).decode('ascii')
+    return render_pic
+
+###### Other END ######
