@@ -437,6 +437,10 @@ document.getElementById('addProd').addEventListener('click', () => {
 
             alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
+            document.getElementById('productID').value == '';
+            document.getElementById('productTitle').value == '';
+            document.getElementById('productPrice').value == '';
+            document.getElementById('productImg').value == '';
         });
 });
 
@@ -481,6 +485,10 @@ document.getElementById('updProd').addEventListener('click', () => {
 
             alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
+            document.getElementById('productID').value == '';
+            document.getElementById('productTitle').value == '';
+            document.getElementById('productPrice').value == '';
+            document.getElementById('productImg').value == '';
         });
 });
 
@@ -521,6 +529,10 @@ document.getElementById('delProd').addEventListener('click', () => {
 
             alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
+            document.getElementById('productID').value == '';
+            document.getElementById('productTitle').value == '';
+            document.getElementById('productPrice').value == '';
+            document.getElementById('productImg').value == '';
         });
 });
 
@@ -569,6 +581,9 @@ document.getElementById('addCode').addEventListener('click', () => {
 
             alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
+            document.getElementById('codeID').value == '';
+            document.getElementById('codeName').value == '';
+            document.getElementById('codeAmount').value == '';
         });
 });
 
@@ -614,6 +629,9 @@ document.getElementById('updCode').addEventListener('click', () => {
 
             alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
+            document.getElementById('codeID').value == '';
+            document.getElementById('codeName').value == '';
+            document.getElementById('codeAmount').value == '';
         });
 });
 
@@ -653,6 +671,9 @@ document.getElementById('delCode').addEventListener('click', () => {
 
             alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
+            document.getElementById('codeID').value == '';
+            document.getElementById('codeName').value == '';
+            document.getElementById('codeAmount').value == '';
         });
 });
 
@@ -683,6 +704,8 @@ document.getElementById('addInfo').addEventListener('click', () => {
 
                 alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
+                document.getElementById('storeName').value = '';
+                document.getElementById('storeNum').value = '';
             });
     } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -713,6 +736,8 @@ document.getElementById('addInfo').addEventListener('click', () => {
 
                 alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
+                document.getElementById('storeName').value = '';
+                document.getElementById('storeNum').value = '';
             });
     } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -755,6 +780,8 @@ document.getElementById('addInfo').addEventListener('click', () => {
 
             alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchStoreInfo();
+            document.getElementById('storeName').value = '';
+            document.getElementById('storeNum').value = '';
         });
     } else {
 
@@ -797,6 +824,8 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
                 alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
+                document.getElementById('storeName').value = '';
+                document.getElementById('storeNum').value = '';
             });
     } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -827,6 +856,8 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
                 alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
+                document.getElementById('storeName').value = '';
+                document.getElementById('storeNum').value = '';
             });
     } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
@@ -869,6 +900,8 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
             alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchStoreInfo();
+            document.getElementById('storeName').value = '';
+            document.getElementById('storeNum').value = '';
         });
     } else {
         return;
