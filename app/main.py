@@ -21,6 +21,7 @@ DATABASE_URL = os.environ.get('DATABASE_URL')
 
 USERNAME = os.environ.get('USERNAME')
 PASSWORD = os.environ.get('PASSWORD')
+ADMIN_ROUTE = os.environ.get('ADMIN_ROUTE')
 
 # print(USERNAME, PASSWORD)
 
@@ -264,14 +265,14 @@ def verify(username, password):
 
     if(username == USERNAME and password == PASSWORD):
         print(200)
-        return redirect('../../admin')
+        return redirect(f'../../{ADMIN_ROUTE}')
 
     else:
         print(401)
         abort(401)
 
 
-@app.route("/admin")
+@app.route(f"/{ADMIN_ROUTE}")
 @limiter.exempt
 def admin_view():
 
