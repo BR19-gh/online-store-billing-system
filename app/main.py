@@ -21,7 +21,6 @@ from urllib.parse import unquote
 
 ###### Configs ######
 
-
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
 
