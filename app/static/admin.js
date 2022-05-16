@@ -878,7 +878,7 @@ for (var i = 0; i < allCountriesAncors.length; i++) {
     allCountriesAncors[i].addEventListener('click', function() {
         let content = this.innerText;
         content = content.split(':');
-        id = content[0];
+        let id = content[0];
         id--;
         currentCountryCodeSelected = countriesCodes[Object.keys(countriesCodes)[id]]['calling_code'];
         countryCodeTitle.innerText = currentCountryCodeSelected;
