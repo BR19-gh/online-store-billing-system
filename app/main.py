@@ -47,7 +47,12 @@ class ProductsTable:
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS products (id INTEGER NOT NULL,title TEXT NOT NULL,price INTEGER NOT NULL,img TEXT NOT NULL)")
+            """CREATE TABLE IF NOT EXISTS products
+                (id INTEGER NOT NULL,
+                title TEXT NOT NULL,
+                price INTEGER NOT NULL,
+                img TEXT NOT NULL)
+            """)
 
     def display(self):
         self.cur.execute("SELECT * FROM products")
@@ -93,7 +98,11 @@ class PromocodesTable:
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS promocodes (id INTEGER NOT NULL,code TEXT NOT NULL,amount FLOAT NOT NULL)")
+            """CREATE TABLE IF NOT EXISTS promocodes 
+                (id INTEGER NOT NULL,
+                code TEXT NOT NULL,
+                amount FLOAT NOT NULL)
+            """)
 
     def display(self):
         self.cur.execute("SELECT * FROM promocodes")
@@ -137,7 +146,9 @@ class StoreNameTable:
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS storeNames (storeName TEXT NOT NULL)")
+            """CREATE TABLE IF NOT EXISTS storeNames 
+                (storeName TEXT NOT NULL)
+            """)
 
     def search(self):
         self.cur.execute(f"SELECT * FROM storeNames")
@@ -175,7 +186,9 @@ class StoreThemeTable:
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS storeThemes (storeTheme TEXT NOT NULL)")
+            """CREATE TABLE IF NOT EXISTS storeThemes 
+                (storeTheme TEXT NOT NULL)
+            """)
 
     def search(self):
         self.cur.execute(f"SELECT * FROM storeThemes")
@@ -213,7 +226,9 @@ class StoreNumTable:
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS storeNums (storeNum BIGINT NOT NULL)")
+            """CREATE TABLE IF NOT EXISTS storeNums 
+                (storeNum BIGINT NOT NULL)
+            """)
 
     def search(self):
         self.cur.execute(f"SELECT * FROM storeNums")
