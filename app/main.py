@@ -40,27 +40,43 @@ limiter = Limiter(
 
 ###### Models ######
 
+
 class ProductsTable:
 
     def __init__(self):
         self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
-        self.cur.execute(
-            """CREATE TABLE IF NOT EXISTS products
-                (id INTEGER NOT NULL,
-                title TEXT NOT NULL,
-                price INTEGER NOT NULL,
-                img TEXT NOT NULL)
-            """)
+        self.cur.execute("""
+
+                CREATE TABLE IF NOT EXISTS products
+                    (
+                        id    INTEGER NOT NULL,
+                        title TEXT NOT NULL,
+                        price INTEGER NOT NULL,
+                        img   TEXT NOT NULL
+                    ) 
+                            
+                        """)
 
     def display(self):
-        self.cur.execute("SELECT * FROM products")
+        self.cur.execute("""
+
+                SELECT * 
+                FROM products
+                        
+                        """)
         self.records = self.cur.fetchall()
         return self.records
 
     def search(self, id):
-        self.cur.execute(f"SELECT * FROM products WHERE id = '{id}'")
+        self.cur.execute(f"""
+
+                SELECT * 
+                FROM products 
+                WHERE id = '{id}'
+
+                        """)
         self.record = self.cur.fetchone()
         return self.record
 
@@ -68,23 +84,58 @@ class ProductsTable:
         if (id == "" or price == "" or title == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
-        INSERT INTO products (id, title, price, img) VALUES {(id ,title, price, img)};
-        """)
+
+                INSERT INTO products
+                            (
+                                id,
+                                title,
+                                price,
+                                img
+                            )
+                VALUES
+                            {( 
+                                id , 
+                                title, 
+                                price, 
+                                img 
+                            )};
+
+                        """)
         self.conn.commit()
 
     def update(self, id, title, price, img):
-        self.cur.execute(
-            f"UPDATE products SET title = '{title}' WHERE id = '{id}'")
-        self.cur.execute(
-            f"UPDATE products SET price = '{price}' WHERE id = '{id}'")
-        self.cur.execute(
-            f"UPDATE products SET img = '{img}' WHERE id = '{id}'")
+        self.cur.execute(f"""
+
+                UPDATE products 
+                SET title = '{title}' 
+                WHERE id = '{id}'
+                        
+                        """)
+        self.cur.execute(f"""
+
+                UPDATE products 
+                SET price = '{price}' 
+                WHERE id = '{id}'
+
+                        """)
+        self.cur.execute(f"""
+
+                UPDATE products 
+                SET img = '{img}' 
+                WHERE id = '{id}'
+
+                        """)
         self.conn.commit()
 
     def delete(self, id):
         if (id == None):
             raise Exception("You have to select an id to delete its values")
-        self.cur.execute(f"DELETE FROM products WHERE id = '{id}'")
+        self.cur.execute(f"""
+            
+                DELETE FROM products 
+                WHERE id = '{id}'
+            
+                        """)
         self.conn.commit()
 
     def __del__(self):
@@ -97,20 +148,35 @@ class PromocodesTable:
         self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
-        self.cur.execute(
-            """CREATE TABLE IF NOT EXISTS promocodes 
-                (id INTEGER NOT NULL,
-                code TEXT NOT NULL,
-                amount FLOAT NOT NULL)
-            """)
+        self.cur.execute("""
+
+                CREATE TABLE IF NOT EXISTS promocodes
+                    (
+                        id     INTEGER NOT NULL,
+                        code   TEXT NOT NULL,
+                        amount FLOAT NOT NULL
+                    ) 
+            
+                        """)
 
     def display(self):
-        self.cur.execute("SELECT * FROM promocodes")
+        self.cur.execute("""
+
+                SELECT * 
+                FROM promocodes
+
+                        """)
         self.records = self.cur.fetchall()
         return self.records
 
     def search(self, id):
-        self.cur.execute(f"SELECT * FROM promocodes WHERE id = '{id}'")
+        self.cur.execute(f"""
+
+                SELECT * 
+                FROM promocodes 
+                WHERE id = '{id}'
+
+                        """)
         self.record = self.cur.fetchone()
         return self.record
 
@@ -118,21 +184,49 @@ class PromocodesTable:
         if (id == "" or code == "" or amount == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
-        INSERT INTO promocodes (id, code, amount) VALUES {(id, code ,amount)};
-        """)
+
+                INSERT INTO promocodes
+                            (
+                                id,
+                                code,
+                                amount
+                            )
+                VALUES
+                            {( 
+                                id, 
+                                code , 
+                                amount 
+                            )};
+
+                        """)
         self.conn.commit()
 
     def update(self, id, code, amount):
-        self.cur.execute(
-            f"UPDATE promocodes SET code = '{code}' WHERE id = '{id}'")
-        self.cur.execute(
-            f"UPDATE promocodes SET amount = '{amount}' WHERE id = '{id}'")
+        self.cur.execute(f"""
+
+                UPDATE promocodes 
+                SET code = '{code}' 
+                WHERE id = '{id}'
+                        
+                        """)
+        self.cur.execute(f"""
+
+                UPDATE promocodes 
+                SET amount = '{amount}' 
+                WHERE id = '{id}'
+
+                        """)
         self.conn.commit()
 
     def delete(self, id):
         if (id == None):
             raise Exception("You have to select an id to delete its values")
-        self.cur.execute(f"DELETE FROM promocodes WHERE id = '{id}'")
+        self.cur.execute(f"""
+
+                DELETE FROM promocodes 
+                WHERE id = '{id}'
+        
+                        """)
         self.conn.commit()
 
     def __del__(self):
@@ -145,13 +239,18 @@ class StoreNameTable:
         self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
-        self.cur.execute(
-            """CREATE TABLE IF NOT EXISTS storeNames 
-                (storeName TEXT NOT NULL)
-            """)
+        self.cur.execute("""
+                CREATE TABLE IF NOT EXISTS storeNames 
+                    (
+                        storeName TEXT NOT NULL
+                    )
+                            """)
 
     def search(self):
-        self.cur.execute(f"SELECT * FROM storeNames")
+        self.cur.execute(f"""
+                SELECT * 
+                FROM storeNames
+                        """)
         self.record = self.cur.fetchone()
         return self.record
 
@@ -159,20 +258,37 @@ class StoreNameTable:
         if (storeName == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
-        INSERT INTO storeNames (storeName) VALUES ('{storeName}');
-        """)
+
+                INSERT INTO storeNames 
+                            (
+                                storeName
+                            ) 
+                VALUES 
+                            (
+                                '{storeName}'
+                            );
+                        
+                        """)
         self.conn.commit()
 
     def update(self, storeName):
-        self.cur.execute(
-            f"UPDATE storeNames SET storeName = '{storeName}'")
+        self.cur.execute(f"""
+
+                UPDATE storeNames 
+                SET storeName = '{storeName}'
+                        
+                        """)
         self.conn.commit()
 
     def delete(self, storeName):
         if (storeName == None):
             raise Exception("You have to select an id to delete its values")
-        self.cur.execute(
-            f"DELETE FROM storeNames WHERE storeName = '{storeName}'")
+        self.cur.execute(f"""
+
+                DELETE FROM storeNames 
+                WHERE storeName = '{storeName}'
+
+                        """)
         self.conn.commit()
 
     def __del__(self):
@@ -185,13 +301,21 @@ class StoreThemeTable:
         self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
-        self.cur.execute(
-            """CREATE TABLE IF NOT EXISTS storeThemes 
-                (storeTheme TEXT NOT NULL)
-            """)
+        self.cur.execute("""
+
+                CREATE TABLE IF NOT EXISTS storethemes
+                    (
+                        storetheme TEXT NOT NULL
+                    ) 
+                        """)
 
     def search(self):
-        self.cur.execute(f"SELECT * FROM storeThemes")
+        self.cur.execute(f"""
+        
+                SELECT * 
+                FROM storeThemes
+
+                        """)
         self.record = self.cur.fetchone()
         return self.record
 
@@ -199,20 +323,35 @@ class StoreThemeTable:
         if (storeTheme == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
-        INSERT INTO storeThemes (storeTheme) VALUES ('{storeTheme}');
+
+        INSERT INTO storeThemes 
+                    (
+                        storeTheme
+                    ) 
+        VALUES 
+                    (
+                        '{storeTheme}'
+                    );
+        
         """)
         self.conn.commit()
 
     def update(self, storeTheme):
-        self.cur.execute(
-            f"UPDATE storeThemes SET storeTheme = '{storeTheme}'")
+        self.cur.execute(f"""
+        
+                UPDATE storeThemes 
+                SET storeTheme = '{storeTheme}'
+        
+                        """)
         self.conn.commit()
 
     def delete(self, storeTheme):
         if (storeTheme == None):
             raise Exception("You have to select an id to delete its values")
-        self.cur.execute(
-            f"DELETE FROM storeThemes WHERE storeTheme = '{storeTheme}'")
+        self.cur.execute(f"""
+                DELETE FROM storeThemes 
+                WHERE storeTheme = '{storeTheme}'
+                        """)
         self.conn.commit()
 
     def __del__(self):
@@ -225,13 +364,22 @@ class StoreNumTable:
         self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
-        self.cur.execute(
-            """CREATE TABLE IF NOT EXISTS storeNums 
-                (storeNum BIGINT NOT NULL)
-            """)
+        self.cur.execute("""
+
+        CREATE TABLE IF NOT EXISTS storeNums 
+            (
+                storeNum BIGINT NOT NULL
+            )
+                        
+                        """)
 
     def search(self):
-        self.cur.execute(f"SELECT * FROM storeNums")
+        self.cur.execute(f"""
+
+                SELECT * 
+                FROM storeNums
+
+                        """)
         self.record = self.cur.fetchone()
         return self.record
 
@@ -239,21 +387,37 @@ class StoreNumTable:
         if (storeNum == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
-        ALTER TABLE storeNums alter column storeNum type bigint;
-        INSERT INTO storeNums (storeNum) VALUES ('{storeNum}');
-        """)
+
+                ALTER TABLE storenums ALTER COLUMN storenum TYPE bigint;
+                INSERT INTO storenums
+                            (
+                                storenum
+                            )
+                            VALUES
+                            (
+                                '{storeNum}'
+                            );
+                        
+                        """)
         self.conn.commit()
 
     def update(self, storeNum):
-        self.cur.execute(
-            f"UPDATE storeNums SET storeNum = '{storeNum}'")
+        self.cur.execute(f"""
+
+                UPDATE storeNums 
+                SET storeNum = '{storeNum}'
+
+                        """)
         self.conn.commit()
 
     def delete(self, storeNum):
         if (storeNum == None):
             raise Exception("You have to select an id to delete its values")
-        self.cur.execute(
-            f"DELETE FROM storeNums WHERE storeNum = '{storeNum}'")
+        self.cur.execute(f"""
+
+                DELETE FROM storeNums WHERE storeNum = '{storeNum}'
+                        
+                        """)
         self.conn.commit()
 
     def __del__(self):
