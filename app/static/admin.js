@@ -44,7 +44,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             return;
                         }
                         if (responseJson.statCode == 429) {
-                            alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                            alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                             return;
                         }
                         fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
@@ -315,7 +315,7 @@ function fetchProducts() {
             console.log(responseJson);
             if (responseJson.statCode == 204) { productsList.innerHTML = "حدث وانتظر قليلا إذا كنت قد أضفت"; return; }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
 
@@ -333,9 +333,9 @@ function isNarrowedCode(responseJson) {
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div>`;
+            document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div>`;
         }
-        document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div><br><div></div>`;
+        document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div><br><div></div>`;
     }
 }
 
@@ -346,9 +346,9 @@ function isExpandedCode(responseJson) {
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div>`;
+            document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div>`;
         }
-        document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount']*100}%</b></div><br><div></div>`;
+        document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div><br><div></div>`;
     }
     codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
 }
@@ -370,7 +370,7 @@ function fetchPromocodes() {
             console.log(responseJson);
             if (responseJson.statCode == 204) { codesList.innerHTML = "حدث وانتظر قليلا إذا كنت قد أضفت"; return; }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (codesList.style.height == "30px") isNarrowedCode(responseJson);
@@ -427,11 +427,11 @@ document.getElementById('addProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
 
@@ -475,11 +475,11 @@ document.getElementById('updProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
 
@@ -515,11 +515,11 @@ document.getElementById('delProd').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
             if (document.getElementById('productID').value == '') {
@@ -571,11 +571,11 @@ document.getElementById('addCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
 
@@ -619,11 +619,11 @@ document.getElementById('updCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
 
@@ -658,11 +658,11 @@ document.getElementById('delCode').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف الخادم\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
             if (document.getElementById('codeID').value == '') {
@@ -679,6 +679,7 @@ document.getElementById('delCode').addEventListener('click', () => {
 
 
 document.getElementById('addInfo').addEventListener('click', () => {
+    if (document.getElementById('storeNum').value == '' || document.getElementById('storeName').value == '') { alert('يجب ملئ جميع الخانات أولا'); }
     if (document.getElementById('storeNum').value == '' && document.getElementById('storeName').value != '') {
 
         fetch('/storeName', {
@@ -698,7 +699,11 @@ document.getElementById('addInfo').addEventListener('click', () => {
             }).then((responseJson) => {
 
                 if (responseJson.statCode == 429) {
-                    alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                    return;
+                }
+                if (responseJson.statCode == 500) {
+                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                     return;
                 }
 
@@ -730,9 +735,14 @@ document.getElementById('addInfo').addEventListener('click', () => {
                 }
 
                 if (responseJson.statCode == 429) {
-                    alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
+                if (responseJson.statCode == 500) {
+                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                    return;
+                }
+
 
                 alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
@@ -774,7 +784,11 @@ document.getElementById('addInfo').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                return;
+            }
+            if (responseJson.statCode == 500) {
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
 
@@ -818,9 +832,14 @@ document.getElementById('updInfo').addEventListener('click', () => {
             }).then((responseJson) => {
 
                 if (responseJson.statCode == 429) {
-                    alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
+                if (responseJson.statCode == 500) {
+                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                    return;
+                }
+
 
                 alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
@@ -849,9 +868,14 @@ document.getElementById('updInfo').addEventListener('click', () => {
                     return;
                 }
                 if (responseJson.statCode == 429) {
-                    alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                     return;
                 }
+                if (responseJson.statCode == 500) {
+                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                    return;
+                }
+
                 console.log(responseJson)
 
                 alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
@@ -894,9 +918,14 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على الخادم في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
+            if (responseJson.statCode == 500) {
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                return;
+            }
+
 
             alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchStoreInfo();
@@ -989,7 +1018,7 @@ for (let i = 0; i < /*Object.keys(countriesCodes).length*/ 10; i++) {
         listOfCountriesCodes.innerHTML = '';
     }
 
-    listOfCountriesCodes.innerHTML += `<li><a class="dropdown-item" >${i+1}:${countriesCodes[Object.keys(countriesCodes)[i]]['ar_name']}</a></li>`;
+    listOfCountriesCodes.innerHTML += `<li><a class="dropdown-item" >${i + 1}:${countriesCodes[Object.keys(countriesCodes)[i]]['ar_name']}</a></li>`;
 }
 
 let countryCodeTitle = document.getElementById('countryCodeTitle');

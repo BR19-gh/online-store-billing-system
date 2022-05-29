@@ -1013,7 +1013,10 @@ def exexuteSql(sql):
 ##### Play Ground ######
 ########################
 
-######## Pass ###########
+# pass 
+
+try: exexuteSql("DROP TABLE storeInfo;")
+except: print("coudn't playground")
 
 ############################
 ##### Play Ground End ######
