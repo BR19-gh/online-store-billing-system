@@ -1015,8 +1015,8 @@ def exexuteSql(sql):
 
 # pass 
 
-try: exexuteSql("DROP TABLE storeInfo;")
-except: print("coudn't playground")
+# try: exexuteSql("DROP TABLE storeInfo;")
+# except: print("coudn't playground")
 
 ############################
 ##### Play Ground End ######
