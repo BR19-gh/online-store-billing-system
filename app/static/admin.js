@@ -679,7 +679,7 @@ document.getElementById('delCode').addEventListener('click', () => {
 
 
 document.getElementById('addInfo').addEventListener('click', () => {
-    if (document.getElementById('storeNum').value == '' || document.getElementById('storeName').value == '') { alert('يجب ملئ جميع الخانات أولا'); }
+    if (document.getElementById('storeNum').value == '' || document.getElementById('storeName').value == '') { alert('يجب ملئ جميع الخانات أولا'); return; }
     if (document.getElementById('storeNum').value == '' && document.getElementById('storeName').value != '') {
 
         fetch('/storeName', {
