@@ -278,41 +278,25 @@ class StoreInfoTable:
         self.record = self.cur.fetchone()
         return self.record
 
-    def insert(self, infoType, inputData):
-        if (inputData == ""):
+    def insert(self, inputData):
+        if (inputData == None):
                 raise Exception("One of the entries is empty")
                 
-        if infoType == 'name':
-            self.cur.execute(f"""
-
-                    INSERT INTO storeInfo 
-                                (
-                                    storeName
-                                ) 
-                    VALUES 
-                                (
-                                    '{inputData}'
-                                );
-                            
-                            """)
-                            
-        elif infoType == 'num':
-            self.cur.execute(f"""
-
-                    ALTER TABLE storeInfo ALTER COLUMN storenum TYPE bigint;
-                    INSERT INTO storeInfo
-                                (
-                                    storenum
-                                )
-                                VALUES
-                                (
-                                    '{inputData}'
-                                );
-                            
-                            """)
-
-        else: raise Exception("Error in variable 'infoType'")
-
+        
+        self.cur.execute(f"""
+                ALTER TABLE storeInfo ALTER COLUMN storenum TYPE bigint;
+                INSERT INTO storeInfo 
+                            (
+                                storeName,
+                                storenum
+                            ) 
+                VALUES 
+                            (
+                                '{inputData.storeName}',
+                                '{inputData.storeNum}'
+                            );
+                        
+                        """)
         
         self.conn.commit()
 
@@ -734,27 +718,36 @@ def promocodes():
         return jsonify(dictOfResult)
 
 
-@app.route("/storeName", methods=['POST', 'PUT', 'DELETE'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
-def storeName():
+@app.route("/storeInfo", methods=['POST'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['POST'])
+def storeInfo():
     print('The ip address: ', get_remote_address())
     newObj = StoreInfoTable()
 
     if request.method == 'POST':
 
         data = request.get_json()
-        storeName = data['storeName']
+        storeInfo = data
 
         try:
-            newObj.insert('name', storeName)
+            newObj.insert(storeInfo)
 
             recordSearched = newObj.search('name')
-            if (recordSearched[0] == storeName):
-                return jsonify({"msg": f"Success 201: storeName:{storeName} is recorded, the storeName matches {(newObj.search('name'))[0]}", "statCode": 201})
+            if (recordSearched[0] == storeInfo.storeName):
+                return jsonify({"msg": f"Success 201: storeName:{storeInfo.storeName} is recorded, the storeName matches {(newObj.search('name'))[0]}", "statCode": 201})
         except:
-            return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not recorded, the storeName doesn't match {(newObj.search('name'))[0]}", "statCode": 500})
+            return jsonify({"msg": f"Unkown Error 500: storeName:{storeInfo.storeName} was not recorded, the storeName doesn't match {(newObj.search('name'))[0]}", "statCode": 500})
 
-    elif request.method == 'PUT':
+
+
+
+@app.route("/storeName", methods=['PUT', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
+def storeName():
+    print('The ip address: ', get_remote_address())
+    newObj = StoreInfoTable()
+
+    if request.method == 'PUT':
         data = request.get_json()
         storeName = data['storeName']
         result = newObj.search('name')
@@ -801,28 +794,13 @@ def storeNameGet():
 
 
 
-@app.route("/storeNum", methods=['POST', 'PUT', 'DELETE'])
+@app.route("/storeNum", methods=['PUT', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeNum():
     print('The ip address: ', get_remote_address())
     newObj = StoreInfoTable()
-    if request.method == 'POST':
-        data = request.get_json()
-        storeNum = data['storeNum']
 
-        try:
-            newObj.insert('num', storeNum)
-
-            recordSearched = newObj.search('num')
-            if (int(recordSearched[0]) == (storeNum)):
-                return jsonify({"msg": f"Success 201: storeNum:{storeNum} is recorded, the storeNum matches {(newObj.search('num'))[0]}", "statCode": 201})
-        except:
-            if (isinstance(storeNum, int) == False):
-                return jsonify({"msg": f"Bad Request 400: storeNum was not added, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
-            else:
-                return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not recorded, the storeNum doesn't match {(newObj.search('num'))[0]}", "statCode": 500})
-
-    elif request.method == 'PUT':
+    if request.method == 'PUT':
         data = request.get_json()
         storeNum = data['storeNum']
         result = newObj.search('num')

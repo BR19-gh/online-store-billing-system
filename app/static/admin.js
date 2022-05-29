@@ -680,109 +680,24 @@ document.getElementById('delCode').addEventListener('click', () => {
 
 document.getElementById('addInfo').addEventListener('click', () => {
     if (document.getElementById('storeNum').value == '' || document.getElementById('storeName').value == '') { alert('يجب ملئ جميع الخانات أولا'); return; }
-    if (document.getElementById('storeNum').value == '' && document.getElementById('storeName').value != '') {
 
-        fetch('/storeName', {
-                headers: {
+    fetch('/storeInfo', {
+            headers: {
 
-                    'Method': 'POST',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                    storeName: document.getElementById('storeName').value,
-                })
+                'Method': 'POST',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                storeName: document.getElementById('storeName').value,
+                storeNum: document.getElementById('storeNum').value,
             })
-            .then((response) => {
-                return response.json();
-            }).then((responseJson) => {
-
-                if (responseJson.statCode == 429) {
-                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
-                    return;
-                }
-                if (responseJson.statCode == 500) {
-                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
-                    return;
-                }
-
-                alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
-                fetchStoreInfo();
-                document.getElementById('storeName').value = '';
-                document.getElementById('storeNum').value = '';
-            });
-    } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
-        if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
-        fetch('/storeNum', {
-                headers: {
-
-                    'Method': 'POST',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                    storeNum: (currentCountryCodeSelected + document.getElementById('storeNum').value),
-                })
-            })
-            .then((response) => {
-                return response.json();
-            }).then((responseJson) => {
-                if (responseJson.statCode == 400) {
-                    alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
-                    return;
-                }
-
-                if (responseJson.statCode == 429) {
-                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
-                    return;
-                }
-                if (responseJson.statCode == 500) {
-                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
-                    return;
-                }
-
-
-                alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
-                fetchStoreInfo();
-                document.getElementById('storeName').value = '';
-                document.getElementById('storeNum').value = '';
-            });
-    } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
-        if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
-        Promise.all([
-            fetch('/storeNum', {
-                headers: {
-
-                    'Method': 'POST',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                    storeNum: (currentCountryCodeSelected + document.getElementById('storeNum').value),
-                })
-            }),
-            fetch('/storeName', {
-                headers: {
-
-                    'Method': 'POST',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                    storeName: document.getElementById('storeName').value,
-                })
-            })
-        ]).then(([responseNum, responseName]) => {
-            return { num: responseNum.json(), name: responseName.json() };
+        })
+        .then((response) => {
+            return response.json();
         }).then((responseJson) => {
-            if (responseJson['num'].statCode == 400) {
-                alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
-                return;
-            }
+
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
@@ -797,11 +712,6 @@ document.getElementById('addInfo').addEventListener('click', () => {
             document.getElementById('storeName').value = '';
             document.getElementById('storeNum').value = '';
         });
-    } else {
-
-        return;
-    }
-
 });
 
 
