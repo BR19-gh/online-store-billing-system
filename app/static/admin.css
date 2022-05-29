@@ -383,6 +383,14 @@ input#productImg {
     margin-bottom: 25px;
 }
 
+@media only screen and (max-width: 800px) {
+    .dashboardTitles {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+}
+
 #loginPageIcon,
 #productsPageIcon {
     cursor: pointer;
