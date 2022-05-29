@@ -259,7 +259,7 @@ class StoreInfoTable:
 
             self.cur.execute(f"""
 
-                    SELECT storeNames 
+                    SELECT storeName 
                     FROM storeInfo
 
                             """)
@@ -268,7 +268,7 @@ class StoreInfoTable:
 
             self.cur.execute(f"""
 
-                SELECT * storeNum
+                SELECT storeNum
                 FROM storeInfo
 
                         """)
@@ -369,72 +369,6 @@ class StoreInfoTable:
 
     def __del__(self):
         self.conn.close()
-
-
-# class StoreNumTable:
-
-#     def __init__(self):
-#         self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-#         #self.conn = sqlite3.connect("spdb.db")
-#         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
-#         self.cur.execute("""
-
-#         CREATE TABLE IF NOT EXISTS storeNums 
-#             (
-#                 storeNum BIGINT NOT NULL
-#             )
-                        
-#                         """)
-
-#     def search(self):
-#         self.cur.execute(f"""
-
-#                 SELECT * 
-#                 FROM storeNums
-
-#                         """)
-#         self.record = self.cur.fetchone()
-#         return self.record
-
-#     def insert(self, storeNum):
-#         if (storeNum == ""):
-#             raise Exception("One of the entries is empty")
-#         self.cur.execute(f"""
-
-#                 ALTER TABLE storenums ALTER COLUMN storenum TYPE bigint;
-#                 INSERT INTO storenums
-#                             (
-#                                 storenum
-#                             )
-#                             VALUES
-#                             (
-#                                 '{storeNum}'
-#                             );
-                        
-#                         """)
-#         self.conn.commit()
-
-#     def update(self, storeNum):
-#         self.cur.execute(f"""
-
-#                 UPDATE storeNums 
-#                 SET storeNum = '{storeNum}'
-
-#                         """)
-#         self.conn.commit()
-
-#     def delete(self, storeNum):
-#         if (storeNum == None):
-#             raise Exception("You have to select an id to delete its values")
-#         self.cur.execute(f"""
-
-#                 DELETE FROM storeNums WHERE storeNum = '{storeNum}'
-                        
-#                         """)
-#         self.conn.commit()
-
-#     def __del__(self):
-#         self.conn.close()
 
 
 class StoreThemeTable:
@@ -1079,10 +1013,7 @@ def exexuteSql(sql):
 ##### Play Ground ######
 ########################
 
-try:
-    exexuteSql("DROP TABLE storeNames, storeNums;")
-except:
-    print("coudn't")
+######## Pass ###########
 
 ############################
 ##### Play Ground End ######
