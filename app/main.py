@@ -728,6 +728,7 @@ def storeInfo():
 
         data = request.get_json()
         storeInfo = data
+        print(storeInfo)
 
         try:
             newObj.insert(storeInfo)
