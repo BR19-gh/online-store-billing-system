@@ -1,5 +1,6 @@
+#####################
 ###### Imports ######
-
+#####################
 import sqlite3
 from urllib import response
 from flask import Flask, render_template, jsonify, request, abort, redirect
@@ -16,11 +17,14 @@ from base64 import b64encode
 import base64
 from io import BytesIO  # Converts data from Database into bytes
 from urllib.parse import unquote
-
+#########################
 ###### Imports END ######
+#########################
 
+
+#####################
 ###### Configs ######
-
+#####################
 DATABASE_URL = os.environ.get('DATABASE_URL')
 USERNAME = os.environ.get('USERNAME')
 PASSWORD = os.environ.get('PASSWORD')
@@ -35,12 +39,14 @@ limiter = Limiter(
     key_func=get_remote_address,
     default_limits=["1 per 30seconds", "50 per hour"]
 )
-
+#########################
 ###### Configs END ######
+#########################
 
+
+####################
 ###### Models ######
-
-
+####################
 class ProductsTable:
 
     def __init__(self):
@@ -233,66 +239,202 @@ class PromocodesTable:
         self.conn.close()
 
 
-class StoreNameTable:
+class StoreInfoTable:
 
     def __init__(self):
         self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         #self.conn = sqlite3.connect("spdb.db")
         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
         self.cur.execute("""
-                CREATE TABLE IF NOT EXISTS storeNames 
+                CREATE TABLE IF NOT EXISTS storeInfo
                     (
-                        storeName TEXT NOT NULL
+                        storeName TEXT NOT NULL,
+                        storeNum BIGINT NOT NULL
                     )
                             """)
 
-    def search(self):
-        self.cur.execute(f"""
-                SELECT * 
-                FROM storeNames
+    def search(self, infoType):
+        
+        if infoType == 'name':
+
+            self.cur.execute(f"""
+
+                    SELECT storeNames 
+                    FROM storeInfo
+
+                            """)
+
+        elif infoType == 'num':
+
+            self.cur.execute(f"""
+
+                SELECT * storeNum
+                FROM storeInfo
+
                         """)
+
+        else: raise Exception("Error in variable 'infoType'")
+
         self.record = self.cur.fetchone()
         return self.record
 
-    def insert(self, storeName):
-        if (storeName == ""):
-            raise Exception("One of the entries is empty")
-        self.cur.execute(f"""
+    def insert(self, infoType, inputData):
+        if (inputData == ""):
+                raise Exception("One of the entries is empty")
+                
+        if infoType == 'name':
+            self.cur.execute(f"""
 
-                INSERT INTO storeNames 
-                            (
-                                storeName
-                            ) 
-                VALUES 
-                            (
-                                '{storeName}'
-                            );
-                        
-                        """)
+                    INSERT INTO storeInfo 
+                                (
+                                    storeName
+                                ) 
+                    VALUES 
+                                (
+                                    '{inputData}'
+                                );
+                            
+                            """)
+                            
+        elif infoType == 'num':
+            self.cur.execute(f"""
+
+                    ALTER TABLE storeInfo ALTER COLUMN storenum TYPE bigint;
+                    INSERT INTO storeInfo
+                                (
+                                    storenum
+                                )
+                                VALUES
+                                (
+                                    '{inputData}'
+                                );
+                            
+                            """)
+
+        else: raise Exception("Error in variable 'infoType'")
+
+        
         self.conn.commit()
 
-    def update(self, storeName):
-        self.cur.execute(f"""
+    def update(self, infoType, inputData):
 
-                UPDATE storeNames 
-                SET storeName = '{storeName}'
+        if infoType == 'name':
+
+            self.cur.execute(f"""
+
+                UPDATE storeInfo 
+                SET storeName = '{inputData}'
                         
                         """)
+
+        elif infoType == 'num':
+
+            self.cur.execute(f"""
+
+                UPDATE storeInfo 
+                SET storeNum = '{inputData}'
+
+                        """)
+
+        else: raise Exception("Error in variable 'infoType'")
+
         self.conn.commit()
 
-    def delete(self, storeName):
-        if (storeName == None):
+    def delete(self, infoType, inputData):
+        if (inputData == None):
             raise Exception("You have to select an id to delete its values")
-        self.cur.execute(f"""
+        
+        if infoType == 'name':
 
-                DELETE FROM storeNames 
-                WHERE storeName = '{storeName}'
+            self.cur.execute(f"""
+
+                DELETE FROM storeInfo 
+                SET storeName = '{inputData}'
+                        
+                        """)
+
+        elif infoType == 'num':
+
+            self.cur.execute(f"""
+
+                DELETE FROM storeInfo 
+                SET storeNum = '{inputData}'
 
                         """)
+
+        else: raise Exception("Error in variable 'infoType'")
+
+
         self.conn.commit()
 
     def __del__(self):
         self.conn.close()
+
+
+# class StoreNumTable:
+
+#     def __init__(self):
+#         self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#         #self.conn = sqlite3.connect("spdb.db")
+#         self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
+#         self.cur.execute("""
+
+#         CREATE TABLE IF NOT EXISTS storeNums 
+#             (
+#                 storeNum BIGINT NOT NULL
+#             )
+                        
+#                         """)
+
+#     def search(self):
+#         self.cur.execute(f"""
+
+#                 SELECT * 
+#                 FROM storeNums
+
+#                         """)
+#         self.record = self.cur.fetchone()
+#         return self.record
+
+#     def insert(self, storeNum):
+#         if (storeNum == ""):
+#             raise Exception("One of the entries is empty")
+#         self.cur.execute(f"""
+
+#                 ALTER TABLE storenums ALTER COLUMN storenum TYPE bigint;
+#                 INSERT INTO storenums
+#                             (
+#                                 storenum
+#                             )
+#                             VALUES
+#                             (
+#                                 '{storeNum}'
+#                             );
+                        
+#                         """)
+#         self.conn.commit()
+
+#     def update(self, storeNum):
+#         self.cur.execute(f"""
+
+#                 UPDATE storeNums 
+#                 SET storeNum = '{storeNum}'
+
+#                         """)
+#         self.conn.commit()
+
+#     def delete(self, storeNum):
+#         if (storeNum == None):
+#             raise Exception("You have to select an id to delete its values")
+#         self.cur.execute(f"""
+
+#                 DELETE FROM storeNums WHERE storeNum = '{storeNum}'
+                        
+#                         """)
+#         self.conn.commit()
+
+#     def __del__(self):
+#         self.conn.close()
 
 
 class StoreThemeTable:
@@ -356,78 +498,14 @@ class StoreThemeTable:
 
     def __del__(self):
         self.conn.close()
-
-
-class StoreNumTable:
-
-    def __init__(self):
-        self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-        #self.conn = sqlite3.connect("spdb.db")
-        self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
-        self.cur.execute("""
-
-        CREATE TABLE IF NOT EXISTS storeNums 
-            (
-                storeNum BIGINT NOT NULL
-            )
-                        
-                        """)
-
-    def search(self):
-        self.cur.execute(f"""
-
-                SELECT * 
-                FROM storeNums
-
-                        """)
-        self.record = self.cur.fetchone()
-        return self.record
-
-    def insert(self, storeNum):
-        if (storeNum == ""):
-            raise Exception("One of the entries is empty")
-        self.cur.execute(f"""
-
-                ALTER TABLE storenums ALTER COLUMN storenum TYPE bigint;
-                INSERT INTO storenums
-                            (
-                                storenum
-                            )
-                            VALUES
-                            (
-                                '{storeNum}'
-                            );
-                        
-                        """)
-        self.conn.commit()
-
-    def update(self, storeNum):
-        self.cur.execute(f"""
-
-                UPDATE storeNums 
-                SET storeNum = '{storeNum}'
-
-                        """)
-        self.conn.commit()
-
-    def delete(self, storeNum):
-        if (storeNum == None):
-            raise Exception("You have to select an id to delete its values")
-        self.cur.execute(f"""
-
-                DELETE FROM storeNums WHERE storeNum = '{storeNum}'
-                        
-                        """)
-        self.conn.commit()
-
-    def __del__(self):
-        self.conn.close()
-
+########################
 ###### Models END ######
+########################
 
+
+####################
 ###### Routes ######
-
-
+####################
 @app.route("/main")
 @limiter.exempt
 def main_view():
@@ -464,12 +542,14 @@ def verify(username, password):
 def admin_view():
 
     return render_template('admin.html')
-
+########################
 ###### Routes END ######
+########################
 
+
+##########################
 ###### Backend APIs ######
-
-
+##########################
 @app.route("/product", methods=['POST'])
 @app.route("/product/<idIn>", methods=['PUT', 'DELETE', 'GET'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
@@ -724,7 +804,7 @@ def promocodes():
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeName():
     print('The ip address: ', get_remote_address())
-    newObj = StoreNameTable()
+    newObj = StoreInfoTable()
 
     if request.method == 'POST':
 
@@ -732,39 +812,39 @@ def storeName():
         storeName = data['storeName']
 
         try:
-            newObj.insert(storeName)
+            newObj.insert('name', storeName)
 
-            recordSearched = newObj.search()
+            recordSearched = newObj.search('name')
             if (recordSearched[0] == storeName):
-                return jsonify({"msg": f"Success 201: storeName:{storeName} is recorded, the storeName matches {(newObj.search())[0]}", "statCode": 201})
+                return jsonify({"msg": f"Success 201: storeName:{storeName} is recorded, the storeName matches {(newObj.search('name'))[0]}", "statCode": 201})
         except:
-            return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not recorded, the storeName doesn't match {(newObj.search())[0]}", "statCode": 500})
+            return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not recorded, the storeName doesn't match {(newObj.search('name'))[0]}", "statCode": 500})
 
     elif request.method == 'PUT':
         data = request.get_json()
         storeName = data['storeName']
-        result = newObj.search()
+        result = newObj.search('name')
 
         try:
-            newObj.update(storeName)
+            newObj.update('name', storeName)
 
-            recordSearched = newObj.search()
+            recordSearched = newObj.search('name')
             if recordSearched == None:
                 return jsonify({"msg": f"Error 404: storeName:{storeName} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
             elif (recordSearched[0] == storeName):
-                return jsonify({"msg": f"Success 200: storeName:{storeName} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
+                return jsonify({"msg": f"Success 200: storeName:{storeName} is updated, old data:{result}, new data:{newObj.search('name')}", "statCode": 200})
         except:
-            return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not updated, old data:{result}, new data:{newObj.search()}", "statCode": 500})
+            return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not updated, old data:{result}, new data:{newObj.search('name')}", "statCode": 500})
 
     elif request.method == 'DELETE':
-        result = newObj.search()
+        result = newObj.search('name')
 
         if result == None:
             return jsonify({"msg": f"Error 404: storeName:{result} was not found, it may not exist", "statCode": 404})
 
-        newObj.delete(newObj.search()[0])
+        newObj.delete('name', newObj.search('name')[0])
 
-        result = newObj.search()
+        result = newObj.search('name')
 
         if result == None:
             return jsonify({"msg": f"Success 204: store name is deleted successfully", "statCode": 204})
@@ -779,11 +859,84 @@ def storeName():
 @limiter.exempt
 def storeNameGet():
     print('The ip address: ', get_remote_address())
-    newObj = StoreNameTable()
-    if newObj.search() == None:
+    newObj = StoreInfoTable()
+    if newObj.search('name') == None:
         return jsonify({"storeName": "none/لايوجد"})
     else:
-        return jsonify({"storeName": newObj.search()})
+        return jsonify({"storeName": newObj.search('name')})
+
+
+
+@app.route("/storeNum", methods=['POST', 'PUT', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
+def storeNum():
+    print('The ip address: ', get_remote_address())
+    newObj = StoreInfoTable()
+    if request.method == 'POST':
+        data = request.get_json()
+        storeNum = data['storeNum']
+
+        try:
+            newObj.insert('num', storeNum)
+
+            recordSearched = newObj.search('num')
+            if (int(recordSearched[0]) == (storeNum)):
+                return jsonify({"msg": f"Success 201: storeNum:{storeNum} is recorded, the storeNum matches {(newObj.search('num'))[0]}", "statCode": 201})
+        except:
+            if (isinstance(storeNum, int) == False):
+                return jsonify({"msg": f"Bad Request 400: storeNum was not added, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
+            else:
+                return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not recorded, the storeNum doesn't match {(newObj.search('num'))[0]}", "statCode": 500})
+
+    elif request.method == 'PUT':
+        data = request.get_json()
+        storeNum = data['storeNum']
+        result = newObj.search('num')
+
+        try:
+            newObj.update('num', storeNum)
+
+            recordSearched = newObj.search('num')
+            if recordSearched == None:
+                return jsonify({"msg": f"Error 404: storeNum:{storeNum} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
+            elif (int(recordSearched[0]) == int(storeNum)):
+                return jsonify({"msg": f"Success 200: storeNum:{storeNum} is updated, old data:{result}, new data:{newObj.search('num')}", "statCode": 200})
+        except:
+            if (isinstance(storeNum, int) == False):
+                return jsonify({"msg": f"Bad Request 400: storeNum was not updated, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
+            else:
+                return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not updated, old data:{result}, new data:{newObj.search('num')}", "statCode": 500})
+
+    elif request.method == 'DELETE':
+        result = newObj.search('num')
+
+        if result == None:
+            return jsonify({"msg": f"Error 404: storeNum:{result} was not found, it may not exist", "statCode": 404})
+
+        newObj.delete('num', newObj.search('num')[0])
+
+        result = newObj.search('num')
+
+        if result == None:
+            return jsonify({"msg": f"Success 204: store name is deleted successfully", "statCode": 204})
+        else:
+            return jsonify({"msg": f"Error 500: failed to delete storeNum:{result}, storeNum:{result} still exists", "statCode": 500})
+    else:
+
+        abort(405)
+
+
+@app.route("/storeNum/show", methods=['GET'])
+@limiter.exempt
+def storeNumGet():
+    print('The ip address: ', get_remote_address())
+    newObj = StoreInfoTable()
+    if newObj.search('num') == None:
+        return jsonify({"storeNum": "none/لايوجد"})
+    else:
+        return jsonify({"storeNum": newObj.search('num')})
+
+
 
 
 @app.route("/storeTheme", methods=['POST', 'PUT', 'DELETE'])
@@ -848,81 +1001,14 @@ def storeThemeGet():
     else:
         return jsonify({"storeTheme": newObj.search()})
 
-
-@app.route("/storeNum", methods=['POST', 'PUT', 'DELETE'])
-@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
-def storeNum():
-    print('The ip address: ', get_remote_address())
-    newObj = StoreNumTable()
-    if request.method == 'POST':
-        data = request.get_json()
-        storeNum = data['storeNum']
-
-        try:
-            newObj.insert(storeNum)
-
-            recordSearched = newObj.search()
-            if (int(recordSearched[0]) == (storeNum)):
-                return jsonify({"msg": f"Success 201: storeNum:{storeNum} is recorded, the storeNum matches {(newObj.search())[0]}", "statCode": 201})
-        except:
-            if (isinstance(storeNum, int) == False):
-                return jsonify({"msg": f"Bad Request 400: storeNum was not added, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
-            else:
-                return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not recorded, the storeNum doesn't match {(newObj.search())[0]}", "statCode": 500})
-
-    elif request.method == 'PUT':
-        data = request.get_json()
-        storeNum = data['storeNum']
-        result = newObj.search()
-
-        try:
-            newObj.update(storeNum)
-
-            recordSearched = newObj.search()
-            if recordSearched == None:
-                return jsonify({"msg": f"Error 404: storeNum:{storeNum} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
-            elif (int(recordSearched[0]) == int(storeNum)):
-                return jsonify({"msg": f"Success 200: storeNum:{storeNum} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
-        except:
-            if (isinstance(storeNum, int) == False):
-                return jsonify({"msg": f"Bad Request 400: storeNum was not updated, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
-            else:
-                return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not updated, old data:{result}, new data:{newObj.search()}", "statCode": 500})
-
-    elif request.method == 'DELETE':
-        result = newObj.search()
-
-        if result == None:
-            return jsonify({"msg": f"Error 404: storeNum:{result} was not found, it may not exist", "statCode": 404})
-
-        newObj.delete(newObj.search()[0])
-
-        result = newObj.search()
-
-        if result == None:
-            return jsonify({"msg": f"Success 204: store name is deleted successfully", "statCode": 204})
-        else:
-            return jsonify({"msg": f"Error 500: failed to delete storeNum:{result}, storeNum:{result} still exists", "statCode": 500})
-    else:
-
-        abort(405)
-
-
-@app.route("/storeNum/show", methods=['GET'])
-@limiter.exempt
-def storeNumGet():
-    print('The ip address: ', get_remote_address())
-    newObj = StoreNumTable()
-    if newObj.search() == None:
-        return jsonify({"storeNum": "none/لايوجد"})
-    else:
-        return jsonify({"storeNum": newObj.search()})
-
+##############################
 ###### Backend APIs END ######
+##############################
 
+
+############################
 ###### Error Handlers ######
-
-
+############################
 @app.errorhandler(429)
 def ratelimit_handler(e):
 
@@ -965,15 +1051,39 @@ def ratelimit_handler(e):
     msg = '{"msg": f"Error 404: the requested URL was not found on the server. If you entered the URL manually please check your spelling and try again", "statCode": 404}'
     print(msg)
     return render_template('err/err404.html', msg=msg)
-
+################################
 ###### Error Handlers END ######
+################################
 
+
+###################
 ###### Other ######
-
-
+###################
 def render_picture(data):
 
     render_pic = base64.b64encode(data).decode('ascii')
     return render_pic
 
+def exexuteSql(sql):
+    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    #conn = sqlite3.connect("spdb.db")
+    cur = conn.cursor(cursor_factory=ext.DictCursor)
+    cur.execute(sql)
+    conn.commit()
+#######################
 ###### Other END ######
+#######################
+
+
+########################
+##### Play Ground ######
+########################
+
+try:
+    exexuteSql("DROP TABLE storeNames, storeNums;")
+except:
+    print("coudn't")
+
+############################
+##### Play Ground End ######
+############################
