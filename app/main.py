@@ -292,8 +292,8 @@ class StoreInfoTable:
                             ) 
                 VALUES 
                             (
-                                '{inputData.storeName}',
-                                '{inputData.storeNum}'
+                                '{inputData["storeName"]}',
+                                '{inputData["storeNum"]}'
                             );
                         
                         """)
@@ -734,10 +734,10 @@ def storeInfo():
             newObj.insert(storeInfo)
 
             recordSearched = newObj.search('name')
-            if (recordSearched[0] == storeInfo.storeName):
-                return jsonify({"msg": f"Success 201: storeName:{storeInfo.storeName} is recorded, the storeName matches {(newObj.search('name'))[0]}", "statCode": 201})
+            if (recordSearched[0] == storeInfo['storeName']):
+                return jsonify({"msg": f"Success 201: storeName:{storeInfo['storeName']} is recorded, the storeName matches {(newObj.search('name'))[0]}", "statCode": 201})
         except:
-            return jsonify({"msg": f"Unkown Error 500: storeName:{storeInfo.storeName} was not recorded, the storeName doesn't match {(newObj.search('name'))[0]}", "statCode": 500})
+            return jsonify({"msg": f"Unkown Error 500: storeName:{storeInfo['storeName']} was not recorded, the storeName doesn't match {(newObj.search('name'))[0]}", "statCode": 500})
 
 
 

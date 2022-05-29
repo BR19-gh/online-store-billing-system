@@ -691,7 +691,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
             method: 'POST',
             body: JSON.stringify({
                 storeName: document.getElementById('storeName').value,
-                storeNum: document.getElementById('storeNum').value,
+                storeNum: (currentCountryCodeSelected + document.getElementById('storeNum').value),
             })
         })
         .then((response) => {
