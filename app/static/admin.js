@@ -247,6 +247,7 @@ function fetchStoreInfo() {
     }).then((responseNum) => {
         return responseNum.json();
     }).then((responseJson) => {
+        if (responseJson['storeNum'] != 'none/لايوجد') { document.querySelector("#addInfo").style.display = "none"; }
         document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
 
     });
@@ -264,6 +265,7 @@ function fetchStoreInfo() {
         .then((responseName) => {
             return responseName.json();
         }).then((responseJson) => {
+            if (responseJson['storeName'] != 'none/لايوجد') { document.querySelector("#addInfo").style.display = "none"; }
             document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
         });
 }
@@ -708,6 +710,7 @@ document.getElementById('addInfo').addEventListener('click', () => {
             }
 
             alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+
             fetchStoreInfo();
             document.getElementById('storeName').value = '';
             document.getElementById('storeNum').value = '';
