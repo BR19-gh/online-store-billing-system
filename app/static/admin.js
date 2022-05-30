@@ -385,11 +385,11 @@ function fetchPromocodes() {
 ///// to show msg or not
 
 if (localStorage.pressToNotShowBtn == 'true') {
-    document.querySelectors('.dbInfo')[0].style.display = 'none';
+    document.querySelectorAll('.dbInfo')[0].style.display = 'none';
     localStorage.pressToNotShowBtn = 'true';
 }
 document.querySelector('#pressToNotShowBtn').addEventListener('click', () => {
-    document.querySelectors('.dbInfo')[0].style.display = 'none';
+    document.querySelectorAll('.dbInfo')[0].style.display = 'none';
     localStorage.pressToNotShowBtn = 'true';
 
 });

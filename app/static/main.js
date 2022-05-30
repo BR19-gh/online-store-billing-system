@@ -139,8 +139,8 @@ function firstFetch() {
                                             if (firstPassCart == 1) {
                                                 beforeDiscount = undefined;
                                                 thereIsApastDiscount = true;
-                                                document.querySelectors('.submitCode')[0].classList.remove('submitCodeDisabled')
-                                                document.querySelectors('.submitCode')[0].classList.add('submitCodeEnabled')
+                                                document.querySelectorAll('.submitCode')[0].classList.remove('submitCodeDisabled')
+                                                document.querySelectorAll('.submitCode')[0].classList.add('submitCodeEnabled')
                                             }
                                             // END
                                             // to know prud id, and its quentity
@@ -195,8 +195,8 @@ function firstFetch() {
                                             if (firstPassCart == 1) {
                                                 beforeDiscount = undefined;
                                                 thereIsApastDiscount = true;
-                                                document.querySelectors('.submitCode')[0].classList.remove('submitCodeDisabled')
-                                                document.querySelectors('.submitCode')[0].classList.add('submitCodeEnabled')
+                                                document.querySelectorAll('.submitCode')[0].classList.remove('submitCodeDisabled')
+                                                document.querySelectorAll('.submitCode')[0].classList.add('submitCodeEnabled')
                                             }
                                             // END
                                             // to know prud id, and its quentity
@@ -264,7 +264,8 @@ function firstFetch() {
                                     let priceBeforeDiscount = 0;
                                     let theCurrentDiscount;
                                     let fullPrice;
-                                    document.querySelectors('.submitCode')[0].addEventListener('click', () => {
+
+                                    document.querySelectorAll('.submitCode')[0].addEventListener('click', () => {
                                         if (data2[`${Object.keys(data2)[0]}`] == null) { alert("الكود غير صالح، جرب كودًا آخر"); return; }
                                         firstPassCart = 1;
                                         let totalPrice = document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0];
@@ -291,8 +292,8 @@ function firstFetch() {
                                                 document.querySelector('#groupOfPrices').innerHTML = `المجموع: ${totalPrice} ﷼<br><small style='font-size: small; color: red; text-decoration: line-through;'>المجموع: ${priceBeforeDiscount}﷼</small>`
 
                                                 dontAcceptOtherDiscount = 1;
-                                                document.querySelectors('.submitCode')[0].classList.add('submitCodeDisabled')
-                                                document.querySelectors('.submitCode')[0].classList.remove('submitCodeEnabled')
+                                                document.querySelectorAll('.submitCode')[0].classList.add('submitCodeDisabled')
+                                                document.querySelectorAll('.submitCode')[0].classList.remove('submitCodeEnabled')
                                                 break;
                                             } else if (document.querySelector('#discount').value == '') {
                                                 break;
@@ -307,8 +308,8 @@ function firstFetch() {
 
                                                 document.querySelector('#groupOfPrices').innerText = `المجموع: ${totalPrice} ﷼`
                                                 alert("الكود غير صالح، جرب كودًا آخر")
-                                                document.querySelectors('.submitCode')[0].classList.remove('submitCodeDisabled')
-                                                document.querySelectors('.submitCode')[0].classList.add('submitCodeEnabled')
+                                                document.querySelectorAll('.submitCode')[0].classList.remove('submitCodeDisabled')
+                                                document.querySelectorAll('.submitCode')[0].classList.add('submitCodeEnabled')
 
                                             }
                                         }
