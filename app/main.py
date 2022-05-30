@@ -384,16 +384,16 @@ class StoreThemeTable:
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
 
-        INSERT INTO storeThemes 
-                    (
-                        storeTheme
-                    ) 
-        VALUES 
-                    (
+                 INSERT INTO storeThemes 
+                             (
+                                 storeTheme
+                             ) 
+                 VALUES 
+                             (
                         '{storeTheme}'
-                    );
+                             );
         
-        """)
+                       """)
         self.conn.commit()
 
     def update(self, storeTheme):
@@ -409,8 +409,10 @@ class StoreThemeTable:
         if (storeTheme == None):
             raise Exception("You have to select an id to delete its values")
         self.cur.execute(f"""
+
                 DELETE FROM storeThemes 
                 WHERE storeTheme = '{storeTheme}'
+
                         """)
         self.conn.commit()
 
