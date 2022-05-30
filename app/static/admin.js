@@ -65,14 +65,14 @@ for (var i = 0; i < themeBtns.length; i++) {
 
 function expOrNarProduct(expOrNarProductKey) {
     if (expOrNarProductKey == 1) {
-        document.getElementById('productsList').style.height = "100%"
-        document.getElementById('productsList').style.overflow = "auto";
+        document.querySelector('#productsList').style.height = "100%"
+        document.querySelector('#productsList').style.overflow = "auto";
         productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
         productsList.childNodes[0].innerHTML = "";
 
     } else {
-        document.getElementById('productsList').style.height = "30px"
-        document.getElementById('productsList').style.overflow = "hidden";
+        document.querySelector('#productsList').style.height = "30px"
+        document.querySelector('#productsList').style.overflow = "hidden";
         productsList.childNodes[0].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات</div>';
     }
 
@@ -80,14 +80,14 @@ function expOrNarProduct(expOrNarProductKey) {
 
 function expOrNarPromo(expOrNarPromoKey) {
     if (expOrNarPromoKey == 1) {
-        document.getElementById('codesList').style.height = "100%"
-        document.getElementById('codesList').style.overflow = "auto";
+        document.querySelector('#codesList').style.height = "100%"
+        document.querySelector('#codesList').style.overflow = "auto";
         codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
         codesList.childNodes[0].innerHTML = "";
 
     } else {
-        document.getElementById('codesList').style.height = "30px"
-        document.getElementById('codesList').style.overflow = "hidden";
+        document.querySelector('#codesList').style.height = "30px"
+        document.querySelector('#codesList').style.overflow = "hidden";
         codesList.childNodes[0].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار الأكواد </div>';
     }
 
@@ -248,7 +248,7 @@ function fetchStoreInfo() {
         return responseNum.json();
     }).then((responseJson) => {
         if (responseJson['storeNum'] != 'none/لايوجد') { document.querySelector("#addInfo").style.display = "none"; }
-        document.getElementById('num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
+        document.querySelector('#num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
 
     });
 
@@ -266,7 +266,7 @@ function fetchStoreInfo() {
             return responseName.json();
         }).then((responseJson) => {
             if (responseJson['storeName'] != 'none/لايوجد') { document.querySelector("#addInfo").style.display = "none"; }
-            document.getElementById('name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
+            document.querySelector('#name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
         });
 }
 
@@ -274,28 +274,28 @@ function fetchStoreInfo() {
 
 function isNarrowed(responseJson) {
 
-    document.getElementById('productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
+    document.querySelector('#productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
+            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
         }
 
-        document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
+        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
     }
 }
 
 function isExpanded(responseJson) {
 
 
-    document.getElementById('productsList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
+    document.querySelector('#productsList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
+            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
         }
 
-        document.getElementById('productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
+        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
     }
     productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
 }
@@ -331,26 +331,26 @@ function fetchProducts() {
 
 function isNarrowedCode(responseJson) {
 
-    document.getElementById('codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
+    document.querySelector('#codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div>`;
+            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div>`;
         }
-        document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div><br><div></div>`;
+        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div><br><div></div>`;
     }
 }
 
 function isExpandedCode(responseJson) {
 
 
-    document.getElementById('codesList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
+    document.querySelector('#codesList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div>`;
+            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div>`;
         }
-        document.getElementById('codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div><br><div></div>`;
+        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div><br><div></div>`;
     }
     codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
 }
@@ -385,34 +385,35 @@ function fetchPromocodes() {
 ///// to show msg or not
 
 if (localStorage.pressToNotShowBtn == 'true') {
-    document.getElementsByClassName('dbInfo')[0].style.display = 'none';
+    document.querySelectors('.dbInfo')[0].style.display = 'none';
     localStorage.pressToNotShowBtn = 'true';
 }
-document.getElementById('pressToNotShowBtn').addEventListener('click', () => {
-    document.getElementsByClassName('dbInfo')[0].style.display = 'none';
+document.querySelector('#pressToNotShowBtn').addEventListener('click', () => {
+    document.querySelectors('.dbInfo')[0].style.display = 'none';
     localStorage.pressToNotShowBtn = 'true';
+
 });
 
 
 
 ///// btns
 
-document.getElementById('addProd').addEventListener('click', () => {
-    let productImg = document.getElementById('productImg');
+document.querySelector('#addProd').addEventListener('click', () => {
+    let productImg = document.querySelector('#productImg');
     let uploadImgForm = new FormData();
     uploadImgForm.append('image', productImg.files[0]);
-    if (document.getElementById('productID').value == '' ||
-        document.getElementById('productTitle').value == '' ||
-        document.getElementById('productPrice').value == '' ||
-        document.getElementById('productImg').value == '') {
+    if (document.querySelector('#productID').value == '' ||
+        document.querySelector('#productTitle').value == '' ||
+        document.querySelector('#productPrice').value == '' ||
+        document.querySelector('#productImg').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         return;
     }
     fetch('/product', {
             headers: {
-                'id': encodeURIComponent(document.getElementById('productID').value),
-                'title': encodeURIComponent(document.getElementById('productTitle').value),
-                'price': encodeURIComponent(document.getElementById('productPrice').value)
+                'id': encodeURIComponent(document.querySelector('#productID').value),
+                'title': encodeURIComponent(document.querySelector('#productTitle').value),
+                'price': encodeURIComponent(document.querySelector('#productPrice').value)
             },
             method: 'POST',
             body: uploadImgForm,
@@ -439,28 +440,28 @@ document.getElementById('addProd').addEventListener('click', () => {
 
             alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
-            document.getElementById('productID').value = '';
-            document.getElementById('productTitle').value = '';
-            document.getElementById('productPrice').value = '';
-            document.getElementById('productImg').value = '';
+            document.querySelector('#productID').value = '';
+            document.querySelector('#productTitle').value = '';
+            document.querySelector('#productPrice').value = '';
+            document.querySelector('#productImg').value = '';
         });
 });
 
-document.getElementById('updProd').addEventListener('click', () => {
-    let productImg = document.getElementById('productImg');
+document.querySelector('#updProd').addEventListener('click', () => {
+    let productImg = document.querySelector('#productImg');
     let uploadImgForm = new FormData();
     uploadImgForm.append('image', productImg.files[0]);
-    if (document.getElementById('productID').value == '' ||
-        document.getElementById('productTitle').value == '' ||
-        document.getElementById('productPrice').value == '' ||
-        document.getElementById('productImg').value == '') {
+    if (document.querySelector('#productID').value == '' ||
+        document.querySelector('#productTitle').value == '' ||
+        document.querySelector('#productPrice').value == '' ||
+        document.querySelector('#productImg').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         return;
     }
-    fetch(`/product/${document.getElementById('productID').value}`, {
+    fetch(`/product/${document.querySelector('#productID').value}`, {
             headers: {
-                'title': encodeURIComponent(document.getElementById('productTitle').value),
-                'price': encodeURIComponent(document.getElementById('productPrice').value)
+                'title': encodeURIComponent(document.querySelector('#productTitle').value),
+                'price': encodeURIComponent(document.querySelector('#productPrice').value)
             },
             method: 'PUT',
             body: uploadImgForm,
@@ -487,15 +488,15 @@ document.getElementById('updProd').addEventListener('click', () => {
 
             alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
-            document.getElementById('productID').value = '';
-            document.getElementById('productTitle').value = '';
-            document.getElementById('productPrice').value = '';
-            document.getElementById('productImg').value = '';
+            document.querySelector('#productID').value = '';
+            document.querySelector('#productTitle').value = '';
+            document.querySelector('#productPrice').value = '';
+            document.querySelector('#productImg').value = '';
         });
 });
 
-document.getElementById('delProd').addEventListener('click', () => {
-    fetch(`/product/${document.getElementById('productID').value}`, {
+document.querySelector('#delProd').addEventListener('click', () => {
+    fetch(`/product/${document.querySelector('#productID').value}`, {
             headers: {
 
                 'Method': 'DELETE',
@@ -524,26 +525,26 @@ document.getElementById('delProd').addEventListener('click', () => {
                 alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
-            if (document.getElementById('productID').value == '') {
+            if (document.querySelector('#productID').value == '') {
 
                 return;
             }
 
             alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
-            document.getElementById('productID').value = '';
-            document.getElementById('productTitle').value = '';
-            document.getElementById('productPrice').value = '';
-            document.getElementById('productImg').value = '';
+            document.querySelector('#productID').value = '';
+            document.querySelector('#productTitle').value = '';
+            document.querySelector('#productPrice').value = '';
+            document.querySelector('#productImg').value = '';
         });
 });
 
 
 
-document.getElementById('addCode').addEventListener('click', () => {
-    if (document.getElementById('codeID').value == '' ||
-        document.getElementById('codeName').value == '' ||
-        document.getElementById('codeAmount').value == '') {
+document.querySelector('#addCode').addEventListener('click', () => {
+    if (document.querySelector('#codeID').value == '' ||
+        document.querySelector('#codeName').value == '' ||
+        document.querySelector('#codeAmount').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         return;
     }
@@ -556,9 +557,9 @@ document.getElementById('addCode').addEventListener('click', () => {
             },
             method: 'POST',
             body: JSON.stringify({
-                id: document.getElementById('codeID').value,
-                code: document.getElementById('codeName').value,
-                amount: document.getElementById('codeAmount').value
+                id: document.querySelector('#codeID').value,
+                code: document.querySelector('#codeName').value,
+                amount: document.querySelector('#codeAmount').value
             })
         })
         .then((response) => {
@@ -583,20 +584,20 @@ document.getElementById('addCode').addEventListener('click', () => {
 
             alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
-            document.getElementById('codeID').value = '';
-            document.getElementById('codeName').value = '';
-            document.getElementById('codeAmount').value = '';
+            document.querySelector('#codeID').value = '';
+            document.querySelector('#codeName').value = '';
+            document.querySelector('#codeAmount').value = '';
         });
 });
 
-document.getElementById('updCode').addEventListener('click', () => {
-    if (document.getElementById('codeID').value == '' ||
-        document.getElementById('codeName').value == '' ||
-        document.getElementById('codeAmount').value == '') {
+document.querySelector('#updCode').addEventListener('click', () => {
+    if (document.querySelector('#codeID').value == '' ||
+        document.querySelector('#codeName').value == '' ||
+        document.querySelector('#codeAmount').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         return;
     }
-    fetch(`/promocode/${document.getElementById('codeID').value}`, {
+    fetch(`/promocode/${document.querySelector('#codeID').value}`, {
             headers: {
 
                 'Method': 'PUT',
@@ -605,8 +606,8 @@ document.getElementById('updCode').addEventListener('click', () => {
             },
             method: 'PUT',
             body: JSON.stringify({
-                code: document.getElementById('codeName').value,
-                amount: document.getElementById('codeAmount').value
+                code: document.querySelector('#codeName').value,
+                amount: document.querySelector('#codeAmount').value
             })
         })
         .then((response) => {
@@ -631,14 +632,14 @@ document.getElementById('updCode').addEventListener('click', () => {
 
             alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
-            document.getElementById('codeID').value = '';
-            document.getElementById('codeName').value = '';
-            document.getElementById('codeAmount').value = '';
+            document.querySelector('#codeID').value = '';
+            document.querySelector('#codeName').value = '';
+            document.querySelector('#codeAmount').value = '';
         });
 });
 
-document.getElementById('delCode').addEventListener('click', () => {
-    fetch(`/promocode/${document.getElementById('codeID').value}`, {
+document.querySelector('#delCode').addEventListener('click', () => {
+    fetch(`/promocode/${document.querySelector('#codeID').value}`, {
             headers: {
 
                 'Method': 'DELETE',
@@ -667,21 +668,21 @@ document.getElementById('delCode').addEventListener('click', () => {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
             }
-            if (document.getElementById('codeID').value == '') {
+            if (document.querySelector('#codeID').value == '') {
                 return;
             }
 
             alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
-            document.getElementById('codeID').value = '';
-            document.getElementById('codeName').value = '';
-            document.getElementById('codeAmount').value = '';
+            document.querySelector('#codeID').value = '';
+            document.querySelector('#codeName').value = '';
+            document.querySelector('#codeAmount').value = '';
         });
 });
 
 
-document.getElementById('addInfo').addEventListener('click', () => {
-    if (document.getElementById('storeNum').value == '' || document.getElementById('storeName').value == '') { alert('يجب ملئ جميع الخانات أولا'); return; }
+document.querySelector('#addInfo').addEventListener('click', () => {
+    if (document.querySelector('#storeNum').value == '' || document.querySelector('#storeName').value == '') { alert('يجب ملئ جميع الخانات أولا'); return; }
 
     fetch('/storeInfo', {
             headers: {
@@ -692,8 +693,8 @@ document.getElementById('addInfo').addEventListener('click', () => {
             },
             method: 'POST',
             body: JSON.stringify({
-                storeName: document.getElementById('storeName').value,
-                storeNum: (currentCountryCodeSelected + document.getElementById('storeNum').value),
+                storeName: document.querySelector('#storeName').value,
+                storeNum: (currentCountryCodeSelected + document.querySelector('#storeNum').value),
             })
         })
         .then((response) => {
@@ -712,13 +713,13 @@ document.getElementById('addInfo').addEventListener('click', () => {
             alert("تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
 
             fetchStoreInfo();
-            document.getElementById('storeName').value = '';
-            document.getElementById('storeNum').value = '';
+            document.querySelector('#storeName').value = '';
+            document.querySelector('#storeNum').value = '';
         });
 });
 
 
-document.getElementById('updInfo').addEventListener('click', () => {
+document.querySelector('#updInfo').addEventListener('click', () => {
 
     fetch('/storeNum/show', { method: 'GET', }).then((responseNum) => { return responseNum.json(); })
         .then((responseJson) => { if (responseJson.storeNum == "none/لايوجد") { alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث"); return; } });
@@ -727,7 +728,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
         .then((responseJson) => { if (responseJson.storeName == "none/لايوجد") { alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث"); return; } });
 
 
-    if (document.getElementById('storeNum').value == '' && document.getElementById('storeName').value != '') {
+    if (document.querySelector('#storeNum').value == '' && document.querySelector('#storeName').value != '') {
         fetch('/storeName', {
                 headers: {
 
@@ -737,7 +738,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 },
                 method: 'PUT',
                 body: JSON.stringify({
-                    storeName: document.getElementById('storeName').value,
+                    storeName: document.querySelector('#storeName').value,
                 })
             })
             .then((response) => {
@@ -756,10 +757,10 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
                 alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
-                document.getElementById('storeName').value = '';
-                document.getElementById('storeNum').value = '';
+                document.querySelector('#storeName').value = '';
+                document.querySelector('#storeNum').value = '';
             });
-    } else if (document.getElementById('storeName').value == '' && document.getElementById('storeNum').value != '') {
+    } else if (document.querySelector('#storeName').value == '' && document.querySelector('#storeNum').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
         fetch('/storeNum', {
                 headers: {
@@ -770,7 +771,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 },
                 method: 'PUT',
                 body: JSON.stringify({
-                    storeNum: (currentCountryCodeSelected + document.getElementById('storeNum').value),
+                    storeNum: (currentCountryCodeSelected + document.querySelector('#storeNum').value),
                 })
             })
             .then((response) => {
@@ -793,10 +794,10 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
                 alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
-                document.getElementById('storeName').value = '';
-                document.getElementById('storeNum').value = '';
+                document.querySelector('#storeName').value = '';
+                document.querySelector('#storeNum').value = '';
             });
-    } else if (document.getElementById('storeNum').value != '' && document.getElementById('storeName').value != '') {
+    } else if (document.querySelector('#storeNum').value != '' && document.querySelector('#storeName').value != '') {
         if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
         Promise.all([
             fetch('/storeNum', {
@@ -808,7 +809,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 },
                 method: 'PUT',
                 body: JSON.stringify({
-                    storeNum: (currentCountryCodeSelected + (currentCountryCodeSelected + document.getElementById('storeNum').value)),
+                    storeNum: (currentCountryCodeSelected + (currentCountryCodeSelected + document.querySelector('#storeNum').value)),
                 })
             }),
             fetch('/storeName', {
@@ -820,7 +821,7 @@ document.getElementById('updInfo').addEventListener('click', () => {
                 },
                 method: 'PUT',
                 body: JSON.stringify({
-                    storeName: document.getElementById('storeName').value,
+                    storeName: document.querySelector('#storeName').value,
                 })
             })
         ]).then(([responseNum, responseName]) => {
@@ -842,8 +843,8 @@ document.getElementById('updInfo').addEventListener('click', () => {
 
             alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchStoreInfo();
-            document.getElementById('storeName').value = '';
-            document.getElementById('storeNum').value = '';
+            document.querySelector('#storeName').value = '';
+            document.querySelector('#storeNum').value = '';
         });
     } else {
         return;
@@ -925,7 +926,7 @@ const countriesCodes = {
     },
 }
 
-let listOfCountriesCodes = document.getElementById('listOfCountriesCodes');
+let listOfCountriesCodes = document.querySelector('#listOfCountriesCodes');
 for (let i = 0; i < /*Object.keys(countriesCodes).length*/ 10; i++) {
     if (i == 0) {
         listOfCountriesCodes.innerHTML = '';
@@ -934,7 +935,7 @@ for (let i = 0; i < /*Object.keys(countriesCodes).length*/ 10; i++) {
     listOfCountriesCodes.innerHTML += `<li><a class="dropdown-item" >${i + 1}:${countriesCodes[Object.keys(countriesCodes)[i]]['ar_name']}</a></li>`;
 }
 
-let countryCodeTitle = document.getElementById('countryCodeTitle');
+let countryCodeTitle = document.querySelector('#countryCodeTitle');
 let allCountriesAncors = document.querySelectorAll('a[class^=dropdown-item]');
 let currentCountryCodeSelected = -1;
 console.log("Found", allCountriesAncors.length, 'a which class:"dropdown-item".');
