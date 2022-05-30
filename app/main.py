@@ -254,7 +254,7 @@ class StoreInfoTable:
                             """)
 
     def search(self, infoType):
-        
+
         if infoType == 'name':
 
             self.cur.execute(f"""
@@ -273,16 +273,16 @@ class StoreInfoTable:
 
                         """)
 
-        else: raise Exception("Error in variable 'infoType'")
+        else:
+            raise Exception("Error in variable 'infoType'")
 
         self.record = self.cur.fetchone()
         return self.record
 
     def insert(self, inputData):
         if (inputData == None):
-                raise Exception("One of the entries is empty")
-                
-        
+            raise Exception("One of the entries is empty")
+
         self.cur.execute(f"""
                 ALTER TABLE storeInfo ALTER COLUMN storenum TYPE bigint;
                 INSERT INTO storeInfo 
@@ -297,7 +297,7 @@ class StoreInfoTable:
                             );
                         
                         """)
-        
+
         self.conn.commit()
 
     def update(self, infoType, inputData):
@@ -320,14 +320,15 @@ class StoreInfoTable:
 
                         """)
 
-        else: raise Exception("Error in variable 'infoType'")
+        else:
+            raise Exception("Error in variable 'infoType'")
 
         self.conn.commit()
 
     def delete(self, infoType, inputData):
         if (inputData == None):
             raise Exception("You have to select an id to delete its values")
-        
+
         if infoType == 'name':
 
             self.cur.execute(f"""
@@ -346,8 +347,8 @@ class StoreInfoTable:
 
                         """)
 
-        else: raise Exception("Error in variable 'infoType'")
-
+        else:
+            raise Exception("Error in variable 'infoType'")
 
         self.conn.commit()
 
@@ -742,8 +743,6 @@ def storeInfo():
             return jsonify({"msg": f"Unkown Error 500: storeName:{storeInfo['storeName']} was not recorded, the storeName doesn't match {(newObj.search('name'))[0]}", "statCode": 500})
 
 
-
-
 @app.route("/storeName", methods=['PUT', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeName():
@@ -794,7 +793,6 @@ def storeNameGet():
         return jsonify({"storeName": "none/لايوجد"})
     else:
         return jsonify({"storeName": newObj.search('name')})
-
 
 
 @app.route("/storeNum", methods=['PUT', 'DELETE'])
@@ -850,8 +848,6 @@ def storeNumGet():
         return jsonify({"storeNum": "none/لايوجد"})
     else:
         return jsonify({"storeNum": newObj.search('num')})
-
-
 
 
 @app.route("/storeTheme", methods=['POST', 'PUT', 'DELETE'])
@@ -979,6 +975,7 @@ def render_picture(data):
     render_pic = base64.b64encode(data).decode('ascii')
     return render_pic
 
+
 def exexuteSql(sql):
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     #conn = sqlite3.connect("spdb.db")
@@ -993,12 +990,10 @@ def exexuteSql(sql):
 ########################
 ##### Play Ground ######
 ########################
-
-# pass 
+# pass
 
 # try: exexuteSql("DROP TABLE storeInfo;")
 # except: print("coudn't playground")
-
 ############################
 ##### Play Ground End ######
 ############################
