@@ -54,7 +54,7 @@ function firstFetch() {
                                 "prices": []
                             }
                             if (data3['storeName'] != "none/لايوجد") {
-                                document.getElementById('storeName').innerText = data3['storeName'];
+                                document.querySelector('#storeName').innerText = data3['storeName'];
                             }
 
                             fetch('/storeNum/show', {
@@ -73,27 +73,27 @@ function firstFetch() {
 
                                     phoneNum = data4['storeNum']
 
-                                    document.getElementById('shoppingCartIcon').addEventListener('click', () => {
-                                        document.getElementById('cartInfo').style.display = "block";
+                                    document.querySelector('#shoppingCartIcon').addEventListener('click', () => {
+                                        document.querySelector('#cartInfo').style.display = "block";
                                     });
 
-                                    document.getElementById('shoppingCartCancel').addEventListener('click', () => {
-                                        document.getElementById('cartInfo').style.display = "none";
+                                    document.querySelector('#shoppingCartCancel').addEventListener('click', () => {
+                                        document.querySelector('#cartInfo').style.display = "none";
                                     });
 
-                                    document.getElementById('infoIcon').addEventListener('click', () => {
-                                        document.getElementById('infoCard').style.display = "block";
+                                    document.querySelector('#infoIcon').addEventListener('click', () => {
+                                        document.querySelector('#infoCard').style.display = "block";
                                     });
 
-                                    document.getElementById('infoCardCancel').addEventListener('click', () => {
-                                        document.getElementById('infoCard').style.display = "none";
+                                    document.querySelector('#infoCardCancel').addEventListener('click', () => {
+                                        document.querySelector('#infoCard').style.display = "none";
                                     });
 
                                     let num = 1
                                     let numNotRepeat = 0;
-                                    let container = document.getElementById('cardContainer');
+                                    let container = document.querySelector('#cardContainer');
                                     for (let i = 0; i < Object.keys(data).length; i++) {
-                                        if (data.statCode == 204) { document.getElementById('msgNotFetched').style.display = "block"; break; } else { document.getElementById('msgNotFetched').style.display = "none"; }
+                                        if (data.statCode == 204) { document.querySelector('#msgNotFetched').style.display = "block"; break; } else { document.querySelector('#msgNotFetched').style.display = "none"; }
                                         num = Math.floor(Math.random() * 8) + 1;
                                         while (num == numNotRepeat) { num = Math.floor(Math.random() * 8) + 1; }
                                         numNotRepeat = num;
@@ -139,8 +139,8 @@ function firstFetch() {
                                             if (firstPassCart == 1) {
                                                 beforeDiscount = undefined;
                                                 thereIsApastDiscount = true;
-                                                document.getElementsByClassName('submitCode')[0].classList.remove('submitCodeDisabled')
-                                                document.getElementsByClassName('submitCode')[0].classList.add('submitCodeEnabled')
+                                                document.querySelectors('.submitCode')[0].classList.remove('submitCodeDisabled')
+                                                document.querySelectors('.submitCode')[0].classList.add('submitCodeEnabled')
                                             }
                                             // END
                                             // to know prud id, and its quentity
@@ -172,14 +172,14 @@ function firstFetch() {
                                             for (let j = 0; j < Object.keys(countsSumOfTitles).length; j++) {
                                                 sumOfTitles = sumOfTitles.concat(`المنتج:<b>${Object.keys(countsSumOfTitles)[j]}</b>، الكمية:<b>${Number(Object.values(countsSumOfTitles)[j])}</b> <br>`);
                                             }
-                                            document.getElementById('groupOfTitles').innerHTML = `${sumOfTitles}`;;
-                                            document.getElementById('groupOfPrices').innerText = `المجموع: ${sumOfPrices} ﷼`
+                                            document.querySelector('#groupOfTitles').innerHTML = `${sumOfTitles}`;;
+                                            document.querySelector('#groupOfPrices').innerText = `المجموع: ${sumOfPrices} ﷼`
                                                 // to allow to enter promo code again
                                             if (firstPassCart == 1) {
                                                 priceBeforeDiscount = Number(sumOfPrices);
                                             }
                                             // END
-                                            shoppingCartIcon = document.getElementById('shoppingCartIcon')
+                                            shoppingCartIcon = document.querySelector('#shoppingCartIcon')
                                             shoppingCartIcon.classList.add("cartAnimation");
                                             setTimeout(() => {
                                                 shoppingCartIcon.classList.remove("cartAnimation");
@@ -195,8 +195,8 @@ function firstFetch() {
                                             if (firstPassCart == 1) {
                                                 beforeDiscount = undefined;
                                                 thereIsApastDiscount = true;
-                                                document.getElementsByClassName('submitCode')[0].classList.remove('submitCodeDisabled')
-                                                document.getElementsByClassName('submitCode')[0].classList.add('submitCodeEnabled')
+                                                document.querySelectors('.submitCode')[0].classList.remove('submitCodeDisabled')
+                                                document.querySelectors('.submitCode')[0].classList.add('submitCodeEnabled')
                                             }
                                             // END
                                             // to know prud id, and its quentity
@@ -223,15 +223,15 @@ function firstFetch() {
                                             }
                                             // END
                                             else {
-                                                shoppingCartIcon = document.getElementById('shoppingCartIcon')
+                                                shoppingCartIcon = document.querySelector('#shoppingCartIcon')
                                                 shoppingCartIcon.classList.add("cartAnimationDelFin");
                                                 setTimeout(() => {
                                                     shoppingCartIcon.classList.remove("cartAnimationDelFin");
                                                 }, 500);
 
                                                 if (cartInfo['prices'].length == 0) {
-                                                    document.getElementById('groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
-                                                    document.getElementById('groupOfPrices').innerText = `المجموع 0﷼`;
+                                                    document.querySelector('#groupOfTitles').innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`;
+                                                    document.querySelector('#groupOfPrices').innerText = `المجموع 0﷼`;
                                                 }
                                                 return;
                                             }
@@ -243,14 +243,14 @@ function firstFetch() {
                                             for (let j = 0; j < Object.keys(countsSumOfTitles).length; j++) {
                                                 sumOfTitles = sumOfTitles.concat(`المنتج:<b>${Object.keys(countsSumOfTitles)[j]}</b>، الكمية:<b>${Number(Object.values(countsSumOfTitles)[j])}</b> <br>`);
                                             }
-                                            document.getElementById('groupOfTitles').innerHTML = `${sumOfTitles}`;;
-                                            document.getElementById('groupOfPrices').innerText = `المجموع: ${sumOfPrices} ﷼`
+                                            document.querySelector('#groupOfTitles').innerHTML = `${sumOfTitles}`;;
+                                            document.querySelector('#groupOfPrices').innerText = `المجموع: ${sumOfPrices} ﷼`
                                                 // to allow to enter promo code again
                                             if (firstPassCart == 1) {
                                                 priceBeforeDiscount = Number(sumOfPrices);
                                             }
                                             // END
-                                            shoppingCartIcon = document.getElementById('shoppingCartIcon')
+                                            shoppingCartIcon = document.querySelector('#shoppingCartIcon')
                                             shoppingCartIcon.classList.add("cartAnimationDel");
                                             setTimeout(() => {
                                                 shoppingCartIcon.classList.remove("cartAnimationDel");
@@ -264,13 +264,13 @@ function firstFetch() {
                                     let priceBeforeDiscount = 0;
                                     let theCurrentDiscount;
                                     let fullPrice;
-                                    document.getElementsByClassName('submitCode')[0].addEventListener('click', () => {
+                                    document.querySelectors('.submitCode')[0].addEventListener('click', () => {
                                         if (data2[`${Object.keys(data2)[0]}`] == null) { alert("الكود غير صالح، جرب كودًا آخر"); return; }
                                         firstPassCart = 1;
-                                        let totalPrice = document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0];
+                                        let totalPrice = document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0];
                                         for (let i = 0; i < Object.keys(data2).length; i++) {
-                                            if (document.getElementById('discount').value == data2[`${Object.keys(data2)[i]}`]['code']) {
-                                                if (isNaN(Number(document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0])) == true) {
+                                            if (document.querySelector('#discount').value == data2[`${Object.keys(data2)[i]}`]['code']) {
+                                                if (isNaN(Number(document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0])) == true) {
                                                     break;
                                                 }
                                                 theCurrentDiscount = data2[`${Object.keys(data2)[i]}`]['code'];
@@ -288,16 +288,16 @@ function firstFetch() {
                                                 }
                                                 fullPrice = Number(totalPrice)
                                                 totalPrice = fullPrice - (Number(totalPrice) * data2[`${Object.keys(data2)[i]}`]['amount']);
-                                                document.getElementById('groupOfPrices').innerHTML = `المجموع: ${totalPrice} ﷼<br><small style='font-size: small; color: red; text-decoration: line-through;'>المجموع: ${priceBeforeDiscount}﷼</small>`
+                                                document.querySelector('#groupOfPrices').innerHTML = `المجموع: ${totalPrice} ﷼<br><small style='font-size: small; color: red; text-decoration: line-through;'>المجموع: ${priceBeforeDiscount}﷼</small>`
 
                                                 dontAcceptOtherDiscount = 1;
-                                                document.getElementsByClassName('submitCode')[0].classList.add('submitCodeDisabled')
-                                                document.getElementsByClassName('submitCode')[0].classList.remove('submitCodeEnabled')
+                                                document.querySelectors('.submitCode')[0].classList.add('submitCodeDisabled')
+                                                document.querySelectors('.submitCode')[0].classList.remove('submitCodeEnabled')
                                                 break;
-                                            } else if (document.getElementById('discount').value == '') {
+                                            } else if (document.querySelector('#discount').value == '') {
                                                 break;
                                             } else if (i == (Object.keys(data2).length) - 1) {
-                                                let totalPrice = document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0];
+                                                let totalPrice = document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0];
                                                 beforeDiscount = undefined;
                                                 if (priceBeforeDiscount != NaN && priceBeforeDiscount != undefined && Number(priceBeforeDiscount) > 0) {
 
@@ -305,17 +305,17 @@ function firstFetch() {
                                                     totalPrice = Number(priceBeforeDiscount);
                                                 }
 
-                                                document.getElementById('groupOfPrices').innerText = `المجموع: ${totalPrice} ﷼`
+                                                document.querySelector('#groupOfPrices').innerText = `المجموع: ${totalPrice} ﷼`
                                                 alert("الكود غير صالح، جرب كودًا آخر")
-                                                document.getElementsByClassName('submitCode')[0].classList.remove('submitCodeDisabled')
-                                                document.getElementsByClassName('submitCode')[0].classList.add('submitCodeEnabled')
+                                                document.querySelectors('.submitCode')[0].classList.remove('submitCodeDisabled')
+                                                document.querySelectors('.submitCode')[0].classList.add('submitCodeEnabled')
 
                                             }
                                         }
 
                                     });
                                     let bill;
-                                    document.getElementById('sendToWhatsApp').addEventListener('click', () => {
+                                    document.querySelector('#sendToWhatsApp').addEventListener('click', () => {
                                         let restDiscountMsg;
 
                                         let titles;
@@ -331,24 +331,24 @@ function firstFetch() {
                                         }
 
                                         let date;
-                                        if (document.getElementById('personalInfoTime').innerText != '' ||
-                                            document.getElementById('personalInfoTime').innerText != null ||
-                                            document.getElementById('personalInfoTime').innerText != undefined) {
-                                            date = formatDate(new Date(document.getElementById('personalInfoTime').value));
+                                        if (document.querySelector('#personalInfoTime').innerText != '' ||
+                                            document.querySelector('#personalInfoTime').innerText != null ||
+                                            document.querySelector('#personalInfoTime').innerText != undefined) {
+                                            date = formatDate(new Date(document.querySelector('#personalInfoTime').value));
                                         }
 
 
                                         let discount = 'كود الخصم: ' + restDiscountMsg;
-                                        titles = document.getElementById('groupOfTitles').innerHTML.replace(/\s/gi, "%20");
+                                        titles = document.querySelector('#groupOfTitles').innerHTML.replace(/\s/gi, "%20");
                                         titles = titles.replace(/<br>/gi, "%0a");
                                         titles = titles.replace(/<b>/gi, "*");
                                         titles = titles.replace(/<\/b>/gi, "*");
 
-                                        prices = `~قبل الخصم: ${priceBeforeDiscount}~%0a*${document.getElementById('groupOfPrices').innerText.split('\n')[0].replace(/\s/gi, "%20")}*`
+                                        prices = `~قبل الخصم: ${priceBeforeDiscount}~%0a*${document.querySelector('#groupOfPrices').innerText.split('\n')[0].replace(/\s/gi, "%20")}*`
 
-                                        personalInfo['name'] = document.getElementById('personalInfoName').value.replace(/\s/gi, "%20");
-                                        personalInfo['numb'] = document.getElementById('personalInfoNumb').value.replace(/\s/gi, "%20");
-                                        personalInfo['addr'] = document.getElementById('personalInfoAddr').value.replace(/\s/gi, "%20");
+                                        personalInfo['name'] = document.querySelector('#personalInfoName').value.replace(/\s/gi, "%20");
+                                        personalInfo['numb'] = document.querySelector('#personalInfoNumb').value.replace(/\s/gi, "%20");
+                                        personalInfo['addr'] = document.querySelector('#personalInfoAddr').value.replace(/\s/gi, "%20");
                                         personalInfo['time'] = (`${'وقت الاستلام: ' + date}`).replace(/\s/gi, "%20");
                                         if (personalInfo['name'] == '' || personalInfo['numb'] == '' || personalInfo['addr'] == '' || personalInfo['time'] == '') {
                                             alert('الرجاء تعبئة كل البيانات الشخصية')
@@ -362,8 +362,8 @@ function firstFetch() {
 
                                         bill = `فاتورة متجر ${data3['storeName']}` + "%0a%0a" + personalInfoOutput + "%0a%0a" + titles + "%0a%0a" + discount + '%0a' + prices;
 
-                                        if (Number(document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0]) == 0 ||
-                                            isNaN(Number(document.getElementById('groupOfPrices').innerText.split(': ')[1].split(' ')[0])) == true) {
+                                        if (Number(document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0]) == 0 ||
+                                            isNaN(Number(document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0])) == true) {
                                             alert('يجب أن يكون في سلتك منتجات \nأو يكون مبلغ الشراء أعلى من 0﷼ لإتمام العملية');
                                             return;
                                         }
