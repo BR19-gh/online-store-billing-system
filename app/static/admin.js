@@ -118,8 +118,9 @@ function fetchThemes() {
             return responseName.json();
         })
         .then((responseJson) => {
-            var setProp = document.documentElement.style.setProperty;
+
             if (responseJson['storeTheme'] != "none/لايوجد") {
+                let setProp = document.documentElement.style.setProperty;
                 switch (responseJson['storeTheme']) {
                     case 'originalTheme':
                         setProp('--body', '#f0e9c9');
