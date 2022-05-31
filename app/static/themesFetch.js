@@ -26,6 +26,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#797464');
                     document.documentElement.style.setProperty('--infoCard', '#d4cbaba8');
                 } else if (responseJson['storeTheme'] == 'blueTheme') {
+
                     document.documentElement.style.setProperty('--body', '#c9cbf0');
                     document.documentElement.style.setProperty('--borders', '#85868f');
                     document.documentElement.style.setProperty('--btns', '#bdbef5');
