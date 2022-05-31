@@ -241,6 +241,7 @@ function fetchThemes() {
         });
 }
 
+
 function fetchStoreInfo() {
 
     fetch('/storeNum/show', {
