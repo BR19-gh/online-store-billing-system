@@ -100,36 +100,36 @@ function firstFetch() {
 
                                         container.innerHTML +=
                                             ` 
-                                                <div id="form" class="card" style="width: 18rem;">
-                                                    <img style="width: 257px; height: 257px;" src="data:image/png;base64,${data[Object.keys(data)[i]]["img"]}" class="card-img-top" alt="Product">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">${data[Object.keys(data)[i]]["title"]}</h5>
-                                                    </div>
-                                                    <ul class="list-group list-group-flush">
-                                                        <li class="list-group-item" id="priceContainer">
-                                                            <div id="price">${data[Object.keys(data)[i]]["price"]}</div>﷼
-                                                        </li>
-                                                        <li class="list-group-item">
-                                                            <select name="quentity" id="quentity-${Object.keys(data)[i]}">
-                                                                <option selected disabled>الكمية</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                            </select>
-                                                        </li>
-                                                    </ul>
-                                                    <div style="direction: rtl;" class="card-body">
-                                                        <div style="height: 1.5rem;">
-                                                            <a  class="card-link delToCartBtn"><i class="fas fa-trash-alt"></i></a>
-                                                            <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
-                                                            <br><br>
-                                                            <div style="display: none;">id:${Object.keys(data)[i]}\t</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            `;
+    <div id="form" class="card" style="width: 18rem;">
+        <img style="width: 257px; height: 257px;" src="data:image/png;base64,${data[Object.keys(data)[i]]["img"]}" class="card-img-top" alt="Product">
+        <div class="card-body">
+            <h5 class="card-title">${data[Object.keys(data)[i]]["title"]}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="priceContainer">
+                <div id="price">${data[Object.keys(data)[i]]["price"]}</div>﷼
+            </li>
+            <li class="list-group-item">
+                <select name="quentity" id="quentity-${Object.keys(data)[i]}">
+                    <option selected disabled>الكمية</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </li>
+        </ul>
+        <div style="direction: rtl;" class="card-body">
+            <div style="height: 1.5rem;">
+                <a  class="card-link delToCartBtn"><i class="fas fa-trash-alt"></i></a>
+                <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
+                <br><br>
+                <div style="display: none;">id:${Object.keys(data)[i]}\t</div>
+            </div>
+        </div>
+    </div>
+`
                                     }
                                     var allButtons = document.querySelectorAll('a.addToCartBtn');
 
