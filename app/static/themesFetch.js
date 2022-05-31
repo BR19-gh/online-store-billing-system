@@ -5,7 +5,7 @@ export function fetchThemes() {
             return responseName.json();
         })
         .then((responseJson) => {
-            let setProp = document.documentElement.style.setProperty;
+            var setProp = document.documentElement.style.setProperty;
             if (responseJson['storeTheme'] != "none/لايوجد") {
                 switch (responseJson['storeTheme']) {
                     case 'originalTheme':
