@@ -120,8 +120,9 @@ function fetchThemes() {
         .then((responseJson) => {
 
             if (responseJson['storeTheme'] == "none/لايوجد") {} else {
+                let setProp = document.documentElement.style.setProperty;
                 if (responseJson['storeTheme'] == 'originalTheme') {
-                    let setProp = document.documentElement.style.setProperty;
+
                     setProp('--body', '#f0e9c9');
                     setProp('--borders', '#8f8d85');
                     setProp('--btns', '#f5ebbd');
