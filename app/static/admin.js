@@ -93,6 +93,16 @@ function expOrNarPromo(expOrNarPromoKey) {
 
 }
 
+function deleteOrEditPromoPupup(id, opration) {
+    console.log(id, opration)
+    return;
+}
+
+function deleteOrEditProductPupup(id, opration) {
+    console.log(id, opration)
+    return;
+}
+
 
 
 //// fetches
@@ -135,6 +145,7 @@ function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#aca588');
                     document.documentElement.style.setProperty('--inputFocus', '#b1a883');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#c4c1b6c0');
+                    document.documentElement.style.setProperty('--modals', '#c4c1b6');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#969287');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#797464');
                     document.documentElement.style.setProperty('--infoCard', '#d4cbaba8');
@@ -153,6 +164,7 @@ function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#8889ac');
                     document.documentElement.style.setProperty('--inputFocus', '#8783b1');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#b6b6c4c0');
+                    document.documentElement.style.setProperty('--modals', '#b6b6c4');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#878796');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#646579');
                     document.documentElement.style.setProperty('--infoCard', '#abaed4a8');
@@ -171,6 +183,7 @@ function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#88ac8b');
                     document.documentElement.style.setProperty('--inputFocus', '#83b185');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#b6c4b8c0');
+                    document.documentElement.style.setProperty('--modals', '#b6c4b8');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#879687');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#647965');
                     document.documentElement.style.setProperty('--infoCard', '#abd4b0a8');
@@ -189,6 +202,7 @@ function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#ac8888');
                     document.documentElement.style.setProperty('--inputFocus', '#b18383');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#c4b6b6c0');
+                    document.documentElement.style.setProperty('--modals', '#c4b6b6');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#968787');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#796464');
                     document.documentElement.style.setProperty('--infoCard', '#d4ababa8');
@@ -207,6 +221,7 @@ function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#ac88a9');
                     document.documentElement.style.setProperty('--inputFocus', '#b183aa');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#c4b6c1c0');
+                    document.documentElement.style.setProperty('--modals', '#c4b6c1');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#968795');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#796478');
                     document.documentElement.style.setProperty('--infoCard', '#d4abcaa8');
@@ -225,6 +240,7 @@ function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#a9a9a9');
                     document.documentElement.style.setProperty('--inputFocus', '#aeaeae');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#b6b6c4c0');
+                    document.documentElement.style.setProperty('--modals', '#b6b6c4');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#969696');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#727272');
                     document.documentElement.style.setProperty('--infoCard', '#d1d1d1a8');
@@ -274,14 +290,14 @@ function fetchStoreInfo() {
 
 function isNarrowed(responseJson) {
 
-    document.querySelector('#productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b></div>'
+    document.querySelector('#productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>العنوان</b><b>السعر</b><b>الصورة</b><b>عمليات إضافية</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
+            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')">تعديل</div>|<div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProductPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')>حذف</div></b></div>`;
         }
 
-        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
+        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')">تعديل</div>|<div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProductPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')>حذف</div></b></div><br><div></div>`;
     }
 }
 
@@ -292,10 +308,10 @@ function isExpanded(responseJson) {
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div>`;
+            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')">تعديل</div>|<div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProductPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')>حذف</div></b></div>`;
         }
 
-        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b></div><br><div></div>`;
+        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['title']}</b><b>${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')">تعديل</div>|<div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProductPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')>حذف</div></b></div><br><div></div>`;
     }
     productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
 }
@@ -329,28 +345,29 @@ function fetchProducts() {
 
 // for fetchProducts()
 
+
 function isNarrowedCode(responseJson) {
 
-    document.querySelector('#codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
+    document.querySelector('#codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b><b>عمليات إضافية</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div>`;
+            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')">تعديل</div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')>حذف</div></b></div>`;
         }
-        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div><br><div></div>`;
+        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')">تعديل</div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')>حذف</div></b></div><br><div></div>`;
     }
 }
 
 function isExpandedCode(responseJson) {
 
 
-    document.querySelector('#codesList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b></div>'
+    document.querySelector('#codesList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b>الرقم</b><b>الاسم</b><b>النسبة</b><b>عمليات إضافية</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div>`;
+            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')">تعديل</div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')>حذف</div></b></div>`;
         }
-        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b></div><br><div></div>`;
+        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b>${responseJson[Object.keys(responseJson)[i]]['id']}</b><b>${responseJson[Object.keys(responseJson)[i]]['code']}</b><b>${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')">تعديل</div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromoPupup(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')>حذف</div></b></div><br><div></div>`;
     }
     codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
 }

@@ -13,6 +13,7 @@
     --inputHover: #aca588;
     --inputFocus: #b1a883;
     --webkitScrollbarTrack: #c4c1b6c0;
+    --modals: #c4c1b6;
     --webkitScrollbarThumb: #969287;
     --webkitScrollbarThumbHover: #797464;
     --infoCard: #d6d6d6a8;
@@ -405,6 +406,11 @@ input#productImg {
     left: auto;
     top: 10px;
     right: 15px
+}
+
+.modal-footer,
+.modal-header {
+    border-color: var(--borders);
 }
 
 @keyframes cartAnimation {

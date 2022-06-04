@@ -167,26 +167,98 @@
 
 
 
-        <style>
-            .spinner-border {
-                width: 6rem;
-                height: 6rem;
-                border: 1em solid currentColor;
-                border-right-color: transparent;
-                margin-top: 300px;
-                z-index: 100;
-            }
-        </style>
-        <script>
-            function startSpinner() {
-                var myVar = setTimeout(showPage, 1000);
-            }
 
-            function showPage() {
-                document.getElementById("loader").style.display = "none";
-                document.getElementsByClassName("container")[0].style.display = "block";
-            }
-        </script>
+
+    </div>
+
+    <!-- Modal Promo -->
+    <div class="modal fade" id="promoModal" tabindex="-1" role="dialog" aria-labelledby="promoModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div style="background-color: var(--modals); direction: rtl;" class="modal-content card">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        عملية على الأكواد
+                    </h5>
+                    <button style="border: 0; background-color: transparent;" type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="card-title">
+                        <label for="codeIDLabel" id="codeIDLabel">الرقم التعريفي للكود</label>
+                        <input style="direction: rtl;" style="direction: rtl;" type="tel" id="codeID" placeholder="لحذف الكود أو تحديثه لاحقا">
+                        <label for="codeNameLabel" id="codeNameLabel">اسم الكود</label>
+                        <input style="direction: rtl;" style="direction: rtl;" type="text" id="codeName" placeholder="سيستخدمه العملاء للاستفادة من الكود">
+                        <label for="codeAmountLabel" id="codeAmountLabel">نسبة التخفيض</label>
+                        <input style="direction: rtl;" type="tel" id="codeAmount" placeholder="بدون كتابة %">
+                    </h5>
+                </div>
+                <div style="direction: rtl;" class="btnsContainer" class="card-body">
+                    <div class="addToCartBtn">
+                        <a class="card-link">تــنــفــيــذ</a>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Product -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div style="background-color: var(--modals); direction: rtl;" class="modal-content card">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        عملية على المنتجات
+                    </h5>
+                    <button style="border: 0; background-color: transparent;" type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="card-title">
+                        <label for="productIDLabel" id="productIDLabel">الرقم التعريفي للمنتج</label>
+                        <input style="direction: rtl;" type="tel" id="productID" placeholder="لحذف المنتج أو تحديثه لاحقا">
+                        <label for="productTitleLabel" id="productTitleLabel">عنوان المنتج</label>
+                        <input style="direction: rtl;" type="text" id="productTitle" placeholder="العنوان الذي سيقرأه العملاء">
+                        <label for="productPriceLabel" id="productPriceLabel">سعر المنتج</label>
+                        <input style="direction: rtl;" style="direction: rtl;" type="tel" id="productPrice" placeholder="سعر المنتج رقما">
+                        <label for="productImg">صورة للمنتج</label>
+                        <input style="direction: ltr;" name="productImg" id="productImg" type="file" accept="image/*">
+                    </h5>
+                </div>
+                <div style="direction: rtl;" class="btnsContainer" class="card-body">
+                    <div class="addToCartBtn">
+                        <a class="card-link">تــنــفــيــذ</a>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .spinner-border {
+            width: 6rem;
+            height: 6rem;
+            border: 1em solid currentColor;
+            border-right-color: transparent;
+            margin-top: 300px;
+            z-index: 100;
+        }
+    </style>
+    <script>
+        function startSpinner() {
+            var myVar = setTimeout(showPage, 1000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementsByClassName("container")[0].style.display = "block";
+        }
+    </script>
 
 
 </body>

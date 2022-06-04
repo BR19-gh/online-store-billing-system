@@ -22,11 +22,11 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#aca588');
                     document.documentElement.style.setProperty('--inputFocus', '#b1a883');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#c4c1b6c0');
+                    document.documentElement.style.setProperty('--modals', '#c4c1b6');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#969287');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#797464');
                     document.documentElement.style.setProperty('--infoCard', '#d4cbaba8');
                 } else if (responseJson['storeTheme'] == 'blueTheme') {
-
                     document.documentElement.style.setProperty('--body', '#c9cbf0');
                     document.documentElement.style.setProperty('--borders', '#85868f');
                     document.documentElement.style.setProperty('--btns', '#bdbef5');
@@ -41,6 +41,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#8889ac');
                     document.documentElement.style.setProperty('--inputFocus', '#8783b1');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#b6b6c4c0');
+                    document.documentElement.style.setProperty('--modals', '#b6b6c4');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#878796');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#646579');
                     document.documentElement.style.setProperty('--infoCard', '#abaed4a8');
@@ -59,6 +60,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#88ac8b');
                     document.documentElement.style.setProperty('--inputFocus', '#83b185');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#b6c4b8c0');
+                    document.documentElement.style.setProperty('--modals', '#b6c4b8');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#879687');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#647965');
                     document.documentElement.style.setProperty('--infoCard', '#abd4b0a8');
@@ -77,6 +79,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#ac8888');
                     document.documentElement.style.setProperty('--inputFocus', '#b18383');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#c4b6b6c0');
+                    document.documentElement.style.setProperty('--modals', '#c4b6b6');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#968787');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#796464');
                     document.documentElement.style.setProperty('--infoCard', '#d4ababa8');
@@ -95,6 +98,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#ac88a9');
                     document.documentElement.style.setProperty('--inputFocus', '#b183aa');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#c4b6c1c0');
+                    document.documentElement.style.setProperty('--modals', '#c4b6c1');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#968795');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#796478');
                     document.documentElement.style.setProperty('--infoCard', '#d4abcaa8');
@@ -113,6 +117,7 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty('--inputHover', '#a9a9a9');
                     document.documentElement.style.setProperty('--inputFocus', '#aeaeae');
                     document.documentElement.style.setProperty('--webkitScrollbarTrack', '#b6b6c4c0');
+                    document.documentElement.style.setProperty('--modals', '#b6b6c4');
                     document.documentElement.style.setProperty('--webkitScrollbarThumb', '#969696');
                     document.documentElement.style.setProperty('--webkitScrollbarThumbHover', '#727272');
                     document.documentElement.style.setProperty('--infoCard', '#d1d1d1a8');
