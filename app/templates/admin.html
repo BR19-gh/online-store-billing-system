@@ -118,7 +118,7 @@
                 </div>
 
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">
-                    <div onclick="deleteOrEditPromo(null, 'add')" data-bs-toggle="modal" data-bs-target="#productModal" class="addToCartBtn"><a class="card-link">إضافة <i class="fas fa-plus"></i></a></div>
+                    <div onclick="deleteOrEditProd(null, 'add')" data-bs-toggle="modal" data-bs-target="#productModal" class="addToCartBtn"><a class="card-link">إضافة <i class="fas fa-plus"></i></a></div>
                 </div>
                 <ul id="productsList" style="direction: rtl; height: 30px; overflow:hidden;" class="list-group list-group-flush">
                     حدث وانتظر إذا كنت قد أضفت
@@ -207,6 +207,7 @@
                         <input style="direction: rtl;" style="direction: rtl;" type="tel" id="productPrice" placeholder="سعر المنتج رقما">
                         <label for="productImg">صورة للمنتج</label>
                         <input style="direction: ltr;" name="productImg" id="productImg" type="file" accept="image/*">
+                        <b id="browseImg"></b>
                     </h5>
                 </div>
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">

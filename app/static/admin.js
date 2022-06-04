@@ -102,7 +102,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#updCode').style.display = "block";
         document.querySelector('#delCode').style.display = "none";
         //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `تعديل الكود #${id}`;
+        document.querySelector('#promoModalLongTitle').innerHTML = `تعديل الكود رقم: ${id}`;
         document.querySelector('#codeID').value = `${id}`;
         document.querySelector('#codeName').value = `${listOfPromos[id]['code']}`;
         document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount'] * 100}`;
@@ -118,7 +118,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#updCode').style.display = "none";
         document.querySelector('#delCode').style.display = "block";
         //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `حذف الكود #${id}`;
+        document.querySelector('#promoModalLongTitle').innerHTML = `حذف الكود رقم: ${id}`;
         document.querySelector('#codeID').value = `${id}`;
         document.querySelector('#codeName').value = `${listOfPromos[id]['code']}`;
         document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount'] * 100}`;
@@ -151,7 +151,68 @@ function deleteOrEditPromo(id, opration) {
 }
 
 function deleteOrEditProd(id, opration) {
-    console.log(id, opration)
+    if (opration == 'edit') {
+
+        //show btn
+        document.querySelector('#addProd').style.display = "none";
+        document.querySelector('#updProd').style.display = "block";
+        document.querySelector('#delProd').style.display = "none";
+        //fill input
+        document.querySelector('#promoModalLongTitle').innerHTML = `تعديل المنتج رقم: ${id}`;
+        document.querySelector('#productID').value = `${id}`;
+        document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
+        document.querySelector('#productPrice').value = `${listOfProducts[id]['price'] * 100}`;
+        document.querySelector('#browseImg').innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img">`;
+        //disable input
+        document.querySelector('#productID').disabled = true;
+        document.querySelector('#productTitle').disabled = false;
+        document.querySelector('#productPrice').disabled = false;
+        document.querySelector('#productImg').disabled = false;
+
+
+    } else if (opration == 'delete') {
+
+        //show btn
+        document.querySelector('#addProd').style.display = "none";
+        document.querySelector('#updProd').style.display = "none";
+        document.querySelector('#delProd').style.display = "block";
+        //fill input
+        document.querySelector('#promoModalLongTitle').innerHTML = `حذف المنتج رقم: ${id}`;
+        document.querySelector('#productID').value = `${id}`;
+        document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
+        document.querySelector('#productPrice').value = `${listOfProducts[id]['price'] * 100}`;
+        document.querySelector('#browseImg').innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img">`;
+        //disable input
+        document.querySelector('#productID').disabled = true;
+        document.querySelector('#productTitle').disabled = true;
+        document.querySelector('#productPrice').disabled = true;
+        document.querySelector('#productImg').disabled = true;
+
+    } else if (opration == 'add') {
+
+        //show btn
+        document.querySelector('#addProd').style.display = "block";
+        document.querySelector('#updProd').style.display = "none";
+        document.querySelector('#delProd').style.display = "none";
+        //fill input
+        document.querySelector('#promoModalLongTitle').innerHTML = `إضافة كود`;
+        document.querySelector('#productID').value = ``;
+        document.querySelector('#productTitle').value = ``;
+        document.querySelector('#productPrice').value = ``;
+        document.querySelector('#productImg').value = ``;
+        document.querySelector('#browseImg').innerHTML = ``;
+        //disable input
+        document.querySelector('#productID').disabled = false;
+        document.querySelector('#productTitle').disabled = false;
+        document.querySelector('#productPrice').disabled = false;
+        document.querySelector('#productImg').disabled = false;
+
+
+    } else {
+        alert('هناك خطأ ما، هذه الميزة تجريبية، تواصل مع المطور لحل المشكلة. \n\n ErrCode: 508 : رمز الخطأ');
+        return;
+    }
+    return;
     return;
 }
 
@@ -347,10 +408,10 @@ function isNarrowed(responseJson) {
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['title']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div> | <div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
+            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['title']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div> | <div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
         }
 
-        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['title']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div> | <div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
+        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['title']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div> | <div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
 }
 
@@ -361,10 +422,10 @@ function isExpanded(responseJson) {
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['title']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div> | <div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
+            document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['title']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div> | <div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
         }
 
-        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['title']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div> | <div data-bs-toggle="modal" data-bs-target="#productModal" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
+        document.querySelector('#productsList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['title']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['price']}﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]]['img']}" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div> | <div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
     productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
 }
@@ -406,9 +467,9 @@ function isNarrowedCode(responseJson) {
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['code']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
+            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['code']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
         }
-        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['code']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
+        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['code']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
 }
 
@@ -420,9 +481,9 @@ function isExpandedCode(responseJson) {
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
-            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['code']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
+            document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['code']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
         }
-        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['code']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
+        document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['code']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
     codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
 }
