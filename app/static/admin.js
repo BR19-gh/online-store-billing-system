@@ -94,8 +94,8 @@ function expOrNarPromo(expOrNarPromoKey) {
 }
 
 function deleteOrEditPromo(id, opration, listOfValues) {
-    document.querySelector('updCode').id = "updCodeOld";
-    document.querySelector('delCode').id = "delCodeOld";
+    document.querySelector('#updCode').id = "updCodeOld";
+    document.querySelector('#delCode').id = "delCodeOld";
     console.log(id, opration, listOfValues);
     if (opration == 'edit') {
         //fill input
