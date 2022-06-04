@@ -95,6 +95,9 @@ function expOrNarPromo(expOrNarPromoKey) {
 
 function deleteOrEditPromo(id, opration) {
 
+    document.querySelector('#addCode').id = "addCodeOld";
+    document.querySelector('#updCode').id = "updCodeOld";
+    document.querySelector('#delCode').id = "delCodeOld";
 
     console.log(id, opration, listOfPromos);
     if (opration == 'edit') {
@@ -120,6 +123,14 @@ function deleteOrEditPromo(id, opration) {
         document.querySelectorAll('.doActionPromo')[0].innerText = 'حــــــذف';
         document.querySelectorAll('.doActionPromo')[0].id = 'delCode';
     } else if (opration == 'add') {
+        //fill input
+        document.querySelector('#codeID').value = ``;
+        document.querySelector('#codeName').value = ``;
+        document.querySelector('#codeAmount').value = ``;
+        //disable input
+        document.querySelector('#codeID').disabled = false;
+        document.querySelector('#codeName').disabled = false;
+        document.querySelector('#codeAmount').disabled = false;
         document.querySelector('#promoModalLongTitle').innerHTML = `إضافة كود`;
         document.querySelectorAll('.doActionPromo')[0].innerText = 'إضــــافــة';
         document.querySelectorAll('.doActionPromo')[0].id = 'addCode';
