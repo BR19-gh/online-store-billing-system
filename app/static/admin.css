@@ -73,7 +73,7 @@ b.cell {
     width: 20%;
 }
 
-.modal-backdrop {
+.modal-backdrop.fade {
     display: none;
 }
 
