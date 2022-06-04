@@ -534,8 +534,8 @@ document.querySelector('#addProd').addEventListener('click', () => {
         document.querySelector('#productImg').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
-            $('#productModal').modal('show');
-        }, 1);
+            $('#productModal').modal('toggle');
+        }, 200);
         return;
     }
     fetch('/product', {
@@ -590,8 +590,8 @@ document.querySelector('#updProd').addEventListener('click', () => {
         document.querySelector('#productImg').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
-            $('#productModal').modal('show');
-        }, 1);
+            $('#productModal').modal('toggle');
+        }, 200);
         return;
     }
     fetch(`/product/${document.querySelector('#productID').value}`, {
@@ -683,8 +683,8 @@ document.querySelector('#addCode').addEventListener('click', () => {
         document.querySelector('#codeAmount').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
-            $('#promoModal').modal('show');
-        }, 1);
+            $('#promoModal').modal('toggle');
+        }, 200);
         return;
     }
     fetch('/promocode', {
@@ -739,8 +739,8 @@ document.querySelector('#updCode').addEventListener('click', () => {
         document.querySelector('#codeAmount').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
-            $('#promoModal').modal('show');
-        }, 1);
+            $('#promoModal').modal('toggle');
+        }, 200);
         return;
     }
     fetch(`/promocode/${document.querySelector('#codeID').value}`, {
@@ -1106,3 +1106,21 @@ for (var i = 0; i < document.querySelectorAll('.close').length; i++) {
         document.querySelector('#productImg').value = ``;
     });
 }
+document.querySelector('#productModal').addEventListener('click', function() {
+    document.querySelector('#codeID').value = ``;
+    document.querySelector('#codeName').value = ``;
+    document.querySelector('#codeAmount').value = ``;
+    document.querySelector('#productID').value = ``;
+    document.querySelector('#productTitle').value = ``;
+    document.querySelector('#productPrice').value = ``;
+    document.querySelector('#productImg').value = ``;
+});
+document.querySelector('#promoModal').addEventListener('click', function() {
+    document.querySelector('#codeID').value = ``;
+    document.querySelector('#codeName').value = ``;
+    document.querySelector('#codeAmount').value = ``;
+    document.querySelector('#productID').value = ``;
+    document.querySelector('#productTitle').value = ``;
+    document.querySelector('#productPrice').value = ``;
+    document.querySelector('#productImg').value = ``;
+});
