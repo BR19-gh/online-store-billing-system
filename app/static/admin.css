@@ -40,7 +40,7 @@ body {
 
 @supports (-webkit-touch-callout: none) {
     body {
-        zoom: .05;
+        zoom: .80;
     }
 }
 
