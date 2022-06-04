@@ -42,6 +42,9 @@ body {
     body {
         zoom: .85;
     }
+    b.cell {
+        font-size: smaller;
+    }
 }
 
 @keyframes showNice {
