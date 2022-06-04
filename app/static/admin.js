@@ -100,23 +100,23 @@ function deleteOrEditPromo(id, opration) {
     if (opration == 'edit') {
         //fill input
         document.querySelector('#promoModalLongTitle').innerHTML = `تعديل الكود #${id}`;
-        document.querySelector('#codeIDLabel').value = `${id}`;
-        document.querySelector('#codeNameLabel').value = `${listOfPromos[id]['name']}`;
-        document.querySelector('#codeAmountLabel').value = `${listOfPromos[id]['amount']}`;
+        document.querySelector('#codeID').value = `${id}`;
+        document.querySelector('#codeName').value = `${listOfPromos[id]['name']}`;
+        document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount']}`;
         //disable input
-        document.querySelector('#codeIDLabel').disabled = true;
+        document.querySelector('#codeID').disabled = true;
         document.querySelectorAll('.doActionPromo')[0].innerText = 'تـــعــديــل';
         document.querySelectorAll('.doActionPromo')[0].id = 'updCode';
     } else if (opration == 'delete') {
         //fill input
         document.querySelector('#promoModalLongTitle').innerHTML = `حذف الكود #${id}`;
-        document.querySelector('#codeIDLabel').value = `${id}`;
-        document.querySelector('#codeNameLabel').value = `${listOfPromos[id]['name']}`;
-        document.querySelector('#codeAmountLabel').value = `${listOfPromos[id]['amount']}`;
+        document.querySelector('#codeID').value = `${id}`;
+        document.querySelector('#codeName').value = `${listOfPromos[id]['name']}`;
+        document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount']}`;
         //disable input
-        document.querySelector('#codeIDLabel').disabled = true;
-        document.querySelector('#codeNameLabel').disabled = true;
-        document.querySelector('#codeAmountLabel').disabled = true;
+        document.querySelector('#codeID').disabled = true;
+        document.querySelector('#codeName').disabled = true;
+        document.querySelector('#codeAmount').disabled = true;
         document.querySelectorAll('.doActionPromo')[0].innerText = 'حــــــذف';
         document.querySelectorAll('.doActionPromo')[0].id = 'delCode';
     } else {
