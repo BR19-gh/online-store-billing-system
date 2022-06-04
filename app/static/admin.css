@@ -60,6 +60,10 @@ body {
     cursor: pointer;
 }
 
+b.cell {
+    width: 20%;
+}
+
 button#countryCodeTitle {
     font-size: calc(1.5vw);
     font-weight: 800;
