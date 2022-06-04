@@ -108,6 +108,8 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount'] * 100}`;
         //disable input
         document.querySelector('#codeID').disabled = true;
+        document.querySelector('#codeName').disabled = false;
+        document.querySelector('#codeAmount').disabled = false;
 
     } else if (opration == 'delete') {
 
