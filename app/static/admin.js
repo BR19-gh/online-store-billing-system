@@ -532,8 +532,8 @@ document.querySelector('#addProd').addEventListener('click', () => {
         document.querySelector('#productTitle').value == '' ||
         document.querySelector('#productPrice').value == '' ||
         document.querySelector('#productImg').value == '') {
-        alert('يجب ملئ جميع الخانات أولا');
         $('#productModal').modal('hide');
+        alert('يجب ملئ جميع الخانات أولا');
         $('#productModal').modal('show');
         return;
     }
@@ -587,8 +587,8 @@ document.querySelector('#updProd').addEventListener('click', () => {
         document.querySelector('#productTitle').value == '' ||
         document.querySelector('#productPrice').value == '' ||
         document.querySelector('#productImg').value == '') {
-        alert('يجب ملئ جميع الخانات أولا');
         $('#productModal').modal('hide');
+        alert('يجب ملئ جميع الخانات أولا');
         $('#productModal').modal('show');
         return;
     }
@@ -679,8 +679,8 @@ document.querySelector('#addCode').addEventListener('click', () => {
     if (document.querySelector('#codeID').value == '' ||
         document.querySelector('#codeName').value == '' ||
         document.querySelector('#codeAmount').value == '') {
-        alert('يجب ملئ جميع الخانات أولا');
         $('#promoModal').modal('hide');
+        alert('يجب ملئ جميع الخانات أولا');
         $('#promoModal').modal('show');
         return;
     }
@@ -734,8 +734,8 @@ document.querySelector('#updCode').addEventListener('click', () => {
     if (document.querySelector('#codeID').value == '' ||
         document.querySelector('#codeName').value == '' ||
         document.querySelector('#codeAmount').value == '') {
-        alert('يجب ملئ جميع الخانات أولا')
         $('#promoModal').modal('hide');
+        alert('يجب ملئ جميع الخانات أولا');
         $('#promoModal').modal('show');
         return;
     }
