@@ -68,7 +68,7 @@ function expOrNarProduct(expOrNarProductKey) {
         document.querySelector('#productsList').style.height = "100%"
         document.querySelector('#productsList').style.overflow = "auto";
         productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
-        productsList.childNodes[0].innerHTML = "";
+        // productsList.childNodes[0].innerHTML = "";
 
     } else {
         document.querySelector('#productsList').style.height = "30px"
@@ -83,7 +83,7 @@ function expOrNarPromo(expOrNarPromoKey) {
         document.querySelector('#codesList').style.height = "100%"
         document.querySelector('#codesList').style.overflow = "auto";
         codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
-        codesList.childNodes[0].innerHTML = "";
+        // codesList.childNodes[0].innerHTML = "";
 
     } else {
         document.querySelector('#codesList').style.height = "30px"
@@ -161,7 +161,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#productModalLongTitle').innerHTML = `تعديل المنتج رقم: ${id}`;
         document.querySelector('#productID').value = `${id}`;
         document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
-        document.querySelector('#productPrice').value = `${listOfProducts[id]['price'] * 100}`;
+        document.querySelector('#productPrice').value = `${listOfProducts[id]['price']}`;
         document.querySelector('#browseImg').innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img">`;
         //disable input
         document.querySelector('#productID').disabled = true;
@@ -180,7 +180,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#productModalLongTitle').innerHTML = `حذف المنتج رقم: ${id}`;
         document.querySelector('#productID').value = `${id}`;
         document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
-        document.querySelector('#productPrice').value = `${listOfProducts[id]['price'] * 100}`;
+        document.querySelector('#productPrice').value = `${listOfProducts[id]['price']}`;
         document.querySelector('#browseImg').innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img">`;
         //disable input
         document.querySelector('#productID').disabled = true;
