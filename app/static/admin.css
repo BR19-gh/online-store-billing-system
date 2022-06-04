@@ -36,7 +36,12 @@ body {
     cursor: default;
     user-select: none;
     -webkit-user-select: none;
-    zoom: .85;
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        zoom: .85;
+    }
 }
 
 @keyframes showNice {
