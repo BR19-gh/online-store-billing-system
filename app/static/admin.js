@@ -68,7 +68,7 @@ function expOrNarProduct(expOrNarProductKey) {
         document.querySelector('#productsList').style.height = "100%"
         document.querySelector('#productsList').style.overflow = "auto";
         productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
-        //productsList.childNodes[0].innerHTML = `-`;
+        productsList.childNodes[0].innerHTML = ``;
 
     } else {
         document.querySelector('#productsList').style.height = "30px"
@@ -83,7 +83,7 @@ function expOrNarPromo(expOrNarPromoKey) {
         document.querySelector('#codesList').style.height = "100%"
         document.querySelector('#codesList').style.overflow = "auto";
         codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
-        //codesList.childNodes[0].innerHTML = `-`;
+        codesList.childNodes[0].innerHTML = ``;
 
     } else {
         document.querySelector('#codesList').style.height = "30px"
