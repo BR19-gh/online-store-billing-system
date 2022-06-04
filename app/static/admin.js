@@ -158,7 +158,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#updProd').style.display = "block";
         document.querySelector('#delProd').style.display = "none";
         //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `تعديل المنتج رقم: ${id}`;
+        document.querySelector('#productModalLongTitle').innerHTML = `تعديل المنتج رقم: ${id}`;
         document.querySelector('#productID').value = `${id}`;
         document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
         document.querySelector('#productPrice').value = `${listOfProducts[id]['price'] * 100}`;
@@ -177,7 +177,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#updProd').style.display = "none";
         document.querySelector('#delProd').style.display = "block";
         //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `حذف المنتج رقم: ${id}`;
+        document.querySelector('#productModalLongTitle').innerHTML = `حذف المنتج رقم: ${id}`;
         document.querySelector('#productID').value = `${id}`;
         document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
         document.querySelector('#productPrice').value = `${listOfProducts[id]['price'] * 100}`;
@@ -195,7 +195,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#updProd').style.display = "none";
         document.querySelector('#delProd').style.display = "none";
         //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `إضافة كود`;
+        document.querySelector('#productModalLongTitle').innerHTML = `إضافة كود`;
         document.querySelector('#productID').value = ``;
         document.querySelector('#productTitle').value = ``;
         document.querySelector('#productPrice').value = ``;
