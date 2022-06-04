@@ -73,6 +73,14 @@ b.cell {
     width: 20%;
 }
 
+button.close:hover {
+    font-weight: bold;
+}
+
+button.close {
+    color: black;
+}
+
 .modal-backdrop.fade {
     display: none;
 }
