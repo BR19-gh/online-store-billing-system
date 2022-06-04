@@ -57,6 +57,7 @@ body {
 .fas:hover {
     font-weight: bold;
     color: black;
+    cursor: pointer;
 }
 
 button#countryCodeTitle {
