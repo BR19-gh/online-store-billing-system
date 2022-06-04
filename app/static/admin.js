@@ -94,6 +94,8 @@ function expOrNarPromo(expOrNarPromoKey) {
 }
 
 function deleteOrEditPromo(id, opration, listOfValues) {
+    document.querySelector('updCode').id = "updCodeOld";
+    document.querySelector('delCode').id = "delCodeOld";
     console.log(id, opration, listOfValues);
     if (opration == 'edit') {
         //fill input
@@ -103,8 +105,8 @@ function deleteOrEditPromo(id, opration, listOfValues) {
         document.querySelector('#codeAmountLabel').value = `${listOfValues[id]['amount']}`;
         //disable input
         document.querySelector('#codeIDLabel').disabled = true;
-        document.querySelector('.doActionPromo')[0].innerText = 'تـــعــديــل';
-        document.querySelector('.doActionPromo')[0].id = 'updCode';
+        document.querySelectorAll('.doActionPromo')[0].innerText = 'تـــعــديــل';
+        document.querySelectorAll('.doActionPromo')[0].id = 'updCode';
     } else if (opration == 'delete') {
         //fill input
         document.querySelector('#promoModalLongTitle').innerHTML = `حذف الكود #${id}`;
@@ -115,8 +117,8 @@ function deleteOrEditPromo(id, opration, listOfValues) {
         document.querySelector('#codeIDLabel').disabled = true;
         document.querySelector('#codeNameLabel').disabled = true;
         document.querySelector('#codeAmountLabel').disabled = true;
-        document.querySelector('.doActionPromo')[0].innerText = 'حــــــذف';
-        document.querySelector('.doActionPromo')[0].id = 'delCode';
+        document.querySelectorAll('.doActionPromo')[0].innerText = 'حــــــذف';
+        document.querySelectorAll('.doActionPromo')[0].id = 'delCode';
     } else {
         alert('هناك خطأ ما، هذه الميزة تجريبية، تواصل مع المطور لحل المشكلة. \n\n ErrCode: 507 : رمز الخطأ');
         return;
