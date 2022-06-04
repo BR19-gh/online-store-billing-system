@@ -317,7 +317,7 @@ function fetchStoreInfo() {
 // for fetchProducts()
 
 function isNarrowed(responseJson) {
-
+    console.log(responseJson)
     document.querySelector('#productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell">إجراءات</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
