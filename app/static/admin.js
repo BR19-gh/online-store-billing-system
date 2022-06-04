@@ -101,7 +101,7 @@ function deleteOrEditPromo(id, opration) {
         //fill input
         document.querySelector('#promoModalLongTitle').innerHTML = `تعديل الكود #${id}`;
         document.querySelector('#codeID').value = `${id}`;
-        document.querySelector('#codeName').value = `${listOfPromos[id]['name']}`;
+        document.querySelector('#codeName').value = `${listOfPromos[id]['code']}`;
         document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount']}`;
         //disable input
         document.querySelector('#codeID').disabled = true;
@@ -111,7 +111,7 @@ function deleteOrEditPromo(id, opration) {
         //fill input
         document.querySelector('#promoModalLongTitle').innerHTML = `حذف الكود #${id}`;
         document.querySelector('#codeID').value = `${id}`;
-        document.querySelector('#codeName').value = `${listOfPromos[id]['name']}`;
+        document.querySelector('#codeName').value = `${listOfPromos[id]['code']}`;
         document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount']}`;
         //disable input
         document.querySelector('#codeID').disabled = true;
