@@ -130,27 +130,27 @@
 
 
 
+    </div>
+    <style>
+        .spinner-border {
+            width: 6rem;
+            height: 6rem;
+            border: 1em solid currentColor;
+            border-right-color: transparent;
+            margin-top: 300px;
+            z-index: 100;
+        }
+    </style>
+    <script>
+        function startSpinner() {
+            var myVar = setTimeout(showPage, 1000);
+        }
 
-        <style>
-            .spinner-border {
-                width: 6rem;
-                height: 6rem;
-                border: 1em solid currentColor;
-                border-right-color: transparent;
-                margin-top: 300px;
-                z-index: 100;
-            }
-        </style>
-        <script>
-            function startSpinner() {
-                var myVar = setTimeout(showPage, 1000);
-            }
-
-            function showPage() {
-                document.getElementById("loader").style.display = "none";
-                document.getElementsByClassName("container")[0].style.display = "block";
-            }
-        </script>
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementsByClassName("container")[0].style.display = "block";
+        }
+    </script>
 
 </body>
 
