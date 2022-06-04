@@ -532,10 +532,11 @@ document.querySelector('#addProd').addEventListener('click', () => {
         document.querySelector('#productTitle').value == '' ||
         document.querySelector('#productPrice').value == '' ||
         document.querySelector('#productImg').value == '') {
+        $('#productModal').modal('toggle');
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
             $('#productModal').modal('toggle');
-        }, 200);
+        }, 300);
         return;
     }
     fetch('/product', {
@@ -552,22 +553,22 @@ document.querySelector('#addProd').addEventListener('click', () => {
         }).then((responseJson) => {
             if (responseJson.statCode == 403) {
                 alert('الرقم التعريفي للمنتج المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ') |
-                    $('#productModal').modal('show')
+                    $('#productModal').modal('toggle')
                 return;
             }
             if (responseJson.statCode == 400) {
                 alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ') |
-                    $('#productModal').modal('show')
+                    $('#productModal').modal('toggle')
                 return;
             }
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ') |
-                    $('#productModal').modal('show')
+                    $('#productModal').modal('toggle')
                 return;
             }
             if (responseJson.statCode == 500) {
                 alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ') |
-                    $('#productModal').modal('show')
+                    $('#productModal').modal('toggle')
                 return;
             }
 
@@ -588,10 +589,11 @@ document.querySelector('#updProd').addEventListener('click', () => {
         document.querySelector('#productTitle').value == '' ||
         document.querySelector('#productPrice').value == '' ||
         document.querySelector('#productImg').value == '') {
+        $('#productModal').modal('toggle');
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
             $('#productModal').modal('toggle');
-        }, 200);
+        }, 300);
         return;
     }
     fetch(`/product/${document.querySelector('#productID').value}`, {
@@ -681,10 +683,11 @@ document.querySelector('#addCode').addEventListener('click', () => {
     if (document.querySelector('#codeID').value == '' ||
         document.querySelector('#codeName').value == '' ||
         document.querySelector('#codeAmount').value == '') {
+        $('#productModal').modal('toggle');
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
             $('#promoModal').modal('toggle');
-        }, 200);
+        }, 300);
         return;
     }
     fetch('/promocode', {
@@ -706,22 +709,22 @@ document.querySelector('#addCode').addEventListener('click', () => {
         }).then((responseJson) => {
             if (responseJson.statCode == 403) {
                 alert('الرقم التعريفي للكود المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ') |
-                    $('#promoModal').modal('show')
+                    $('#promoModal').modal('toggle')
                 return;
             }
             if (responseJson.statCode == 400) {
                 alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ') |
-                    $('#promoModal').modal('show')
+                    $('#promoModal').modal('toggle')
                 return;
             }
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ') |
-                    $('#promoModal').modal('show')
+                    $('#promoModal').modal('toggle')
                 return;
             }
             if (responseJson.statCode == 500) {
                 alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ') |
-                    $('#promoModal').modal('show')
+                    $('#promoModal').modal('toggle')
                 return;
             }
 
@@ -737,10 +740,11 @@ document.querySelector('#updCode').addEventListener('click', () => {
     if (document.querySelector('#codeID').value == '' ||
         document.querySelector('#codeName').value == '' ||
         document.querySelector('#codeAmount').value == '') {
+        $('#productModal').modal('toggle');
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
             $('#promoModal').modal('toggle');
-        }, 200);
+        }, 300);
         return;
     }
     fetch(`/promocode/${document.querySelector('#codeID').value}`, {
@@ -1106,21 +1110,3 @@ for (var i = 0; i < document.querySelectorAll('.close').length; i++) {
         document.querySelector('#productImg').value = ``;
     });
 }
-document.querySelector('#productModal').addEventListener('click', function() {
-    document.querySelector('#codeID').value = ``;
-    document.querySelector('#codeName').value = ``;
-    document.querySelector('#codeAmount').value = ``;
-    document.querySelector('#productID').value = ``;
-    document.querySelector('#productTitle').value = ``;
-    document.querySelector('#productPrice').value = ``;
-    document.querySelector('#productImg').value = ``;
-});
-document.querySelector('#promoModal').addEventListener('click', function() {
-    document.querySelector('#codeID').value = ``;
-    document.querySelector('#codeName').value = ``;
-    document.querySelector('#codeAmount').value = ``;
-    document.querySelector('#productID').value = ``;
-    document.querySelector('#productTitle').value = ``;
-    document.querySelector('#productPrice').value = ``;
-    document.querySelector('#productImg').value = ``;
-});
