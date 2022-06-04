@@ -290,7 +290,7 @@ function fetchStoreInfo() {
 
 function isNarrowed(responseJson) {
 
-    document.querySelector('#productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell">عمليات إضافية</b></div>'
+    document.querySelector('#productsList').innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell"><i class="fas fa-trash-alt"></i>إضافية</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
@@ -304,7 +304,7 @@ function isNarrowed(responseJson) {
 function isExpanded(responseJson) {
 
 
-    document.querySelector('#productsList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b></div>'
+    document.querySelector('#productsList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell"><i class="fas fa-trash-alt"></i>إضافية</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
@@ -348,7 +348,7 @@ function fetchProducts() {
 
 function isNarrowedCode(responseJson) {
 
-    document.querySelector('#codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">الاسم</b><b class="cell">النسبة</b><b class="cell">عمليات إضافية</b></div>'
+    document.querySelector('#codesList').innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار الأكواد </div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">الاسم</b><b class="cell">النسبة</b><b class="cell"><i class="fas fa-trash-alt"></i>إضافية</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
@@ -361,7 +361,7 @@ function isNarrowedCode(responseJson) {
 function isExpandedCode(responseJson) {
 
 
-    document.querySelector('#codesList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">الاسم</b><b class="cell">النسبة</b><b class="cell">عمليات إضافية</b></div>'
+    document.querySelector('#codesList').innerHTML = '<div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">الاسم</b><b class="cell">النسبة</b><b class="cell"><i class="fas fa-trash-alt"></i>إضافية</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
 
         if (i == Object.keys(responseJson).length) {
