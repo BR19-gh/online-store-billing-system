@@ -159,7 +159,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#productID').value = `${id}`;
         document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
         document.querySelector('#productPrice').value = `${listOfProducts[id]['price']}`;
-        document.querySelector('#browseImg').innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img"> يمكنك حفظ الصورة من هذا المربع ورفعها مجددا إذا كنت لا تريد تغييرها`;
+        document.querySelector('#browseImg').innerHTML = `يمكنك حفظ الصورة من هذا المربع <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 30px; height: 30px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها`;
         //disable input
         document.querySelector('#productID').disabled = true;
         document.querySelector('#productTitle').disabled = false;
