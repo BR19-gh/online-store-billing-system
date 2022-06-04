@@ -40,7 +40,7 @@ body {
 
 @supports (-webkit-touch-callout: none) {
     body {
-        zoom: .80;
+        zoom: .85;
     }
 }
 
@@ -68,6 +68,7 @@ body {
 
 b.cell {
     width: 20%;
+    font-size: smaller;
 }
 
 button#countryCodeTitle {
