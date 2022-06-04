@@ -115,22 +115,10 @@
             <div id="form" class="card" style="width: 80%;">
                 <div class="card-body">
                     <div class="dashboardTitles">لوحة المنتجات</div>
-                    <h5 class="card-title">
-                        <label for="productIDLabel" id="productIDLabel">الرقم التعريفي للمنتج</label>
-                        <input style="direction: rtl;" type="tel" id="productID" placeholder="لحذف المنتج أو تحديثه لاحقا">
-                        <label for="productTitleLabel" id="productTitleLabel">عنوان المنتج</label>
-                        <input style="direction: rtl;" type="text" id="productTitle" placeholder="العنوان الذي سيقرأه العملاء">
-                        <label for="productPriceLabel" id="productPriceLabel">سعر المنتج</label>
-                        <input style="direction: rtl;" style="direction: rtl;" type="tel" id="productPrice" placeholder="سعر المنتج رقما">
-                        <label for="productImg">صورة للمنتج</label>
-                        <input name="productImg" id="productImg" type="file" accept="image/*">
-                    </h5>
                 </div>
 
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">
                     <div id="addProd" class="addToCartBtn"><a class="card-link">إضافة</a></div>
-                    <div id="updProd" class="addToCartBtn"><a class="card-link">تحديث</a></div>
-                    <div id="delProd" class="addToCartBtn"><a class="card-link">حــذف</a></div>
                 </div>
                 <ul id="productsList" style="direction: rtl; height: 30px; overflow:hidden;" class="list-group list-group-flush">
                     حدث وانتظر إذا كنت قد أضفت
@@ -141,20 +129,10 @@
             <div id="form" class="card" style="width: 80%;">
                 <div class="card-body">
                     <div class="dashboardTitles">لوحة الأكواد الترويجية</div>
-                    <h5 class="card-title">
-                        <label for="codeIDLabel" id="codeIDLabel">الرقم التعريفي للكود</label>
-                        <input style="direction: rtl;" style="direction: rtl;" type="tel" id="codeID" placeholder="لحذف الكود أو تحديثه لاحقا">
-                        <label for="codeNameLabel" id="codeNameLabel">اسم الكود</label>
-                        <input style="direction: rtl;" style="direction: rtl;" type="text" id="codeName" placeholder="سيستخدمه العملاء للاستفادة من الكود">
-                        <label for="codeAmountLabel" id="codeAmountLabel">نسبة التخفيض</label>
-                        <input style="direction: rtl;" type="tel" id="codeAmount" placeholder="بدون كتابة %">
-                    </h5>
                 </div>
 
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">
                     <div id="addCode" class="addToCartBtn"><a class="card-link">إضافة</a></div>
-                    <div id="updCode" class="addToCartBtn"><a class="card-link">تحديث</a></div>
-                    <div id="delCode" class="addToCartBtn"><a class="card-link">حــذف</a></div>
                 </div>
 
                 <ul id="codesList" style="direction: rtl;height: 30px; overflow:hidden;" class="list-group list-group-flush">
@@ -176,7 +154,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div style="background-color: var(--modals); direction: rtl;" class="modal-content card">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">
+                    <h5 class="modal-title" id="promoModalLongTitle">
                         عملية على الأكواد
                     </h5>
                     <button style="border: 0; background-color: transparent;" type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -195,7 +173,7 @@
                 </div>
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">
                     <div class="addToCartBtn">
-                        <a class="card-link">تــنــفــيــذ</a>
+                        <a class="card-link doActionPromo">تــنــفــيــذ</a>
                     </div>
                 </div>
                 <!-- <div class="modal-footer">
@@ -209,7 +187,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div style="background-color: var(--modals); direction: rtl;" class="modal-content card">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">
+                    <h5 class="modal-title" id="productModalLongTitle">
                         عملية على المنتجات
                     </h5>
                     <button style="border: 0; background-color: transparent;" type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -230,7 +208,7 @@
                 </div>
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">
                     <div class="addToCartBtn">
-                        <a class="card-link">تــنــفــيــذ</a>
+                        <a class="card-link doActionProduct">تــنــفــيــذ</a>
                     </div>
                 </div>
                 <!-- <div class="modal-footer">
