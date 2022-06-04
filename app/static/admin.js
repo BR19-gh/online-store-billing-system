@@ -68,7 +68,7 @@ function expOrNarProduct(expOrNarProductKey) {
         document.querySelector('#productsList').style.height = "100%"
         document.querySelector('#productsList').style.overflow = "auto";
         productsList.childNodes[Object.keys(productsList.childNodes).length - 1].innerHTML = '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
-        // productsList.childNodes[0].innerHTML = "";
+        productsList.childNodes[0].innerHTML = "";
 
     } else {
         document.querySelector('#productsList').style.height = "30px"
@@ -83,7 +83,7 @@ function expOrNarPromo(expOrNarPromoKey) {
         document.querySelector('#codesList').style.height = "100%"
         document.querySelector('#codesList').style.overflow = "auto";
         codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
-        // codesList.childNodes[0].innerHTML = "";
+        codesList.childNodes[0].innerHTML = "";
 
     } else {
         document.querySelector('#codesList').style.height = "30px"
@@ -135,9 +135,6 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#delCode').style.display = "none";
         //fill input
         document.querySelector('#promoModalLongTitle').innerHTML = `إضافة كود`;
-        document.querySelector('#codeID').value = ``;
-        document.querySelector('#codeName').value = ``;
-        document.querySelector('#codeAmount').value = ``;
         //disable input
         document.querySelector('#codeID').disabled = false;
         document.querySelector('#codeName').disabled = false;
@@ -196,10 +193,6 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#delProd').style.display = "none";
         //fill input
         document.querySelector('#productModalLongTitle').innerHTML = `إضافة كود`;
-        document.querySelector('#productID').value = ``;
-        document.querySelector('#productTitle').value = ``;
-        document.querySelector('#productPrice').value = ``;
-        document.querySelector('#productImg').value = ``;
         document.querySelector('#browseImg').innerHTML = ``;
         //disable input
         document.querySelector('#productID').disabled = false;
@@ -1080,5 +1073,16 @@ for (var i = 0; i < allCountriesAncors.length; i++) {
         id--;
         currentCountryCodeSelected = countriesCodes[Object.keys(countriesCodes)[id]]['calling_code'];
         countryCodeTitle.innerText = currentCountryCodeSelected;
+    });
+}
+for (var i = 0; i < document.querySelectorAll('.close').length; i++) {
+    document.querySelectorAll('.close')[i].addEventListener('click', function() {
+        document.querySelector('#codeID').value = ``;
+        document.querySelector('#codeName').value = ``;
+        document.querySelector('#codeAmount').value = ``;
+        document.querySelector('#productID').value = ``;
+        document.querySelector('#productTitle').value = ``;
+        document.querySelector('#productPrice').value = ``;
+        document.querySelector('#productImg').value = ``;
     });
 }
