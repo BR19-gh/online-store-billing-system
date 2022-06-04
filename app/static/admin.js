@@ -532,11 +532,10 @@ document.querySelector('#addProd').addEventListener('click', () => {
         document.querySelector('#productTitle').value == '' ||
         document.querySelector('#productPrice').value == '' ||
         document.querySelector('#productImg').value == '') {
-        $('#productModal').modal('toggle');
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
             $('#productModal').modal('toggle');
-        }, 300);
+        }, 200);
         return;
     }
     fetch('/product', {
@@ -589,11 +588,10 @@ document.querySelector('#updProd').addEventListener('click', () => {
         document.querySelector('#productTitle').value == '' ||
         document.querySelector('#productPrice').value == '' ||
         document.querySelector('#productImg').value == '') {
-        $('#productModal').modal('toggle');
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
             $('#productModal').modal('toggle');
-        }, 300);
+        }, 200);
         return;
     }
     fetch(`/product/${document.querySelector('#productID').value}`, {
@@ -683,11 +681,10 @@ document.querySelector('#addCode').addEventListener('click', () => {
     if (document.querySelector('#codeID').value == '' ||
         document.querySelector('#codeName').value == '' ||
         document.querySelector('#codeAmount').value == '') {
-        $('#productModal').modal('toggle');
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
             $('#promoModal').modal('toggle');
-        }, 300);
+        }, 200);
         return;
     }
     fetch('/promocode', {
@@ -740,11 +737,10 @@ document.querySelector('#updCode').addEventListener('click', () => {
     if (document.querySelector('#codeID').value == '' ||
         document.querySelector('#codeName').value == '' ||
         document.querySelector('#codeAmount').value == '') {
-        $('#productModal').modal('toggle');
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
             $('#promoModal').modal('toggle');
-        }, 300);
+        }, 200);
         return;
     }
     fetch(`/promocode/${document.querySelector('#codeID').value}`, {
