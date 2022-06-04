@@ -548,23 +548,23 @@ document.querySelector('#addProd').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 403) {
-                alert('الرقم التعريفي للمنتج المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ')
-                document.querySelector("#productModal").modal('show');
+                alert('الرقم التعريفي للمنتج المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ') |
+                    $('#productModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
-                document.querySelector("#productModal").modal('show');
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ') |
+                    $('#productModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
-                document.querySelector("#productModal").modal('show');
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ') |
+                    $('#productModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
-                document.querySelector("#productModal").modal('show');
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ') |
+                    $('#productModal').modal('show')
                 return;
             }
 
@@ -696,23 +696,23 @@ document.querySelector('#addCode').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 403) {
-                alert('الرقم التعريفي للكود المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ')
-                document.querySelector("#promoModal").modal('show');
+                alert('الرقم التعريفي للكود المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ') |
+                    $('#promoModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 400) {
-                alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
-                document.querySelector("#promoModal").modal('show');
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ') |
+                    $('#promoModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
-                document.querySelector("#promoModal").modal('show');
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ') |
+                    $('#promoModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
-                document.querySelector("#promoModal").modal('show');
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ') |
+                    $('#promoModal').modal('show')
                 return;
             }
 
