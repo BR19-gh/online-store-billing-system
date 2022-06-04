@@ -534,7 +534,7 @@ document.querySelector('#addProd').addEventListener('click', () => {
         document.querySelector('#productImg').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
-            $('#productModal').modal('toggle');
+            $('#productModal').modal('show');
         }, 200);
         return;
     }
@@ -552,22 +552,22 @@ document.querySelector('#addProd').addEventListener('click', () => {
         }).then((responseJson) => {
             if (responseJson.statCode == 403) {
                 alert('الرقم التعريفي للمنتج المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ') |
-                    $('#productModal').modal('toggle')
+                    $('#productModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 400) {
                 alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ') |
-                    $('#productModal').modal('toggle')
+                    $('#productModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ') |
-                    $('#productModal').modal('toggle')
+                    $('#productModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 500) {
                 alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ') |
-                    $('#productModal').modal('toggle')
+                    $('#productModal').modal('show')
                 return;
             }
 
@@ -590,7 +590,7 @@ document.querySelector('#updProd').addEventListener('click', () => {
         document.querySelector('#productImg').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
-            $('#productModal').modal('toggle');
+            $('#productModal').modal('show')
         }, 200);
         return;
     }
@@ -683,7 +683,7 @@ document.querySelector('#addCode').addEventListener('click', () => {
         document.querySelector('#codeAmount').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
-            $('#promoModal').modal('toggle');
+            $('#promoModal').modal('show');
         }, 200);
         return;
     }
@@ -706,22 +706,22 @@ document.querySelector('#addCode').addEventListener('click', () => {
         }).then((responseJson) => {
             if (responseJson.statCode == 403) {
                 alert('الرقم التعريفي للكود المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ') |
-                    $('#promoModal').modal('toggle')
+                    $('#promoModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 400) {
                 alert('هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ') |
-                    $('#promoModal').modal('toggle')
+                    $('#promoModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ') |
-                    $('#promoModal').modal('toggle')
+                    $('#promoModal').modal('show')
                 return;
             }
             if (responseJson.statCode == 500) {
                 alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ') |
-                    $('#promoModal').modal('toggle')
+                    $('#promoModal').modal('show')
                 return;
             }
 
@@ -739,7 +739,7 @@ document.querySelector('#updCode').addEventListener('click', () => {
         document.querySelector('#codeAmount').value == '') {
         alert('يجب ملئ جميع الخانات أولا');
         setTimeout(() => {
-            $('#promoModal').modal('toggle');
+            $('#promoModal').modal('show');
         }, 200);
         return;
     }
