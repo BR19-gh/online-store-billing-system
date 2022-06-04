@@ -84,8 +84,8 @@
                     </div>
 
                     <div style="direction: rtl;" class="btnsContainer" class="card-body">
-                        <div id="addInfo" class="addToCartBtn"><a class="card-link">إضافة</a></div>
-                        <div id="updInfo" class="addToCartBtn"><a class="card-link">تحديث</a></div>
+                        <div id="addInfo" class="addToCartBtn"><a class="card-link">إضافة <i class="fas fa-plus"></i></a></div>
+                        <div id="updInfo" class="addToCartBtn"><a class="card-link">تحديث <i class="fas fa-edit"></i></a></div>
                     </div>
 
                     <label for="themeLabel" id="themeLabel">سمة المتجر</label><br>
@@ -118,7 +118,7 @@
                 </div>
 
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">
-                    <div onclick="deleteOrEditPromo(null, 'add')" data-bs-toggle="modal" data-bs-target="#productModal" class="addToCartBtn"><a class="card-link">إضافة</a></div>
+                    <div onclick="deleteOrEditPromo(null, 'add')" data-bs-toggle="modal" data-bs-target="#productModal" class="addToCartBtn"><a class="card-link">إضافة <i class="fas fa-plus"></i></a></div>
                 </div>
                 <ul id="productsList" style="direction: rtl; height: 30px; overflow:hidden;" class="list-group list-group-flush">
                     حدث وانتظر إذا كنت قد أضفت
@@ -132,7 +132,7 @@
                 </div>
 
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">
-                    <div onclick="deleteOrEditPromo(null, 'add')" data-bs-toggle="modal" data-bs-target="#promoModal" class="addToCartBtn"><a class="card-link">إضافة</a></div>
+                    <div onclick="deleteOrEditPromo(null, 'add')" data-bs-toggle="modal" data-bs-target="#promoModal" class="addToCartBtn"><a class="card-link">إضافة <i class="fas fa-plus"></i></a></div>
                 </div>
 
                 <ul id="codesList" style="direction: rtl;height: 30px; overflow:hidden;" class="list-group list-group-flush">
@@ -148,13 +148,6 @@
 
 
     </div>
-
-    <a id="addCode" style="display:none;"></a>
-    <a id="updCode" style="display:none;"></a>
-    <a id="delCode" style="display:none;"></a>
-    <a id="addProd" style="display:none;"></a>
-    <a id="updProd" style="display:none;"></a>
-    <a id="delProd" style="display:none;"></a>
 
     <!-- Modal Promo -->
     <div class="modal fade" id="promoModal" tabindex="-1" role="dialog" aria-labelledby="promoModalTitle" aria-hidden="true">
@@ -180,8 +173,9 @@
                 </div>
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">
                     <div class="addToCartBtn">
-                        <a data-bs-dismiss="modal" class="card-link doActionPromo">تــنــفــيــذ</a>
-
+                        <a data-bs-dismiss="modal" id="addCode" class="card-link">إضافة <i class="fas fa-plus"></i></a>
+                        <a data-bs-dismiss="modal" id="delCode" class="card-link">حــذف <i class="fas fa-trash-alt"></i></a>
+                        <a data-bs-dismiss="modal" id="updCode" class="card-link">تعديل <i class="fas fa-edit"></i></a>
                     </div>
                 </div>
                 <!-- <div class="modal-footer">
@@ -217,7 +211,9 @@
                 </div>
                 <div style="direction: rtl;" class="btnsContainer" class="card-body">
                     <div class="addToCartBtn">
-                        <a data-bs-dismiss="modal" class="card-link doActionProduct">تــنــفــيــذ</a>
+                        <a data-bs-dismiss="modal" id="addProd" class="card-link">إضافة <i class="fas fa-plus"></i></a>
+                        <a data-bs-dismiss="modal" id="delProd" class="card-link">حــذف <i class="fas fa-trash-alt"></i></a>
+                        <a data-bs-dismiss="modal" id="updProd" class="card-link">تعديل <i class="fas fa-edit"></i></a>
                     </div>
                 </div>
                 <!-- <div class="modal-footer">

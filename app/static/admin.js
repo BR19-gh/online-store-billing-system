@@ -95,35 +95,44 @@ function expOrNarPromo(expOrNarPromoKey) {
 
 function deleteOrEditPromo(id, opration) {
 
-    document.querySelector('#addCode').id = "addCodeOld";
-    document.querySelector('#updCode').id = "updCodeOld";
-    document.querySelector('#delCode').id = "delCodeOld";
-
-    console.log(id, opration, listOfPromos);
     if (opration == 'edit') {
+
+        //show btn
+        document.querySelector('#addCode').style.display = "none";
+        document.querySelector('#updCode').style.display = "block";
+        document.querySelector('#delCode').style.display = "none";
         //fill input
         document.querySelector('#promoModalLongTitle').innerHTML = `تعديل الكود #${id}`;
         document.querySelector('#codeID').value = `${id}`;
         document.querySelector('#codeName').value = `${listOfPromos[id]['code']}`;
-        document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount']}`;
+        document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount'] * 100}`;
         //disable input
         document.querySelector('#codeID').disabled = true;
-        document.querySelectorAll('.doActionPromo')[0].innerText = 'تـــعــديــل';
-        document.querySelectorAll('.doActionPromo')[0].id = 'updCode';
+
     } else if (opration == 'delete') {
+
+        //show btn
+        document.querySelector('#addCode').style.display = "none";
+        document.querySelector('#updCode').style.display = "none";
+        document.querySelector('#delCode').style.display = "block";
         //fill input
         document.querySelector('#promoModalLongTitle').innerHTML = `حذف الكود #${id}`;
         document.querySelector('#codeID').value = `${id}`;
         document.querySelector('#codeName').value = `${listOfPromos[id]['code']}`;
-        document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount']}`;
+        document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount'] * 100}`;
         //disable input
         document.querySelector('#codeID').disabled = true;
         document.querySelector('#codeName').disabled = true;
         document.querySelector('#codeAmount').disabled = true;
-        document.querySelectorAll('.doActionPromo')[0].innerText = 'حــــــذف';
-        document.querySelectorAll('.doActionPromo')[0].id = 'delCode';
+
     } else if (opration == 'add') {
+
+        //show btn
+        document.querySelector('#addCode').style.display = "block";
+        document.querySelector('#updCode').style.display = "none";
+        document.querySelector('#delCode').style.display = "none";
         //fill input
+        document.querySelector('#promoModalLongTitle').innerHTML = `إضافة كود`;
         document.querySelector('#codeID').value = ``;
         document.querySelector('#codeName').value = ``;
         document.querySelector('#codeAmount').value = ``;
@@ -131,9 +140,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#codeID').disabled = false;
         document.querySelector('#codeName').disabled = false;
         document.querySelector('#codeAmount').disabled = false;
-        document.querySelector('#promoModalLongTitle').innerHTML = `إضافة كود`;
-        document.querySelectorAll('.doActionPromo')[0].innerText = 'إضــــافــة';
-        document.querySelectorAll('.doActionPromo')[0].id = 'addCode';
+
     } else {
         alert('هناك خطأ ما، هذه الميزة تجريبية، تواصل مع المطور لحل المشكلة. \n\n ErrCode: 507 : رمز الخطأ');
         return;
