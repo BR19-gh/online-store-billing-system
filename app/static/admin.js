@@ -120,6 +120,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelectorAll('.doActionPromo')[0].innerText = 'حــــــذف';
         document.querySelectorAll('.doActionPromo')[0].id = 'delCode';
     } else if (opration == 'add') {
+        document.querySelector('#promoModalLongTitle').innerHTML = `إضافة كود`;
         document.querySelectorAll('.doActionPromo')[0].innerText = 'إضــــافــة';
         document.querySelectorAll('.doActionPromo')[0].id = 'addCode';
     } else {
