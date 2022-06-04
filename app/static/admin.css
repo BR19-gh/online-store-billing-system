@@ -53,8 +53,10 @@ body {
     line-height: 25px;
 }
 
-i:hover {
-    font-weight: bolder;
+.fa:hover,
+.fas:hover {
+    font-weight: bold;
+    color: black;
 }
 
 button#countryCodeTitle {
