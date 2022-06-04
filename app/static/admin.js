@@ -119,6 +119,9 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#codeAmount').disabled = true;
         document.querySelectorAll('.doActionPromo')[0].innerText = 'حــــــذف';
         document.querySelectorAll('.doActionPromo')[0].id = 'delCode';
+    } else if (opration == 'add') {
+        document.querySelectorAll('.doActionPromo')[0].innerText = 'إضــــافــة';
+        document.querySelectorAll('.doActionPromo')[0].id = 'addCode';
     } else {
         alert('هناك خطأ ما، هذه الميزة تجريبية، تواصل مع المطور لحل المشكلة. \n\n ErrCode: 507 : رمز الخطأ');
         return;
