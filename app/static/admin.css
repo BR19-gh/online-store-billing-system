@@ -121,8 +121,8 @@ button#countryCodeTitle {
 #headerOfPruds {
     display: flex;
     justify-content: space-evenly;
-    backdrop-filter: blur(10px) contrast(60%);
-    -webkit-backdrop-filter: blur(10px) contrast(60%);
+    backdrop-filter: blur(10px) contrast(100%);
+    -webkit-backdrop-filter: blur(10px) contrast(100%);
     padding-top: 5px;
     padding-bottom: 5px;
 }
