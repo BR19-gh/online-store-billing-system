@@ -47,6 +47,15 @@ body {
     }
 }
 
+@keyframes closeNice {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 #headerOfPruds {
     display: flex;
     justify-content: center;
@@ -81,9 +90,16 @@ body {
     background-color: var(--container);
     width: 95%;
     height: 95%;
-    animation: showNice 0.5s ease-in-out;
     overflow-y: auto;
     padding: 0;
+}
+
+.showNice {
+    animation: showNice 0.3s ease-in-out;
+}
+
+.closeNice {
+    animation: closeNice 0.3s ease-in-out;
 }
 
 .container:hover {

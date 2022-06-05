@@ -74,19 +74,32 @@ function firstFetch() {
                                     phoneNum = data4['storeNum']
 
                                     document.querySelector('#shoppingCartIcon').addEventListener('click', () => {
-                                        document.querySelector('#cartInfo').style.display = "block";
+                                        document.querySelector('#cartInfo').classList.add('showNice');
+                                        setTimeout(() => {
+                                            document.querySelector('#cartInfo').style.display = "block";
+                                        }, 305);
+
                                     });
 
                                     document.querySelector('#shoppingCartCancel').addEventListener('click', () => {
-                                        document.querySelector('#cartInfo').style.display = "none";
+                                        document.querySelector('#cartInfo').classList.add('closeNice');
+                                        setTimeout(() => {
+                                            document.querySelector('#cartInfo').style.display = "none";
+                                        }, 305);
                                     });
 
                                     document.querySelector('#infoIcon').addEventListener('click', () => {
-                                        document.querySelector('#infoCard').style.display = "block";
+                                        document.querySelector('#infoCard').classList.add('showNice');
+                                        setTimeout(() => {
+                                            document.querySelector('#infoCard').style.display = "block";
+                                        }, 305);
                                     });
 
                                     document.querySelector('#infoCardCancel').addEventListener('click', () => {
-                                        document.querySelector('#infoCard').style.display = "none";
+                                        document.querySelector('#infoCard').classList.add('closeNice');
+                                        setTimeout(() => {
+                                            document.querySelector('#infoCard').style.display = "none";
+                                        }, 305);
                                     });
 
                                     let num = 1
