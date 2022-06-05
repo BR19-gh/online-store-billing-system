@@ -65,24 +65,11 @@
                 <div id="form" class="card infoAddCard" style="width: 90%;">
                     <div class="card-body">
                         <div class="dashboardTitles">لوحة التخصيصات</div>
-                        <h5 class="card-title">
-                            <label for="productIDLabel" id="productIDLabel">اسم المتجر</label><br>
-                            <input style="direction: rtl;" type="text" id="storeName" placeholder="ليظهر في صفحة المنتجات"><br>
-                            <label for="productIDLabel" id="productIDLabel">رقم الواتساب</label><br>
-                            <div class="input-group mb-3">
-                                <button id="countryCodeTitle" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">الدولة</button>
-                                <ul id="listOfCountriesCodes" class="dropdown-menu">
-                                    حدثت مشكلة في التحميل الرجاء الإنتظار حتى حل المشكلة
-                                </ul>
-                                <input style="direction: rtl;" type="tel" placeholder="بدون كتابة أول صفر" id="storeNum" aria-label="Text input with dropdown button" maxlength="9">
-                            </div>
-
-                        </h5>
                     </div>
 
                     <div style="direction: rtl;" class="btnsContainer" class="card-body">
-                        <div class="addToCartBtn"><a id="addInfo" class="card-link">إضافة <i class="fas fa-plus"></i></a></div>
-                        <div class="addToCartBtn"><a id="updInfo" class="card-link">تعديل <i class="fas fa-edit"></i></a></div>
+                        <div class="addToCartBtn"><a onclick="deleteOrEditStoreInfo(null, 'add')" data-bs-toggle="modal" data-bs-target="#storeInfoModal" id="addInfoBtn" class="card-link">إضافة <i class="fas fa-plus"></i></a></div>
+                        <div class="addToCartBtn"><a onclick="deleteOrEditStoreInfo(null, 'edit')" data-bs-toggle="modal" data-bs-target="#storeInfoModal" id="updInfoBtn" class="card-link">تعديل <i class="fas fa-edit"></i></a></div>
                     </div>
 
                     <label for="themeLabel" id="themeLabel">سمة المتجر</label><br>
@@ -211,6 +198,43 @@
                         <a data-bs-dismiss="modal" id="addProd" class="card-link">إضافة <i class="fas fa-plus"></i></a>
                         <a data-bs-dismiss="modal" id="delProd" class="card-link">حــذف <i class="fas fa-trash-alt"></i></a>
                         <a data-bs-dismiss="modal" id="updProd" class="card-link">تعديل <i class="fas fa-edit"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal StoreInfo -->
+    <div class="modal fade" id="storeInfoModal" tabindex="-1" role="dialog" aria-labelledby="storeInfoModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div style="background-color: var(--modals); direction: rtl;" class="modal-content card">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLongTitle">
+                        عملية على معلومات المتجر
+                    </h5>
+                    <button style="border: 0; background-color: transparent; font-size: 25px;" type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="card-title">
+                        <label for="productIDLabel" id="productIDLabel">اسم المتجر</label><br>
+                        <input style="direction: rtl;" type="text" id="storeName" placeholder="ليظهر في صفحة المنتجات"><br>
+                        <label for="productIDLabel" id="productIDLabel">رقم الواتساب</label><br>
+                        <div class="input-group mb-3">
+                            <button id="countryCodeTitle" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">الدولة</button>
+                            <ul id="listOfCountriesCodes" class="dropdown-menu">
+                                حدثت مشكلة في التحميل الرجاء الإنتظار حتى حل المشكلة
+                            </ul>
+                            <input style="direction: rtl;" type="tel" placeholder="بدون كتابة أول صفر" id="storeNum" aria-label="Text input with dropdown button" maxlength="9">
+                        </div>
+                    </h5>
+                </div>
+                <div style="direction: rtl;" class="btnsContainer" class="card-body">
+                    <div style="direction: rtl;" class="btnsContainer" class="card-body">
+                        <div class="addToCartBtn"><a data-bs-dismiss="modal" id="addInfo" class="card-link">إضافة <i class="fas fa-plus"></i></a></div>
+                        <div class="addToCartBtn"><a data-bs-dismiss="modal" id="updInfo" class="card-link">تعديل <i class="fas fa-edit"></i></a></div>
                     </div>
                 </div>
 

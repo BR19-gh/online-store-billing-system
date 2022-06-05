@@ -206,6 +206,33 @@ function deleteOrEditProd(id, opration) {
         return;
     }
     return;
+}
+
+function deleteOrEditStoreInfo(id, opration) {
+    if (opration == 'edit') {
+
+        //show btn
+        document.querySelector('#addInfo').style.display = "none";
+        document.querySelector('#updInfo').style.display = "block";
+        //fill input
+        document.querySelector('#storeInfoModalTitle').innerHTML = `تعديل معلومات المتجر`;
+        //disable input
+
+    } else if (opration == 'add') {
+
+        //show btn
+        document.querySelector('#addInfo').style.display = "block";
+        document.querySelector('#updInfo').style.display = "none";
+        //fill input
+        document.querySelector('#storeInfoModalTitle').innerHTML = `إضافة معلومات للمتجر`;
+        //disable input
+
+
+
+    } else {
+        alert('هناك خطأ ما، هذه الميزة تجريبية، تواصل مع المطور لحل المشكلة. \n\n ErrCode: 508 : رمز الخطأ');
+        return;
+    }
     return;
 }
 
@@ -369,7 +396,13 @@ function fetchStoreInfo() {
     }).then((responseNum) => {
         return responseNum.json();
     }).then((responseJson) => {
-        if (responseJson['storeNum'] != 'none/لايوجد') { document.querySelector("#addInfo").style.display = "none"; }
+        if (responseJson['storeNum'] != 'none/لايوجد') {
+            document.querySelector("#addInfoBtn").style.display = "none";
+            document.querySelector("#updInfoBtn").style.display = "block";
+        } else {
+            document.querySelector("#addInfoBtn").style.display = "block";
+            document.querySelector("#updInfoBtn").style.display = "none";
+        }
         document.querySelector('#num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
 
     });
@@ -828,7 +861,13 @@ document.querySelector('#delCode').addEventListener('click', () => {
 
 
 document.querySelector('#addInfo').addEventListener('click', () => {
-    if (document.querySelector('#storeNum').value == '' || document.querySelector('#storeName').value == '') { alert('يجب ملئ جميع الخانات أولا'); return; }
+    if (document.querySelector('#storeNum').value == '' || document.querySelector('#storeName').value == '') {
+        alert('يجب ملئ جميع الخانات أولا');
+        setTimeout(() => {
+            $('#storeInfoModal').modal('show');
+        }, 200);
+        return;
+    }
 
     fetch('/storeInfo', {
             headers: {
@@ -868,10 +907,26 @@ document.querySelector('#addInfo').addEventListener('click', () => {
 document.querySelector('#updInfo').addEventListener('click', () => {
 
     fetch('/storeNum/show', { method: 'GET', }).then((responseNum) => { return responseNum.json(); })
-        .then((responseJson) => { if (responseJson.storeNum == "none/لايوجد") { alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث"); return; } });
+        .then((responseJson) => {
+            if (responseJson.storeNum == "none/لايوجد") {
+                alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث");
+                setTimeout(() => {
+                    $('#storeInfoModal').modal('show');
+                }, 200);
+                return;
+            }
+        });
 
     fetch('/storeName/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
-        .then((responseJson) => { if (responseJson.storeName == "none/لايوجد") { alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث"); return; } });
+        .then((responseJson) => {
+            if (responseJson.storeName == "none/لايوجد") {
+                alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث");
+                setTimeout(() => {
+                    $('#storeInfoModal').modal('show');
+                }, 200);
+                return;
+            }
+        });
 
 
     if (document.querySelector('#storeNum').value == '' && document.querySelector('#storeName').value != '') {
@@ -892,11 +947,17 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             }).then((responseJson) => {
 
                 if (responseJson.statCode == 429) {
-                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ');
+                    setTimeout(() => {
+                        $('#storeInfoModal').modal('show');
+                    }, 200);
                     return;
                 }
                 if (responseJson.statCode == 500) {
-                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ');
+                    setTimeout(() => {
+                        $('#storeInfoModal').modal('show');
+                    }, 200);
                     return;
                 }
 
@@ -924,15 +985,24 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 return response.json();
             }).then((responseJson) => {
                 if (responseJson.statCode == 400) {
-                    alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                    alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ');
+                    setTimeout(() => {
+                        $('#storeInfoModal').modal('show');
+                    }, 200);
                     return;
                 }
                 if (responseJson.statCode == 429) {
-                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ');
+                    setTimeout(() => {
+                        $('#storeInfoModal').modal('show');
+                    }, 200);
                     return;
                 }
                 if (responseJson.statCode == 500) {
-                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ');
+                    setTimeout(() => {
+                        $('#storeInfoModal').modal('show');
+                    }, 200);
                     return;
                 }
 
@@ -974,15 +1044,24 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             return { num: responseNum.json(), name: responseName.json() };
         }).then((responseJson) => {
             if (responseJson['num'].statCode == 400) {
-                alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ')
+                alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ');
+                setTimeout(() => {
+                    $('#storeInfoModal').modal('show');
+                }, 200);
                 return;
             }
             if (responseJson.statCode == 429) {
-                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
+                alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ');
+                setTimeout(() => {
+                    $('#storeInfoModal').modal('show');
+                }, 200);
                 return;
             }
             if (responseJson.statCode == 500) {
-                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
+                alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ');
+                setTimeout(() => {
+                    $('#storeInfoModal').modal('show');
+                }, 200);
                 return;
             }
 
