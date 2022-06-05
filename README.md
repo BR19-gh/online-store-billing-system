@@ -184,7 +184,7 @@ flask run
 
   
 
-- External URL: The app is also hosted on Heroku and can be accessed at [onlinestore.br19.me](http://onlinestore.br19.me/)
+- External URL: The app is also hosted on Heroku and can be accessed at [br19-onlinestore.herokuapp.com](https://br19-onlinestore.herokuapp.com)
 
   
   
