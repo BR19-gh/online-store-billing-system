@@ -511,7 +511,7 @@ function isExpandedCode(responseJson) {
         }
         document.querySelector('#codesList').innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]]['id']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['code']}</b><b class="cell">${responseJson[Object.keys(responseJson)[i]]['amount'] * 100}%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]]['id']},'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
-    codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء الأكواد </div>';
+    codesList.childNodes[Object.keys(codesList.childNodes).length - 1].innerHTML = '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء القسائم </div>';
 }
 
 function fetchPromocodes() {
