@@ -75,6 +75,8 @@ function firstFetch() {
 
                                     document.querySelector('#shoppingCartIcon').addEventListener('click', () => {
                                         document.querySelector('#cartInfo').classList.add('showNice');
+                                        document.querySelector('#cartInfo').classList.remove('closeNice');
+
                                         setTimeout(() => {
                                             document.querySelector('#cartInfo').style.display = "block";
                                         }, 305);
@@ -83,6 +85,8 @@ function firstFetch() {
 
                                     document.querySelector('#shoppingCartCancel').addEventListener('click', () => {
                                         document.querySelector('#cartInfo').classList.add('closeNice');
+                                        document.querySelector('#cartInfo').classList.remove('showNice');
+
                                         setTimeout(() => {
                                             document.querySelector('#cartInfo').style.display = "none";
                                         }, 305);
@@ -90,6 +94,8 @@ function firstFetch() {
 
                                     document.querySelector('#infoIcon').addEventListener('click', () => {
                                         document.querySelector('#infoCard').classList.add('showNice');
+                                        document.querySelector('#infoCard').classList.remove('closeNice');
+
                                         setTimeout(() => {
                                             document.querySelector('#infoCard').style.display = "block";
                                         }, 305);
@@ -97,6 +103,8 @@ function firstFetch() {
 
                                     document.querySelector('#infoCardCancel').addEventListener('click', () => {
                                         document.querySelector('#infoCard').classList.add('closeNice');
+                                        document.querySelector('#infoCard').classList.remove('showNice');
+
                                         setTimeout(() => {
                                             document.querySelector('#infoCard').style.display = "none";
                                         }, 305);
