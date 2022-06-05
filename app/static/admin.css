@@ -86,7 +86,7 @@ button.close {
 }
 
 button#countryCodeTitle {
-    font-size: calc(1.5vw);
+    font-size: calc(1vw);
     font-weight: 800;
     border: var(--borders) 1px solid;
     border-right: 0px;

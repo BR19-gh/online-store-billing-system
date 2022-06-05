@@ -215,7 +215,7 @@ function deleteOrEditStoreInfo(id, opration) {
         document.querySelector('#addInfo').style.display = "none";
         document.querySelector('#updInfo').style.display = "block";
         //fill input
-        document.querySelector('#storeInfoModalTitle').innerHTML = `تعديل معلومات المتجر`;
+        document.querySelector('#storeInfoModalLongTitle').innerHTML = `تعديل معلومات المتجر`;
         //disable input
 
     } else if (opration == 'add') {
@@ -224,7 +224,7 @@ function deleteOrEditStoreInfo(id, opration) {
         document.querySelector('#addInfo').style.display = "block";
         document.querySelector('#updInfo').style.display = "none";
         //fill input
-        document.querySelector('#storeInfoModalTitle').innerHTML = `إضافة معلومات للمتجر`;
+        document.querySelector('#storeInfoModalLongTitle').innerHTML = `إضافة معلومات للمتجر`;
         //disable input
 
 
