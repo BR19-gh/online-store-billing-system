@@ -906,6 +906,14 @@ document.querySelector('#addInfo').addEventListener('click', () => {
 
 document.querySelector('#updInfo').addEventListener('click', () => {
 
+    if (document.querySelector('#storeNum').value == '' || document.querySelector('#storeName').value == '') {
+        alert('يجب ملئ جميع الخانات أولا');
+        setTimeout(() => {
+            $('#storeInfoModal').modal('show');
+        }, 200);
+        return;
+    }
+
     fetch('/storeNum/show', { method: 'GET', }).then((responseNum) => { return responseNum.json(); })
         .then((responseJson) => {
             if (responseJson.storeNum == "none/لايوجد") {
