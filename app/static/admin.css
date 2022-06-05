@@ -399,6 +399,11 @@ button.btn.btn-outline-secondary:hover {
     background-color: var(--btnsHover);
 }
 
+.card-link:focus,
+button.btn.btn-outline-secondary:focus {
+    background-color: var(--borders);
+}
+
 .narrowListAnimation {
     animation: narrowList 0.1s ease-in-out;
 }

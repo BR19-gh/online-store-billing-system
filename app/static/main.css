@@ -247,6 +247,10 @@ a:hover {
     background-color: var(--btnsHover);
 }
 
+.card-link:focus {
+    background-color: var(--borders);
+}
+
 input {
     color: black;
 }
