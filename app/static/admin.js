@@ -968,7 +968,13 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 document.querySelector('#storeNum').value = '';
             });
     } else if (document.querySelector('#storeName').value == '' && document.querySelector('#storeNum').value != '') {
-        if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
+        if (currentCountryCodeSelected < 0) {
+            alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح');
+            setTimeout(() => {
+                $('#storeInfoModal').modal('show');
+            }, 200);
+            return;
+        }
         fetch('/storeNum', {
                 headers: {
 
@@ -1025,7 +1031,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 },
                 method: 'PUT',
                 body: JSON.stringify({
-                    storeNum: (currentCountryCodeSelected + (currentCountryCodeSelected + document.querySelector('#storeNum').value)),
+                    storeNum: (currentCountryCodeSelected + document.querySelector('#storeNum').value),
                 })
             }),
             fetch('/storeName', {
