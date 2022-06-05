@@ -102,7 +102,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#updCode').style.display = "block";
         document.querySelector('#delCode').style.display = "none";
         //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `تعديل الكود رقم: ${id}`;
+        document.querySelector('#promoModalLongTitle').innerHTML = `تعديل القسيمة رقم: ${id}`;
         document.querySelector('#codeID').value = `${id}`;
         document.querySelector('#codeName').value = `${listOfPromos[id]['code']}`;
         document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount'] * 100}`;
@@ -118,7 +118,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#updCode').style.display = "none";
         document.querySelector('#delCode').style.display = "block";
         //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `هل أنت متأكد من حذف الكود رقم: ${id}؟`;
+        document.querySelector('#promoModalLongTitle').innerHTML = `هل أنت متأكد من رغبتك بحذف القسيمة رقم: ${id}؟`;
         document.querySelector('#codeID').value = `${id}`;
         document.querySelector('#codeName').value = `${listOfPromos[id]['code']}`;
         document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount'] * 100}`;
@@ -134,7 +134,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#updCode').style.display = "none";
         document.querySelector('#delCode').style.display = "none";
         //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `إضافة كود`;
+        document.querySelector('#promoModalLongTitle').innerHTML = `إضافة قسيمة`;
         //disable input
         document.querySelector('#codeID').disabled = false;
         document.querySelector('#codeName').disabled = false;
@@ -174,7 +174,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#updProd').style.display = "none";
         document.querySelector('#delProd').style.display = "block";
         //fill input
-        document.querySelector('#productModalLongTitle').innerHTML = `حذف المنتج رقم: ${id}`;
+        document.querySelector('#productModalLongTitle').innerHTML = `هل أنت متأكد من رغبتك بحذف المنتج رقم: ${id}`;
         document.querySelector('#productID').value = `${id}`;
         document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
         document.querySelector('#productPrice').value = `${listOfProducts[id]['price']}`;
@@ -192,7 +192,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#updProd').style.display = "none";
         document.querySelector('#delProd').style.display = "none";
         //fill input
-        document.querySelector('#productModalLongTitle').innerHTML = `إضافة كود`;
+        document.querySelector('#productModalLongTitle').innerHTML = `إضافة قسيمة`;
         document.querySelector('#browseImg').innerHTML = ``;
         //disable input
         document.querySelector('#productID').disabled = false;
@@ -738,7 +738,7 @@ document.querySelector('#addCode').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 403) {
-                alert('الرقم التعريفي للكود المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ') |
+                alert('الرقم التعريفي للقسيمة المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ') |
                     $('#promoModal').modal('show')
                 return;
             }
@@ -793,7 +793,7 @@ document.querySelector('#updCode').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 404) {
-                alert('الرقم التعريفي للكود المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ')
+                alert('الرقم التعريفي للقسيمة المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 400) {
@@ -832,7 +832,7 @@ document.querySelector('#delCode').addEventListener('click', () => {
             return response.json();
         }).then((responseJson) => {
             if (responseJson.statCode == 404) {
-                alert('الرقم التعريفي للكود المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ')
+                alert('الرقم التعريفي للقسيمة المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ')
                 return;
             }
             if (responseJson.statCode == 400) {

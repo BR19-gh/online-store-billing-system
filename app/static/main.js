@@ -287,7 +287,7 @@ function firstFetch() {
                                     let fullPrice;
 
                                     document.querySelectorAll('.submitCode')[0].addEventListener('click', () => {
-                                        if (data2[`${Object.keys(data2)[0]}`] == null) { alert("الكود غير صالح، جرب كودًا آخر"); return; }
+                                        if (data2[`${Object.keys(data2)[0]}`] == null) { alert("القسيمة غير صالحة، جرب قسيمةً آخر"); return; }
                                         firstPassCart = 1;
                                         let totalPrice = document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0];
                                         for (let i = 0; i < Object.keys(data2).length; i++) {
@@ -328,7 +328,7 @@ function firstFetch() {
                                                 }
 
                                                 document.querySelector('#groupOfPrices').innerText = `المجموع: ${totalPrice} ﷼`
-                                                alert("الكود غير صالح، جرب كودًا آخر")
+                                                alert("القسيمة غير صالحة، جرب قسيمةً آخر")
                                                 document.querySelectorAll('.submitCode')[0].classList.remove('submitCodeDisabled')
                                                 document.querySelectorAll('.submitCode')[0].classList.add('submitCodeEnabled')
 
@@ -345,7 +345,7 @@ function firstFetch() {
                                         let personalInfoOutput = '';
                                         let personalInfo = {};
                                         if (theCurrentDiscount == undefined || theCurrentDiscount == '') {
-                                            restDiscountMsg = 'لا يوجد كود';
+                                            restDiscountMsg = 'لا يوجد قسيمة';
                                             priceBeforeDiscount = "لا يوجد خصم"
                                         } else {
                                             priceBeforeDiscount = priceBeforeDiscount + '﷼'
@@ -360,7 +360,7 @@ function firstFetch() {
                                         }
 
 
-                                        let discount = 'كود الخصم: ' + restDiscountMsg;
+                                        let discount = 'قسيمة الخصم: ' + restDiscountMsg;
                                         titles = document.querySelector('#groupOfTitles').innerHTML.replace(/\s/gi, "%20");
                                         titles = titles.replace(/<br>/gi, "%0a");
                                         titles = titles.replace(/<b>/gi, "*");
