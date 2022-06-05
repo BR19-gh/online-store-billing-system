@@ -1020,7 +1020,13 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 document.querySelector('#storeNum').value = '';
             });
     } else if (document.querySelector('#storeNum').value != '' && document.querySelector('#storeName').value != '') {
-        if (currentCountryCodeSelected < 0) { alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح'); return; }
+        if (currentCountryCodeSelected < 0) {
+            alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح');
+            setTimeout(() => {
+                $('#storeInfoModal').modal('show');
+            }, 200);
+            return;
+        }
         Promise.all([
             fetch('/storeNum', {
                 headers: {
