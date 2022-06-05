@@ -247,7 +247,7 @@ a:hover {
     background-color: var(--btnsHover);
 }
 
-.card-link:focus {
+.card-link:active {
     background-color: var(--borders);
 }
 

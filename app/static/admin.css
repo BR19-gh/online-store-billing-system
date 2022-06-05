@@ -399,8 +399,8 @@ button.btn.btn-outline-secondary:hover {
     background-color: var(--btnsHover);
 }
 
-.card-link:focus,
-button.btn.btn-outline-secondary:focus {
+.card-link:active,
+button.btn.btn-outline-secondary:active {
     background-color: var(--borders);
 }
 
