@@ -71,6 +71,10 @@ body {
 
 b.cell {
     width: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    align-self: center;
 }
 
 button.close:hover {
@@ -123,7 +127,7 @@ button#countryCodeTitle {
 }
 
 b {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 #pressToNotShowBtn {
@@ -215,6 +219,7 @@ button.btn.btn-outline-secondary.dropdown-toggle {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 input#storeNum {
@@ -285,6 +290,7 @@ h1 {
     width: 90%;
     display: inline-block;
     background-color: var(--form);
+    padding-bottom: 0;
 }
 
 #form li,
@@ -328,11 +334,13 @@ input#storeNum {
 .card {
     border-radius: 15px;
     margin: 15px;
+    padding-bottom: 15px;
 }
 
 #themeLabel {
     font-size: 1.25rem;
     font-weight: 500;
+    margin-top: 15px;
 }
 
 .card-img,
@@ -355,7 +363,6 @@ input#storeNum {
     cursor: pointer;
     font-weight: bold;
     padding: 10px;
-    margin: 1px;
 }
 
 a {
@@ -405,7 +412,7 @@ input#productImg {
 }
 
 .btnsContainer {
-    height: 60px;
+    height: 50px;
     display: flex;
     justify-content: center;
 }
@@ -413,7 +420,7 @@ input#productImg {
 .dashboardTitles {
     font-size: 35px;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 800px) {
