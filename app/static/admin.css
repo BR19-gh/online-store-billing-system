@@ -460,6 +460,7 @@ input#productImg {
 .modal-footer,
 .modal-header {
     border-color: var(--borders);
+    padding: 0.5rem 0.5rem;
 }
 
 @keyframes cartAnimation {
