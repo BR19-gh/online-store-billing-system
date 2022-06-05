@@ -101,6 +101,12 @@ button#countryCodeTitle {
     padding: 0px;
 }
 
+@supports (-webkit-touch-callout: none) {
+    button#countryCodeTitle {
+        font-size: calc(1.5vw);
+    }
+}
+
 @media only screen and (max-width: 800px) {
     #title {
         line-height: 60px;
