@@ -51,7 +51,7 @@ body {
     display: flex;
     justify-content: center;
     backdrop-filter: blur(10px) contrast(60%);
-    -webkit-backdrop-backdrop-filter: blur(10px) contrast(60%);
+    -webkit-backdrop-filter: blur(10px) contrast(60%);
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -94,7 +94,7 @@ h1 {
     padding-top: 5px;
     padding-bottom: 5px;
     backdrop-filter: blur(10px) contrast(60%);
-    -webkit-backdrop-backdrop-filter: blur(10px) contrast(60%);
+    -webkit-backdrop-filter: blur(10px) contrast(60%);
     font-size: calc(2.375rem + 1.5vw);
     position: sticky;
     top: 0;
@@ -287,7 +287,7 @@ div#shoppingCartIcon {
     width: 40%;
     height: 85%;
     backdrop-filter: blur(10px) contrast(60%);
-    -webkit-backdrop-backdrop-filter: blur(10px) contrast(60%);
+    -webkit-backdrop-filter: blur(10px) contrast(60%);
     background-color: var(--infoCard);
 }
 
@@ -323,7 +323,7 @@ div#shoppingCartIcon {
 
 .forsted {
     backdrop-filter: blur(10px) contrast(60%);
-    -webkit-backdrop-backdrop-filter: blur(10px) contrast(60%);
+    -webkit-backdrop-filter: blur(10px) contrast(60%);
     background-color: var(--h1OtherScreen);
 }
 
