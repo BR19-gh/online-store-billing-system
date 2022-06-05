@@ -118,7 +118,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#updCode').style.display = "none";
         document.querySelector('#delCode').style.display = "block";
         //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `حذف الكود رقم: ${id}`;
+        document.querySelector('#promoModalLongTitle').innerHTML = `هل أنت متأكد من حذف الكود رقم: ${id}؟`;
         document.querySelector('#codeID').value = `${id}`;
         document.querySelector('#codeName').value = `${listOfPromos[id]['code']}`;
         document.querySelector('#codeAmount').value = `${listOfPromos[id]['amount'] * 100}`;
