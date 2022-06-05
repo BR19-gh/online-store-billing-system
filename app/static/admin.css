@@ -77,6 +77,10 @@ b.cell {
     align-self: center;
 }
 
+div#name {
+    margin-top: 14px;
+}
+
 button.close:hover {
     font-weight: bold;
 }
