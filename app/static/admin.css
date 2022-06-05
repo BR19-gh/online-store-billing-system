@@ -468,6 +468,11 @@ input#productImg {
     padding: 0.5rem 0.5rem;
 }
 
+.modal {
+    backdrop-filter: blur(10px) contrast(100%);
+    -webkit-backdrop-filter: blur(10px) contrast(100%);
+}
+
 @keyframes cartAnimation {
     0% {
         font-size: 30px;
