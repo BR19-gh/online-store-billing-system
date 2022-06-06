@@ -192,7 +192,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#updProd').style.display = "none";
         document.querySelector('#delProd').style.display = "none";
         //fill input
-        document.querySelector('#productModalLongTitle').innerHTML = `إضافة قسيمة`;
+        document.querySelector('#productModalLongTitle').innerHTML = `إضافة منتج`;
         document.querySelector('#browseImg').innerHTML = ``;
         //disable input
         document.querySelector('#productID').disabled = false;
