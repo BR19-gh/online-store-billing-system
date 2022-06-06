@@ -102,6 +102,11 @@ body {
     animation: closeNice 0.3s ease-in-out;
 }
 
+.modal {
+    backdrop-filter: blur(10px) contrast(100%);
+    -webkit-backdrop-filter: blur(10px) contrast(100%);
+}
+
 .container:hover {
     background-color: var(--containerHover);
 }
