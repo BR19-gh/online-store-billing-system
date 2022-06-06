@@ -102,9 +102,17 @@ body {
     animation: closeNice 0.3s ease-in-out;
 }
 
-.modal {
+#cover {
     backdrop-filter: blur(10px) contrast(100%);
     -webkit-backdrop-filter: blur(10px) contrast(100%);
+    opacity: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #00000050;
+    position: absolute;
+    display: none;
+    transition: 200ms ease-in-out;
 }
 
 .container:hover {

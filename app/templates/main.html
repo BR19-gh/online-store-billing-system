@@ -37,16 +37,88 @@
 
     <div class="container">
         <h1 id="headerOfPruds">
-            <div data-bs-toggle="modal" data-bs-target="#cartModal" id="shoppingCartIcon"><i class="fas fa-shopping-cart"></i></div>
+            <div id="shoppingCartIcon"><i class="fas fa-shopping-cart"></i></div>
             <div id="storeName">جار التحميل...</div>
             <div id="title">منتجات متجر </div>
             <div id="infoIcon"><i class="fas fa-info-circle"></i></div>
         </h1>
 
+
         <div id="cardContainer">
             <div id="msgNotFetched" style='font-size:xx-large; margin-top: 280px;'>يبدو أن المتجر لم يضف أي منتجات حتى الآن، إنتظر قليلًا ثم حدث الصفحة للتحقق مجددًا</div>
         </div>
 
+    </div>
+
+    <div onclick="closePopup('popupProjects'); closePopup('popupAccounts');" id="cover"></div>
+    <script>
+        function openPopup(popup) {
+            document.getElementById('cover').style.display = 'block';
+            let timeoutToDisplayNone = setTimeout(() => {
+                document.getElementById('cover').style.opacity = '1';
+            }, 200);
+
+            document.getElementById(`${popup}`).style.display = 'block';
+            let timeoutTODisplayNone2 = setTimeout(() => {
+                document.getElementById(`${popup}`).style.opacity = '1';
+            }, 200);
+        }
+
+        function closePopup(popup) {
+            document.getElementById('cover').style.opacity = '0';
+            let timeoutToDisplayNone = setTimeout(() => {
+                document.getElementById('cover').style.display = 'none';
+            }, 200);
+            document.getElementById(`${popup}`).style.opacity = '0';
+            let timeoutToDisplayNone2 = setTimeout(() => {
+                document.getElementById(`${popup}`).style.display = 'none';
+            }, 200);
+        }
+    </script>
+    <div class="container" id="cartInfo">
+        <h1 class="forsted" style="display: flex; justify-content: space-evenly;">
+            <div id="shoppingCartCancel">×</div>
+            <div id="title" style="direction: rtl;">الــســلــة
+                <i style="font-size: smaller;" class="fas fa-shopping-cart"></i>
+            </div>
+        </h1>
+        <div id="form" class="card" style="width: 19rem;">
+            <div class="card-body">
+                <h5 id="groupOfTitles" style="direction: rtl;" class="card-title">لا يوجد أي منتج في سلتك حتى الآن</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="priceContainer">
+                    <div style="direction: rtl;" id="groupOfPrices">المجموع: 0﷼</div>
+                </li>
+            </ul>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="priceContainer">
+                    <div style="display: inline-block;" id="discountContainer">
+                        <label style="direction: rtl; font-weight: bold;">قسيمة الخصم:</label><br>
+                        <input onfocus="this.value=''" id="discount" type="text" placeholder="أدخل قسيمة الخصم هنا"><input class="submitCode submitCodeEnabled" type="submit" value="طبق">
+                    </div>
+                </li>
+                <li class="list-group-item" id="priceContainer">
+                    <div style="display: inline-block;" id="personalInfoContainer">
+                        <label style="direction: rtl; font-weight: bold;">الاسم:</label><br>
+                        <input id="personalInfoName" class="personalInfo" type="text" placeholder="الاسم الأول والاسم الأخير">
+                        <label style="direction: rtl; font-weight: bold;">الرقم:</label><br>
+                        <input id="personalInfoNumb" class="personalInfo" type="tel" placeholder="05XXXXXXXX">
+                        <label style="direction: rtl; font-weight: bold;">العنوان:</label><br>
+                        <input id="personalInfoAddr" class="personalInfo" type="text" placeholder="رقم المبنى، الشارع، الحي، المدينة">
+                        <label style="direction: rtl; font-weight: bold;">وقت الاستلام:</label><br>
+                        <input id="personalInfoTime" class="personalInfo" type="datetime-local" aria-valuemin="" value="2022-02-24T08:30">
+                        <script>
+                            document.getElementById('personalInfoTime').ariaValueMin = new Date();
+                        </script>
+
+                    </div>
+                </li>
+            </ul>
+            <div style="direction: rtl;" class="card-body">
+                <a id="sendToWhatsApp" class="card-link">إرسال الطلبية عبر <i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
     </div>
 
 
@@ -84,54 +156,6 @@
 
 
     </div>
-    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalTitle" aria-hidden="true">
-        <div class="container" id="cartInfo">
-            <h1 class="forsted" style="display: flex; justify-content: space-evenly;">
-                <div id="shoppingCartCancel">×</div>
-                <div id="title" style="direction: rtl;">الــســلــة
-                    <i style="font-size: smaller;" class="fas fa-shopping-cart"></i>
-                </div>
-            </h1>
-            <div id="form" class="card" style="width: 19rem;">
-                <div class="card-body">
-                    <h5 id="groupOfTitles" style="direction: rtl;" class="card-title">لا يوجد أي منتج في سلتك حتى الآن</h5>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item" id="priceContainer">
-                        <div style="direction: rtl;" id="groupOfPrices">المجموع: 0﷼</div>
-                    </li>
-                </ul>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item" id="priceContainer">
-                        <div style="display: inline-block;" id="discountContainer">
-                            <label style="direction: rtl; font-weight: bold;">قسيمة الخصم:</label><br>
-                            <input onfocus="this.value=''" id="discount" type="text" placeholder="أدخل قسيمة الخصم هنا"><input class="submitCode submitCodeEnabled" type="submit" value="طبق">
-                        </div>
-                    </li>
-                    <li class="list-group-item" id="priceContainer">
-                        <div style="display: inline-block;" id="personalInfoContainer">
-                            <label style="direction: rtl; font-weight: bold;">الاسم:</label><br>
-                            <input id="personalInfoName" class="personalInfo" type="text" placeholder="الاسم الأول والاسم الأخير">
-                            <label style="direction: rtl; font-weight: bold;">الرقم:</label><br>
-                            <input id="personalInfoNumb" class="personalInfo" type="tel" placeholder="05XXXXXXXX">
-                            <label style="direction: rtl; font-weight: bold;">العنوان:</label><br>
-                            <input id="personalInfoAddr" class="personalInfo" type="text" placeholder="رقم المبنى، الشارع، الحي، المدينة">
-                            <label style="direction: rtl; font-weight: bold;">وقت الاستلام:</label><br>
-                            <input id="personalInfoTime" class="personalInfo" type="datetime-local" aria-valuemin="" value="2022-02-24T08:30">
-                            <script>
-                                document.getElementById('personalInfoTime').ariaValueMin = new Date();
-                            </script>
-
-                        </div>
-                    </li>
-                </ul>
-                <div style="direction: rtl;" class="card-body">
-                    <a id="sendToWhatsApp" class="card-link">إرسال الطلبية عبر <i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <style>
         .spinner-border {
             width: 6rem;
