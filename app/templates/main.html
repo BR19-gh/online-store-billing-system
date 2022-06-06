@@ -50,31 +50,6 @@
 
     </div>
 
-    <div onclick="closePopup('popupProjects'); closePopup('popupAccounts');" id="cover"></div>
-    <script>
-        function openPopup(popup) {
-            document.getElementById('cover').style.display = 'block';
-            let timeoutToDisplayNone = setTimeout(() => {
-                document.getElementById('cover').style.opacity = '1';
-            }, 200);
-
-            document.getElementById(`${popup}`).style.display = 'block';
-            let timeoutTODisplayNone2 = setTimeout(() => {
-                document.getElementById(`${popup}`).style.opacity = '1';
-            }, 200);
-        }
-
-        function closePopup(popup) {
-            document.getElementById('cover').style.opacity = '0';
-            let timeoutToDisplayNone = setTimeout(() => {
-                document.getElementById('cover').style.display = 'none';
-            }, 200);
-            document.getElementById(`${popup}`).style.opacity = '0';
-            let timeoutToDisplayNone2 = setTimeout(() => {
-                document.getElementById(`${popup}`).style.display = 'none';
-            }, 200);
-        }
-    </script>
     <div class="container" id="cartInfo">
         <h1 class="forsted" style="display: flex; justify-content: space-evenly;">
             <div id="shoppingCartCancel">×</div>
