@@ -39,7 +39,17 @@
     <div class="container">
         <h1 id="headerOfPruds">
             <div id="shoppingCartIcon"><i class="fas fa-shopping-cart"></i></div>
-            <div id="storeName">جار التحميل...</div>
+            <div style="direction: rtl;" id="storeName">
+                <script>
+                    let i = 0;
+                    setInterval(() => {
+                        if (i < 3) i++;
+                        else i = 0;
+                        document.querySelector('#storeName').innerText = `جار التحميل${'.'.repeat(i)}`;
+
+                    }, 500);
+                </script>
+            </div>
             <div id="title">منتجات متجر </div>
             <div id="infoIcon"><i class="fas fa-info-circle"></i></div>
         </h1>

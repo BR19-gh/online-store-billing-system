@@ -3,7 +3,7 @@
 fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
     .then((responseJson) => {
         if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") { originalTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greenTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "blueTheme") { blueTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "redTheme") { redTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greyTheme") { greyTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "pinkTheme") { pinkTheme.className = "circleTheme-selected" } else { originalTheme.className = "circleTheme-selected" }
-    });
+    }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 
 var themeBtns = document.querySelectorAll('div.circleTheme');
 for (var i = 0; i < themeBtns.length; i++) {
@@ -50,11 +50,11 @@ for (var i = 0; i < themeBtns.length; i++) {
                         fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
                             .then((responseJson) => {
                                 if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") { originalTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greenTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "blueTheme") { blueTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "redTheme") { redTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greyTheme") { greyTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "pinkTheme") { pinkTheme.className = "circleTheme-selected" } else { originalTheme.className = "circleTheme-selected" }
-                            });
+                            }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
                         fetchThemes();
 
-                    });
-            });
+                    }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+            }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 
 
     }
@@ -141,7 +141,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector('#codeAmount').disabled = false;
 
     } else {
-        alert('هناك خطأ ما، هذه الميزة تجريبية، تواصل مع المطور لحل المشكلة. \n\n ErrCode: 507 : رمز الخطأ');
+        alert('هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 507 : رمز الخطأ');
         return;
     }
     return;
@@ -159,7 +159,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#productID').value = `${id}`;
         document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
         document.querySelector('#productPrice').value = `${listOfProducts[id]['price']}`;
-        document.querySelector('#browseImg').innerHTML = `يمكنك حفظ الصورة الحالية من هذا المربع <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 35px; height: 35px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها. <a style="color:blue; text-decoration: underline;" target="_blank" href="../static/img/how_Safari_iOS.GIF">كيف؟</a>`;
+        document.querySelector('#browseImg').innerHTML = `يمكنك حفظ الصورة الحالية من هذا المربع <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 35px; height: 35px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها. <a style="color:blue; text-decoration: underline;" href="../static/img/how_Safari_iOS.GIF">كيف؟</a>`;
         //disable input
         document.querySelector('#productID').disabled = true;
         document.querySelector('#productTitle').disabled = false;
@@ -192,7 +192,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#updProd').style.display = "none";
         document.querySelector('#delProd').style.display = "none";
         //fill input
-        document.querySelector('#productModalLongTitle').innerHTML = `إضافة منتج`;
+        document.querySelector('#productModalLongTitle').innerHTML = `إضافة قسيمة`;
         document.querySelector('#browseImg').innerHTML = ``;
         //disable input
         document.querySelector('#productID').disabled = false;
@@ -202,7 +202,7 @@ function deleteOrEditProd(id, opration) {
 
 
     } else {
-        alert('هناك خطأ ما، هذه الميزة تجريبية، تواصل مع المطور لحل المشكلة. \n\n ErrCode: 508 : رمز الخطأ');
+        alert('هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 508 : رمز الخطأ');
         return;
     }
     return;
@@ -230,7 +230,7 @@ function deleteOrEditStoreInfo(id, opration) {
 
 
     } else {
-        alert('هناك خطأ ما، هذه الميزة تجريبية، تواصل مع المطور لحل المشكلة. \n\n ErrCode: 508 : رمز الخطأ');
+        alert('هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 509 : رمز الخطأ');
         return;
     }
     return;
@@ -380,7 +380,7 @@ function fetchThemes() {
                 }
             }
             console.log('current theme is ' + responseJson['storeTheme'])
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 }
 
 function fetchStoreInfo() {
@@ -405,7 +405,7 @@ function fetchStoreInfo() {
         }
         document.querySelector('#num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
 
-    });
+    }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 
 
     fetch('/storeName/show', {
@@ -422,7 +422,7 @@ function fetchStoreInfo() {
         }).then((responseJson) => {
             if (responseJson['storeName'] != 'none/لايوجد') { document.querySelector("#addInfo").style.display = "none"; }
             document.querySelector('#name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 }
 
 // for fetchProducts()
@@ -480,7 +480,7 @@ function fetchProducts() {
             if (productsList.style.height == "30px") isNarrowed(responseJson);
             if (productsList.style.height == "100%") isExpanded(responseJson);
 
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 }
 
 // for fetchProducts()
@@ -536,7 +536,7 @@ function fetchPromocodes() {
             }
             if (codesList.style.height == "30px") isNarrowedCode(responseJson);
             if (codesList.style.height == "100%") isExpandedCode(responseJson);
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 }
 
 
@@ -610,7 +610,7 @@ document.querySelector('#addProd').addEventListener('click', () => {
             document.querySelector('#productTitle').value = '';
             document.querySelector('#productPrice').value = '';
             document.querySelector('#productImg').value = '';
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 });
 
 document.querySelector('#updProd').addEventListener('click', () => {
@@ -661,7 +661,7 @@ document.querySelector('#updProd').addEventListener('click', () => {
             document.querySelector('#productTitle').value = '';
             document.querySelector('#productPrice').value = '';
             document.querySelector('#productImg').value = '';
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 });
 
 document.querySelector('#delProd').addEventListener('click', () => {
@@ -763,7 +763,7 @@ document.querySelector('#addCode').addEventListener('click', () => {
             document.querySelector('#codeID').value = '';
             document.querySelector('#codeName').value = '';
             document.querySelector('#codeAmount').value = '';
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 });
 
 document.querySelector('#updCode').addEventListener('click', () => {
@@ -900,7 +900,7 @@ document.querySelector('#addInfo').addEventListener('click', () => {
             fetchStoreInfo();
             document.querySelector('#storeName').value = '';
             document.querySelector('#storeNum').value = '';
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 });
 
 
@@ -923,7 +923,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }, 200);
                 return;
             }
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 
     fetch('/storeName/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
         .then((responseJson) => {
@@ -934,7 +934,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }, 200);
                 return;
             }
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
 
 
     if (document.querySelector('#storeNum').value == '' && document.querySelector('#storeName').value != '') {
@@ -974,7 +974,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 fetchStoreInfo();
                 document.querySelector('#storeName').value = '';
                 document.querySelector('#storeNum').value = '';
-            });
+            }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
     } else if (document.querySelector('#storeName').value == '' && document.querySelector('#storeNum').value != '') {
         if (currentCountryCodeSelected < 0) {
             alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح');
@@ -1026,7 +1026,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 fetchStoreInfo();
                 document.querySelector('#storeName').value = '';
                 document.querySelector('#storeNum').value = '';
-            });
+            }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
     } else if (document.querySelector('#storeNum').value != '' && document.querySelector('#storeName').value != '') {
         if (currentCountryCodeSelected < 0) {
             alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح');
@@ -1090,7 +1090,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             fetchStoreInfo();
             document.querySelector('#storeName').value = '';
             document.querySelector('#storeNum').value = '';
-        });
+        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
     } else {
         return;
     }
