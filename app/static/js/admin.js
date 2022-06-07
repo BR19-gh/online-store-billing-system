@@ -273,7 +273,7 @@ function deleteOrEditStoreInfo(id, opration) {
         document.querySelector('#addInfo').style.display = "block";
         document.querySelector('#updInfo').style.display = "none";
         //fill input
-        document.querySelector('#storeInfoModalLongTitle').innerHTML = `إضافة معلومات للمتجر`;
+        document.querySelector('#storeInfoModalLongTitle').innerHTML = `إضافة المعلومات`;
         //disable input
 
 
