@@ -1,9 +1,28 @@
 //// theme related
-
-fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+fetch('/storeTheme/show', {
+        method: 'GET',
+    }).then((responseName) => {
+        return responseName.json();
+    })
     .then((responseJson) => {
-        if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") { originalTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greenTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "blueTheme") { blueTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "redTheme") { redTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greyTheme") { greyTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "pinkTheme") { pinkTheme.className = "circleTheme-selected" } else { originalTheme.className = "circleTheme-selected" }
-    }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") {
+            originalTheme.className = "circleTheme-selected"
+        } else if (responseJson.storeTheme == "greenTheme") {
+            greenTheme.className = "circleTheme-selected"
+        } else if (responseJson.storeTheme == "blueTheme") {
+            blueTheme.className = "circleTheme-selected"
+        } else if (responseJson.storeTheme == "redTheme") {
+            redTheme.className = "circleTheme-selected"
+        } else if (responseJson.storeTheme == "greyTheme") {
+            greyTheme.className = "circleTheme-selected"
+        } else if (responseJson.storeTheme == "pinkTheme") {
+            pinkTheme.className = "circleTheme-selected"
+        } else {
+            originalTheme.className = "circleTheme-selected"
+        }
+    }).catch(error => {
+        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+    });
 
 var themeBtns = document.querySelectorAll('div.circleTheme');
 for (var i = 0; i < themeBtns.length; i++) {
@@ -17,12 +36,18 @@ for (var i = 0; i < themeBtns.length; i++) {
 
         console.log(this.id);
 
-        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+        fetch('/storeTheme/show', {
+                method: 'GET',
+            }).then((responseName) => {
+                return responseName.json();
+            })
             .then((responseJson) => {
                 let method;
                 if (responseJson.storeTheme == "none/لايوجد") {
                     method = "POST";
-                } else { method = "PUT"; }
+                } else {
+                    method = "PUT";
+                }
 
                 fetch('/storeTheme', {
                         headers: {
@@ -47,14 +72,38 @@ for (var i = 0; i < themeBtns.length; i++) {
                             alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                             return;
                         }
-                        fetch('/storeTheme/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+                        fetch('/storeTheme/show', {
+                                method: 'GET',
+                            }).then((responseName) => {
+                                return responseName.json();
+                            })
                             .then((responseJson) => {
-                                if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") { originalTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greenTheme") { greenTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "blueTheme") { blueTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "redTheme") { redTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "greyTheme") { greyTheme.className = "circleTheme-selected" } else if (responseJson.storeTheme == "pinkTheme") { pinkTheme.className = "circleTheme-selected" } else { originalTheme.className = "circleTheme-selected" }
-                            }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+                                if (responseJson.storeTheme == "none/لايوجد" || responseJson.storeTheme == "originalTheme") {
+                                    originalTheme.className = "circleTheme-selected"
+                                } else if (responseJson.storeTheme == "greenTheme") {
+                                    greenTheme.className = "circleTheme-selected"
+                                } else if (responseJson.storeTheme == "blueTheme") {
+                                    blueTheme.className = "circleTheme-selected"
+                                } else if (responseJson.storeTheme == "redTheme") {
+                                    redTheme.className = "circleTheme-selected"
+                                } else if (responseJson.storeTheme == "greyTheme") {
+                                    greyTheme.className = "circleTheme-selected"
+                                } else if (responseJson.storeTheme == "pinkTheme") {
+                                    pinkTheme.className = "circleTheme-selected"
+                                } else {
+                                    originalTheme.className = "circleTheme-selected"
+                                }
+                            }).catch(error => {
+                                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+                            });
                         fetchThemes();
 
-                    }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
-            }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+                    }).catch(error => {
+                        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+                    });
+            }).catch(error => {
+                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+            });
 
 
     }
@@ -380,7 +429,9 @@ function fetchThemes() {
                 }
             }
             console.log('current theme is ' + responseJson['storeTheme'])
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 }
 
 function fetchStoreInfo() {
@@ -405,7 +456,9 @@ function fetchStoreInfo() {
         }
         document.querySelector('#num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
 
-    }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+    }).catch(error => {
+        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+    });
 
 
     fetch('/storeName/show', {
@@ -420,9 +473,13 @@ function fetchStoreInfo() {
         .then((responseName) => {
             return responseName.json();
         }).then((responseJson) => {
-            if (responseJson['storeName'] != 'none/لايوجد') { document.querySelector("#addInfo").style.display = "none"; }
+            if (responseJson['storeName'] != 'none/لايوجد') {
+                document.querySelector("#addInfo").style.display = "none";
+            }
             document.querySelector('#name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 }
 
 // for fetchProducts()
@@ -471,7 +528,10 @@ function fetchProducts() {
             return response.json();
         }).then((responseJson) => {
             console.log(responseJson);
-            if (responseJson.statCode == 204) { productsList.innerHTML = "حدث وانتظر قليلا إذا كنت قد أضفت"; return; }
+            if (responseJson.statCode == 204) {
+                productsList.innerHTML = "حدث وانتظر قليلا إذا كنت قد أضفت";
+                return;
+            }
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
                 return;
@@ -480,7 +540,9 @@ function fetchProducts() {
             if (productsList.style.height == "30px") isNarrowed(responseJson);
             if (productsList.style.height == "100%") isExpanded(responseJson);
 
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 }
 
 // for fetchProducts()
@@ -529,14 +591,19 @@ function fetchPromocodes() {
             return response.json();
         }).then((responseJson) => {
             console.log(responseJson);
-            if (responseJson.statCode == 204) { codesList.innerHTML = "حدث وانتظر قليلا إذا كنت قد أضفت"; return; }
+            if (responseJson.statCode == 204) {
+                codesList.innerHTML = "حدث وانتظر قليلا إذا كنت قد أضفت";
+                return;
+            }
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ')
                 return;
             }
             if (codesList.style.height == "30px") isNarrowedCode(responseJson);
             if (codesList.style.height == "100%") isExpandedCode(responseJson);
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 }
 
 
@@ -610,7 +677,9 @@ document.querySelector('#addProd').addEventListener('click', () => {
             document.querySelector('#productTitle').value = '';
             document.querySelector('#productPrice').value = '';
             document.querySelector('#productImg').value = '';
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 });
 
 document.querySelector('#updProd').addEventListener('click', () => {
@@ -661,7 +730,9 @@ document.querySelector('#updProd').addEventListener('click', () => {
             document.querySelector('#productTitle').value = '';
             document.querySelector('#productPrice').value = '';
             document.querySelector('#productImg').value = '';
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 });
 
 document.querySelector('#delProd').addEventListener('click', () => {
@@ -763,7 +834,9 @@ document.querySelector('#addCode').addEventListener('click', () => {
             document.querySelector('#codeID').value = '';
             document.querySelector('#codeName').value = '';
             document.querySelector('#codeAmount').value = '';
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 });
 
 document.querySelector('#updCode').addEventListener('click', () => {
@@ -900,7 +973,9 @@ document.querySelector('#addInfo').addEventListener('click', () => {
             fetchStoreInfo();
             document.querySelector('#storeName').value = '';
             document.querySelector('#storeNum').value = '';
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 });
 
 
@@ -914,7 +989,11 @@ document.querySelector('#updInfo').addEventListener('click', () => {
         return;
     }
 
-    fetch('/storeNum/show', { method: 'GET', }).then((responseNum) => { return responseNum.json(); })
+    fetch('/storeNum/show', {
+            method: 'GET',
+        }).then((responseNum) => {
+            return responseNum.json();
+        })
         .then((responseJson) => {
             if (responseJson.storeNum == "none/لايوجد") {
                 alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث");
@@ -923,9 +1002,15 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }, 200);
                 return;
             }
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 
-    fetch('/storeName/show', { method: 'GET', }).then((responseName) => { return responseName.json(); })
+    fetch('/storeName/show', {
+            method: 'GET',
+        }).then((responseName) => {
+            return responseName.json();
+        })
         .then((responseJson) => {
             if (responseJson.storeName == "none/لايوجد") {
                 alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث");
@@ -934,7 +1019,9 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }, 200);
                 return;
             }
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
 
 
     if (document.querySelector('#storeNum').value == '' && document.querySelector('#storeName').value != '') {
@@ -974,7 +1061,9 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 fetchStoreInfo();
                 document.querySelector('#storeName').value = '';
                 document.querySelector('#storeNum').value = '';
-            }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+            }).catch(error => {
+                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+            });
     } else if (document.querySelector('#storeName').value == '' && document.querySelector('#storeNum').value != '') {
         if (currentCountryCodeSelected < 0) {
             alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح');
@@ -1026,7 +1115,9 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 fetchStoreInfo();
                 document.querySelector('#storeName').value = '';
                 document.querySelector('#storeNum').value = '';
-            }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+            }).catch(error => {
+                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+            });
     } else if (document.querySelector('#storeNum').value != '' && document.querySelector('#storeName').value != '') {
         if (currentCountryCodeSelected < 0) {
             alert('لم تدخل مفتاح الدولة،\n الرجاء المحاولة مجددَا مع إدخال المفتاح');
@@ -1061,7 +1152,10 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 })
             })
         ]).then(([responseNum, responseName]) => {
-            return { num: responseNum.json(), name: responseName.json() };
+            return {
+                num: responseNum.json(),
+                name: responseName.json()
+            };
         }).then((responseJson) => {
             if (responseJson['num'].statCode == 400) {
                 alert('هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ');
@@ -1090,7 +1184,9 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             fetchStoreInfo();
             document.querySelector('#storeName').value = '';
             document.querySelector('#storeNum').value = '';
-        }).catch(error => { alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`) });
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}`)
+        });
     } else {
         return;
     }

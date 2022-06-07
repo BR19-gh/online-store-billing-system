@@ -55,6 +55,8 @@ function firstFetch() {
                             }
                             if (data3['storeName'] != "none/لايوجد") {
                                 document.querySelector('#storeName').innerText = data3['storeName'];
+                                clearInterval(loading);
+
                             }
 
                             fetch('/storeNum/show', {
@@ -155,9 +157,16 @@ function firstFetch() {
                                     let numNotRepeat = 0;
                                     let container = document.querySelector('#cardContainer');
                                     for (let i = 0; i < Object.keys(data).length; i++) {
-                                        if (data.statCode == 204) { document.querySelector('#msgNotFetched').style.display = "block"; break; } else { document.querySelector('#msgNotFetched').style.display = "none"; }
+                                        if (data.statCode == 204) {
+                                            document.querySelector('#msgNotFetched').style.display = "block";
+                                            break;
+                                        } else {
+                                            document.querySelector('#msgNotFetched').style.display = "none";
+                                        }
                                         num = Math.floor(Math.random() * 8) + 1;
-                                        while (num == numNotRepeat) { num = Math.floor(Math.random() * 8) + 1; }
+                                        while (num == numNotRepeat) {
+                                            num = Math.floor(Math.random() * 8) + 1;
+                                        }
                                         numNotRepeat = num;
 
                                         container.innerHTML +=
@@ -230,7 +239,9 @@ function firstFetch() {
                                             let sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b), 0); // sum all price array elements
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
-                                            cartInfo['titles'].forEach(function(x) { countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1; });
+                                            cartInfo['titles'].forEach(function(x) {
+                                                countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1;
+                                            });
                                             for (let j = 0; j < Object.keys(countsSumOfTitles).length; j++) {
                                                 sumOfTitles = sumOfTitles.concat(`المنتج:<b>${Object.keys(countsSumOfTitles)[j]}</b>، الكمية:<b>${Number(Object.values(countsSumOfTitles)[j])}</b> <br>`);
                                             }
@@ -301,7 +312,9 @@ function firstFetch() {
                                             let sumOfPrices = cartInfo['prices'].reduce((a, b) => Number(a) + Number(b), 0); // sum all price array elements
                                             let sumOfTitles = '';
                                             let countsSumOfTitles = {};
-                                            cartInfo['titles'].forEach(function(x) { countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1; });
+                                            cartInfo['titles'].forEach(function(x) {
+                                                countsSumOfTitles[x] = (countsSumOfTitles[x] || 0) + 1;
+                                            });
                                             for (let j = 0; j < Object.keys(countsSumOfTitles).length; j++) {
                                                 sumOfTitles = sumOfTitles.concat(`المنتج:<b>${Object.keys(countsSumOfTitles)[j]}</b>، الكمية:<b>${Number(Object.values(countsSumOfTitles)[j])}</b> <br>`);
                                             }
@@ -328,7 +341,10 @@ function firstFetch() {
                                     let fullPrice;
 
                                     document.querySelectorAll('.submitCode')[0].addEventListener('click', () => {
-                                        if (data2[`${Object.keys(data2)[0]}`] == null) { alert("القسيمة غير صالحة، جرب قسيمةً آخر"); return; }
+                                        if (data2[`${Object.keys(data2)[0]}`] == null) {
+                                            alert("القسيمة غير صالحة، جرب قسيمةً آخر");
+                                            return;
+                                        }
                                         firstPassCart = 1;
                                         let totalPrice = document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0];
                                         for (let i = 0; i < Object.keys(data2).length; i++) {
@@ -437,7 +453,6 @@ function firstFetch() {
 
 
 
-
                                 });
                         });
                 });
@@ -468,3 +483,11 @@ function formatDate(date) {
     var strTime = year + '/' + month + '/' + date + ', ' + hours + ':' + minutes + ampm;
     return strTime;
 }
+
+
+let i = 0;
+let loading = setInterval(() => {
+    if (i < 3) i++;
+    else i = 0;
+    document.querySelector('#storeName').innerText = `جار التحميل${'.'.repeat(i)}`;
+}, 500);
