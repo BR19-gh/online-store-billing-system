@@ -281,6 +281,10 @@ input {
     font-size: 30px;
 }
 
+button.btn-close.btn-close-black {
+    margin: 0;
+}
+
 #title {
     padding-left: 15px;
 }

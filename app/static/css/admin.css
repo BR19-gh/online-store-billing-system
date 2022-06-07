@@ -433,6 +433,10 @@ input#productImg {
     justify-content: center;
 }
 
+button.btn-close.btn-close-black {
+    margin: 0;
+}
+
 .dashboardTitles {
     font-size: 35px;
     font-weight: bold;
