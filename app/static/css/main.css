@@ -298,15 +298,25 @@ div#shoppingCartIcon {
     margin-top: 15px;
 }
 
+#cartInfoHeader {
+    z-index: 10;
+}
+
+#infoCardHeader {
+    z-index: 10;
+}
+
 #cartInfo {
+    z-index: 9;
     width: 350px;
-    height: 650px;
+    height: 645px;
     backdrop-filter: blur(10px) contrast(100%);
     -webkit-backdrop-filter: blur(10px) contrast(100%);
     background-color: var(--infoCard);
 }
 
 #infoCard {
+    z-index: 9;
     width: 370px;
     height: 290px;
     backdrop-filter: blur(10px) contrast(100%);
@@ -329,12 +339,6 @@ div#shoppingCartIcon {
     backdrop-filter: blur(10px) contrast(100%);
     -webkit-backdrop-filter: blur(10px) contrast(100%);
     background-color: var(--h1OtherScreen);
-}
-
-@media only screen and (min-width: 500px) {
-    .forsted {
-        background-color: var(--containerHover);
-    }
 }
 
 #websiteAddress:hover {
