@@ -300,17 +300,15 @@ div#shoppingCartIcon {
 
 #cartInfo {
     width: 350px;
-    height: 700px;
+    height: 650px;
     backdrop-filter: blur(10px) contrast(100%);
     -webkit-backdrop-filter: blur(10px) contrast(100%);
     background-color: var(--infoCard);
 }
 
 #infoCard {
-    width: 350px;
+    width: 370px;
     height: 290px;
-    top: 229px;
-    right: 115px;
     backdrop-filter: blur(10px) contrast(100%);
     -webkit-backdrop-filter: blur(10px) contrast(100%);
     background-color: var(--infoCard);
