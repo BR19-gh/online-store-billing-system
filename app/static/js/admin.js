@@ -1290,8 +1290,8 @@ for (var i = 0; i < allCountriesAncors.length; i++) {
         countryCodeTitle.innerText = currentCountryCodeSelected;
     });
 }
-for (var i = 0; i < document.querySelectorAll('.close').length; i++) {
-    document.querySelectorAll('.close')[i].addEventListener('click', function() {
+for (var i = 0; i < document.querySelectorAll('[data-bs-dismiss="modal"]').length; i++) {
+    document.querySelectorAll('[data-bs-dismiss="modal"]')[i].addEventListener('click', function() {
         document.querySelector('#codeID').value = ``;
         document.querySelector('#codeName').value = ``;
         document.querySelector('#codeAmount').value = ``;
