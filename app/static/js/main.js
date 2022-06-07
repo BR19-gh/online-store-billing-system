@@ -79,12 +79,12 @@ function firstFetch() {
 
                                         setTimeout(() => {
                                             document.querySelector('#cartInfo').style.display = "block";
-                                        }, 305);
+                                        }, 300);
 
                                         document.getElementById('cover').style.display = 'block';
                                         setTimeout(() => {
                                             document.getElementById('cover').style.opacity = '1';
-                                        }, 305);
+                                        }, 300);
 
 
                                     });
@@ -95,12 +95,12 @@ function firstFetch() {
 
                                         setTimeout(() => {
                                             document.querySelector('#cartInfo').style.display = "none";
-                                        }, 305);
+                                        }, 300);
 
                                         document.getElementById('cover').style.display = 'none';
                                         setTimeout(() => {
                                             document.getElementById('cover').style.opacity = '0';
-                                        }, 305);
+                                        }, 300);
                                     });
 
                                     document.querySelector('#infoIcon').addEventListener('click', () => {
@@ -109,12 +109,12 @@ function firstFetch() {
 
                                         setTimeout(() => {
                                             document.querySelector('#infoCard').style.display = "block";
-                                        }, 305);
+                                        }, 300);
 
                                         document.getElementById('cover').style.display = 'block';
                                         setTimeout(() => {
                                             document.getElementById('cover').style.opacity = '1';
-                                        }, 305);
+                                        }, 300);
                                     });
 
                                     document.querySelector('#infoCardCancel').addEventListener('click', () => {
@@ -123,12 +123,32 @@ function firstFetch() {
 
                                         setTimeout(() => {
                                             document.querySelector('#infoCard').style.display = "none";
-                                        }, 305);
+                                        }, 300);
 
                                         document.getElementById('cover').style.display = 'none';
                                         setTimeout(() => {
                                             document.getElementById('cover').style.opacity = '0';
-                                        }, 305);
+                                        }, 300);
+                                    });
+
+                                    document.querySelector('#cover').addEventListener('click', () => {
+                                        document.querySelector('#infoCard').classList.add('closeNice');
+                                        document.querySelector('#infoCard').classList.remove('showNice');
+                                        document.querySelector('#cartInfo').classList.add('closeNice');
+                                        document.querySelector('#cartInfo').classList.remove('showNice');
+
+
+                                        setTimeout(() => {
+                                            document.querySelector('#cartInfo').style.display = "none";
+                                        }, 300);
+                                        setTimeout(() => {
+                                            document.querySelector('#infoCard').style.display = "none";
+                                        }, 300);
+
+                                        document.getElementById('cover').style.display = 'none';
+                                        setTimeout(() => {
+                                            document.getElementById('cover').style.opacity = '0';
+                                        }, 300);
                                     });
 
                                     let num = 1
