@@ -140,10 +140,16 @@ b {
     margin-top: 10px;
 }
 
+#pressToNotShowBtn:hover {
+    background-color: var(--btns);
+}
+
 #pressToNotShowBtn {
-    width: 175px;
+    width: 130px;
+    height: 70px;
     text-align: center;
     margin-top: 15px;
+    background-color: var(--btnsHover);
 }
 
 @media only screen and (max-width: 800px) {
