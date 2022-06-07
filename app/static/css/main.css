@@ -300,6 +300,7 @@ div#shoppingCartIcon {
 
 #cartInfo,
 #infoCard {
+    z-index: 2;
     width: 40%;
     height: 85%;
     backdrop-filter: blur(10px) contrast(100%);
