@@ -81,6 +81,12 @@ function firstFetch() {
                                             document.querySelector('#cartInfo').style.display = "block";
                                         }, 305);
 
+                                        document.getElementById('cover').style.display = 'block';
+                                        setTimeout(() => {
+                                            document.getElementById('cover').style.opacity = '1';
+                                        }, 305);
+
+
                                     });
 
                                     document.querySelector('#shoppingCartCancel').addEventListener('click', () => {
@@ -89,6 +95,11 @@ function firstFetch() {
 
                                         setTimeout(() => {
                                             document.querySelector('#cartInfo').style.display = "none";
+                                        }, 305);
+
+                                        document.getElementById('cover').style.display = 'none';
+                                        setTimeout(() => {
+                                            document.getElementById('cover').style.opacity = '0';
                                         }, 305);
                                     });
 
@@ -99,6 +110,11 @@ function firstFetch() {
                                         setTimeout(() => {
                                             document.querySelector('#infoCard').style.display = "block";
                                         }, 305);
+
+                                        document.getElementById('cover').style.display = 'block';
+                                        setTimeout(() => {
+                                            document.getElementById('cover').style.opacity = '1';
+                                        }, 305);
                                     });
 
                                     document.querySelector('#infoCardCancel').addEventListener('click', () => {
@@ -107,6 +123,11 @@ function firstFetch() {
 
                                         setTimeout(() => {
                                             document.querySelector('#infoCard').style.display = "none";
+                                        }, 305);
+
+                                        document.getElementById('cover').style.display = 'none';
+                                        setTimeout(() => {
+                                            document.getElementById('cover').style.opacity = '0';
                                         }, 305);
                                     });
 
