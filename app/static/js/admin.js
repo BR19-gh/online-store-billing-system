@@ -1301,14 +1301,3 @@ for (var i = 0; i < document.querySelectorAll('[data-bs-dismiss="modal"]').lengt
         document.querySelector('#productImg').value = ``;
     });
 }
-
-$(".modal-content").click(function(ev) {
-    if (ev.target != this) return;
-    document.querySelector('#codeID').value = ``;
-    document.querySelector('#codeName').value = ``;
-    document.querySelector('#codeAmount').value = ``;
-    document.querySelector('#productID').value = ``;
-    document.querySelector('#productTitle').value = ``;
-    document.querySelector('#productPrice').value = ``;
-    document.querySelector('#productImg').value = ``;
-});
