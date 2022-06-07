@@ -241,7 +241,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#updProd').style.display = "none";
         document.querySelector('#delProd').style.display = "none";
         //fill input
-        document.querySelector('#productModalLongTitle').innerHTML = `إضافة قسيمة`;
+        document.querySelector('#productModalLongTitle').innerHTML = `إضافة منتج`;
         document.querySelector('#browseImg').innerHTML = ``;
         //disable input
         document.querySelector('#productID').disabled = false;
@@ -264,7 +264,7 @@ function deleteOrEditStoreInfo(id, opration) {
         document.querySelector('#addInfo').style.display = "none";
         document.querySelector('#updInfo').style.display = "block";
         //fill input
-        document.querySelector('#storeInfoModalLongTitle').innerHTML = `تعديل معلومات المتجر`;
+        document.querySelector('#storeInfoModalLongTitle').innerHTML = `تعديل المعلومات`;
         //disable input
 
     } else if (opration == 'add') {
