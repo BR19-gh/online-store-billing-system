@@ -298,37 +298,27 @@ div#shoppingCartIcon {
     margin-top: 15px;
 }
 
-#cartInfo,
-#infoCard {
-    width: 40%;
-    height: 85%;
+#cartInfo {
+    width: 350px;
+    height: 700px;
     backdrop-filter: blur(10px) contrast(100%);
     -webkit-backdrop-filter: blur(10px) contrast(100%);
     background-color: var(--infoCard);
 }
 
 #infoCard {
-    height: 40%;
+    width: 350px;
+    height: 290px;
     top: 229px;
     right: 115px;
+    backdrop-filter: blur(10px) contrast(100%);
+    -webkit-backdrop-filter: blur(10px) contrast(100%);
+    background-color: var(--infoCard);
 }
 
 @media only screen and (max-width: 800px) {
     #infoCard {
-        width: 90%;
-        height: 40%;
         right: auto;
-    }
-    #cartInfo,
-    #infoCard {
-        background-color: var(--infoCard);
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    #cartInfo {
-        width: 90%;
-        height: 90%;
     }
 }
 

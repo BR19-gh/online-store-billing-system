@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7882c25953.js" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
@@ -50,8 +50,8 @@
 
     </div>
 
-    <div class="container" id="cartInfo">
-        <h1 class="forsted" style="display: flex; justify-content: space-evenly;">
+    <div class="container" id="">
+        <h1 id="cartInfoHeader" class="forsted" style="display: flex; justify-content: space-evenly;">
             <div id="shoppingCartCancel">×</div>
             <div id="title" style="direction: rtl;">الــســلــة
                 <i style="font-size: smaller;" class="fas fa-shopping-cart"></i>
@@ -96,9 +96,8 @@
         </div>
     </div>
 
-
     <div class="container" id="infoCard">
-        <h1 class="forsted" style="display: flex; justify-content: space-evenly;">
+        <h1 id="infoCardHeader" class="forsted" style="display: flex; justify-content: space-evenly;">
             <div id="infoCardCancel">×</div>
             <div id="title" style="direction: rtl;">حول
                 <i style="font-size: smaller;" class="fas fa-info-circle"></i>
@@ -125,7 +124,66 @@
 
 
 
+        <script>
+            // Make the DIV element draggable:
+            dragElement(document.getElementById("cartInfo"));
+            dragElement(document.getElementById("infoCard"));
 
+            function dragElement(elmnt) {
+                var pos1 = 0,
+                    pos2 = 0,
+                    pos3 = 0,
+                    pos4 = 0;
+                if (document.getElementById(elmnt.id + "Header")) {
+                    // if present, the header is where you move the DIV from:
+                    document.getElementById(elmnt.id + "Header").onmousedown = dragMouseDown;
+                } else {
+                    // otherwise, move the DIV from anywhere inside the DIV:
+                    elmnt.onmousedown = dragMouseDown;
+                }
+
+                function dragMouseDown(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    // get the mouse cursor position at startup:
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    // call a function whenever the cursor moves:
+                    document.onmousemove = elementDrag;
+                }
+
+                function elementDrag(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    // calculate the new cursor position:
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    // set the element's new position:
+                    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                }
+
+                function closeDragElement() {
+                    // stop moving when mouse button is released:
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+        </script>
+        <style>
+            #cartInfo,
+            #infoCard {
+                position: absolute;
+            }
+            
+            #cartInfoHeader,
+            #infoCardHeader {
+                cursor: move;
+            }
+        </style>
 
 
 
