@@ -463,7 +463,7 @@ function fetchStoreInfo() {
             document.querySelector("#addInfoBtn").style.display = "block";
             document.querySelector("#updInfoBtn").style.display = "none";
         }
-        document.querySelector('#num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
+        document.querySelector('#num').innerHTML = `رقم المتجر:<br><b class="numAndName">${responseJson['storeNum']}</b>`;
         addToListOfInfo('num', responseJson['storeNum']);
 
     }).catch(error => {
@@ -486,7 +486,7 @@ function fetchStoreInfo() {
             if (responseJson['storeName'] != 'none/لايوجد') {
                 document.querySelector("#addInfo").style.display = "none";
             }
-            document.querySelector('#name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
+            document.querySelector('#name').innerHTML = `اسم المتجر:<br><b class="numAndName">${responseJson['storeName']}</b>`;
             addToListOfInfo('name', responseJson['storeName']);
         }).catch(error => {
             alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
