@@ -267,7 +267,7 @@ function deleteOrEditStoreInfo(id, opration) {
         document.querySelector('#storeInfoModalLongTitle').innerHTML = `تعديل المعلومات`;
         document.querySelector('#storeName').value = `${listOfInfo['name']}`;
         let sliceNum = findHowMuchToSliceByNumber(`${listOfInfo['num']}`);
-        if (sliceNum != 'err404') { document.querySelector('#storeNum').value = `${listOfInfo['num']}`.slice(0, sliceNum); } else {
+        if (sliceNum != 'err404') { document.querySelector('#storeNum').value = `${listOfInfo['num']}`.slice(sliceNum); } else {
             document.querySelector('#storeNum').value = ``;
         }
         document.querySelector('#storeDetails').value = `${listOfInfo['details']}`;
