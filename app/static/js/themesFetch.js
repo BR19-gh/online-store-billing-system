@@ -1,8 +1,8 @@
 export function fetchThemes() {
     fetch('/storeTheme/show', {
             method: 'GET',
-        }).then((responseName) => {
-            return responseName.json();
+        }).then((responseTheme) => {
+            return responseTheme.json();
         })
         .then((responseJson) => {
 

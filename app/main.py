@@ -249,7 +249,9 @@ class StoreInfoTable:
                 CREATE TABLE IF NOT EXISTS storeInfo
                     (
                         storeName TEXT NOT NULL,
+                        storeDetails TEXT NOT NULL,
                         storeNum BIGINT NOT NULL
+                        
                     )
                             """)
 
@@ -264,6 +266,15 @@ class StoreInfoTable:
 
                             """)
 
+        elif infoType == 'details':
+
+            self.cur.execute(f"""
+
+                SELECT storeDetails
+                FROM storeInfo
+
+                        """)                            
+
         elif infoType == 'num':
 
             self.cur.execute(f"""
@@ -272,6 +283,8 @@ class StoreInfoTable:
                 FROM storeInfo
 
                         """)
+
+
 
         else:
             raise Exception("Error in variable 'infoType'")
@@ -288,11 +301,13 @@ class StoreInfoTable:
                 INSERT INTO storeInfo 
                             (
                                 storeName,
+                                storeDetails,
                                 storenum
                             ) 
                 VALUES 
                             (
                                 '{inputData["storeName"]}',
+                                '{inputData["storeDetails"]}',
                                 '{inputData["storeNum"]}'
                             );
                         
@@ -308,6 +323,14 @@ class StoreInfoTable:
 
                 UPDATE storeInfo 
                 SET storeName = '{inputData}'
+                        
+                        """)
+        elif infoType == 'details':
+
+            self.cur.execute(f"""
+
+                UPDATE storeInfo 
+                SET storeDetails = '{inputData}'
                         
                         """)
 
@@ -337,6 +360,14 @@ class StoreInfoTable:
                 SET storeName = '{inputData}'
                         
                         """)
+        elif infoType == 'details':
+
+            self.cur.execute(f"""
+
+                DELETE FROM storeInfo 
+                SET storeDetails = '{inputData}'
+                        
+                        """)
 
         elif infoType == 'num':
 
@@ -355,8 +386,8 @@ class StoreInfoTable:
     def __del__(self):
         self.conn.close()
 
-
-class StoreThemeTable:
+     #Store Customizations Table
+class StoreCustomTable:
 
     def __init__(self):
         self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
@@ -366,7 +397,7 @@ class StoreThemeTable:
 
                 CREATE TABLE IF NOT EXISTS storethemes
                     (
-                        storetheme TEXT NOT NULL
+                        storetheme TEXT NOT NULL,
                     ) 
                         """)
 
@@ -476,7 +507,7 @@ def admin_view():
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def product(idIn=None):
     print('The ip address: ', get_remote_address())
-    newObj = ProductsTable()
+    productObj = ProductsTable()
 
     if request.method == 'POST':
 
@@ -491,7 +522,7 @@ def product(idIn=None):
         price = unquote(data['price'])
 
         try:
-            result = newObj.search(id)
+            result = productObj.search(id)
             if result == None:
                 pass
             else:
@@ -504,16 +535,16 @@ def product(idIn=None):
         #     imgFile = 'no image was provided'
 
         try:
-            newObj.insert(id, title, price, imgFile)
+            productObj.insert(id, title, price, imgFile)
 
-            recordSearched = newObj.search(id)
+            recordSearched = productObj.search(id)
             if (recordSearched[0] == int(id)):
-                return jsonify({"msg": f"Success 201: product_id:{id} is recorded, the id matches {(newObj.search(id))[0]}", "statCode": 201})
+                return jsonify({"msg": f"Success 201: product_id:{id} is recorded, the id matches {(productObj.search(id))[0]}", "statCode": 201})
         except:
             if (isinstance(id, int) == False or isinstance(price, int) == False):
                 return jsonify({"msg": f"Bad Request 400: product was not added, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
             else:
-                return jsonify({"msg": f"Unkown Error 500: product_id:{id} was not recorded, the id doesn't match {(newObj.search(id))[0]}", "statCode": 500})
+                return jsonify({"msg": f"Unkown Error 500: product_id:{id} was not recorded, the id doesn't match {(productObj.search(id))[0]}", "statCode": 500})
 
     elif request.method == 'PUT':
 
@@ -530,29 +561,29 @@ def product(idIn=None):
         #     imgFilename = 'no image was provided'
 
         try:
-            oldPrudRecord = newObj.search(idIn)
-            newObj.update(idIn, title, price, imgFile)
+            oldPrudRecord = productObj.search(idIn)
+            productObj.update(idIn, title, price, imgFile)
 
-            recordSearched = newObj.search(idIn)
+            recordSearched = productObj.search(idIn)
             if recordSearched == None:
                 return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
             else:
-                return jsonify({"msg": f"Success 200: product_idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
+                return jsonify({"msg": f"Success 200: product_idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 200})
         except:
             if (isinstance(idIn, int) == False or isinstance(price, int) == False):
                 return jsonify({"msg": f"Bad Request 400: product was not updated, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
             else:
-                return jsonify({"msg": f"Unkown Error 500: product_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 500})
+                return jsonify({"msg": f"Unkown Error 500: product_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 500})
 
     elif request.method == 'GET':
 
         try:
-            result = newObj.search(idIn)
+            result = productObj.search(idIn)
 
             if result == None:
                 return jsonify({"msg": f"Success 202: the product_idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
             else:
-                return jsonify({"msg": f"Status Code 403: the product_idIn {idIn} exists, {newObj.search(idIn)[0::2]}", "statCode": 403})
+                return jsonify({"msg": f"Status Code 403: the product_idIn {idIn} exists, {productObj.search(idIn)[0::2]}", "statCode": 403})
         except:
             if (isinstance(idIn, int) == False):
                 return jsonify({"msg": f"Bad Request 400:  product_idIn is not integer, or it contains illegal form of characters", "statCode": 400})
@@ -560,7 +591,7 @@ def product(idIn=None):
     elif request.method == 'DELETE':
 
         try:
-            result = newObj.search(idIn)
+            result = productObj.search(idIn)
 
             if result == None:
                 return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not found, it may not exist", "statCode": 404})
@@ -568,9 +599,9 @@ def product(idIn=None):
             if (isinstance(idIn, int) == False):
                 return jsonify({"msg": f"Bad Request 400:  product_idIn is not integer, or it contains illegal form of characters", "statCode": 400})
 
-        newObj.delete(idIn)
+        productObj.delete(idIn)
 
-        result = newObj.search(idIn)
+        result = productObj.search(idIn)
 
         if result == None:
             return jsonify({"msg": f"Success 204: product_idIn:{idIn} is deleted successfully, product_idIn:{idIn} doesn't exist anymore", "statCode": 204})
@@ -581,9 +612,9 @@ def product(idIn=None):
 @app.route("/products", methods=['GET'])
 @limiter.exempt
 def products():
-    newObj = ProductsTable()
+    productObj = ProductsTable()
 
-    result = newObj.display()
+    result = productObj.display()
     dictOfResult = {}
 
     j = 0
@@ -605,7 +636,7 @@ def products():
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def promocode(idIn=None):
     print('The ip address: ', get_remote_address())
-    newObj = PromocodesTable()
+    promoObj = PromocodesTable()
 
     if request.method == 'POST':
 
@@ -618,7 +649,7 @@ def promocode(idIn=None):
             return jsonify({"msg": f"Bad Request 400: code was not added, even the provided amount is not float, or it contains illegal form of characters", "statCode": 400})
 
         try:
-            result = newObj.search(id)
+            result = promoObj.search(id)
             if result == None:
                 pass
             else:
@@ -628,16 +659,16 @@ def promocode(idIn=None):
                 return jsonify({"msg": f"Bad Request 400:  id is not integer, or it contains illegal form of characters", "statCode": 400})
 
         try:
-            newObj.insert(id, code, amount)
+            promoObj.insert(id, code, amount)
 
-            recordSearched = newObj.search(id)
+            recordSearched = promoObj.search(id)
             if (recordSearched[0] == int(id)):
-                return jsonify({"msg": f"Success 201: code_id:{id} is recorded, the id matches {(newObj.search(id))[0]}", "statCode": 201})
+                return jsonify({"msg": f"Success 201: code_id:{id} is recorded, the id matches {(promoObj.search(id))[0]}", "statCode": 201})
         except:
             if (isinstance(id, int) == False or isinstance(amount, float) == False):
                 return jsonify({"msg": f"Bad Request 400: code was not added, even the provided id or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
             else:
-                return jsonify({"msg": f"Unkown Error 500: code_id:{id} was not recorded, the id doesn't match {(newObj.search(id))[0]}", "statCode": 500})
+                return jsonify({"msg": f"Unkown Error 500: code_id:{id} was not recorded, the id doesn't match {(promoObj.search(id))[0]}", "statCode": 500})
 
     elif request.method == 'PUT':
 
@@ -652,30 +683,30 @@ def promocode(idIn=None):
 
         try:
 
-            oldPrudRecord = newObj.search(idIn)
-            newObj.update(idIn, code, amount)
+            oldPrudRecord = promoObj.search(idIn)
+            promoObj.update(idIn, code, amount)
 
-            recordSearched = newObj.search(idIn)
+            recordSearched = promoObj.search(idIn)
             if recordSearched == None:
                 return jsonify({"msg": f"Error 404: code_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
             else:
-                return jsonify({"msg": f"Success 200: code_idIn::{idIn} is updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 200})
+                return jsonify({"msg": f"Success 200: code_idIn::{idIn} is updated, old data:{oldPrudRecord}, new data:{promoObj.search(idIn)}", "statCode": 200})
         except:
 
             if (isinstance(idIn, int) == False or isinstance(amount, float) == False):
                 return jsonify({"msg": f"Bad Request 400: code was not updated, even the provided idIn or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
             else:
-                return jsonify({"msg": f"Unkown Error 500: code_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{newObj.search(idIn)}", "statCode": 500})
+                return jsonify({"msg": f"Unkown Error 500: code_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{promoObj.search(idIn)}", "statCode": 500})
 
     elif request.method == 'GET':
 
         try:
-            result = newObj.search(idIn)
+            result = promoObj.search(idIn)
 
             if result == None:
                 return jsonify({"msg": f"Success 202: the promocode_idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
             else:
-                return jsonify({"msg": f"Status Code 403: the promocode_idIn {idIn} exists, {newObj.search(idIn)[0::2]}", "statCode": 403})
+                return jsonify({"msg": f"Status Code 403: the promocode_idIn {idIn} exists, {promoObj.search(idIn)[0::2]}", "statCode": 403})
         except:
             if (isinstance(idIn, int) == False):
                 return jsonify({"msg": f"Bad Request 400:  promocode_idIn is not integer, or it contains illegal form of characters", "statCode": 400})
@@ -683,7 +714,7 @@ def promocode(idIn=None):
     elif request.method == 'DELETE':
 
         try:
-            result = newObj.search(idIn)
+            result = promoObj.search(idIn)
 
             if result == None:
                 return jsonify({"msg": f"Error 404: promocode_idIn:{idIn} was not found, it may not exist", "statCode": 404})
@@ -691,9 +722,9 @@ def promocode(idIn=None):
             if (isinstance(idIn, int) == False):
                 return jsonify({"msg": f"Bad Request 400:  promocode_idIn is not integer, or it contains illegal form of characters", "statCode": 400})
 
-        newObj.delete(idIn)
+        promoObj.delete(idIn)
 
-        result = newObj.search(idIn)
+        result = promoObj.search(idIn)
 
         if result == None:
             return jsonify({"msg": f"Success 204: code_idIn:{idIn} is deleted successfully, code_idIn:{idIn} doesn't exist anymore", "statCode": 204})
@@ -704,9 +735,9 @@ def promocode(idIn=None):
 @app.route("/promocodes", methods=['GET'])
 @limiter.exempt
 def promocodes():
-    newObj = PromocodesTable()
+    promoObj = PromocodesTable()
 
-    result = newObj.display()
+    result = promoObj.display()
     dictOfResult = {}
 
     for i in result:
@@ -725,7 +756,7 @@ def promocodes():
 @limiter.limit('1 per 10seconds', per_method=True, methods=['POST'])
 def storeInfo():
     print('The ip address: ', get_remote_address())
-    newObj = StoreInfoTable()
+    storeInfoObj = StoreInfoTable()
 
     if request.method == 'POST':
 
@@ -734,46 +765,46 @@ def storeInfo():
         print(storeInfo)
 
         try:
-            newObj.insert(storeInfo)
+            storeInfoObj.insert(storeInfo)
 
-            recordSearched = newObj.search('name')
+            recordSearched = storeInfoObj.search('name')
             if (recordSearched[0] == storeInfo['storeName']):
-                return jsonify({"msg": f"Success 201: storeName:{storeInfo['storeName']} is recorded, the storeName matches {(newObj.search('name'))[0]}", "statCode": 201})
+                return jsonify({"msg": f"Success 201: storeName:{storeInfo['storeName']} is recorded, the storeName matches {(storeInfoObj.search('name'))[0]}", "statCode": 201})
         except:
-            return jsonify({"msg": f"Unkown Error 500: storeName:{storeInfo['storeName']} was not recorded, the storeName doesn't match {(newObj.search('name'))[0]}", "statCode": 500})
+            return jsonify({"msg": f"Unkown Error 500: storeName:{storeInfo['storeName']} was not recorded, the storeName doesn't match {(storeInfoObj.search('name'))[0]}", "statCode": 500})
 
 
 @app.route("/storeName", methods=['PUT', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeName():
     print('The ip address: ', get_remote_address())
-    newObj = StoreInfoTable()
+    storeInfoObj = StoreInfoTable()
 
     if request.method == 'PUT':
         data = request.get_json()
         storeName = data['storeName']
-        result = newObj.search('name')
+        result = storeInfoObj.search('name')
 
         try:
-            newObj.update('name', storeName)
+            storeInfoObj.update('name', storeName)
 
-            recordSearched = newObj.search('name')
+            recordSearched = storeInfoObj.search('name')
             if recordSearched == None:
                 return jsonify({"msg": f"Error 404: storeName:{storeName} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
             elif (recordSearched[0] == storeName):
-                return jsonify({"msg": f"Success 200: storeName:{storeName} is updated, old data:{result}, new data:{newObj.search('name')}", "statCode": 200})
+                return jsonify({"msg": f"Success 200: storeName:{storeName} is updated, old data:{result}, new data:{storeInfoObj.search('name')}", "statCode": 200})
         except:
-            return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not updated, old data:{result}, new data:{newObj.search('name')}", "statCode": 500})
+            return jsonify({"msg": f"Unkown Error 500: storeName:{storeName} was not updated, old data:{result}, new data:{storeInfoObj.search('name')}", "statCode": 500})
 
     elif request.method == 'DELETE':
-        result = newObj.search('name')
+        result = storeInfoObj.search('name')
 
         if result == None:
             return jsonify({"msg": f"Error 404: storeName:{result} was not found, it may not exist", "statCode": 404})
 
-        newObj.delete('name', newObj.search('name')[0])
+        storeInfoObj.delete('name', storeInfoObj.search('name')[0])
 
-        result = newObj.search('name')
+        result = storeInfoObj.search('name')
 
         if result == None:
             return jsonify({"msg": f"Success 204: store name is deleted successfully", "statCode": 204})
@@ -788,50 +819,103 @@ def storeName():
 @limiter.exempt
 def storeNameGet():
     print('The ip address: ', get_remote_address())
-    newObj = StoreInfoTable()
-    if newObj.search('name') == None:
+    storeInfoObj = StoreInfoTable()
+    if storeInfoObj.search('name') == None:
         return jsonify({"storeName": "none/لايوجد"})
     else:
-        return jsonify({"storeName": newObj.search('name')})
+        return jsonify({"storeName": storeInfoObj.search('name')})
+
+        
+
+@app.route("/storeDetails", methods=['PUT', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
+def storeDetails():
+    print('The ip address: ', get_remote_address())
+    storeInfoObj = StoreInfoTable()
+
+    if request.method == 'PUT':
+        data = request.get_json()
+        storeDetails = data['storeDetails']
+        result = storeInfoObj.search('details')
+
+        try:
+            storeInfoObj.update('details', storeDetails)
+
+            recordSearched = storeInfoObj.search('details')
+            if recordSearched == None:
+                return jsonify({"msg": f"Error 404: storeDetails:{storeDetails} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
+            elif (recordSearched[0] == storeDetails):
+                return jsonify({"msg": f"Success 200: storeDetails:{storeDetails} is updated, old data:{result}, new data:{storeInfoObj.search('details')}", "statCode": 200})
+        except:
+            return jsonify({"msg": f"Unkown Error 500: storeDetails:{storeDetails} was not updated, old data:{result}, new data:{storeInfoObj.search('details')}", "statCode": 500})
+
+    elif request.method == 'DELETE':
+        result = storeInfoObj.search('details')
+
+        if result == None:
+            return jsonify({"msg": f"Error 404: storeDetails:{result} was not found, it may not exist", "statCode": 404})
+
+        storeInfoObj.delete('details', storeInfoObj.search('details')[0])
+
+        result = storeInfoObj.search('details')
+
+        if result == None:
+            return jsonify({"msg": f"Success 204: store details is deleted successfully", "statCode": 204})
+        else:
+            return jsonify({"msg": f"Error 500: failed to delete storeDetails:{result}, storeDetails:{result} still exists", "statCode": 500})
+    else:
+
+        abort(405)
+
+
+@app.route("/storeDetails/show", methods=['GET'])
+@limiter.exempt
+def storeDetailsGet():
+    print('The ip address: ', get_remote_address())
+    storeInfoObj = StoreInfoTable()
+    if storeInfoObj.search('details') == None:
+        return jsonify({"storeDetails": "none/لايوجد"})
+    else:
+        return jsonify({"storeDetails": storeInfoObj.search('details')})
 
 
 @app.route("/storeNum", methods=['PUT', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeNum():
     print('The ip address: ', get_remote_address())
-    newObj = StoreInfoTable()
+    storeInfoObj = StoreInfoTable()
 
     if request.method == 'PUT':
         data = request.get_json()
         storeNum = data['storeNum']
-        result = newObj.search('num')
+        result = storeInfoObj.search('num')
 
         try:
-            newObj.update('num', storeNum)
+            storeInfoObj.update('num', storeNum)
 
-            recordSearched = newObj.search('num')
+            recordSearched = storeInfoObj.search('num')
             if recordSearched == None:
                 return jsonify({"msg": f"Error 404: storeNum:{storeNum} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
             elif (int(recordSearched[0]) == int(storeNum)):
-                return jsonify({"msg": f"Success 200: storeNum:{storeNum} is updated, old data:{result}, new data:{newObj.search('num')}", "statCode": 200})
+                return jsonify({"msg": f"Success 200: storeNum:{storeNum} is updated, old data:{result}, new data:{storeInfoObj.search('num')}", "statCode": 200})
         except:
             if (isinstance(storeNum, int) == False):
                 return jsonify({"msg": f"Bad Request 400: storeNum was not updated, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
             else:
-                return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not updated, old data:{result}, new data:{newObj.search('num')}", "statCode": 500})
+                return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not updated, old data:{result}, new data:{storeInfoObj.search('num')}", "statCode": 500})
 
     elif request.method == 'DELETE':
-        result = newObj.search('num')
+        result = storeInfoObj.search('num')
 
         if result == None:
             return jsonify({"msg": f"Error 404: storeNum:{result} was not found, it may not exist", "statCode": 404})
 
-        newObj.delete('num', newObj.search('num')[0])
+        storeInfoObj.delete('num', storeInfoObj.search('num')[0])
 
-        result = newObj.search('num')
+        result = storeInfoObj.search('num')
 
         if result == None:
-            return jsonify({"msg": f"Success 204: store name is deleted successfully", "statCode": 204})
+            return jsonify({"msg": f"Success 204: storeNum is deleted successfully", "statCode": 204})
         else:
             return jsonify({"msg": f"Error 500: failed to delete storeNum:{result}, storeNum:{result} still exists", "statCode": 500})
     else:
@@ -843,58 +927,58 @@ def storeNum():
 @limiter.exempt
 def storeNumGet():
     print('The ip address: ', get_remote_address())
-    newObj = StoreInfoTable()
-    if newObj.search('num') == None:
+    storeInfoObj = StoreInfoTable()
+    if storeInfoObj.search('num') == None:
         return jsonify({"storeNum": "none/لايوجد"})
     else:
-        return jsonify({"storeNum": newObj.search('num')})
+        return jsonify({"storeNum": storeInfoObj.search('num')})
 
 
 @app.route("/storeTheme", methods=['POST', 'PUT', 'DELETE'])
 @limiter.limit('1 per 1seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeTheme():
     print('The ip address: ', get_remote_address())
-    newObj = StoreThemeTable()
+    storeCustomObj = StoreCustomTable()
     if request.method == 'POST':
         data = request.get_json()
         storeTheme = data['storeTheme']
 
         try:
-            newObj.insert(storeTheme)
+            storeCustomObj.insert(storeTheme)
 
-            recordSearched = newObj.search()
+            recordSearched = storeCustomObj.search()
             if (recordSearched[0] == storeTheme):
-                return jsonify({"msg": f"Success 201: storeTheme:{storeTheme} is recorded, the storeTheme matches {(newObj.search())[0]}", "statCode": 201})
+                return jsonify({"msg": f"Success 201: storeTheme:{storeTheme} is recorded, the storeTheme matches {(storeCustomObj.search())[0]}", "statCode": 201})
         except:
-            return jsonify({"msg": f"Unkown Error 500: storeTheme:{storeTheme} was not recorded, the storeTheme doesn't match {(newObj.search())[0]}", "statCode": 500})
+            return jsonify({"msg": f"Unkown Error 500: storeTheme:{storeTheme} was not recorded, the storeTheme doesn't match {(storeCustomObj.search())[0]}", "statCode": 500})
 
     elif request.method == 'PUT':
         data = request.get_json()
         storeTheme = data['storeTheme']
-        result = newObj.search()
+        result = storeCustomObj.search()
         try:
-            newObj.update(storeTheme)
+            storeCustomObj.update(storeTheme)
 
-            recordSearched = newObj.search()
+            recordSearched = storeCustomObj.search()
             if recordSearched == None:
                 return jsonify({"msg": f"Error 404: storeTheme:{storeTheme} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
             elif (recordSearched[0] == storeTheme):
-                return jsonify({"msg": f"Success 200: storeTheme:{storeTheme} is updated, old data:{result}, new data:{newObj.search()}", "statCode": 200})
+                return jsonify({"msg": f"Success 200: storeTheme:{storeTheme} is updated, old data:{result}, new data:{storeCustomObj.search()}", "statCode": 200})
         except:
-            return jsonify({"msg": f"Unkown Error 500: storeTheme:{storeTheme} was not updated, old data:{result}, new data:{newObj.search()}", "statCode": 500})
+            return jsonify({"msg": f"Unkown Error 500: storeTheme:{storeTheme} was not updated, old data:{result}, new data:{storeCustomObj.search()}", "statCode": 500})
 
     elif request.method == 'DELETE':
-        result = newObj.search()
+        result = storeCustomObj.search()
 
         if result == None:
             return jsonify({"msg": f"Error 404: storeTheme:{result} was not found, it may not exist", "statCode": 404})
 
-        newObj.delete(newObj.search()[0])
+        storeCustomObj.delete(storeCustomObj.search()[0])
 
-        result = newObj.search()
+        result = storeCustomObj.search()
 
         if result == None:
-            return jsonify({"msg": f"Success 204: store name is deleted successfully", "statCode": 204})
+            return jsonify({"msg": f"Success 204: storeTheme is deleted successfully", "statCode": 204})
         else:
             return jsonify({"msg": f"Error 500: failed to delete storeTheme:{result}, storeTheme:{result} still exists", "statCode": 500})
     else:
@@ -906,11 +990,11 @@ def storeTheme():
 @limiter.exempt
 def storeThemeGet():
     print('The ip address: ', get_remote_address())
-    newObj = StoreThemeTable()
-    if newObj.search() == None:
+    storeCustomObj = StoreThemeTable()
+    if storeCustomObj.search() == None:
         return jsonify({"storeTheme": "none/لايوجد"})
     else:
-        return jsonify({"storeTheme": newObj.search()})
+        return jsonify({"storeTheme": storeCustomObj.search()})
 
 ##############################
 ###### Backend APIs END ######
