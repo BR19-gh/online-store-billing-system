@@ -990,7 +990,7 @@ def storeTheme():
 @limiter.exempt
 def storeThemeGet():
     print('The ip address: ', get_remote_address())
-    storeCustomObj = StoreThemeTable()
+    storeCustomObj = StoreCustomTable()
     if storeCustomObj.search() == None:
         return jsonify({"storeTheme": "none/لايوجد"})
     else:
