@@ -116,29 +116,8 @@
                 <h5 style="direction: rtl; font-size: 25px; margin-top: 8px;" class="card-title">وصف المتجر:</h5>
             </div>
             <div class="devInfo" class="card-body">
-                <h5 id="websiteAddress" style="direction:rtl; font-size: 15px;" class="card-title">
-                    <script>
-                        fetch('/storeDetails/show', {
-                                headers: {
-
-                                    'Method': 'GET',
-                                    'Content-Type': 'application/json',
-                                    'Accept': 'application/json'
-                                },
-                                method: 'GET',
-                            })
-                            .then((responseDetails) => {
-                                return responseDetails.json();
-                            }).then((responseJson) => {
-                                if (responseJson['storeDetails'] != 'none/لايوجد') {
-                                    document.write("لايوجد وصف");
-                                    return;
-                                } else {
-                                    document.write(responseJson['storeDetails']);
-                                    return;
-                                }
-                            });
-                    </script>
+                <h5 style="direction:rtl; font-size: 15px;" class="card-title">
+                    
                 </h5>
             </div>
             <div class="devInfo" class="card-body">
