@@ -282,19 +282,24 @@ h1 {
 }
 
 *::-webkit-scrollbar-track {
-    background-color: var(--webkitScrollbarTrack);
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
+    background-color: var(--form);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 *::-webkit-scrollbar-thumb {
     background-color: var(--webkitScrollbarThumb);
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
     background-color: var(--webkitScrollbarThumbHover);
+}
+
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 #form {

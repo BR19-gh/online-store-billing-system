@@ -124,14 +124,14 @@ h1 {
 
 *::-webkit-scrollbar-track {
     background-color: var(--form);
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 *::-webkit-scrollbar-thumb {
     background-color: var(--webkitScrollbarThumb);
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
