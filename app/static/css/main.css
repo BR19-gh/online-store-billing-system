@@ -313,7 +313,7 @@ div#shoppingCartIcon {
 }
 
 #infoCard {
-    height: 50%;
+    height: 55%;
     top: 229px;
     right: 115px;
 }
@@ -321,7 +321,7 @@ div#shoppingCartIcon {
 @media only screen and (max-width: 800px) {
     #infoCard {
         width: 90%;
-        height: 50%;
+        height: 55%;
         right: auto;
     }
     #cartInfo,
