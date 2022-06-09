@@ -1,6 +1,7 @@
 #####################
 ###### Imports ######
 #####################
+from pydoc import describe
 import sqlite3
 from urllib import response
 from flask import Flask, render_template, jsonify, request, abort, redirect
@@ -461,7 +462,10 @@ class StoreCustomTable:
 @app.route("/main")
 @limiter.exempt
 def main_view():
-    return render_template('main.html')
+
+    storeInfoObj = StoreInfoTable()
+
+    return render_template('main.html', description=storeInfoObj.search('details'))
 
 
 @app.route("/")

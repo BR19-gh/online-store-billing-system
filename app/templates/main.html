@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="لا يوجد وصف">
+    <meta name="description" content="{{ description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>صفحة المنتجات</title>
 
@@ -35,7 +35,7 @@
                 if (responseJson['storeDetails'] != 'none/لايوجد') {
                     document.querySelector("#details").innerText = responseJson['storeDetails'];
                     //[2]=["description"]
-                    document.querySelectorAll('meta')[2].content = responseJson['storeDetails'];
+                    //document.querySelectorAll('meta')[2].content = responseJson['storeDetails'];
                     return;
                 }
                 return;
