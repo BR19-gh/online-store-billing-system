@@ -780,6 +780,16 @@ document.querySelector('#updProd').addEventListener('click', () => {
 });
 
 document.querySelector('#delProd').addEventListener('click', () => {
+    if (document.querySelector('#productID').value == '' ||
+        document.querySelector('#productTitle').value == '' ||
+        document.querySelector('#productPrice').value == '' ||
+        document.querySelector('#productImg').value == '') {
+        alert('يجب ملئ جميع الخانات أولا');
+        setTimeout(() => {
+            $('#productModal').modal('show')
+        }, 200);
+        return;
+    }
     fetch(`/product/${document.querySelector('#productID').value}`, {
             headers: {
 
@@ -809,11 +819,6 @@ document.querySelector('#delProd').addEventListener('click', () => {
                 alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ')
                 return;
             }
-            if (document.querySelector('#productID').value == '') {
-                console.log("hhhhh")
-                return;
-            }
-            console.log("gggg")
 
             alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
@@ -936,6 +941,15 @@ document.querySelector('#updCode').addEventListener('click', () => {
 });
 
 document.querySelector('#delCode').addEventListener('click', () => {
+    if (document.querySelector('#codeID').value == '' ||
+        document.querySelector('#codeName').value == '' ||
+        document.querySelector('#codeAmount').value == '') {
+        alert('يجب ملئ جميع الخانات أولا');
+        setTimeout(() => {
+            $('#promoModal').modal('show');
+        }, 200);
+        return;
+    }
     fetch(`/promocode/${document.querySelector('#codeID').value}`, {
             headers: {
 
@@ -963,9 +977,6 @@ document.querySelector('#delCode').addEventListener('click', () => {
             }
             if (responseJson.statCode == 429) {
                 alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ')
-                return;
-            }
-            if (document.querySelector('#codeID').value == '') {
                 return;
             }
 
