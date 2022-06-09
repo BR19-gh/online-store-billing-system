@@ -463,7 +463,7 @@ function fetchStoreInfo() {
             document.querySelector("#addInfoBtn").style.display = "block";
             document.querySelector("#updInfoBtn").style.display = "none";
         }
-        document.querySelector('#num').innerHTML = `رقم المتجر: <b class="numAndName">${responseJson['storeNum']}</b>`;
+        document.querySelector('#num').innerHTML = `رقم المتجر:<br><b class="numAndName">${responseJson['storeNum']}</b>`;
         addToListOfInfo('num', responseJson['storeNum']);
 
     }).catch(error => {
@@ -486,7 +486,7 @@ function fetchStoreInfo() {
             if (responseJson['storeName'] != 'none/لايوجد') {
                 document.querySelector("#addInfo").style.display = "none";
             }
-            document.querySelector('#name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
+            document.querySelector('#name').innerHTML = `اسم المتجر:<br><b class="numAndName">${responseJson['storeName']}</b>`;
             addToListOfInfo('name', responseJson['storeName']);
         }).catch(error => {
             alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
@@ -780,16 +780,6 @@ document.querySelector('#updProd').addEventListener('click', () => {
 });
 
 document.querySelector('#delProd').addEventListener('click', () => {
-    if (document.querySelector('#productID').value == '' ||
-        document.querySelector('#productTitle').value == '' ||
-        document.querySelector('#productPrice').value == '' ||
-        document.querySelector('#productImg').value == '') {
-        alert('يجب ملئ جميع الخانات أولا');
-        setTimeout(() => {
-            $('#productModal').modal('show')
-        }, 200);
-        return;
-    }
     fetch(`/product/${document.querySelector('#productID').value}`, {
             headers: {
 
@@ -941,15 +931,6 @@ document.querySelector('#updCode').addEventListener('click', () => {
 });
 
 document.querySelector('#delCode').addEventListener('click', () => {
-    if (document.querySelector('#codeID').value == '' ||
-        document.querySelector('#codeName').value == '' ||
-        document.querySelector('#codeAmount').value == '') {
-        alert('يجب ملئ جميع الخانات أولا');
-        setTimeout(() => {
-            $('#promoModal').modal('show');
-        }, 200);
-        return;
-    }
     fetch(`/promocode/${document.querySelector('#codeID').value}`, {
             headers: {
 
