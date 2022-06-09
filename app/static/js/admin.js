@@ -214,7 +214,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#productTitle').disabled = false;
         document.querySelector('#productPrice').disabled = false;
         document.querySelector('#productImg').disabled = false;
-        document.querySelector('#productImg').style.display = "block";
+        // document.querySelector('#productImg').style.display = "block";
 
 
     } else if (opration == 'delete') {
@@ -234,7 +234,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#productTitle').disabled = true;
         document.querySelector('#productPrice').disabled = true;
         document.querySelector('#productImg').disabled = true;
-        document.querySelector('#productImg').style.display = "none";
+        // document.querySelector('#productImg').style.display = "none";
 
     } else if (opration == 'add') {
 
@@ -250,7 +250,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#productTitle').disabled = false;
         document.querySelector('#productPrice').disabled = false;
         document.querySelector('#productImg').disabled = false;
-        document.querySelector('#productImg').style.display = "block";
+        // document.querySelector('#productImg').style.display = "block";
 
 
     } else {
