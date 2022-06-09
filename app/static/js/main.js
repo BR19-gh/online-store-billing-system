@@ -1,6 +1,30 @@
 let data = {}
 let data2 = {}
 
+‏fetch('/storeDetails/show', {
+‏                                headers: {
+
+‏                                    'Method': 'GET',
+‏                                    'Content-Type': 'application/json',
+‏                                    'Accept': 'application/json'
+                                },
+‏                                method: 'GET',
+                            })
+‏                            .then((responseDetails) => {
+‏                                return responseDetails.json();
+‏                            }).then((responseJson) => {
+‏                                if (responseJson['storeDetails'] != 'none/لايوجد') {
+‏                                    document.querySelector("#details").innerText="لا يوجد وصف";
+                                    document.title.innerText = "لا يوجد وصف";
+‏                                    return;
+‏                                } else {
+‏                                    document.querySelector("#details").innerText = responseJson['storeDetails'];
+                                    document.title.innerText = responseJson['storeDetails'];
+‏                                    return;
+                                }
+                            });
+‏                    
+
 function firstFetch() {
 
     fetch('/products', {
