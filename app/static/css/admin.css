@@ -330,6 +330,10 @@ input {
     margin: 5px 0px 20px;
 }
 
+.numAndName {
+    font-weight: normal;
+}
+
 textarea {
     border: 1px var(--borders) solid;
     border-radius: 15px;
