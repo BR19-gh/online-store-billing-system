@@ -36,8 +36,6 @@
                         document.write(responseJson['storeDetails']);
                         return;
                     }
-                }).catch(error => {
-                    alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
                 });
         </script>
     </title>
@@ -136,7 +134,33 @@
         </h1>
         <div id="form" class="card" style="width: 20rem;">
             <div class="devInfo" class="card-body">
-                <h5 style="direction: rtl; font-size: 25px; margin-top: 8px;" class="card-title">تم تطوير الموقع من قبل:</h5>
+                <h5 style="direction: rtl; font-size: 25px; margin-top: 8px;" class="card-title">وصف المتجر:</h5>
+            </div>
+            <div class="devInfo" class="card-body">
+                <h5 id="websiteAddress" style="direction:rtl; font-size: 15px;" class="card-title">
+                    <script>
+                        fetch('/storeDetails/show', {
+                                headers: {
+
+                                    'Method': 'GET',
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
+                                method: 'GET',
+                            })
+                            .then((responseDetails) => {
+                                return responseDetails.json();
+                            }).then((responseJson) => {
+                                if (responseJson['storeDetails'] != 'none/لايوجد') {
+                                    document.write("لايوجد وصف");
+                                    return;
+                                } else {
+                                    document.write(responseJson['storeDetails']);
+                                    return;
+                                }
+                            });
+                    </script>
+                </h5>
             </div>
             <div class="devInfo" class="card-body">
                 <h5 style="direction:rtl; font-size: 25px;" class="card-title">
@@ -144,8 +168,20 @@
                 </h5>
             </div>
             <div class="devInfo" class="card-body">
-                <h5 id="websiteAddress" onclick="location.assign('https://br19.herokuapp.com/')" style="direction:rtl; font-size: 35px; cursor:pointer;" class="card-title">
-                    br19.herokuapp.com</h5>
+                <h5 style="direction:rtl; font-size: 25px; " class="card-title">
+                    تم تطوير الموقع من قبل:
+                </h5>
+            </div>
+            <div class="devInfo" class="card-body">
+                <h5 style="direction:rtl; font-size: 28px;" class="card-title">
+                    <h5 id="websiteAddress" onclick="location.assign('https://br19.herokuapp.com/')" style="direction:rtl; font-size: 35px; cursor:pointer;" class="card-title">
+                        br19.herokuapp.com</h5>
+                </h5>
+            </div>
+            <div class="devInfo" class="card-body">
+                <h5 style="direction:rtl; font-size: 25px;" class="card-title">
+
+                </h5>
             </div>
             <div class="devInfo" class="card-body">
                 <h5 style="direction:rtl; font-size: 15px;" class="card-title">

@@ -315,11 +315,13 @@ h1 {
     background-color: var(--formHover);
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
     font-size: 14px;
 }
 
-input,textarea {
+input,
+textarea {
     border: 1px var(--borders) solid;
     border-radius: 15px;
     text-align: center;
@@ -329,11 +331,13 @@ input,textarea {
     margin: 5px 0px 20px;
 }
 
-input:hover, textarea:hover {
+input:hover,
+textarea:hover {
     background-color: var(--inputHover);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     background-color: var(--inputFocus);
 }
 
@@ -382,7 +386,8 @@ a {
     color: black;
 }
 
-input, textarea {
+input,
+textarea {
     color: black;
 }
 
