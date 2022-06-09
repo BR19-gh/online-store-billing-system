@@ -15,6 +15,7 @@ fetch('/storeDetails/show', {
     }).then((responseJson) => {
         if (responseJson['storeDetails'] != 'none/لايوجد') {
             document.querySelector("#details").innerText = responseJson['storeDetails'];
+            //[2]=["description"]
             document.querySelectorAll('meta')[2].content = responseJson['storeDetails'];
             return;
         }
