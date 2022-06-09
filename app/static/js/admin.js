@@ -21,7 +21,7 @@ fetch('/storeTheme/show', {
             originalTheme.className = "circleTheme-selected"
         }
     }).catch(error => {
-        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
     });
 
 var themeBtns = document.querySelectorAll('div.circleTheme');
@@ -94,15 +94,15 @@ for (var i = 0; i < themeBtns.length; i++) {
                                     originalTheme.className = "circleTheme-selected"
                                 }
                             }).catch(error => {
-                                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+                                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
                             });
                         fetchThemes();
 
                     }).catch(error => {
-                        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+                        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
                     });
             }).catch(error => {
-                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
             });
 
 
@@ -436,7 +436,7 @@ function fetchThemes() {
             }
             console.log('current theme is ' + responseJson['storeTheme'])
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 }
 
@@ -464,7 +464,7 @@ function fetchStoreInfo() {
         addToListOfInfo('num', responseJson['storeNum']);
 
     }).catch(error => {
-        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
     });
 
 
@@ -486,7 +486,7 @@ function fetchStoreInfo() {
             document.querySelector('#name').innerHTML = `اسم المتجر: <b class="numAndName">${responseJson['storeName']}</b>`;
             addToListOfInfo('name', responseJson['storeName']);
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 
     fetch('/storeDetails/show', {
@@ -507,7 +507,7 @@ function fetchStoreInfo() {
             document.querySelector('#details').innerHTML = `تفاصيل المتجر: <p class="numAndName">${responseJson['storeDetails']}</p>`;
             addToListOfInfo('details', responseJson['storeDetails']);
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 }
 
@@ -570,7 +570,7 @@ function fetchProducts() {
             if (productsList.style.height == "100%") isExpanded(responseJson);
 
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 }
 
@@ -643,7 +643,7 @@ function fetchPromocodes() {
             if (codesList.style.height == "30px") isNarrowedCode(responseJson);
             if (codesList.style.height == "100%") isExpandedCode(responseJson);
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 }
 
@@ -719,7 +719,7 @@ document.querySelector('#addProd').addEventListener('click', () => {
             document.querySelector('#productPrice').value = '';
             document.querySelector('#productImg').value = '';
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 });
 
@@ -772,7 +772,7 @@ document.querySelector('#updProd').addEventListener('click', () => {
             document.querySelector('#productPrice').value = '';
             document.querySelector('#productImg').value = '';
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 });
 
@@ -876,7 +876,7 @@ document.querySelector('#addCode').addEventListener('click', () => {
             document.querySelector('#codeName').value = '';
             document.querySelector('#codeAmount').value = '';
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 });
 
@@ -1017,7 +1017,7 @@ document.querySelector('#addInfo').addEventListener('click', () => {
             document.querySelector('#storeDetails').value = '';
             document.querySelector('#storeNum').value = '';
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 });
 
@@ -1046,7 +1046,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 return;
             }
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 
     fetch('/storeName/show', {
@@ -1063,7 +1063,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 return;
             }
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 
     fetch('/storeDetails/show', {
@@ -1080,7 +1080,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 return;
             }
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
 
 
@@ -1123,7 +1123,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 document.querySelector('#storeDetails').value = '';
                 document.querySelector('#storeNum').value = '';
             }).catch(error => {
-                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
             });
     } else if (document.querySelector('#storeName').value == '' && document.querySelector('#storeNum').value != '' && document.querySelector('#storeDetails').value != '') {
         if (currentCountryCodeSelected < 0) {
@@ -1178,7 +1178,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 document.querySelector('#storeDetails').value = '';
                 document.querySelector('#storeNum').value = '';
             }).catch(error => {
-                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
             });
 
     } else if (document.querySelector('#storeDetails').value == '' && document.querySelector('#storeName').value != '' && document.querySelector('#storeNum').value != '') {
@@ -1220,7 +1220,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 document.querySelector('#storeDetails').value = '';
                 document.querySelector('#storeNum').value = '';
             }).catch(error => {
-                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
             });
     } else if (document.querySelector('#storeNum').value != '' && document.querySelector('#storeName').value != '' && document.querySelector('#storeDetails').value != '') {
         if (currentCountryCodeSelected < 0) {
@@ -1303,7 +1303,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             document.querySelector('#storeDetails').value = '';
             document.querySelector('#storeNum').value = '';
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n الناريخ والوقت: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}\n التاريخ: ${formatDate(new Date())}`)
         });
     } else {
         return;
