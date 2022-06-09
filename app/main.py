@@ -397,7 +397,7 @@ class StoreCustomTable:
 
                 CREATE TABLE IF NOT EXISTS storethemes
                     (
-                        storetheme TEXT NOT NULL,
+                        storetheme TEXT NOT NULL
                     ) 
                         """)
 
