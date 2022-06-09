@@ -338,6 +338,7 @@ input:focus {
 }
 
 input#storeName,
+input#storedetails,
 input#storeNum {
     margin: 0;
 }
