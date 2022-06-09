@@ -214,7 +214,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#productTitle').disabled = false;
         document.querySelector('#productPrice').disabled = false;
         document.querySelector('#productImg').disabled = false;
-document.querySelector('#productImg').style.display = "block";
+document.querySelector('#productImg').style.opacity = 1;
 
 
     } else if (opration == 'delete') {
@@ -228,13 +228,13 @@ document.querySelector('#productImg').style.display = "block";
         document.querySelector('#productID').value = `${id}`;
         document.querySelector('#productTitle').value = `${listOfProducts[id]['title']}`;
         document.querySelector('#productPrice').value = `${listOfProducts[id]['price']}`;
-        document.querySelector('#browseImg').innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img"> `;
+        document.querySelector('#browseImg').innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img"> `;
         //disable input
         document.querySelector('#productID').disabled = true;
         document.querySelector('#productTitle').disabled = true;
         document.querySelector('#productPrice').disabled = true;
         document.querySelector('#productImg').disabled = true;
-document.querySelector('#productImg').style.display = "none";
+document.querySelector('#productImg').style.opacity = 0;
 
     } else if (opration == 'add') {
 
@@ -250,7 +250,7 @@ document.querySelector('#productImg').style.display = "none";
         document.querySelector('#productTitle').disabled = false;
         document.querySelector('#productPrice').disabled = false;
         document.querySelector('#productImg').disabled = false;
-document.querySelector('#productImg').style.display = "block";
+document.querySelector('#productImg').style.opacity = 1
 
 
     } else {
