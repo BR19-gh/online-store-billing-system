@@ -315,11 +315,11 @@ h1 {
     background-color: var(--formHover);
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
     font-size: 14px;
 }
 
-input {
+input,textarea {
     border: 1px var(--borders) solid;
     border-radius: 15px;
     text-align: center;
@@ -329,16 +329,16 @@ input {
     margin: 5px 0px 20px;
 }
 
-input:hover {
+input:hover, textarea:hover {
     background-color: var(--inputHover);
 }
 
-input:focus {
+input:focus, textarea:focus {
     background-color: var(--inputFocus);
 }
 
 input#storeName,
-input#storedetails,
+#storedetails,
 input#storeNum {
     margin: 0;
 }
@@ -382,7 +382,7 @@ a {
     color: black;
 }
 
-input {
+input, textarea {
     color: black;
 }
 
