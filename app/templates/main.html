@@ -26,6 +26,29 @@
     import { fetchThemes } from '../static/js/themesFetch.js'; fetchThemes();
 </script>
 
+<script>
+    fetch('/storeDetails/show', {
+            headers: {
+
+                'Method': 'GET',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'GET',
+        })
+        .then((responseDetails) => {
+            return responseDetails.json();
+        }).then((responseJson) => {
+            if (responseJson['storeDetails'] != 'none/لايوجد') {
+                document.querySelector("#details").innerText = responseJson['storeDetails'];
+                //[2]=["description"]
+                document.querySelectorAll('meta')[2].content = responseJson['storeDetails'];
+                return;
+            }
+            return;
+        });
+</script>
+
 <body onload="startSpinner()">
     <div id="cover"></div>
 

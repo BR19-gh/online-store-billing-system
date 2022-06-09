@@ -1,26 +1,7 @@
 let data = {}
 let data2 = {}
 
-fetch('/storeDetails/show', {
-        headers: {
 
-            'Method': 'GET',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        method: 'GET',
-    })
-    .then((responseDetails) => {
-        return responseDetails.json();
-    }).then((responseJson) => {
-        if (responseJson['storeDetails'] != 'none/لايوجد') {
-            document.querySelector("#details").innerText = responseJson['storeDetails'];
-            //[2]=["description"]
-            document.querySelectorAll('meta')[2].content = responseJson['storeDetails'];
-            return;
-        }
-        return;
-    });
 
 
 function firstFetch() {
