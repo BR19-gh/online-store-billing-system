@@ -464,14 +464,16 @@ class StoreCustomTable:
 def main_view():
 
     storeInfoObj = StoreInfoTable()
-
-    return render_template('main.html', description=storeInfoObj.search('details'))
+    return render_template('main.html', description=storeInfoObj.search('details')[0])
 
 
 @app.route("/")
 @limiter.exempt
 def home_view():
-    return render_template('main.html')
+
+    storeInfoObj = StoreInfoTable()
+
+    return render_template('main.html', description=storeInfoObj.search('details')[0])
 
 
 @app.route("/login")
