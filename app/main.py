@@ -464,7 +464,24 @@ class StoreCustomTable:
 def main_view():
 
     storeInfoObj = StoreInfoTable()
-    return render_template('main.html', description=storeInfoObj.search('details')[0])
+
+    productObj = ProductsTable()
+
+    result = productObj.display()
+    dictOfResult = {}
+
+    j = 0
+    for i in result:
+        dictOfResult[i[0]] = {'id': i[0], 'title': i[1],
+                              'price': i[2], 'img': i[3]}
+
+    newIndex = sorted(dictOfResult, key=lambda d: d)
+    dictOfResult = {k: dictOfResult[k] for k in newIndex}
+
+    if(dictOfResult == {}):
+        dictOfResult = 404
+        
+    return render_template('main.html', description=storeInfoObj.search('details')[0], products=dictOfResult)
 
 
 @app.route("/")
