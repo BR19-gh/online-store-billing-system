@@ -77,16 +77,16 @@
             {% else %}
                 {% for product in products %}
                     <div id="form" class="card" style="width: 18rem;">
-                        <img style="width: 257px; height: 257px;" src="data:image/png;base64,{{ product.img }}" class="card-img-top" alt="Product">
+                        <img style="width: 257px; height: 257px;" src="data:image/png;base64,{{ product['img'] }}" class="card-img-top" alt="Product">
                         <div class="card-body">
-                            <h5 class="card-title">{{ product.title }}</h5>
+                            <h5 class="card-title">{{ product['title'] }}</h5>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item" id="priceContainer">
-                                <div id="price">{{ product.price }}</div>﷼
+                                <div id="price">{{ product['price'] }}</div>﷼
                             </li>
                             <li class="list-group-item">
-                                <select name="quentity" id="quentity-{{ product.id }}">
+                                <select name="quentity" id="quentity-{{ product['id'] }}">
                                     <option selected disabled>الكمية</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -101,7 +101,7 @@
                                 <a  class="card-link delToCartBtn"><i class="fas fa-trash-alt"></i></a>
                                 <a  class="card-link addToCartBtn">إضافة إلى <i class="fas fa-shopping-cart"></i></a>
                                 <br><br>
-                                <div style="display: none;">id:{{ product.id }}\t</div>
+                                <div style="display: none;">id:{{ product['id'] }}\t</div>
                             </div>
                         </div>
                     </div>
