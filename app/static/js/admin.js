@@ -274,7 +274,9 @@ function deleteOrEditStoreInfo(id, opration) {
             document.querySelector('#storeNum').value = ``;
         }
         document.querySelector('#storeDetails').value = `${listOfInfo['details']}`;
-        document.querySelector('#billDetails').value = `${listOfInfo['billDetails']}`;
+        if (document.querySelector('#billDetails').value != '') {
+            document.querySelector('#billDetails').value = `${listOfInfo['bDetails']}`;
+        } else { document.querySelector('#billDetails').value = ``; }
         //disable input
 
     } else if (opration == 'add') {
@@ -529,7 +531,9 @@ function fetchStoreInfo() {
             if (responseJson['billDetails'] != 'none/لايوجد') {
                 document.querySelector("#addInfo").style.display = "none";
             }
-            document.querySelector('#bDetails').innerHTML = `تفاصيل إضافية للفاتورة: <p class="numAndName">${responseJson['billDetails']}</p>`;
+            if (responseJson['billDetails'] != '') {
+                document.querySelector('#bDetails').innerHTML = `تفاصيل إضافية للفاتورة: <p class="numAndName">${responseJson['billDetails']}</p>`;
+            } else { document.querySelector('#bDetails').innerHTML = 'none/لايوجد' }
             addToListOfInfo('billDetails', responseJson['billDetails']);
         }).catch(error => {
             alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:billDetails// 513\n التاريخ: ${formatDate(new Date())}`)
@@ -606,7 +610,7 @@ let listOfInfo = {
     name: 'name',
     num: 'num',
     details: 'details',
-    bDetails: 'billDetails',
+    bDetails: 'bDetails',
 };
 
 function addToListOfInfo(infoType, infoData) {
