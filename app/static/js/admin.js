@@ -274,6 +274,7 @@ function deleteOrEditStoreInfo(id, opration) {
             document.querySelector('#storeNum').value = ``;
         }
         document.querySelector('#storeDetails').value = `${listOfInfo['details']}`;
+        document.querySelector('#billDetails').value = `${listOfInfo['billDetails']}`;
         //disable input
 
     } else if (opration == 'add') {
@@ -512,6 +513,27 @@ function fetchStoreInfo() {
         }).catch(error => {
             alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//storeDetails// \n التاريخ: ${formatDate(new Date())}`)
         });
+
+    fetch('/billDetails/show', {
+            headers: {
+
+                'Method': 'GET',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: 'GET',
+        })
+        .then((responseDetails) => {
+            return responseDetails.json();
+        }).then((responseJson) => {
+            if (responseJson['billDetails'] != 'none/لايوجد') {
+                document.querySelector("#addInfo").style.display = "none";
+            }
+            document.querySelector('#billDetails').innerHTML = `تفاصيل إضافية للفاتورة: <p class="numAndName">${responseJson['billDetails']}</p>`;
+            addToListOfInfo('billDetails', responseJson['billDetails']);
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//billDetails// \n التاريخ: ${formatDate(new Date())}`)
+        });
 }
 
 // for fetchProducts()
@@ -584,12 +606,14 @@ let listOfInfo = {
     name: 'name',
     num: 'num',
     details: 'details',
+    billDetails: 'billDetails',
 };
 
 function addToListOfInfo(infoType, infoData) {
     if (infoType == 'name') listOfInfo['name'] = infoData;
     else if (infoType == 'details') listOfInfo['details'] = infoData;
     else if (infoType == 'num') listOfInfo['num'] = infoData;
+    else if (infoType == 'billDetails') listOfInfo['billDetails'] = infoData;
     return;
 }
 
@@ -768,7 +792,7 @@ document.querySelector('#updProd').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+            alert("تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchProducts();
             document.querySelector('#productID').value = '';
             document.querySelector('#productTitle').value = '';
@@ -922,7 +946,7 @@ document.querySelector('#updCode').addEventListener('click', () => {
                 return;
             }
 
-            alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+            alert("تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchPromocodes();
             document.querySelector('#codeID').value = '';
             document.querySelector('#codeName').value = '';
@@ -991,6 +1015,7 @@ document.querySelector('#addInfo').addEventListener('click', () => {
                 storeName: document.querySelector('#storeName').value,
                 storeNum: (currentCountryCodeSelected + document.querySelector('#storeNum').value),
                 storeDetails: document.querySelector('#storeDetails').value,
+                billDetails: document.querySelector('#billDetails').value,
             })
         })
         .then((response) => {
@@ -1011,6 +1036,7 @@ document.querySelector('#addInfo').addEventListener('click', () => {
             fetchStoreInfo();
             document.querySelector('#storeName').value = '';
             document.querySelector('#storeDetails').value = '';
+            document.querySelector('#billDetails').value = '';
             document.querySelector('#storeNum').value = '';
         }).catch(error => {
             alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//storeInfo// \n التاريخ: ${formatDate(new Date())}`)
@@ -1079,6 +1105,23 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//storeDetails// \n التاريخ: ${formatDate(new Date())}`)
         });
 
+    fetch('/billDetails/show', {
+            method: 'GET',
+        }).then((responseDetails) => {
+            return responseDetails.json();
+        })
+        .then((responseJson) => {
+            if (responseJson.billDetails == "none/لايوجد") {
+                alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث");
+                setTimeout(() => {
+                    $('#storeInfoModal').modal('show');
+                }, 200);
+                return;
+            }
+        }).catch(error => {
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//billDetails// \n التاريخ: ${formatDate(new Date())}`)
+        });
+
 
     if (document.querySelector('#storeNum').value == '' && document.querySelector('#storeName').value != '' && document.querySelector('#storeDetails').value != '') {
         fetch('/storeName', {
@@ -1113,10 +1156,11 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
 
 
-                alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+                alert("تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
                 document.querySelector('#storeName').value = '';
                 document.querySelector('#storeDetails').value = '';
+                document.querySelector('#billDetails').value = '';
                 document.querySelector('#storeNum').value = '';
             }).catch(error => {
                 alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//storeName// \n التاريخ: ${formatDate(new Date())}`)
@@ -1168,10 +1212,11 @@ document.querySelector('#updInfo').addEventListener('click', () => {
 
                 console.log(responseJson)
 
-                alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+                alert("تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
                 document.querySelector('#storeName').value = '';
                 document.querySelector('#storeDetails').value = '';
+                document.querySelector('#billDetails').value = '';
                 document.querySelector('#storeNum').value = '';
             }).catch(error => {
                 alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//storeNum// \n التاريخ: ${formatDate(new Date())}`)
@@ -1210,13 +1255,54 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
 
 
-                alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+                alert("تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
                 fetchStoreInfo();
                 document.querySelector('#storeName').value = '';
                 document.querySelector('#storeDetails').value = '';
                 document.querySelector('#storeNum').value = '';
             }).catch(error => {
                 alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//storeDetails// \n التاريخ: ${formatDate(new Date())}`)
+            });
+        fetch('/billDetails', {
+                headers: {
+
+                    'Method': 'PUT',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    billDetails: document.querySelector('#billDetails').value,
+                })
+            })
+            .then((response) => {
+                return response.json();
+            }).then((responseJson) => {
+
+                if (responseJson.statCode == 429) {
+                    alert('لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ');
+                    setTimeout(() => {
+                        $('#storeInfoModal').modal('show');
+                    }, 200);
+                    return;
+                }
+                if (responseJson.statCode == 500) {
+                    alert('حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ');
+                    setTimeout(() => {
+                        $('#storeInfoModal').modal('show');
+                    }, 200);
+                    return;
+                }
+
+
+                alert("تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+                fetchStoreInfo();
+                document.querySelector('#storeName').value = '';
+                document.querySelector('#storeDetails').value = '';
+                document.querySelector('#billDetails').value = '';
+                document.querySelector('#storeNum').value = '';
+            }).catch(error => {
+                alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//billDetails// \n التاريخ: ${formatDate(new Date())}`)
             });
     } else if (document.querySelector('#storeNum').value != '' && document.querySelector('#storeName').value != '' && document.querySelector('#storeDetails').value != '') {
         if (currentCountryCodeSelected < 0) {
@@ -1262,12 +1348,25 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 body: JSON.stringify({
                     storeDetails: document.querySelector('#storeDetails').value,
                 })
+            }),
+            fetch('/billDetails', {
+                headers: {
+
+                    'Method': 'PUT',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    billDetails: document.querySelector('#billDetails').value,
+                })
             })
-        ]).then(([responseNum, responseName, responseDetails]) => {
+        ]).then(([responseNum, responseName, responseDetails, , responseBillDetails]) => {
             return {
                 num: responseNum.json(),
                 name: responseName.json(),
-                details: responseDetails.json()
+                details: responseDetails.json(),
+                billDetails: responseBillDetails.json()
             };
         }).then((responseJson) => {
             if (responseJson['num'].statCode == 400) {
@@ -1293,13 +1392,14 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             }
 
 
-            alert("تــم الــتــحــديـث بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+            alert("تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
             fetchStoreInfo();
             document.querySelector('#storeName').value = '';
             document.querySelector('#storeDetails').value = '';
+            document.querySelector('#billDetails').value = '';
             document.querySelector('#storeNum').value = '';
         }).catch(error => {
-            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//storeDetails// \n التاريخ: ${formatDate(new Date())}`)
+            alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//all// \n التاريخ: ${formatDate(new Date())}`)
         });
     } else {
         return;

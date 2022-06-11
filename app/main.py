@@ -251,6 +251,7 @@ class StoreInfoTable:
                     (
                         storeName TEXT NOT NULL,
                         storeDetails TEXT NOT NULL,
+                        billDetails text,
                         storeNum BIGINT NOT NULL
                         
                     )
@@ -274,7 +275,16 @@ class StoreInfoTable:
                 SELECT storeDetails
                 FROM storeInfo
 
-                        """)                            
+                        """)
+
+        elif infoType == 'billDetails':
+
+            self.cur.execute(f"""
+
+                SELECT billDetails
+                FROM storeInfo
+
+                        """)
 
         elif infoType == 'num':
 
@@ -284,8 +294,6 @@ class StoreInfoTable:
                 FROM storeInfo
 
                         """)
-
-
 
         else:
             raise Exception("Error in variable 'infoType'")
@@ -303,12 +311,14 @@ class StoreInfoTable:
                             (
                                 storeName,
                                 storeDetails,
+                                billDetails,
                                 storenum
                             ) 
                 VALUES 
                             (
                                 '{inputData["storeName"]}',
                                 '{inputData["storeDetails"]}',
+                                '{inputData["billDetails"]}',
                                 '{inputData["storeNum"]}'
                             );
                         
@@ -332,6 +342,15 @@ class StoreInfoTable:
 
                 UPDATE storeInfo 
                 SET storeDetails = '{inputData}'
+                        
+                        """)
+
+        elif infoType == 'billDetails':
+
+            self.cur.execute(f"""
+
+                UPDATE storeInfo 
+                SET billDetails = '{inputData}'
                         
                         """)
 
@@ -369,6 +388,14 @@ class StoreInfoTable:
                 SET storeDetails = '{inputData}'
                         
                         """)
+        elif infoType == 'billDetails':
+
+            self.cur.execute(f"""
+
+                DELETE FROM storeInfo 
+                SET billDetails = '{inputData}'
+                        
+                        """)
 
         elif infoType == 'num':
 
@@ -387,7 +414,9 @@ class StoreInfoTable:
     def __del__(self):
         self.conn.close()
 
-     #Store Customizations Table
+     # Store Customizations Table
+
+
 class StoreCustomTable:
 
     def __init__(self):
@@ -465,21 +494,7 @@ def main_view():
 
     storeInfoObj = StoreInfoTable()
 
-    promoObj = PromocodesTable()
-
-    result = promoObj.display()
-    dictOfResult = {}
-
-    for i in result:
-        dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2]}
-
-    newIndex = sorted(dictOfResult, key=lambda d: d)
-    dictOfResult = {k: dictOfResult[k] for k in newIndex}
-
-    if(dictOfResult == {}):
-        dictOfResult = 404
-    print(dictOfResult)
-    return render_template('main.html', description=storeInfoObj.search('details')[0], products=dictOfResult)
+    return render_template('main.html', description=storeInfoObj.search('details')[0])
 
 
 @app.route("/")
@@ -846,7 +861,6 @@ def storeNameGet():
     else:
         return jsonify({"storeName": storeInfoObj.search('name')})
 
-        
 
 @app.route("/storeDetails", methods=['PUT', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
@@ -1095,10 +1109,13 @@ def exexuteSql(sql):
 ########################
 ##### Play Ground ######
 ########################
-# pass
-
-#try: exexuteSql("DROP TABLE storeInfo;")
-#except: print("coudn't playground")
+@app.route("/playground/on", methods=['POST'])
+def playground():
+    try:
+        exexuteSql("ALTER TABLE storeInfo ADD COLUMN billDetails text;")
+        return jsonify("[exexuteSql('ALTER TABLE storeInfo ADD COLUMN billDetails text;')] was done successfully.")
+    except:
+        return jsonify("coudn't playground")
 ############################
 ##### Play Ground End ######
 ############################
