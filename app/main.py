@@ -914,6 +914,59 @@ def storeDetailsGet():
         return jsonify({"storeDetails": storeInfoObj.search('details')})
 
 
+@app.route("/billDetails", methods=['PUT', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
+def storeDetails():
+    print('The ip address: ', get_remote_address())
+    storeInfoObj = StoreInfoTable()
+
+    if request.method == 'PUT':
+        data = request.get_json()
+        billDetails = data['billDetails']
+        result = storeInfoObj.search('billDetails')
+
+        try:
+            storeInfoObj.update('billDetails', billDetails)
+
+            recordSearched = storeInfoObj.search('billDetails')
+            if recordSearched == None:
+                return jsonify({"msg": f"Error 404: billDetails:{billDetails} was not updated because it didn't have a record before (maybe first time adding?) ", "statCode": 404})
+            elif (recordSearched[0] == billDetails):
+                return jsonify({"msg": f"Success 200: billDetails:{billDetails} is updated, old data:{result}, new data:{storeInfoObj.search('billDetails')}", "statCode": 200})
+        except:
+            return jsonify({"msg": f"Unkown Error 500: billDetails:{billDetails} was not updated, old data:{result}, new data:{storeInfoObj.search('billDetails')}", "statCode": 500})
+
+    elif request.method == 'DELETE':
+        result = storeInfoObj.search('billDetails')
+
+        if result == None:
+            return jsonify({"msg": f"Error 404: billDetails:{result} was not found, it may not exist", "statCode": 404})
+
+        storeInfoObj.delete(
+            'billDetails', storeInfoObj.search('billDetails')[0])
+
+        result = storeInfoObj.search('billDetails')
+
+        if result == None:
+            return jsonify({"msg": f"Success 204: billDetails is deleted successfully", "statCode": 204})
+        else:
+            return jsonify({"msg": f"Error 500: failed to delete billDetails:{result}, billDetails:{result} still exists", "statCode": 500})
+    else:
+
+        abort(405)
+
+
+@app.route("/billDetails/show", methods=['GET'])
+@limiter.exempt
+def billDetailsGet():
+    print('The ip address: ', get_remote_address())
+    storeInfoObj = StoreInfoTable()
+    if storeInfoObj.search('billDetails') == None:
+        return jsonify({"billDetails": "none/لايوجد"})
+    else:
+        return jsonify({"billDetails": storeInfoObj.search('billDetails')})
+
+
 @app.route("/storeNum", methods=['PUT', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeNum():
