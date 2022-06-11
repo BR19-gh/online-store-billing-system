@@ -494,7 +494,7 @@ def main_view():
 
     storeInfoObj = StoreInfoTable()
 
-    return render_template('main.html', description=storeInfoObj.search('details')[0], billDetails=storeInfoObj.search('details')[0])
+    return render_template('main.html', description=storeInfoObj.search('details')[0])
 
 
 @app.route("/")
