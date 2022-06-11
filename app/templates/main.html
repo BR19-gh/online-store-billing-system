@@ -72,12 +72,13 @@
 
 
         <div id="cardContainer">
-<div id="msgNotFetched" style='font-size:xx-large; margin-top: 280px;'>يبدو أن المتجر لم يضف أي منتجات حتى الآن، إنتظر قليلًا ثم حدث الصفحة للتحقق مجددًا</div>
-            <!-- {% if products == 404 %} -->
-            
-            <!-- {% else %}
-                {% for product in products %}
-                    <div id="form" class="card" style="width: 18rem;">
+            {% if products == 404 %}
+            <div id="msgNotFetched" style='font-size:xx-large; margin-top: 280px;'>يبدو أن المتجر لم يضف أي منتجات حتى الآن، إنتظر قليلًا ثم حدث الصفحة للتحقق مجددًا</div>
+            {% else %} {% for product in products %}
+            <script>
+                console.log('{{ product }}');
+            </script>
+            <!-- <div id="form" class="card" style="width: 18rem;">
                         <img style="width: 257px; height: 257px;" src="data:image/png;base64,{{ product['img'] }}" class="card-img-top" alt="Product">
                         <div class="card-body">
                             <h5 class="card-title">{{ product['title'] }}</h5>
@@ -105,9 +106,8 @@
                                 <div style="display: none;">id:{{ product['id'] }}\t</div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            {% endif %} -->
+                    </div> -->
+            {% endfor %} {% endif %}
         </div>
 
     </div>
