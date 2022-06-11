@@ -442,7 +442,7 @@ function firstFetch() {
 
                                         discount = discount.replace(/\s/gi, "%20");
 
-                                        bill = `فاتورة متجر ${data3['storeName']}` + "%0a%0a" + personalInfoOutput + "%0a%0a" + titles + "%0a%0a" + discount + '%0a' + prices;
+                                        bill = `فاتورة متجر ${data3['storeName']}` + "%0a%0a" + `معلومات الزبون:` + `%0a` + personalInfoOutput + "%0a%0a" + `معلومات المنتجات:` + `%0a` + titles + "%0a%0a" + discount + '%0a' + prices + `%0a%0a%0a` + `⫷⫸: ${data3['billDetails']}`;
 
                                         if (Number(document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0]) == 0 ||
                                             isNaN(Number(document.querySelector('#groupOfPrices').innerText.split(': ')[1].split(' ')[0])) == true) {
