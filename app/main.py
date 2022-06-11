@@ -480,7 +480,7 @@ def main_view():
 
     if(dictOfResult == {}):
         dictOfResult = 404
-        
+    print(dictOfResult)
     return render_template('main.html', description=storeInfoObj.search('details')[0], products=dictOfResult)
 
 
