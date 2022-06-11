@@ -529,7 +529,7 @@ function fetchStoreInfo() {
             if (responseJson['billDetails'] != 'none/لايوجد') {
                 document.querySelector("#addInfo").style.display = "none";
             }
-            document.querySelector('#billDetails').innerHTML = `تفاصيل إضافية للفاتورة: <p class="numAndName">${responseJson['billDetails']}</p>`;
+            document.querySelector('#bDetails').innerHTML = `تفاصيل إضافية للفاتورة: <p class="numAndName">${responseJson['billDetails']}</p>`;
             addToListOfInfo('billDetails', responseJson['billDetails']);
         }).catch(error => {
             alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:billDetails// 513\n التاريخ: ${formatDate(new Date())}`)
