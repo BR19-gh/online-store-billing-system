@@ -465,15 +465,13 @@ def main_view():
 
     storeInfoObj = StoreInfoTable()
 
-    productObj = ProductsTable()
+    promoObj = PromocodesTable()
 
-    result = productObj.display()
+    result = promoObj.display()
     dictOfResult = {}
 
-    j = 0
     for i in result:
-        dictOfResult[i[0]] = {'id': i[0], 'title': i[1],
-                              'price': i[2], 'img': i[3]}
+        dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2]}
 
     newIndex = sorted(dictOfResult, key=lambda d: d)
     dictOfResult = {k: dictOfResult[k] for k in newIndex}
