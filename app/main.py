@@ -1162,13 +1162,13 @@ def exexuteSql(sql):
 ########################
 ##### Play Ground ######
 ########################
-@app.route("/playground/on", methods=['POST'])
-def playground():
-    try:
-        exexuteSql("ALTER TABLE storeInfo ADD COLUMN billDetails text;")
-        return jsonify("[exexuteSql('ALTER TABLE storeInfo ADD COLUMN billDetails text;')] was done successfully.")
-    except:
-        return jsonify("coudn't playground")
+# @app.route("/playground/on", methods=['POST'])
+# def playground():
+#     try:
+#         exexuteSql("ALTER TABLE storeInfo ADD COLUMN billDetails text;")
+#         return jsonify("[exexuteSql('ALTER TABLE storeInfo ADD COLUMN billDetails text;')] was done successfully.")
+#     except:
+#         return jsonify("coudn't playground")
 ############################
 ##### Play Ground End ######
 ############################
