@@ -523,8 +523,8 @@ function fetchStoreInfo() {
             },
             method: 'GET',
         })
-        .then((responseDetails) => {
-            return responseDetails.json();
+        .then((responseBillDetails) => {
+            return responseBillDetails.json();
         }).then((responseJson) => {
             if (responseJson['billDetails'] != 'none/لايوجد') {
                 document.querySelector("#addInfo").style.display = "none";
@@ -606,14 +606,14 @@ let listOfInfo = {
     name: 'name',
     num: 'num',
     details: 'details',
-    billDetails: 'billDetails',
+    bDetails: 'billDetails',
 };
 
 function addToListOfInfo(infoType, infoData) {
     if (infoType == 'name') listOfInfo['name'] = infoData;
     else if (infoType == 'details') listOfInfo['details'] = infoData;
     else if (infoType == 'num') listOfInfo['num'] = infoData;
-    else if (infoType == 'billDetails') listOfInfo['billDetails'] = infoData;
+    else if (infoType == 'billDetails') listOfInfo['bDetails'] = infoData;
     return;
 }
 
@@ -1107,8 +1107,8 @@ document.querySelector('#updInfo').addEventListener('click', () => {
 
     fetch('/billDetails/show', {
             method: 'GET',
-        }).then((responseDetails) => {
-            return responseDetails.json();
+        }).then((responseBillDetails) => {
+            return responseBillDetails.json();
         })
         .then((responseJson) => {
             if (responseJson.billDetails == "none/لايوجد") {
@@ -1366,7 +1366,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 num: responseNum.json(),
                 name: responseName.json(),
                 details: responseDetails.json(),
-                billDetails: responseBillDetails.json()
+                bDetails: responseBillDetails.json()
             };
         }).then((responseJson) => {
             if (responseJson['num'].statCode == 400) {
