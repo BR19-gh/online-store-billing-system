@@ -916,7 +916,7 @@ def storeDetailsGet():
 
 @app.route("/billDetails", methods=['PUT', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
-def storeDetails():
+def billDetails():
     print('The ip address: ', get_remote_address())
     storeInfoObj = StoreInfoTable()
 
