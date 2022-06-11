@@ -357,6 +357,10 @@ textarea:focus {
     background-color: var(--inputFocus);
 }
 
+label {
+    margin-bottom: 5px;
+}
+
 input#storeName,
 #storedetails,
 input#storeNum {
