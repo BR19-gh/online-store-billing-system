@@ -1361,7 +1361,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                     billDetails: document.querySelector('#billDetails').value,
                 })
             })
-        ]).then(([responseNum, responseName, responseDetails, , responseBillDetails]) => {
+        ]).then(([responseNum, responseName, responseDetails, responseBillDetails]) => {
             return {
                 num: responseNum.json(),
                 name: responseName.json(),
