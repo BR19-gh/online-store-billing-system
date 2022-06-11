@@ -1508,15 +1508,15 @@ for (var i = 0; i < allCountriesAncors.length; i++) {
         countryCodeTitle.innerText = currentCountryCodeSelected;
     });
 }
-for (var i = 0; i < document.querySelectorAll('[data-bs-dismiss="modal"]').length; i++) {
-    document.querySelectorAll('[data-bs-dismiss="modal"]')[i].addEventListener('click', function() {
-        document.querySelector('#codeID').value = ``;
-        document.querySelector('#codeName').value = ``;
-        document.querySelector('#codeAmount').value = ``;
-        document.querySelector('#productID').value = ``;
-        document.querySelector('#productTitle').value = ``;
-        document.querySelector('#productPrice').value = ``;
-        document.querySelector('#productImg').value = ``;
+for (var i = 0; i < document.querySelectorAll('[aria-label="Close"]').length; i++) {
+    document.querySelectorAll('[aria-label="Close"]')[i].addEventListener('click', function() {
+        document.querySelector('#codeID').value = '';
+        document.querySelector('#codeName').value = '';
+        document.querySelector('#codeAmount').value = '';
+        document.querySelector('#productID').value = '';
+        document.querySelector('#productTitle').value = '';
+        document.querySelector('#productPrice').value = '';
+        document.querySelector('#productImg').value = '';
     });
 }
 
