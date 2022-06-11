@@ -345,7 +345,6 @@ textarea {
     border-radius: 15px;
     text-align: center;
     transition: all 100ms ease-in-out;
-    margin: 5px 0px 20px;
 }
 
 input:hover,
