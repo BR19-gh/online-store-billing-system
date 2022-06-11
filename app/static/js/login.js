@@ -4,6 +4,8 @@ function firstFetch() {
     }).then((responseJson) => {
         if (responseJson.storeName == '') document.querySelector('#storeName').innerText = ''
         else document.querySelector('#storeName').innerText = `${responseJson.storeName}`
+    }).catch(error => {
+        alert(`هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//login:storeName// 506\n التاريخ: ${formatDate(new Date())}`)
     });
 
 
