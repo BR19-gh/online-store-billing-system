@@ -274,9 +274,7 @@ function deleteOrEditStoreInfo(id, opration) {
             document.querySelector('#storeNum').value = ``;
         }
         document.querySelector('#storeDetails').value = `${listOfInfo['details']}`;
-        if (document.querySelector('#billDetails').value != '') {
-            document.querySelector('#billDetails').value = `${listOfInfo['bDetails']}`;
-        } else { document.querySelector('#billDetails').value = ``; }
+        document.querySelector('#billDetails').value = `${listOfInfo['bDetails']}`;
         //disable input
 
     } else if (opration == 'add') {
