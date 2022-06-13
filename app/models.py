@@ -388,9 +388,9 @@ class StoreInfoTable:
     def __del__(self):
         self.conn.close()
 
-     # Store Customizations Table
+     
 
-
+# Store Customizations Table
 class StoreCustomTable:
 
     def __init__(self):
