@@ -12,8 +12,8 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from urllib.parse import unquote
 
-from models import *
-from other import *
+from . import models
+from . import other
 #########################
 ###### Imports END ######
 #########################
