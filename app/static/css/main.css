@@ -203,8 +203,12 @@ input.personalInfo {
     border: 1px var(--borders) solid;
     border-radius: 15px;
     text-align: center;
-    width: 265px;
+    width: 70%;
     height: 40px;
+}
+
+.input-label {
+    width: 25%;
 }
 
 input::placeholder.personalInfo {
