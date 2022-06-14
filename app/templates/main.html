@@ -113,17 +113,24 @@
                         <input id="personalInfoTime" style="font-size:10px; width: 198px;" class="input-label personalInfo" type="datetime-local" aria-valuemin="" value="">
                         <script>
                             let date = new Date();
-                            let year = date.getFullYear();
-                            let month = date.getMonth();
-                            let day = date.getDay();
-                            let hour = date.getHours();
-                            let minute = date.getMinutes();
-                            if (month < 10) month = '0' + month;
-                            if (day < 10) day = '0' + day;
-                            if (hour < 10) hour = '0' + hour;
-                            if (minute < 10) minute = '0' + minute;
-                            document.querySelector('#personalInfoTime').value = `${year}-${month}-${day}T${hour}:${minute}`
-                            document.querySelector('#personalInfoTime').setAttribute("aria-valuemin", `${year}-${month}-${day}T${hour}:${minute}`)
+                            function formatDate(date) {
+    let hours = date.getHours()
+    let minutes = date.getMinutes();
+    // minutes = minutes < 10 ? '0' + minutes : minutes;
+    const year = date.getFullYear()
+    let month = date.getMonth()
+    month =
+        Number(month) + 1 < 10 ? '0' + (Number(month) + 1) : Number(month) + 1
+    var date = date.getDate()
+    date = date < 10 ? '0' + date : date
+    hours = hours < 10 ? '0' + hours : hours
+    minutes = minutes < 10 ? '0' + minutes : minutes
+    const strTime =
+        year + '-' + month + '-' + date + 'T' + hours + ':' + minutes
+    return strTime
+}
+                            document.querySelector('#personalInfoTime').value = `${formatDate(date)}`;
+                            document.querySelector('#personalInfoTime').setAttribute("aria-valuemin", `${formatDate(date)}`);
                         </script>
 
                     </div>
