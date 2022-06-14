@@ -112,7 +112,17 @@
                         <label style="direction: rtl; width:25%; font-weight: bold;">الاستلام:</label>
                         <input id="personalInfoTime" style="font-size:10px; width: 198px;" class="input-label personalInfo" type="datetime-local" aria-valuemin="" value="2022-02-24T08:30">
                         <script>
-                            document.querySelector('#personalInfoTime').value = Date();
+                            let date = new Date();
+                            let year = date.getFullYear();
+                            let month = date.getMonth();
+                            let day = date.getDay();
+                            let hour = date.getHours();
+                            let minute = date.getMinutes();
+                            if (month < 10) month = '0' + month;
+                            if (day < 10) day = '0' + day;
+                            if (hour < 10) hour = '0' + hour;
+                            if (minute < 10) minute = '0' + minute;
+                            document.querySelector('#personalInfoTime').value = `${year}-${month}-${day}T${hour}:${minute}`
                         </script>
 
                     </div>
