@@ -110,7 +110,7 @@
                         <label style="direction: rtl; width:25%; font-weight: bold;">العنوان:</label>
                         <input id="personalInfoAddr" class="input-label personalInfo" type="text" placeholder="رقم المبنى، الشارع، الحي، المدينة"><br><br>
                         <label style="direction: rtl; width:25%; font-weight: bold;">الاستلام:</label>
-                        <input id="personalInfoTime" style="font-size:10px; width: 198px;" class="input-label personalInfo" type="datetime-local" aria-valuemin="" value="2022-02-24T08:30">
+                        <input id="personalInfoTime" style="font-size:10px; width: 198px;" class="input-label personalInfo" type="datetime-local" aria-valuemin="" value="">
                         <script>
                             let date = new Date();
                             let year = date.getFullYear();
@@ -123,6 +123,7 @@
                             if (hour < 10) hour = '0' + hour;
                             if (minute < 10) minute = '0' + minute;
                             document.querySelector('#personalInfoTime').value = `${year}-${month}-${day}T${hour}:${minute}`
+                            document.querySelector('#personalInfoTime').setAttribute("aria-valuemin", `${year}-${month}-${day}T${hour}:${minute}`)
                         </script>
 
                     </div>
