@@ -215,6 +215,11 @@ input::placeholder.personalInfo {
     font-size: 14px;
 }
 
+input::placeholder.input-label {
+    font-size: 10px;
+    text-align: center;
+}
+
 input:hover.personalInfo {
     background-color: var(--inputHover);
 }
