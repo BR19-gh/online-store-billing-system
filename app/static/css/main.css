@@ -215,7 +215,7 @@ input::placeholder.personalInfo {
     font-size: 14px;
 }
 
-input::placeholder.input-label {
+.input-label::placeholder {
     font-size: 10px;
     text-align: center;
 }
