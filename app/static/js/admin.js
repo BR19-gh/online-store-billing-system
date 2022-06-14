@@ -1,7 +1,7 @@
-//// theme related
+/// / theme related
 fetch('/storeTheme/show', {
-        method: 'GET',
-    })
+    method: 'GET',
+})
     .then((responseTheme) => {
         return responseTheme.json()
     })
@@ -27,15 +27,15 @@ fetch('/storeTheme/show', {
     })
     .catch((error) => {
         alert(
-            `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeTheme// 505\n التاريخ: ${formatDate(
+            `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeTheme// 505\n التاريخ: ${formatDate(
                 new Date()
             )}`
         )
     })
 
-var themeBtns = document.querySelectorAll('div.circleTheme')
+const themeBtns = document.querySelectorAll('div.circleTheme')
 for (var i = 0; i < themeBtns.length; i++) {
-    themeBtns[i].onclick = function() {
+    themeBtns[i].onclick = function () {
         for (let i = 0; i < themesContainer.childNodes.length; i++) {
             themesContainer.childNodes[i].className = 'circleTheme'
         }
@@ -43,8 +43,8 @@ for (var i = 0; i < themeBtns.length; i++) {
         console.log(this.id)
 
         fetch('/storeTheme/show', {
-                method: 'GET',
-            })
+            method: 'GET',
+        })
             .then((responseTheme) => {
                 return responseTheme.json()
             })
@@ -57,16 +57,16 @@ for (var i = 0; i < themeBtns.length; i++) {
                 }
 
                 fetch('/storeTheme', {
-                        headers: {
-                            Method: `${method}`,
-                            'Content-Type': 'application/json',
-                            Accept: 'application/json',
-                        },
-                        method: `${method}`,
-                        body: JSON.stringify({
-                            storeTheme: this.id,
-                        }),
-                    })
+                    headers: {
+                        Method: `${method}`,
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                    },
+                    method: `${method}`,
+                    body: JSON.stringify({
+                        storeTheme: this.id,
+                    }),
+                })
                     .then((response) => {
                         return response.json()
                     })
@@ -74,20 +74,20 @@ for (var i = 0; i < themeBtns.length; i++) {
                         if (responseJson.statCode == 403) {
                             alert(
                                 'حدث خطأ في ' +
-                                method +
-                                '. \n\n ErrCode: 403 : رمز الخطأ'
+                                    method +
+                                    '. \n\n ErrCode: 403-admin'
                             )
                             return
                         }
                         if (responseJson.statCode == 429) {
                             alert(
-                                'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                                'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                             )
                             return
                         }
                         fetch('/storeTheme/show', {
-                                method: 'GET',
-                            })
+                            method: 'GET',
+                        })
                             .then((responseTheme) => {
                                 return responseTheme.json()
                             })
@@ -126,7 +126,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             })
                             .catch((error) => {
                                 alert(
-                                    `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeTheme// 506\n التاريخ: ${formatDate(
+                                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeTheme// 506\n التاريخ: ${formatDate(
                                         new Date()
                                     )}`
                                 )
@@ -135,7 +135,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                     })
                     .catch((error) => {
                         alert(
-                            `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeTheme// 507\n التاريخ: ${formatDate(
+                            `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeTheme// 507\n التاريخ: ${formatDate(
                                 new Date()
                             )}`
                         )
@@ -143,7 +143,7 @@ for (var i = 0; i < themeBtns.length; i++) {
             })
             .catch((error) => {
                 alert(
-                    `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeTheme// 508\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeTheme// 508\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 )
@@ -158,10 +158,10 @@ function expOrNarProduct(expOrNarProductKey) {
         document.querySelector('#productsList').style.height = '100%'
         document.querySelector('#productsList').style.overflow = 'auto'
         productsList.childNodes[
-                Object.keys(productsList.childNodes).length - 1
-            ].innerHTML =
+            Object.keys(productsList.childNodes).length - 1
+        ].innerHTML =
             '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>'
-        productsList.childNodes[0].innerHTML = ``
+        productsList.childNodes[0].innerHTML = ''
     } else {
         document.querySelector('#productsList').style.height = '30px'
         document.querySelector('#productsList').style.overflow = 'hidden'
@@ -175,10 +175,10 @@ function expOrNarPromo(expOrNarPromoKey) {
         document.querySelector('#codesList').style.height = '100%'
         document.querySelector('#codesList').style.overflow = 'auto'
         codesList.childNodes[
-                Object.keys(codesList.childNodes).length - 1
-            ].innerHTML =
+            Object.keys(codesList.childNodes).length - 1
+        ].innerHTML =
             '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء القسائم </div>'
-        codesList.childNodes[0].innerHTML = ``
+        codesList.childNodes[0].innerHTML = ''
     } else {
         document.querySelector('#codesList').style.height = '30px'
         document.querySelector('#codesList').style.overflow = 'hidden'
@@ -189,127 +189,120 @@ function expOrNarPromo(expOrNarPromoKey) {
 
 function deleteOrEditPromo(id, opration) {
     if (opration == 'edit') {
-        //show btn
+        // show btn
         document.querySelector('#addCode').style.display = 'none'
         document.querySelector('#updCode').style.display = 'block'
         document.querySelector('#delCode').style.display = 'none'
-            //fill input
+        // fill input
         document.querySelector(
             '#promoModalLongTitle'
         ).innerHTML = `تعديل القسيمة رقم: ${id}`
         document.querySelector('#codeID').value = `${id}`
-        document.querySelector(
-            '#codeName'
-        ).value = `${listOfPromos[id]['code']}`
+        document.querySelector('#codeName').value = `${listOfPromos[id].code}`
         document.querySelector('#codeAmount').value = `${
-            listOfPromos[id]['amount'] * 100
+            listOfPromos[id].amount * 100
         }`
-            //disable input
+        // disable input
         document.querySelector('#codeID').disabled = true
         document.querySelector('#codeName').disabled = false
         document.querySelector('#codeAmount').disabled = false
     } else if (opration == 'delete') {
-        //show btn
+        // show btn
         document.querySelector('#addCode').style.display = 'none'
         document.querySelector('#updCode').style.display = 'none'
         document.querySelector('#delCode').style.display = 'block'
-            //fill input
+        // fill input
         document.querySelector(
             '#promoModalLongTitle'
         ).innerHTML = `هل أنت متأكد من رغبتك بحذف القسيمة رقم: ${id}؟`
         document.querySelector('#codeID').value = `${id}`
-        document.querySelector(
-            '#codeName'
-        ).value = `${listOfPromos[id]['code']}`
+        document.querySelector('#codeName').value = `${listOfPromos[id].code}`
         document.querySelector('#codeAmount').value = `${
-            listOfPromos[id]['amount'] * 100
+            listOfPromos[id].amount * 100
         }`
-            //disable input
+        // disable input
         document.querySelector('#codeID').disabled = true
         document.querySelector('#codeName').disabled = true
         document.querySelector('#codeAmount').disabled = true
     } else if (opration == 'add') {
-        //show btn
+        // show btn
         document.querySelector('#addCode').style.display = 'block'
         document.querySelector('#updCode').style.display = 'none'
         document.querySelector('#delCode').style.display = 'none'
-            //fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = `إضافة قسيمة`
-            //disable input
+        // fill input
+        document.querySelector('#promoModalLongTitle').innerHTML = 'إضافة قسيمة'
+        // disable input
         document.querySelector('#codeID').disabled = false
         document.querySelector('#codeName').disabled = false
         document.querySelector('#codeAmount').disabled = false
     } else {
         alert(
-            'هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 507 : رمز الخطأ'
+            'هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 507-admin'
         )
-        return
     }
-    return
 }
 
 function deleteOrEditProd(id, opration) {
     if (opration == 'edit') {
-        //show btn
+        // show btn
         document.querySelector('#addProd').style.display = 'none'
         document.querySelector('#updProd').style.display = 'block'
         document.querySelector('#delProd').style.display = 'none'
-            //fill input
+        // fill input
         document.querySelector(
             '#productModalLongTitle'
         ).innerHTML = `تعديل المنتج رقم: ${id}`
         document.querySelector('#productID').value = `${id}`
         document.querySelector(
             '#productTitle'
-        ).value = `${listOfProducts[id]['title']}`
+        ).value = `${listOfProducts[id].title}`
         document.querySelector(
             '#productPrice'
-        ).value = `${listOfProducts[id]['price']}`
+        ).value = `${listOfProducts[id].price}`
         document.querySelector(
-                '#browseImg'
-            ).innerHTML = `يمكنك حفظ الصورة الحالية من هذا المربع <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 35px; height: 35px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها. <a style="color:blue; text-decoration: underline;" href="../static/img/how_Safari_iOS.GIF">كيف؟</a>`
-            //disable input
+            '#browseImg'
+        ).innerHTML = `يمكنك حفظ الصورة الحالية من هذا المربع <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 35px; height: 35px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها. <a style="color:blue; text-decoration: underline;" href="../static/img/how_Safari_iOS.GIF">كيف؟</a>`
+        // disable input
         document.querySelector('#productID').disabled = true
         document.querySelector('#productTitle').disabled = false
         document.querySelector('#productPrice').disabled = false
         document.querySelector('#productImg').disabled = false
         document.querySelector('#productImg').style.display = 'block'
     } else if (opration == 'delete') {
-        //show btn
+        // show btn
         document.querySelector('#addProd').style.display = 'none'
         document.querySelector('#updProd').style.display = 'none'
         document.querySelector('#delProd').style.display = 'block'
-            //fill input
+        // fill input
         document.querySelector(
             '#productModalLongTitle'
         ).innerHTML = `هل أنت متأكد من رغبتك بحذف المنتج رقم: ${id}`
         document.querySelector('#productID').value = `${id}`
         document.querySelector(
             '#productTitle'
-        ).value = `${listOfProducts[id]['title']}`
+        ).value = `${listOfProducts[id].title}`
         document.querySelector(
             '#productPrice'
-        ).value = `${listOfProducts[id]['price']}`
+        ).value = `${listOfProducts[id].price}`
         document.querySelector(
-                '#browseImg'
-            ).innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[id]['img']}" alt="img"> `
-            //disable input
+            '#browseImg'
+        ).innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> `
+        // disable input
         document.querySelector('#productID').disabled = true
         document.querySelector('#productTitle').disabled = true
         document.querySelector('#productPrice').disabled = true
         document.querySelector('#productImg').disabled = true
         document.querySelector('#productImg').style.display = 'none'
     } else if (opration == 'add') {
-        //show btn
+        // show btn
         document.querySelector('#addProd').style.display = 'block'
         document.querySelector('#updProd').style.display = 'none'
         document.querySelector('#delProd').style.display = 'none'
-            //fill input
-        document.querySelector(
-            '#productModalLongTitle'
-        ).innerHTML = `إضافة منتج`
-        document.querySelector('#browseImg').innerHTML = ``
-            //disable input
+        // fill input
+        document.querySelector('#productModalLongTitle').innerHTML =
+            'إضافة منتج'
+        document.querySelector('#browseImg').innerHTML = ''
+        // disable input
         document.querySelector('#productID').disabled = false
         document.querySelector('#productTitle').disabled = false
         document.querySelector('#productPrice').disabled = false
@@ -317,56 +310,46 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#productImg').style.display = 'block'
     } else {
         alert(
-            'هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 508 : رمز الخطأ'
+            'هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 508-admin'
         )
-        return
     }
-    return
 }
 
 function deleteOrEditStoreInfo(id, opration) {
     if (opration == 'edit') {
-        //show btn
+        // show btn
         document.querySelector('#addInfo').style.display = 'none'
         document.querySelector('#updInfo').style.display = 'block'
-            //fill input
-        document.querySelector(
-            '#storeInfoModalLongTitle'
-        ).innerHTML = `تعديل المعلومات`
-        document.querySelector('#storeName').value = `${listOfInfo['name']}`
-        let sliceNum = findHowMuchToSliceByNumber(`${listOfInfo['num']}`)
+        // fill input
+        document.querySelector('#storeInfoModalLongTitle').innerHTML =
+            'تعديل المعلومات'
+        document.querySelector('#storeName').value = `${listOfInfo.name}`
+        const sliceNum = findHowMuchToSliceByNumber(`${listOfInfo.num}`)
         if (sliceNum != 'err404') {
             document.querySelector('#storeNum').value =
-                `${listOfInfo['num']}`.slice(sliceNum)
+                `${listOfInfo.num}`.slice(sliceNum)
         } else {
-            document.querySelector('#storeNum').value = ``
+            document.querySelector('#storeNum').value = ''
         }
-        document.querySelector(
-            '#storeDetails'
-        ).value = `${listOfInfo['details']}`
-        document.querySelector(
-                '#billDetails'
-            ).value = `${listOfInfo['bDetails']}`
-            //disable input
+        document.querySelector('#storeDetails').value = `${listOfInfo.details}`
+        document.querySelector('#billDetails').value = `${listOfInfo.bDetails}`
+        // disable input
     } else if (opration == 'add') {
-        //show btn
+        // show btn
         document.querySelector('#addInfo').style.display = 'block'
         document.querySelector('#updInfo').style.display = 'none'
-            //fill input
-        document.querySelector(
-                '#storeInfoModalLongTitle'
-            ).innerHTML = `إضافة المعلومات`
-            //disable input
+        // fill input
+        document.querySelector('#storeInfoModalLongTitle').innerHTML =
+            'إضافة المعلومات'
+        // disable input
     } else {
         alert(
-            'هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 509 : رمز الخطأ'
+            'هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 509-admin'
         )
-        return
     }
-    return
 }
 
-//// fetches
+/// / fetches
 
 function firstFetches() {
     fetchThemes()
@@ -382,14 +365,14 @@ firstFetches()
 
 function fetchThemes() {
     fetch('/storeTheme/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseTheme) => {
             return responseTheme.json()
         })
         .then((responseJson) => {
-            if (responseJson['storeTheme'] == 'none/لايوجد') {} else {
-                if (responseJson['storeTheme'] == 'originalTheme') {
+            if (responseJson.storeTheme != 'none/لايوجد') {
+                if (responseJson.storeTheme == 'originalTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#f0e9c9'
@@ -462,7 +445,7 @@ function fetchThemes() {
                         '--infoCard',
                         '#d4cbaba8'
                     )
-                } else if (responseJson['storeTheme'] == 'blueTheme') {
+                } else if (responseJson.storeTheme == 'blueTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#c9cbf0'
@@ -535,7 +518,7 @@ function fetchThemes() {
                         '--infoCard',
                         '#abaed4a8'
                     )
-                } else if (responseJson['storeTheme'] == 'greenTheme') {
+                } else if (responseJson.storeTheme == 'greenTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#c9f0cb'
@@ -608,7 +591,7 @@ function fetchThemes() {
                         '--infoCard',
                         '#abd4b0a8'
                     )
-                } else if (responseJson['storeTheme'] == 'redTheme') {
+                } else if (responseJson.storeTheme == 'redTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#f0c9c9'
@@ -681,7 +664,7 @@ function fetchThemes() {
                         '--infoCard',
                         '#d4ababa8'
                     )
-                } else if (responseJson['storeTheme'] == 'pinkTheme') {
+                } else if (responseJson.storeTheme == 'pinkTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#efc9f0'
@@ -829,11 +812,11 @@ function fetchThemes() {
                     )
                 }
             }
-            console.log('current theme is ' + responseJson['storeTheme'])
+            console.log('current theme is ' + responseJson.storeTheme)
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeTheme// 509\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeTheme// 509\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
@@ -842,18 +825,18 @@ function fetchThemes() {
 
 function fetchStoreInfo() {
     fetch('/storeNum/show', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((responseNum) => {
             return responseNum.json()
         })
         .then((responseJson) => {
-            if (responseJson['storeNum'] != 'none/لايوجد') {
+            if (responseJson.storeNum != 'none/لايوجد') {
                 document.querySelector('#addInfoBtn').style.display = 'none'
                 document.querySelector('#updInfoBtn').style.display = 'block'
             } else {
@@ -862,101 +845,101 @@ function fetchStoreInfo() {
             }
             document.querySelector(
                 '#num'
-            ).innerHTML = `رقم المتجر:<br><b class="numAndName">${responseJson['storeNum']}</b>`
-            addToListOfInfo('num', responseJson['storeNum'])
+            ).innerHTML = `رقم المتجر:<br><b class="numAndName">${responseJson.storeNum}</b>`
+            addToListOfInfo('num', responseJson.storeNum)
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeNum// 510\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeNum// 510\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
         })
 
     fetch('/storeName/show', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((responseName) => {
             return responseName.json()
         })
         .then((responseJson) => {
-            if (responseJson['storeName'] != 'none/لايوجد') {
+            if (responseJson.storeName != 'none/لايوجد') {
                 document.querySelector('#addInfo').style.display = 'none'
             }
             document.querySelector(
                 '#name'
-            ).innerHTML = `اسم المتجر:<br><b class="numAndName">${responseJson['storeName']}</b>`
-            addToListOfInfo('name', responseJson['storeName'])
+            ).innerHTML = `اسم المتجر:<br><b class="numAndName">${responseJson.storeName}</b>`
+            addToListOfInfo('name', responseJson.storeName)
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeName// 511\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeName// 511\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
         })
 
     fetch('/storeDetails/show', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((responseDetails) => {
             return responseDetails.json()
         })
         .then((responseJson) => {
-            if (responseJson['storeDetails'] != 'none/لايوجد') {
+            if (responseJson.storeDetails != 'none/لايوجد') {
                 document.querySelector('#addInfo').style.display = 'none'
             }
             document.querySelector(
                 '#details'
-            ).innerHTML = `تفاصيل المتجر: <p class="numAndName">${responseJson['storeDetails']}</p>`
-            addToListOfInfo('details', responseJson['storeDetails'])
+            ).innerHTML = `تفاصيل المتجر: <p class="numAndName">${responseJson.storeDetails}</p>`
+            addToListOfInfo('details', responseJson.storeDetails)
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeDetails// 512\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeDetails// 512\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
         })
 
     fetch('/billDetails/show', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((responseBillDetails) => {
             return responseBillDetails.json()
         })
         .then((responseJson) => {
-            if (responseJson['billDetails'] != 'none/لايوجد') {
+            if (responseJson.billDetails != 'none/لايوجد') {
                 document.querySelector('#addInfo').style.display = 'none'
             }
-            if (responseJson['billDetails'] != '') {
+            if (responseJson.billDetails != '') {
                 document.querySelector(
                     '#bDetails'
-                ).innerHTML = `تفاصيل إضافية للفاتورة: <p class="numAndName">${responseJson['billDetails']}</p>`
+                ).innerHTML = `تفاصيل إضافية للفاتورة: <p class="numAndName">${responseJson.billDetails}</p>`
             } else {
                 document.querySelector('#bDetails').innerHTML =
                     'تفاصيل إضافية للفاتورة: <p class="numAndName">none/لايوجد</p>'
             }
-            addToListOfInfo('billDetails', responseJson['billDetails'])
+            addToListOfInfo('billDetails', responseJson.billDetails)
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:billDetails// 513\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:billDetails// 513\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
@@ -974,34 +957,34 @@ function isNarrowed(responseJson) {
             document.querySelector(
                 '#productsList'
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             }</b><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['title']
+                responseJson[Object.keys(responseJson)[i]].title
             }</b><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['price']
+                responseJson[Object.keys(responseJson)[i]].price
             }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${
-                responseJson[Object.keys(responseJson)[i]]['img']
+                responseJson[Object.keys(responseJson)[i]].img
             }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`
         }
 
         document.querySelector(
             '#productsList'
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['title']
+            responseJson[Object.keys(responseJson)[i]].title
         }</b><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['price']
+            responseJson[Object.keys(responseJson)[i]].price
         }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${
-            responseJson[Object.keys(responseJson)[i]]['img']
+            responseJson[Object.keys(responseJson)[i]].img
         }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`
     }
 }
@@ -1015,51 +998,51 @@ function isExpanded(responseJson) {
             document.querySelector(
                 '#productsList'
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             }</b><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['title']
+                responseJson[Object.keys(responseJson)[i]].title
             }</b><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['price']
+                responseJson[Object.keys(responseJson)[i]].price
             }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${
-                responseJson[Object.keys(responseJson)[i]]['img']
+                responseJson[Object.keys(responseJson)[i]].img
             }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`
         }
 
         document.querySelector(
             '#productsList'
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['title']
+            responseJson[Object.keys(responseJson)[i]].title
         }</b><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['price']
+            responseJson[Object.keys(responseJson)[i]].price
         }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${
-            responseJson[Object.keys(responseJson)[i]]['img']
+            responseJson[Object.keys(responseJson)[i]].img
         }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`
     }
     productsList.childNodes[
-            Object.keys(productsList.childNodes).length - 1
-        ].innerHTML =
+        Object.keys(productsList.childNodes).length - 1
+    ].innerHTML =
         '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>'
 }
 
 function fetchProducts() {
     fetch('/products', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((response) => {
             return response.json()
         })
@@ -1071,7 +1054,7 @@ function fetchProducts() {
             }
             if (responseJson.statCode == 429) {
                 alert(
-                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                 )
                 return
             }
@@ -1081,7 +1064,7 @@ function fetchProducts() {
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:products// 514\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:products// 514\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
@@ -1091,7 +1074,7 @@ function fetchProducts() {
 // for fetchProducts()
 let listOfProducts
 let listOfPromos
-let listOfInfo = {
+const listOfInfo = {
     name: 'name',
     num: 'num',
     details: 'details',
@@ -1099,11 +1082,10 @@ let listOfInfo = {
 }
 
 function addToListOfInfo(infoType, infoData) {
-    if (infoType == 'name') listOfInfo['name'] = infoData
-    else if (infoType == 'details') listOfInfo['details'] = infoData
-    else if (infoType == 'num') listOfInfo['num'] = infoData
-    else if (infoType == 'billDetails') listOfInfo['bDetails'] = infoData
-    return
+    if (infoType == 'name') listOfInfo.name = infoData
+    else if (infoType == 'details') listOfInfo.details = infoData
+    else if (infoType == 'num') listOfInfo.num = infoData
+    else if (infoType == 'billDetails') listOfInfo.bDetails = infoData
 }
 
 function isNarrowedCode(responseJson) {
@@ -1115,29 +1097,29 @@ function isNarrowedCode(responseJson) {
             document.querySelector(
                 '#codesList'
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             }</b><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['code']
+                responseJson[Object.keys(responseJson)[i]].code
             }</b><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['amount'] * 100
+                responseJson[Object.keys(responseJson)[i]].amount * 100
             }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`
         }
         document.querySelector(
             '#codesList'
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['code']
+            responseJson[Object.keys(responseJson)[i]].code
         }</b><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['amount'] * 100
+            responseJson[Object.keys(responseJson)[i]].amount * 100
         }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`
     }
 }
@@ -1152,46 +1134,46 @@ function isExpandedCode(responseJson) {
             document.querySelector(
                 '#codesList'
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             }</b><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['code']
+                responseJson[Object.keys(responseJson)[i]].code
             }</b><b class="cell">${
-                responseJson[Object.keys(responseJson)[i]]['amount'] * 100
+                responseJson[Object.keys(responseJson)[i]].amount * 100
             }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${
-                responseJson[Object.keys(responseJson)[i]]['id']
+                responseJson[Object.keys(responseJson)[i]].id
             },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`
         }
         document.querySelector(
             '#codesList'
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['code']
+            responseJson[Object.keys(responseJson)[i]].code
         }</b><b class="cell">${
-            responseJson[Object.keys(responseJson)[i]]['amount'] * 100
+            responseJson[Object.keys(responseJson)[i]].amount * 100
         }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${
-            responseJson[Object.keys(responseJson)[i]]['id']
+            responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`
     }
     codesList.childNodes[
-            Object.keys(codesList.childNodes).length - 1
-        ].innerHTML =
+        Object.keys(codesList.childNodes).length - 1
+    ].innerHTML =
         '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء القسائم </div>'
 }
 
 function fetchPromocodes() {
     fetch('/promocodes', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((response) => {
             return response.json()
         })
@@ -1203,7 +1185,7 @@ function fetchPromocodes() {
             }
             if (responseJson.statCode == 429) {
                 alert(
-                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400 : رمز الخطأ'
+                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400-admin'
                 )
                 return
             }
@@ -1212,14 +1194,14 @@ function fetchPromocodes() {
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:products// 515\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:products// 515\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
         })
 }
 
-///// to show msg or not
+/// // to show msg or not
 
 if (localStorage.pressToNotShowBtn == 'true') {
     document.querySelectorAll('.dbInfo')[0].style.display = 'none'
@@ -1230,11 +1212,11 @@ document.querySelector('#pressToNotShowBtn').addEventListener('click', () => {
     localStorage.pressToNotShowBtn = 'true'
 })
 
-///// btns
+/// // btns
 
 document.querySelector('#addProd').addEventListener('click', () => {
-    let productImg = document.querySelector('#productImg')
-    let uploadImgForm = new FormData()
+    const productImg = document.querySelector('#productImg')
+    const uploadImgForm = new FormData()
     uploadImgForm.append('image', productImg.files[0])
     if (
         document.querySelector('#productID').value == '' ||
@@ -1249,43 +1231,43 @@ document.querySelector('#addProd').addEventListener('click', () => {
         return
     }
     fetch('/product', {
-            headers: {
-                id: encodeURIComponent(document.querySelector('#productID').value),
-                title: encodeURIComponent(
-                    document.querySelector('#productTitle').value
-                ),
-                price: encodeURIComponent(
-                    document.querySelector('#productPrice').value
-                ),
-            },
-            method: 'POST',
-            body: uploadImgForm,
-        })
+        headers: {
+            id: encodeURIComponent(document.querySelector('#productID').value),
+            title: encodeURIComponent(
+                document.querySelector('#productTitle').value
+            ),
+            price: encodeURIComponent(
+                document.querySelector('#productPrice').value
+            ),
+        },
+        method: 'POST',
+        body: uploadImgForm,
+    })
         .then((response) => {
             return response.json()
         })
         .then((responseJson) => {
             if (responseJson.statCode == 403) {
                 alert(
-                    'الرقم التعريفي للمنتج المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ'
+                    'الرقم التعريفي للمنتج المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403-admin'
                 ) | $('#productModal').modal('show')
                 return
             }
             if (responseJson.statCode == 400) {
                 alert(
-                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ'
+                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400-admin'
                 ) | $('#productModal').modal('show')
                 return
             }
             if (responseJson.statCode == 429) {
                 alert(
-                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                 ) | $('#productModal').modal('show')
                 return
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                 ) | $('#productModal').modal('show')
                 return
             }
@@ -1301,7 +1283,7 @@ document.querySelector('#addProd').addEventListener('click', () => {
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:product// 516\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:product// 516\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
@@ -1309,8 +1291,8 @@ document.querySelector('#addProd').addEventListener('click', () => {
 })
 
 document.querySelector('#updProd').addEventListener('click', () => {
-    let productImg = document.querySelector('#productImg')
-    let uploadImgForm = new FormData()
+    const productImg = document.querySelector('#productImg')
+    const uploadImgForm = new FormData()
     uploadImgForm.append('image', productImg.files[0])
     if (
         document.querySelector('#productID').value == '' ||
@@ -1325,42 +1307,42 @@ document.querySelector('#updProd').addEventListener('click', () => {
         return
     }
     fetch(`/product/${document.querySelector('#productID').value}`, {
-            headers: {
-                title: encodeURIComponent(
-                    document.querySelector('#productTitle').value
-                ),
-                price: encodeURIComponent(
-                    document.querySelector('#productPrice').value
-                ),
-            },
-            method: 'PUT',
-            body: uploadImgForm,
-        })
+        headers: {
+            title: encodeURIComponent(
+                document.querySelector('#productTitle').value
+            ),
+            price: encodeURIComponent(
+                document.querySelector('#productPrice').value
+            ),
+        },
+        method: 'PUT',
+        body: uploadImgForm,
+    })
         .then((response) => {
             return response.json()
         })
         .then((responseJson) => {
             if (responseJson.statCode == 404) {
                 alert(
-                    'الرقم التعريفي للمنتج المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ'
+                    'الرقم التعريفي للمنتج المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404-admin'
                 )
                 return
             }
             if (responseJson.statCode == 400) {
                 alert(
-                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ'
+                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400-admin'
                 )
                 return
             }
             if (responseJson.statCode == 429) {
                 alert(
-                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                 )
                 return
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                 )
                 return
             }
@@ -1376,7 +1358,7 @@ document.querySelector('#updProd').addEventListener('click', () => {
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:product// 517\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:product// 517\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
@@ -1385,38 +1367,38 @@ document.querySelector('#updProd').addEventListener('click', () => {
 
 document.querySelector('#delProd').addEventListener('click', () => {
     fetch(`/product/${document.querySelector('#productID').value}`, {
-            headers: {
-                Method: 'DELETE',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'DELETE',
-        })
+        headers: {
+            Method: 'DELETE',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'DELETE',
+    })
         .then((response) => {
             return response.json()
         })
         .then((responseJson) => {
             if (responseJson.statCode == 404) {
                 alert(
-                    'الرقم التعريفي للمنتج المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ'
+                    'الرقم التعريفي للمنتج المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404-admin'
                 )
                 return
             }
             if (responseJson.statCode == 400) {
                 alert(
-                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ'
+                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400-admin'
                 )
                 return
             }
             if (responseJson.statCode == 429) {
                 alert(
-                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                 )
                 return
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                 )
                 return
             }
@@ -1443,43 +1425,43 @@ document.querySelector('#addCode').addEventListener('click', () => {
         return
     }
     fetch('/promocode', {
-            headers: {
-                Method: 'POST',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                id: document.querySelector('#codeID').value,
-                code: document.querySelector('#codeName').value,
-                amount: document.querySelector('#codeAmount').value,
-            }),
-        })
+        headers: {
+            Method: 'POST',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            id: document.querySelector('#codeID').value,
+            code: document.querySelector('#codeName').value,
+            amount: document.querySelector('#codeAmount').value,
+        }),
+    })
         .then((response) => {
             return response.json()
         })
         .then((responseJson) => {
             if (responseJson.statCode == 403) {
                 alert(
-                    'الرقم التعريفي للقسيمة المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403 : رمز الخطأ'
+                    'الرقم التعريفي للقسيمة المراد إضافته موجود مسبقا\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 403-admin'
                 ) | $('#promoModal').modal('show')
                 return
             }
             if (responseJson.statCode == 400) {
                 alert(
-                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ'
+                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400-admin'
                 ) | $('#promoModal').modal('show')
                 return
             }
             if (responseJson.statCode == 429) {
                 alert(
-                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                 ) | $('#promoModal').modal('show')
                 return
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                 ) | $('#promoModal').modal('show')
                 return
             }
@@ -1494,7 +1476,7 @@ document.querySelector('#addCode').addEventListener('click', () => {
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:promocode// 518\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:promocode// 518\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
@@ -1514,42 +1496,42 @@ document.querySelector('#updCode').addEventListener('click', () => {
         return
     }
     fetch(`/promocode/${document.querySelector('#codeID').value}`, {
-            headers: {
-                Method: 'PUT',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'PUT',
-            body: JSON.stringify({
-                code: document.querySelector('#codeName').value,
-                amount: document.querySelector('#codeAmount').value,
-            }),
-        })
+        headers: {
+            Method: 'PUT',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'PUT',
+        body: JSON.stringify({
+            code: document.querySelector('#codeName').value,
+            amount: document.querySelector('#codeAmount').value,
+        }),
+    })
         .then((response) => {
             return response.json()
         })
         .then((responseJson) => {
             if (responseJson.statCode == 404) {
                 alert(
-                    'الرقم التعريفي للقسيمة المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ'
+                    'الرقم التعريفي للقسيمة المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404-admin'
                 )
                 return
             }
             if (responseJson.statCode == 400) {
                 alert(
-                    'هناك مدخلات أُدخلت بشكل خاطئ\nnالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ'
+                    'هناك مدخلات أُدخلت بشكل خاطئ\nnالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400-admin'
                 )
                 return
             }
             if (responseJson.statCode == 429) {
                 alert(
-                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                 )
                 return
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                 )
                 return
             }
@@ -1566,38 +1548,38 @@ document.querySelector('#updCode').addEventListener('click', () => {
 
 document.querySelector('#delCode').addEventListener('click', () => {
     fetch(`/promocode/${document.querySelector('#codeID').value}`, {
-            headers: {
-                Method: 'DELETE',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'DELETE',
-        })
+        headers: {
+            Method: 'DELETE',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'DELETE',
+    })
         .then((response) => {
             return response.json()
         })
         .then((responseJson) => {
             if (responseJson.statCode == 404) {
                 alert(
-                    'الرقم التعريفي للقسيمة المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404 : رمز الخطأ'
+                    'الرقم التعريفي للقسيمة المراد حذفه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404-admin'
                 )
                 return
             }
             if (responseJson.statCode == 400) {
                 alert(
-                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ'
+                    'هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400-admin'
                 )
                 return
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                 )
                 return
             }
             if (responseJson.statCode == 429) {
                 alert(
-                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                 )
                 return
             }
@@ -1624,33 +1606,34 @@ document.querySelector('#addInfo').addEventListener('click', () => {
     }
 
     fetch('/storeInfo', {
-            headers: {
-                Method: 'POST',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                storeName: document.querySelector('#storeName').value,
-                storeNum: currentCountryCodeSelected +
-                    document.querySelector('#storeNum').value,
-                storeDetails: document.querySelector('#storeDetails').value,
-                billDetails: document.querySelector('#billDetails').value,
-            }),
-        })
+        headers: {
+            Method: 'POST',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            storeName: document.querySelector('#storeName').value,
+            storeNum:
+                currentCountryCodeSelected +
+                document.querySelector('#storeNum').value,
+            storeDetails: document.querySelector('#storeDetails').value,
+            billDetails: document.querySelector('#billDetails').value,
+        }),
+    })
         .then((response) => {
             return response.json()
         })
         .then((responseJson) => {
             if (responseJson.statCode == 429) {
                 alert(
-                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                    'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                 )
                 return
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                    'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                 )
                 return
             }
@@ -1667,7 +1650,7 @@ document.querySelector('#addInfo').addEventListener('click', () => {
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeInfo// 519\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeInfo// 519\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
@@ -1688,8 +1671,8 @@ document.querySelector('#updInfo').addEventListener('click', () => {
     }
 
     fetch('/storeNum/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseNum) => {
             return responseNum.json()
         })
@@ -1699,20 +1682,19 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 setTimeout(() => {
                     $('#storeInfoModal').modal('show')
                 }, 200)
-                return
             }
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeNum// 520\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeNum// 520\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
         })
 
     fetch('/storeName/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseName) => {
             return responseName.json()
         })
@@ -1722,20 +1704,19 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 setTimeout(() => {
                     $('#storeInfoModal').modal('show')
                 }, 200)
-                return
             }
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeName// 521\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeName// 521\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
         })
 
     fetch('/storeDetails/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseDetails) => {
             return responseDetails.json()
         })
@@ -1745,20 +1726,19 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 setTimeout(() => {
                     $('#storeInfoModal').modal('show')
                 }, 200)
-                return
             }
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeDetails// 522\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeDetails// 522\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
         })
 
     fetch('/billDetails/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseBillDetails) => {
             return responseBillDetails.json()
         })
@@ -1768,12 +1748,11 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 setTimeout(() => {
                     $('#storeInfoModal').modal('show')
                 }, 200)
-                return
             }
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:billDetails// 523\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:billDetails// 523\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
@@ -1785,23 +1764,23 @@ document.querySelector('#updInfo').addEventListener('click', () => {
         document.querySelector('#storeDetails').value != ''
     ) {
         fetch('/storeName', {
-                headers: {
-                    Method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                method: 'PUT',
-                body: JSON.stringify({
-                    storeName: document.querySelector('#storeName').value,
-                }),
-            })
+            headers: {
+                Method: 'PUT',
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            method: 'PUT',
+            body: JSON.stringify({
+                storeName: document.querySelector('#storeName').value,
+            }),
+        })
             .then((response) => {
                 return response.json()
             })
             .then((responseJson) => {
                 if (responseJson.statCode == 429) {
                     alert(
-                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -1810,7 +1789,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -1829,7 +1808,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             })
             .catch((error) => {
                 alert(
-                    `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeName// 524\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeName// 524\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 )
@@ -1849,24 +1828,25 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             return
         }
         fetch('/storeNum', {
-                headers: {
-                    Method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                method: 'PUT',
-                body: JSON.stringify({
-                    storeNum: currentCountryCodeSelected +
-                        document.querySelector('#storeNum').value,
-                }),
-            })
+            headers: {
+                Method: 'PUT',
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            method: 'PUT',
+            body: JSON.stringify({
+                storeNum:
+                    currentCountryCodeSelected +
+                    document.querySelector('#storeNum').value,
+            }),
+        })
             .then((response) => {
                 return response.json()
             })
             .then((responseJson) => {
                 if (responseJson.statCode == 400) {
                     alert(
-                        'هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400 : رمز الخطأ'
+                        'هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -1875,7 +1855,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
                 if (responseJson.statCode == 429) {
                     alert(
-                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -1884,7 +1864,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -1905,7 +1885,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             })
             .catch((error) => {
                 alert(
-                    `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeNum// 525\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeNum// 525\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 )
@@ -1916,23 +1896,23 @@ document.querySelector('#updInfo').addEventListener('click', () => {
         document.querySelector('#storeNum').value != ''
     ) {
         fetch('/storeDetails', {
-                headers: {
-                    Method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                method: 'PUT',
-                body: JSON.stringify({
-                    storeDetails: document.querySelector('#storeDetails').value,
-                }),
-            })
+            headers: {
+                Method: 'PUT',
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            method: 'PUT',
+            body: JSON.stringify({
+                storeDetails: document.querySelector('#storeDetails').value,
+            }),
+        })
             .then((response) => {
                 return response.json()
             })
             .then((responseJson) => {
                 if (responseJson.statCode == 429) {
                     alert(
-                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -1941,7 +1921,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -1959,29 +1939,29 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             })
             .catch((error) => {
                 alert(
-                    `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:storeDetails// 526\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:storeDetails// 526\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 )
             })
         fetch('/billDetails', {
-                headers: {
-                    Method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                method: 'PUT',
-                body: JSON.stringify({
-                    billDetails: document.querySelector('#billDetails').value,
-                }),
-            })
+            headers: {
+                Method: 'PUT',
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            method: 'PUT',
+            body: JSON.stringify({
+                billDetails: document.querySelector('#billDetails').value,
+            }),
+        })
             .then((response) => {
                 return response.json()
             })
             .then((responseJson) => {
                 if (responseJson.statCode == 429) {
                     alert(
-                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -1990,7 +1970,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -2009,7 +1989,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             })
             .catch((error) => {
                 alert(
-                    `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:billDetails// 527\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:billDetails// 527\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 )
@@ -2029,52 +2009,53 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             return
         }
         Promise.all([
-                fetch('/storeNum', {
-                    headers: {
-                        Method: 'PUT',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        storeNum: currentCountryCodeSelected +
-                            document.querySelector('#storeNum').value,
-                    }),
+            fetch('/storeNum', {
+                headers: {
+                    Method: 'PUT',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    storeNum:
+                        currentCountryCodeSelected +
+                        document.querySelector('#storeNum').value,
                 }),
-                fetch('/storeName', {
-                    headers: {
-                        Method: 'PUT',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        storeName: document.querySelector('#storeName').value,
-                    }),
+            }),
+            fetch('/storeName', {
+                headers: {
+                    Method: 'PUT',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    storeName: document.querySelector('#storeName').value,
                 }),
-                fetch('/storeDetails', {
-                    headers: {
-                        Method: 'PUT',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        storeDetails: document.querySelector('#storeDetails').value,
-                    }),
+            }),
+            fetch('/storeDetails', {
+                headers: {
+                    Method: 'PUT',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    storeDetails: document.querySelector('#storeDetails').value,
                 }),
-                fetch('/billDetails', {
-                    headers: {
-                        Method: 'PUT',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        billDetails: document.querySelector('#billDetails').value,
-                    }),
+            }),
+            fetch('/billDetails', {
+                headers: {
+                    Method: 'PUT',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    billDetails: document.querySelector('#billDetails').value,
                 }),
-            ])
+            }),
+        ])
             .then(
                 ([
                     responseNum,
@@ -2091,9 +2072,9 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
             )
             .then((responseJson) => {
-                if (responseJson['num'].statCode == 400) {
+                if (responseJson.num.statCode == 400) {
                     alert(
-                        'هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400 : رمز الخطأ'
+                        'هناك مدخلات أُدخلت بشكل خاطئ\nرقم المتجر أُدخل فيه نص، يجب إدخاله على شكل فقط. \n\n ErrCode: 400-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -2102,7 +2083,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
                 if (responseJson.statCode == 429) {
                     alert(
-                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429 : رمز الخطأ'
+                        'لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -2111,7 +2092,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500 : رمز الخطأ'
+                        'حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin'
                     )
                     setTimeout(() => {
                         $('#storeInfoModal').modal('show')
@@ -2130,13 +2111,12 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             })
             .catch((error) => {
                 alert(
-                    `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//admin:all// 528\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//admin:all// 528\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 )
             })
     } else {
-        return
     }
 })
 
@@ -2145,87 +2125,91 @@ const countriesCodes = {
         code: 'SA',
         name: '\u0627\u0644\u0645\u0645\u0644\u0643\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629',
         en_name: 'Saudi Arabia',
-        ar_name: '\u0627\u0644\u0645\u0645\u0644\u0643\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629',
-        calling_code: '966',
+        ar_name:
+            '\u0627\u0644\u0645\u0645\u0644\u0643\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629',
+        callingCode: '966',
     },
     AE: {
         code: 'AE',
         name: '\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0627\u0644\u0645\u062a\u062d\u062f\u0629',
         en_name: 'United Arab Emirates',
-        ar_name: '\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0627\u0644\u0645\u062a\u062d\u062f\u0629',
-        calling_code: '971',
+        ar_name:
+            '\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0627\u0644\u0645\u062a\u062d\u062f\u0629',
+        callingCode: '971',
     },
     QA: {
         code: 'QA',
         name: '\u0642\u0637\u0631',
         en_name: 'Qatar',
         ar_name: '\u0642\u0637\u0631',
-        calling_code: '974',
+        callingCode: '974',
     },
     KW: {
         code: 'KW',
         name: '\u0627\u0644\u0643\u0648\u064a\u062a',
         en_name: 'Kuwait',
         ar_name: '\u0627\u0644\u0643\u0648\u064a\u062a',
-        calling_code: '965',
+        callingCode: '965',
     },
     OM: {
         code: 'OM',
         name: '\u0639\u064f\u0645\u0627\u0646',
         en_name: 'Oman',
         ar_name: '\u0639\u064f\u0645\u0627\u0646',
-        calling_code: '968',
+        callingCode: '968',
     },
     BH: {
         code: 'BH',
         name: '\u0627\u0644\u0628\u062d\u0631\u064a\u0646',
         en_name: 'Bahrain',
         ar_name: '\u0627\u0644\u0628\u062d\u0631\u064a\u0646',
-        calling_code: '973',
+        callingCode: '973',
     },
     GB: {
         code: 'GB',
         name: 'United Kingdom\u202c\u200f',
         en_name: 'United Kingdom',
-        ar_name: '\u0627\u0644\u0645\u0645\u0644\u0643\u0629 \u0627\u0644\u0645\u062a\u062d\u062f\u0629 ',
-        calling_code: '44',
+        ar_name:
+            '\u0627\u0644\u0645\u0645\u0644\u0643\u0629 \u0627\u0644\u0645\u062a\u062d\u062f\u0629 ',
+        callingCode: '44',
     },
     US: {
         code: 'US',
         name: 'United States\u202c\u200f',
         en_name: 'United States',
-        ar_name: '\u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645\u062a\u062d\u062f\u0629 ',
-        calling_code: '1',
+        ar_name:
+            '\u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645\u062a\u062d\u062f\u0629 ',
+        callingCode: '1',
     },
     EG: {
         code: 'EG',
         name: '\u0645\u0635\u0631',
         en_name: 'Egypt',
         ar_name: '\u0645\u0635\u0631',
-        calling_code: '20',
+        callingCode: '20',
     },
     YE: {
         code: 'YE',
         name: '\u0627\u0644\u064a\u0645\u0646',
         en_name: 'Yemen',
         ar_name: '\u0627\u0644\u064a\u0645\u0646',
-        calling_code: '967',
+        callingCode: '967',
     },
 }
 
-let listOfCountriesCodes = document.querySelector('#listOfCountriesCodes')
-for (let i = 0; i < /*Object.keys(countriesCodes).length*/ 10; i++) {
+const listOfCountriesCodes = document.querySelector('#listOfCountriesCodes')
+for (let i = 0; i < /* Object.keys(countriesCodes).length */ 10; i++) {
     if (i == 0) {
         listOfCountriesCodes.innerHTML = ''
     }
 
     listOfCountriesCodes.innerHTML += `<li><a class="dropdown-item" >${i + 1}:${
-        countriesCodes[Object.keys(countriesCodes)[i]]['ar_name']
+        countriesCodes[Object.keys(countriesCodes)[i]].ar_name
     }</a></li>`
 }
 
-let countryCodeTitle = document.querySelector('#countryCodeTitle')
-let allCountriesAncors = document.querySelectorAll('a[class^=dropdown-item]')
+const countryCodeTitle = document.querySelector('#countryCodeTitle')
+const allCountriesAncors = document.querySelectorAll('a[class^=dropdown-item]')
 let currentCountryCodeSelected = -1
 console.log(
     'Found',
@@ -2233,21 +2217,24 @@ console.log(
     'a which class:"dropdown-item".'
 )
 for (var i = 0; i < allCountriesAncors.length; i++) {
-    allCountriesAncors[i].addEventListener('click', function() {
+    allCountriesAncors[i].addEventListener('click', function () {
         let content = this.innerText
         content = content.split(':')
         let id = content[0]
         id--
         currentCountryCodeSelected =
-            countriesCodes[Object.keys(countriesCodes)[id]]['calling_code']
+            countriesCodes[Object.keys(countriesCodes)[id]].callingCode
         countryCodeTitle.innerText = currentCountryCodeSelected
     })
 }
 for (
-    var i = 0; i < document.querySelectorAll('[aria-label="Close"]').length; i++
+    var i = 0;
+    i < document.querySelectorAll('[aria-label="Close"]').length;
+    i++
 ) {
     document
-        .querySelectorAll('[aria-label="Close"]')[i].addEventListener('click', function() {
+        .querySelectorAll('[aria-label="Close"]')
+        [i].addEventListener('click', function () {
             document.querySelector('#codeID').value = ''
             document.querySelector('#codeName').value = ''
             document.querySelector('#codeAmount').value = ''
@@ -2259,30 +2246,30 @@ for (
 }
 
 function findHowMuchToSliceByNumber(text) {
-    let calling_code = text.slice(0, 3)
+    let callingCode = text.slice(0, 3)
 
     for (let i = 0; i < Object.keys(countriesCodes).length; i++) {
         if (
-            calling_code ==
-            countriesCodes[Object.keys(countriesCodes)[i]]['calling_code']
+            callingCode ==
+            countriesCodes[Object.keys(countriesCodes)[i]].callingCode
         ) {
             return 3
         }
     }
-    calling_code = text.slice(0, 2)
+    callingCode = text.slice(0, 2)
     for (let i = 0; i < Object.keys(countriesCodes).length; i++) {
         if (
-            calling_code ==
-            countriesCodes[Object.keys(countriesCodes)[i]]['calling_code']
+            callingCode ==
+            countriesCodes[Object.keys(countriesCodes)[i]].callingCode
         ) {
             return 2
         }
     }
-    calling_code = text.slice(0, 1)
+    callingCode = text.slice(0, 1)
     for (let i = 0; i < Object.keys(countriesCodes).length; i++) {
         if (
-            calling_code ==
-            countriesCodes[Object.keys(countriesCodes)[i]]['calling_code']
+            callingCode ==
+            countriesCodes[Object.keys(countriesCodes)[i]].callingCode
         ) {
             return 1
         }
@@ -2291,21 +2278,21 @@ function findHowMuchToSliceByNumber(text) {
 }
 
 function formatDate(date) {
-    var hours = date.getHours()
-    var minutes = date.getMinutes()
-    var ampm = hours >= 12 ? 'م' : 'ص'
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    const ampm = hours >= 12 ? 'م' : 'ص'
     hours = hours % 12
-    hours = hours ? hours : 12
-        // minutes = minutes < 10 ? '0' + minutes : minutes;
-    var year = date.getFullYear()
-    var month = date.getMonth()
+    hours = hours || 12
+    // minutes = minutes < 10 ? '0' + minutes : minutes;
+    const year = date.getFullYear()
+    let month = date.getMonth()
     month =
         Number(month) + 1 < 10 ? '0' + (Number(month) + 1) : Number(month) + 1
     var date = date.getDate()
     date = date < 10 ? '0' + date : date
     hours = hours < 10 ? '0' + hours : hours
     minutes = minutes < 10 ? '0' + minutes : minutes
-    var strTime =
+    const strTime =
         year + '/' + month + '/' + date + ', ' + hours + ':' + minutes + ampm
     return strTime
 }

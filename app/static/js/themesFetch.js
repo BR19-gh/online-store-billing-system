@@ -6,9 +6,8 @@ export function fetchThemes() {
             return responseTheme.json()
         })
         .then((responseJson) => {
-            if (responseJson['storeTheme'] == 'none/لايوجد') {
-            } else {
-                if (responseJson['storeTheme'] == 'originalTheme') {
+            if (responseJson.storeTheme != 'none/لايوجد') {
+                if (responseJson.storeTheme == 'originalTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#f0e9c9'
@@ -81,7 +80,7 @@ export function fetchThemes() {
                         '--infoCard',
                         '#d4cbaba8'
                     )
-                } else if (responseJson['storeTheme'] == 'blueTheme') {
+                } else if (responseJson.storeTheme == 'blueTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#c9cbf0'
@@ -154,7 +153,7 @@ export function fetchThemes() {
                         '--infoCard',
                         '#abaed4a8'
                     )
-                } else if (responseJson['storeTheme'] == 'greenTheme') {
+                } else if (responseJson.storeTheme == 'greenTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#c9f0cb'
@@ -227,7 +226,7 @@ export function fetchThemes() {
                         '--infoCard',
                         '#abd4b0a8'
                     )
-                } else if (responseJson['storeTheme'] == 'redTheme') {
+                } else if (responseJson.storeTheme == 'redTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#f0c9c9'
@@ -300,7 +299,7 @@ export function fetchThemes() {
                         '--infoCard',
                         '#d4ababa8'
                     )
-                } else if (responseJson['storeTheme'] == 'pinkTheme') {
+                } else if (responseJson.storeTheme == 'pinkTheme') {
                     document.documentElement.style.setProperty(
                         '--body',
                         '#efc9f0'
@@ -448,6 +447,6 @@ export function fetchThemes() {
                     )
                 }
             }
-            console.log('current theme is ' + responseJson['storeTheme'])
+            console.log('current theme is ' + responseJson.storeTheme)
         })
 }

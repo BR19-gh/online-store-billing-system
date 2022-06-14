@@ -4,16 +4,17 @@ function firstFetch() {
             return response.json()
         })
         .then((responseJson) => {
-            if (responseJson.storeName == '')
+            if (responseJson.storeName == '') {
                 document.querySelector('#storeName').innerText = ''
-            else
+            } else {
                 document.querySelector(
                     '#storeName'
                 ).innerText = `${responseJson.storeName}`
+            }
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//login:storeName// 506\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//login:storeName// 506\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )

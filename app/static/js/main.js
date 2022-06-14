@@ -3,13 +3,13 @@ let data2 = {}
 
 function firstFetch() {
     fetch('/products', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((response) => {
             return response.json()
         })
@@ -17,13 +17,13 @@ function firstFetch() {
             data = responseJson
 
             fetch('/promocodes', {
-                    headers: {
-                        Method: 'GET',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'GET',
-                })
+                headers: {
+                    Method: 'GET',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                method: 'GET',
+            })
                 .then((response) => {
                     return response.json()
                 })
@@ -31,53 +31,53 @@ function firstFetch() {
                     data2 = responseJson
 
                     fetch('/storeName/show', {
-                            headers: {
-                                Method: 'GET',
-                                'Content-Type': 'application/json',
-                                Accept: 'application/json',
-                            },
-                            method: 'GET',
-                        })
+                        headers: {
+                            Method: 'GET',
+                            'Content-Type': 'application/json',
+                            Accept: 'application/json',
+                        },
+                        method: 'GET',
+                    })
                         .then((response) => {
                             return response.json()
                         })
                         .then((responseJson) => {
                             data3 = responseJson
 
-                            let cartInfo = {
+                            const cartInfo = {
                                 titles: [],
                                 prices: [],
                             }
-                            if (data3['storeName'] != 'none/لايوجد') {
+                            if (data3.storeName != 'none/لايوجد') {
                                 document.querySelector('#storeName').innerText =
-                                    data3['storeName']
+                                    data3.storeName
                                 clearInterval(loading)
                             }
 
                             fetch('/storeNum/show', {
-                                    headers: {
-                                        Method: 'GET',
-                                        'Content-Type': 'application/json',
-                                        Accept: 'application/json',
-                                    },
-                                    method: 'GET',
-                                })
+                                headers: {
+                                    Method: 'GET',
+                                    'Content-Type': 'application/json',
+                                    Accept: 'application/json',
+                                },
+                                method: 'GET',
+                            })
                                 .then((response) => {
                                     return response.json()
                                 })
                                 .then((responseJson) => {
                                     data4 = responseJson
 
-                                    phoneNum = data4['storeNum']
+                                    phoneNum = data4.storeNum
 
                                     fetch('/billDetails/show', {
-                                            headers: {
-                                                Method: 'GET',
-                                                'Content-Type': 'application/json',
-                                                Accept: 'application/json',
-                                            },
-                                            method: 'GET',
-                                        })
+                                        headers: {
+                                            Method: 'GET',
+                                            'Content-Type': 'application/json',
+                                            Accept: 'application/json',
+                                        },
+                                        method: 'GET',
+                                    })
                                         .then((response) => {
                                             return response.json()
                                         })
@@ -85,15 +85,13 @@ function firstFetch() {
                                             data5 = responseJson
 
                                             if (
-                                                data5['billDetails'] ==
-                                                'none/لايوجد' ||
-                                                data5['billDetails'] == ''
+                                                data5.billDetails ==
+                                                    'none/لايوجد' ||
+                                                data5.billDetails == ''
                                             ) {
-                                                data5['billDetails'] = ''
+                                                data5.billDetails = ''
                                             } else {
-                                                data5[
-                                                    'billDetails'
-                                                ] = `⫷⫸: ${data5['billDetails']}`
+                                                data5.billDetails = `⫷⫸: ${data5.billDetails}`
                                             }
 
                                             document
@@ -120,19 +118,19 @@ function firstFetch() {
 
                                                         setTimeout(() => {
                                                             document.querySelector(
-                                                                    '#cartInfo'
-                                                                ).style.display =
+                                                                '#cartInfo'
+                                                            ).style.display =
                                                                 'block'
                                                         }, 300)
 
                                                         document.getElementById(
-                                                                'cover'
-                                                            ).style.display =
+                                                            'cover'
+                                                        ).style.display =
                                                             'block'
                                                         setTimeout(() => {
                                                             document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
+                                                                'cover'
+                                                            ).style.opacity =
                                                                 '1'
                                                         }, 300)
                                                     }
@@ -162,8 +160,8 @@ function firstFetch() {
 
                                                         setTimeout(() => {
                                                             document.querySelector(
-                                                                    '#cartInfo'
-                                                                ).style.display =
+                                                                '#cartInfo'
+                                                            ).style.display =
                                                                 'none'
                                                         }, 300)
 
@@ -172,8 +170,8 @@ function firstFetch() {
                                                         ).style.display = 'none'
                                                         setTimeout(() => {
                                                             document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
+                                                                'cover'
+                                                            ).style.opacity =
                                                                 '0'
                                                         }, 300)
                                                     }
@@ -201,19 +199,19 @@ function firstFetch() {
 
                                                         setTimeout(() => {
                                                             document.querySelector(
-                                                                    '#infoCard'
-                                                                ).style.display =
+                                                                '#infoCard'
+                                                            ).style.display =
                                                                 'block'
                                                         }, 300)
 
                                                         document.getElementById(
-                                                                'cover'
-                                                            ).style.display =
+                                                            'cover'
+                                                        ).style.display =
                                                             'block'
                                                         setTimeout(() => {
                                                             document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
+                                                                'cover'
+                                                            ).style.opacity =
                                                                 '1'
                                                         }, 300)
                                                     }
@@ -243,8 +241,8 @@ function firstFetch() {
 
                                                         setTimeout(() => {
                                                             document.querySelector(
-                                                                    '#infoCard'
-                                                                ).style.display =
+                                                                '#infoCard'
+                                                            ).style.display =
                                                                 'none'
                                                         }, 300)
 
@@ -253,8 +251,8 @@ function firstFetch() {
                                                         ).style.display = 'none'
                                                         setTimeout(() => {
                                                             document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
+                                                                'cover'
+                                                            ).style.opacity =
                                                                 '0'
                                                         }, 300)
                                                     }
@@ -296,14 +294,14 @@ function firstFetch() {
 
                                                         setTimeout(() => {
                                                             document.querySelector(
-                                                                    '#cartInfo'
-                                                                ).style.display =
+                                                                '#cartInfo'
+                                                            ).style.display =
                                                                 'none'
                                                         }, 300)
                                                         setTimeout(() => {
                                                             document.querySelector(
-                                                                    '#infoCard'
-                                                                ).style.display =
+                                                                '#infoCard'
+                                                            ).style.display =
                                                                 'none'
                                                         }, 300)
 
@@ -312,8 +310,8 @@ function firstFetch() {
                                                         ).style.display = 'none'
                                                         setTimeout(() => {
                                                             document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
+                                                                'cover'
+                                                            ).style.opacity =
                                                                 '0'
                                                         }, 300)
                                                     }
@@ -321,12 +319,14 @@ function firstFetch() {
 
                                             let num = 1
                                             let numNotRepeat = 0
-                                            let container =
+                                            const container =
                                                 document.querySelector(
                                                     '#cardContainer'
                                                 )
                                             for (
-                                                let i = 0; i < Object.keys(data).length; i++
+                                                let i = 0;
+                                                i < Object.keys(data).length;
+                                                i++
                                             ) {
                                                 if (data.statCode == 204) {
                                                     document.querySelector(
@@ -353,14 +353,14 @@ function firstFetch() {
                                                 container.innerHTML += ` 
     <div id="form" class="card" style="width: 18rem;">
         <img style="width: 257px; height: 257px;" src="data:image/png;base64,${
-            data[Object.keys(data)[i]]['img']
+            data[Object.keys(data)[i]].img
         }" class="card-img-top" alt="Product">
         <div class="card-body">
-            <h5 class="card-title">${data[Object.keys(data)[i]]['title']}</h5>
+            <h5 class="card-title">${data[Object.keys(data)[i]].title}</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item" id="priceContainer">
-                <div id="price">${data[Object.keys(data)[i]]['price']}</div>﷼
+                <div id="price">${data[Object.keys(data)[i]].price}</div>﷼
             </li>
             <li class="list-group-item">
                 <select name="quentity" id="quentity-${Object.keys(data)[i]}">
@@ -390,11 +390,13 @@ function firstFetch() {
                                                 )
 
                                             for (
-                                                var i = 0; i < allButtons.length; i++
+                                                var i = 0;
+                                                i < allButtons.length;
+                                                i++
                                             ) {
                                                 allButtons[i].addEventListener(
                                                     'click',
-                                                    function() {
+                                                    function () {
                                                         // to allow to enter promo code again
                                                         if (
                                                             firstPassCart == 1
@@ -419,12 +421,12 @@ function firstFetch() {
                                                         }
                                                         // END
                                                         // to know prud id, and its quentity
-                                                        let content =
+                                                        const content =
                                                             this.parentElement
-                                                            .innerHTML
+                                                                .innerHTML
                                                         id = content
-                                                            .split(`id:`)[1]
-                                                            .split(`\t`)[0]
+                                                            .split('id:')[1]
+                                                            .split('\t')[0]
 
                                                         console.log(
                                                             'You clicked:',
@@ -454,51 +456,48 @@ function firstFetch() {
                                                         }
                                                         // count for quentity(select)
                                                         for (
-                                                            let k = 0; k < valueOfQuentity; k++
+                                                            let k = 0;
+                                                            k < valueOfQuentity;
+                                                            k++
                                                         ) {
-                                                            cartInfo[
-                                                                'titles'
-                                                            ].push(
-                                                                data[`${id}`][
-                                                                    'title'
-                                                                ]
+                                                            cartInfo.titles.push(
+                                                                data[`${id}`]
+                                                                    .title
                                                             )
-                                                            cartInfo[
-                                                                'prices'
-                                                            ].push(
-                                                                data[`${id}`][
-                                                                    'price'
-                                                                ]
+                                                            cartInfo.prices.push(
+                                                                data[`${id}`]
+                                                                    .price
                                                             )
                                                         }
                                                         // END
 
-                                                        let sumOfPrices =
-                                                            cartInfo[
-                                                                'prices'
-                                                            ].reduce(
+                                                        const sumOfPrices =
+                                                            cartInfo.prices.reduce(
                                                                 (a, b) =>
-                                                                Number(a) +
-                                                                Number(b),
+                                                                    Number(a) +
+                                                                    Number(b),
                                                                 0
                                                             ) // sum all price array elements
                                                         let sumOfTitles = ''
-                                                        let countsSumOfTitles = {}
-                                                        cartInfo[
-                                                            'titles'
-                                                        ].forEach(function(x) {
-                                                            countsSumOfTitles[
+                                                        const countsSumOfTitles =
+                                                            {}
+                                                        cartInfo.titles.forEach(
+                                                            function (x) {
+                                                                countsSumOfTitles[
                                                                     x
                                                                 ] =
-                                                                (countsSumOfTitles[
-                                                                    x
-                                                                ] || 0) + 1
-                                                        })
+                                                                    (countsSumOfTitles[
+                                                                        x
+                                                                    ] || 0) + 1
+                                                            }
+                                                        )
                                                         for (
-                                                            let j = 0; j <
+                                                            let j = 0;
+                                                            j <
                                                             Object.keys(
                                                                 countsSumOfTitles
-                                                            ).length; j++
+                                                            ).length;
+                                                            j++
                                                         ) {
                                                             sumOfTitles =
                                                                 sumOfTitles.concat(
@@ -517,9 +516,9 @@ function firstFetch() {
                                                             '#groupOfTitles'
                                                         ).innerHTML = `${sumOfTitles}`
                                                         document.querySelector(
-                                                                '#groupOfPrices'
-                                                            ).innerText = `المجموع: ${sumOfPrices} ﷼`
-                                                            // to allow to enter promo code again
+                                                            '#groupOfPrices'
+                                                        ).innerText = `المجموع: ${sumOfPrices} ﷼`
+                                                        // to allow to enter promo code again
                                                         if (
                                                             firstPassCart == 1
                                                         ) {
@@ -537,11 +536,11 @@ function firstFetch() {
                                                             'cartAnimation'
                                                         )
                                                         setTimeout(() => {
-                                                                shoppingCartIcon.classList.remove(
-                                                                    'cartAnimation'
-                                                                )
-                                                            }, 100)
-                                                            // END
+                                                            shoppingCartIcon.classList.remove(
+                                                                'cartAnimation'
+                                                            )
+                                                        }, 100)
+                                                        // END
                                                     }
                                                 )
                                             }
@@ -551,11 +550,13 @@ function firstFetch() {
                                                 )
 
                                             for (
-                                                var i = 0; i < allButtons.length; i++
+                                                var i = 0;
+                                                i < allButtons.length;
+                                                i++
                                             ) {
                                                 allButtons[i].addEventListener(
                                                     'click',
-                                                    function() {
+                                                    function () {
                                                         // to allow to enter promo code again
                                                         if (
                                                             firstPassCart == 1
@@ -580,12 +581,12 @@ function firstFetch() {
                                                         }
                                                         // END
                                                         // to know prud id, and its quentity
-                                                        let content =
+                                                        const content =
                                                             this.parentElement
-                                                            .innerHTML
+                                                                .innerHTML
                                                         id = content
-                                                            .split(`id:`)[1]
-                                                            .split(`\t`)[0]
+                                                            .split('id:')[1]
+                                                            .split('\t')[0]
 
                                                         console.log(
                                                             'You clicked:',
@@ -615,49 +616,39 @@ function firstFetch() {
                                                         }
                                                         // count for quentity(select)
                                                         if (
-                                                            cartInfo[
-                                                                'prices'
-                                                            ].findIndex(
+                                                            cartInfo.prices.findIndex(
                                                                 (a) =>
-                                                                a ===
-                                                                data[
-                                                                    `${id}`
-                                                                ]['price']
+                                                                    a ===
+                                                                    data[
+                                                                        `${id}`
+                                                                    ].price
                                                             ) != -1
                                                         ) {
                                                             for (
-                                                                let k = 0; k <
-                                                                valueOfQuentity; k++
+                                                                let k = 0;
+                                                                k <
+                                                                valueOfQuentity;
+                                                                k++
                                                             ) {
-                                                                cartInfo[
-                                                                    'titles'
-                                                                ].splice(
-                                                                    cartInfo[
-                                                                        'titles'
-                                                                    ].findIndex(
+                                                                cartInfo.titles.splice(
+                                                                    cartInfo.titles.findIndex(
                                                                         (a) =>
-                                                                        a ===
-                                                                        data[
-                                                                            `${id}`
-                                                                        ][
-                                                                            'title'
-                                                                        ]
+                                                                            a ===
+                                                                            data[
+                                                                                `${id}`
+                                                                            ]
+                                                                                .title
                                                                     ),
                                                                     1
                                                                 )
-                                                                cartInfo[
-                                                                    'prices'
-                                                                ].splice(
-                                                                    cartInfo[
-                                                                        'prices'
-                                                                    ].findIndex(
+                                                                cartInfo.prices.splice(
+                                                                    cartInfo.prices.findIndex(
                                                                         (a) =>
-                                                                        a ===
-                                                                        data[
-                                                                            `${id}`
-                                                                        ][
-                                                                            'price'
-                                                                        ]
+                                                                            a ===
+                                                                            data[
+                                                                                `${id}`
+                                                                            ]
+                                                                                .price
                                                                     ),
                                                                     1
                                                                 )
@@ -679,46 +670,48 @@ function firstFetch() {
                                                             }, 500)
 
                                                             if (
-                                                                cartInfo[
-                                                                    'prices'
-                                                                ].length == 0
+                                                                cartInfo.prices
+                                                                    .length == 0
                                                             ) {
                                                                 document.querySelector(
                                                                     '#groupOfTitles'
-                                                                ).innerHTML = `لا يوجد أي منتج في سلتك حتى الآن`
+                                                                ).innerHTML =
+                                                                    'لا يوجد أي منتج في سلتك حتى الآن'
                                                                 document.querySelector(
                                                                     '#groupOfPrices'
-                                                                ).innerText = `المجموع 0﷼`
+                                                                ).innerText =
+                                                                    'المجموع 0﷼'
                                                             }
                                                             return
                                                         }
 
-                                                        let sumOfPrices =
-                                                            cartInfo[
-                                                                'prices'
-                                                            ].reduce(
+                                                        const sumOfPrices =
+                                                            cartInfo.prices.reduce(
                                                                 (a, b) =>
-                                                                Number(a) +
-                                                                Number(b),
+                                                                    Number(a) +
+                                                                    Number(b),
                                                                 0
                                                             ) // sum all price array elements
                                                         let sumOfTitles = ''
-                                                        let countsSumOfTitles = {}
-                                                        cartInfo[
-                                                            'titles'
-                                                        ].forEach(function(x) {
-                                                            countsSumOfTitles[
+                                                        const countsSumOfTitles =
+                                                            {}
+                                                        cartInfo.titles.forEach(
+                                                            function (x) {
+                                                                countsSumOfTitles[
                                                                     x
                                                                 ] =
-                                                                (countsSumOfTitles[
-                                                                    x
-                                                                ] || 0) + 1
-                                                        })
+                                                                    (countsSumOfTitles[
+                                                                        x
+                                                                    ] || 0) + 1
+                                                            }
+                                                        )
                                                         for (
-                                                            let j = 0; j <
+                                                            let j = 0;
+                                                            j <
                                                             Object.keys(
                                                                 countsSumOfTitles
-                                                            ).length; j++
+                                                            ).length;
+                                                            j++
                                                         ) {
                                                             sumOfTitles =
                                                                 sumOfTitles.concat(
@@ -737,9 +730,9 @@ function firstFetch() {
                                                             '#groupOfTitles'
                                                         ).innerHTML = `${sumOfTitles}`
                                                         document.querySelector(
-                                                                '#groupOfPrices'
-                                                            ).innerText = `المجموع: ${sumOfPrices} ﷼`
-                                                            // to allow to enter promo code again
+                                                            '#groupOfPrices'
+                                                        ).innerText = `المجموع: ${sumOfPrices} ﷼`
+                                                        // to allow to enter promo code again
                                                         if (
                                                             firstPassCart == 1
                                                         ) {
@@ -757,11 +750,11 @@ function firstFetch() {
                                                             'cartAnimationDel'
                                                         )
                                                         setTimeout(() => {
-                                                                shoppingCartIcon.classList.remove(
-                                                                    'cartAnimationDel'
-                                                                )
-                                                            }, 100)
-                                                            // END
+                                                            shoppingCartIcon.classList.remove(
+                                                                'cartAnimationDel'
+                                                            )
+                                                        }, 100)
+                                                        // END
                                                     }
                                                 )
                                             }
@@ -796,17 +789,19 @@ function firstFetch() {
                                                         firstPassCart = 1
                                                         let totalPrice =
                                                             document
-                                                            .querySelector(
-                                                                '#groupOfPrices'
-                                                            )
-                                                            .innerText.split(
-                                                                ': '
-                                                            )[1]
-                                                            .split(' ')[0]
+                                                                .querySelector(
+                                                                    '#groupOfPrices'
+                                                                )
+                                                                .innerText.split(
+                                                                    ': '
+                                                                )[1]
+                                                                .split(' ')[0]
                                                         for (
-                                                            let i = 0; i <
+                                                            let i = 0;
+                                                            i <
                                                             Object.keys(data2)
-                                                            .length; i++
+                                                                .length;
+                                                            i++
                                                         ) {
                                                             if (
                                                                 document.querySelector(
@@ -818,21 +813,21 @@ function firstFetch() {
                                                                             data2
                                                                         )[i]
                                                                     }`
-                                                                ]['code']
+                                                                ].code
                                                             ) {
                                                                 if (
                                                                     isNaN(
                                                                         Number(
                                                                             document
-                                                                            .querySelector(
-                                                                                '#groupOfPrices'
-                                                                            )
-                                                                            .innerText.split(
-                                                                                ': '
-                                                                            )[1]
-                                                                            .split(
-                                                                                ' '
-                                                                            )[0]
+                                                                                .querySelector(
+                                                                                    '#groupOfPrices'
+                                                                                )
+                                                                                .innerText.split(
+                                                                                    ': '
+                                                                                )[1]
+                                                                                .split(
+                                                                                    ' '
+                                                                                )[0]
                                                                         )
                                                                     ) == true
                                                                 ) {
@@ -845,7 +840,7 @@ function firstFetch() {
                                                                                 data2
                                                                             )[i]
                                                                         }`
-                                                                    ]['code']
+                                                                    ].code
                                                                 if (
                                                                     beforeDiscount ==
                                                                     data2[
@@ -854,7 +849,7 @@ function firstFetch() {
                                                                                 data2
                                                                             )[i]
                                                                         }`
-                                                                    ]['code']
+                                                                    ].code
                                                                 ) {
                                                                     thereIsApastDiscount = true
                                                                     break
@@ -866,18 +861,18 @@ function firstFetch() {
                                                                                 data2
                                                                             )[i]
                                                                         }`
-                                                                    ]['code']
+                                                                    ].code
                                                                 if (
                                                                     thereIsApastDiscount ==
                                                                     true
                                                                 ) {
                                                                     if (
                                                                         priceBeforeDiscount !=
-                                                                        NaN &&
+                                                                            NaN &&
                                                                         priceBeforeDiscount !=
-                                                                        undefined &&
+                                                                            undefined &&
                                                                         priceBeforeDiscount >
-                                                                        0
+                                                                            0
                                                                     ) {
                                                                         totalPrice =
                                                                             priceBeforeDiscount
@@ -895,17 +890,15 @@ function firstFetch() {
                                                                     Number(
                                                                         totalPrice
                                                                     ) *
-                                                                    data2[
-                                                                        `${
+                                                                        data2[
+                                                                            `${
                                                                                 Object.keys(
                                                                                     data2
                                                                                 )[
                                                                                     i
                                                                                 ]
                                                                             }`
-                                                                    ][
-                                                                        'amount'
-                                                                    ]
+                                                                        ].amount
                                                                 document.querySelector(
                                                                     '#groupOfPrices'
                                                                 ).innerHTML = `المجموع: ${totalPrice} ﷼<br><small style='font-size: small; color: red; text-decoration: line-through;'>المجموع: ${priceBeforeDiscount}﷼</small>`
@@ -937,26 +930,26 @@ function firstFetch() {
                                                                 Object.keys(
                                                                     data2
                                                                 ).length -
-                                                                1
+                                                                    1
                                                             ) {
                                                                 let totalPrice =
                                                                     document
-                                                                    .querySelector(
-                                                                        '#groupOfPrices'
-                                                                    )
-                                                                    .innerText.split(
-                                                                        ': '
-                                                                    )[1]
-                                                                    .split(
-                                                                        ' '
-                                                                    )[0]
+                                                                        .querySelector(
+                                                                            '#groupOfPrices'
+                                                                        )
+                                                                        .innerText.split(
+                                                                            ': '
+                                                                        )[1]
+                                                                        .split(
+                                                                            ' '
+                                                                        )[0]
                                                                 beforeDiscount =
                                                                     undefined
                                                                 if (
                                                                     priceBeforeDiscount !=
-                                                                    NaN &&
+                                                                        NaN &&
                                                                     priceBeforeDiscount !=
-                                                                    undefined &&
+                                                                        undefined &&
                                                                     Number(
                                                                         priceBeforeDiscount
                                                                     ) > 0
@@ -1005,12 +998,12 @@ function firstFetch() {
                                                         let prices
                                                         let personalInfoOutput =
                                                             ''
-                                                        let personalInfo = {}
+                                                        const personalInfo = {}
                                                         if (
                                                             theCurrentDiscount ==
-                                                            undefined ||
+                                                                undefined ||
                                                             theCurrentDiscount ==
-                                                            ''
+                                                                ''
                                                         ) {
                                                             restDiscountMsg =
                                                                 'لا يوجد قسيمة'
@@ -1032,11 +1025,11 @@ function firstFetch() {
                                                             document.querySelector(
                                                                 '#personalInfoTime'
                                                             ).innerText !=
-                                                            null ||
+                                                                null ||
                                                             document.querySelector(
                                                                 '#personalInfoTime'
                                                             ).innerText !=
-                                                            undefined
+                                                                undefined
                                                         ) {
                                                             date = formatDate(
                                                                 new Date(
@@ -1083,54 +1076,49 @@ function firstFetch() {
                                                                 '%20'
                                                             )}*`
 
-                                                        personalInfo['name'] =
+                                                        personalInfo.name =
                                                             document
-                                                            .querySelector(
-                                                                '#personalInfoName'
-                                                            )
-                                                            .value.replace(
-                                                                /\s/gi,
-                                                                '%20'
-                                                            )
-                                                        personalInfo['numb'] =
+                                                                .querySelector(
+                                                                    '#personalInfoName'
+                                                                )
+                                                                .value.replace(
+                                                                    /\s/gi,
+                                                                    '%20'
+                                                                )
+                                                        personalInfo.numb =
                                                             document
-                                                            .querySelector(
-                                                                '#personalInfoNumb'
-                                                            )
-                                                            .value.replace(
-                                                                /\s/gi,
-                                                                '%20'
-                                                            )
-                                                        personalInfo['addr'] =
+                                                                .querySelector(
+                                                                    '#personalInfoNumb'
+                                                                )
+                                                                .value.replace(
+                                                                    /\s/gi,
+                                                                    '%20'
+                                                                )
+                                                        personalInfo.addr =
                                                             document
-                                                            .querySelector(
-                                                                '#personalInfoAddr'
-                                                            )
-                                                            .value.replace(
-                                                                /\s/gi,
-                                                                '%20'
-                                                            )
-                                                        personalInfo['time'] =
-                                                            `${
-                                                                'وقت الاستلام: ' +
-                                                                date
-                                                            }`.replace(
-                                                                /\s/gi,
-                                                                '%20'
-                                                            )
+                                                                .querySelector(
+                                                                    '#personalInfoAddr'
+                                                                )
+                                                                .value.replace(
+                                                                    /\s/gi,
+                                                                    '%20'
+                                                                )
+                                                        personalInfo.time = `${
+                                                            'وقت الاستلام: ' +
+                                                            date
+                                                        }`.replace(
+                                                            /\s/gi,
+                                                            '%20'
+                                                        )
                                                         if (
-                                                            personalInfo[
-                                                                'name'
-                                                            ] == '' ||
-                                                            personalInfo[
-                                                                'numb'
-                                                            ] == '' ||
-                                                            personalInfo[
-                                                                'addr'
-                                                            ] == '' ||
-                                                            personalInfo[
-                                                                'time'
-                                                            ] == ''
+                                                            personalInfo.name ==
+                                                                '' ||
+                                                            personalInfo.numb ==
+                                                                '' ||
+                                                            personalInfo.addr ==
+                                                                '' ||
+                                                            personalInfo.time ==
+                                                                ''
                                                         ) {
                                                             alert(
                                                                 'الرجاء تعبئة كل البيانات الشخصية'
@@ -1138,10 +1126,12 @@ function firstFetch() {
                                                             return
                                                         }
                                                         for (
-                                                            let i = 0; i <
+                                                            let i = 0;
+                                                            i <
                                                             Object.keys(
                                                                 personalInfo
-                                                            ).length; i++
+                                                            ).length;
+                                                            i++
                                                         ) {
                                                             personalInfoOutput =
                                                                 personalInfoOutput.concat(
@@ -1162,38 +1152,25 @@ function firstFetch() {
                                                             )
 
                                                         bill =
-                                                            `فاتورة متجر ${data3['storeName']}` +
+                                                            `فاتورة متجر ${data3.storeName}` +
                                                             '%0a%0a' +
-                                                            `معلومات الزبون:` +
-                                                            `%0a` +
+                                                            'معلومات الزبون:' +
+                                                            '%0a' +
                                                             personalInfoOutput +
                                                             '%0a%0a' +
-                                                            `معلومات المنتجات:` +
-                                                            `%0a` +
+                                                            'معلومات المنتجات:' +
+                                                            '%0a' +
                                                             titles +
                                                             '%0a%0a' +
                                                             discount +
                                                             '%0a' +
                                                             prices +
-                                                            `%0a%0a%0a` +
-                                                            `${data5['billDetails']}`
+                                                            '%0a%0a%0a' +
+                                                            `${data5.billDetails}`
 
                                                         if (
                                                             Number(
                                                                 document
-                                                                .querySelector(
-                                                                    '#groupOfPrices'
-                                                                )
-                                                                .innerText.split(
-                                                                    ': '
-                                                                )[1]
-                                                                .split(
-                                                                    ' '
-                                                                )[0]
-                                                            ) == 0 ||
-                                                            isNaN(
-                                                                Number(
-                                                                    document
                                                                     .querySelector(
                                                                         '#groupOfPrices'
                                                                     )
@@ -1203,6 +1180,19 @@ function firstFetch() {
                                                                     .split(
                                                                         ' '
                                                                     )[0]
+                                                            ) == 0 ||
+                                                            isNaN(
+                                                                Number(
+                                                                    document
+                                                                        .querySelector(
+                                                                            '#groupOfPrices'
+                                                                        )
+                                                                        .innerText.split(
+                                                                            ': '
+                                                                        )[1]
+                                                                        .split(
+                                                                            ' '
+                                                                        )[0]
                                                                 )
                                                             ) == true
                                                         ) {
@@ -1220,7 +1210,7 @@ function firstFetch() {
                                         })
                                         .catch((error) => {
                                             alert(
-                                                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//main:billDetails// 510\n التاريخ: ${formatDate(
+                                                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//main:billDetails// 510\n التاريخ: ${formatDate(
                                                     new Date()
                                                 )}`
                                             )
@@ -1228,7 +1218,7 @@ function firstFetch() {
                                 })
                                 .catch((error) => {
                                     alert(
-                                        `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//main:storeNum// 506\n التاريخ: ${formatDate(
+                                        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//main:storeNum// 506\n التاريخ: ${formatDate(
                                             new Date()
                                         )}`
                                     )
@@ -1236,7 +1226,7 @@ function firstFetch() {
                         })
                         .catch((error) => {
                             alert(
-                                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//main:storeName// 507\n التاريخ: ${formatDate(
+                                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//main:storeName// 507\n التاريخ: ${formatDate(
                                     new Date()
                                 )}`
                             )
@@ -1244,7 +1234,7 @@ function firstFetch() {
                 })
                 .catch((error) => {
                     alert(
-                        `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//main:promocodes// 508\n التاريخ: ${formatDate(
+                        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//main:promocodes// 508\n التاريخ: ${formatDate(
                             new Date()
                         )}`
                     )
@@ -1252,7 +1242,7 @@ function firstFetch() {
         })
         .catch((error) => {
             alert(
-                `هناك خطأ في التواصل مع السيرفر، تواصل مع المطور لحل المشكلة أو انتظر حتى يتم حلها\nالخطأ: ${error}//main:products// 509\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//main:products// 509\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             )
@@ -1262,29 +1252,29 @@ function firstFetch() {
 firstFetch()
 
 function formatDate(date) {
-    var hours = date.getHours()
-    var minutes = date.getMinutes()
-    var ampm = hours >= 12 ? 'م' : 'ص'
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    const ampm = hours >= 12 ? 'م' : 'ص'
     hours = hours % 12
-    hours = hours ? hours : 12
-        // minutes = minutes < 10 ? '0' + minutes : minutes;
-    var year = date.getFullYear()
-    var month = date.getMonth()
+    hours = hours || 12
+    // minutes = minutes < 10 ? '0' + minutes : minutes;
+    const year = date.getFullYear()
+    let month = date.getMonth()
     month =
         Number(month) + 1 < 10 ? '0' + (Number(month) + 1) : Number(month) + 1
     var date = date.getDate()
     date = date < 10 ? '0' + date : date
     hours = hours < 10 ? '0' + hours : hours
     minutes = minutes < 10 ? '0' + minutes : minutes
-    var strTime =
+    const strTime =
         year + '/' + month + '/' + date + ', ' + hours + ':' + minutes + ampm
     return strTime
 }
 
 let i = 0
-let loading = setInterval(() => {
+const loading = setInterval(() => {
     if (i < 3) i++
-        else i = 0
+    else i = 0
     document.querySelector('#storeName').innerText = `جار التحميل${'.'.repeat(
         i
     )}`
