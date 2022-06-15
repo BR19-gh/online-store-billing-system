@@ -14,47 +14,23 @@ function firstFetch() {
             return response.json()
         })
         .then((responseJson) => {
-            data = responseJson
+                data = responseJson
 
-            fetch('/promocodes', {
-                    headers: {
-                        Method: 'GET',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'GET',
-                })
-                .then((response) => {
-                    return response.json()
-                })
-                .then((responseJson) => {
-                    data2 = responseJson
+                fetch('/promocodes', {
+                        headers: {
+                            Method: 'GET',
+                            'Content-Type': 'application/json',
+                            Accept: 'application/json',
+                        },
+                        method: 'GET',
+                    })
+                    .then((response) => {
+                        return response.json()
+                    })
+                    .then((responseJson) => {
+                            data2 = responseJson
 
-                    fetch('/storeName/show', {
-                            headers: {
-                                Method: 'GET',
-                                'Content-Type': 'application/json',
-                                Accept: 'application/json',
-                            },
-                            method: 'GET',
-                        })
-                        .then((response) => {
-                            return response.json()
-                        })
-                        .then((responseJson) => {
-                            data3 = responseJson
-
-                            const cartInfo = {
-                                titles: [],
-                                prices: [],
-                            }
-                            if (data3.storeName != 'none/لايوجد') {
-                                document.querySelector('#storeName').innerText =
-                                    data3.storeName
-                                clearInterval(loading)
-                            }
-
-                            fetch('/storeNum/show', {
+                            fetch('/storeName/show', {
                                     headers: {
                                         Method: 'GET',
                                         'Content-Type': 'application/json',
@@ -66,293 +42,317 @@ function firstFetch() {
                                     return response.json()
                                 })
                                 .then((responseJson) => {
-                                    data4 = responseJson
+                                        data3 = responseJson
 
-                                    phoneNum = data4.storeNum
+                                        const cartInfo = {
+                                            titles: [],
+                                            prices: [],
+                                        }
+                                        if (data3.storeName != 'none/لايوجد') {
+                                            document.querySelector('#storeName').innerText =
+                                                data3.storeName
+                                            clearInterval(loading)
+                                        }
 
-                                    fetch('/billDetails/show', {
-                                            headers: {
-                                                Method: 'GET',
-                                                'Content-Type': 'application/json',
-                                                Accept: 'application/json',
-                                            },
-                                            method: 'GET',
-                                        })
-                                        .then((response) => {
-                                            return response.json()
-                                        })
-                                        .then((responseJson) => {
-                                            data5 = responseJson
+                                        fetch('/storeNum/show', {
+                                                headers: {
+                                                    Method: 'GET',
+                                                    'Content-Type': 'application/json',
+                                                    Accept: 'application/json',
+                                                },
+                                                method: 'GET',
+                                            })
+                                            .then((response) => {
+                                                return response.json()
+                                            })
+                                            .then((responseJson) => {
+                                                    data4 = responseJson
 
-                                            if (
-                                                data5.billDetails ==
-                                                'none/لايوجد' ||
-                                                data5.billDetails == ''
-                                            ) {
-                                                data5.billDetails = ''
-                                            } else {
-                                                data5.billDetails = `⫷⫸: ${data5.billDetails}`
-                                            }
+                                                    phoneNum = data4.storeNum
 
-                                            document
-                                                .querySelector(
-                                                    '#shoppingCartIcon'
-                                                )
-                                                .addEventListener(
-                                                    'click',
-                                                    () => {
-                                                        document
-                                                            .querySelector(
-                                                                '#cartInfo'
-                                                            )
-                                                            .classList.add(
-                                                                'showNice'
-                                                            )
-                                                        document
-                                                            .querySelector(
-                                                                '#cartInfo'
-                                                            )
-                                                            .classList.remove(
-                                                                'closeNice'
-                                                            )
+                                                    fetch('/billDetails/show', {
+                                                            headers: {
+                                                                Method: 'GET',
+                                                                'Content-Type': 'application/json',
+                                                                Accept: 'application/json',
+                                                            },
+                                                            method: 'GET',
+                                                        })
+                                                        .then((response) => {
+                                                            return response.json()
+                                                        })
+                                                        .then((responseJson) => {
+                                                                data5 = responseJson
 
-                                                        setTimeout(() => {
-                                                            document.querySelector(
-                                                                    '#cartInfo'
-                                                                ).style.display =
-                                                                'block'
-                                                        }, 300)
+                                                                if (
+                                                                    data5.billDetails ==
+                                                                    'none/لايوجد' ||
+                                                                    data5.billDetails == ''
+                                                                ) {
+                                                                    data5.billDetails = ''
+                                                                } else {
+                                                                    data5.billDetails = `⫷⫸: ${data5.billDetails}`
+                                                                }
 
-                                                        document.getElementById(
-                                                                'cover'
-                                                            ).style.display =
-                                                            'block'
-                                                        setTimeout(() => {
-                                                            document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
-                                                                '1'
-                                                        }, 300)
-                                                    }
-                                                )
+                                                                document
+                                                                    .querySelector(
+                                                                        '#shoppingCartIcon'
+                                                                    )
+                                                                    .addEventListener(
+                                                                        'click',
+                                                                        () => {
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#cartInfo'
+                                                                                )
+                                                                                .classList.add(
+                                                                                    'showNice'
+                                                                                )
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#cartInfo'
+                                                                                )
+                                                                                .classList.remove(
+                                                                                    'closeNice'
+                                                                                )
 
-                                            document
-                                                .querySelector(
-                                                    '#shoppingCartCancel'
-                                                )
-                                                .addEventListener(
-                                                    'click',
-                                                    () => {
-                                                        document
-                                                            .querySelector(
-                                                                '#cartInfo'
-                                                            )
-                                                            .classList.add(
-                                                                'closeNice'
-                                                            )
-                                                        document
-                                                            .querySelector(
-                                                                '#cartInfo'
-                                                            )
-                                                            .classList.remove(
-                                                                'showNice'
-                                                            )
+                                                                            setTimeout(() => {
+                                                                                document.querySelector(
+                                                                                        '#cartInfo'
+                                                                                    ).style.display =
+                                                                                    'block'
+                                                                            }, 300)
 
-                                                        setTimeout(() => {
-                                                            document.querySelector(
-                                                                    '#cartInfo'
-                                                                ).style.display =
-                                                                'none'
-                                                        }, 300)
+                                                                            document.getElementById(
+                                                                                    'cover'
+                                                                                ).style.display =
+                                                                                'block'
+                                                                            setTimeout(() => {
+                                                                                document.getElementById(
+                                                                                        'cover'
+                                                                                    ).style.opacity =
+                                                                                    '1'
+                                                                            }, 300)
+                                                                        }
+                                                                    )
 
-                                                        document.getElementById(
-                                                            'cover'
-                                                        ).style.display = 'none'
-                                                        setTimeout(() => {
-                                                            document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
-                                                                '0'
-                                                        }, 300)
-                                                    }
-                                                )
+                                                                document
+                                                                    .querySelector(
+                                                                        '#shoppingCartCancel'
+                                                                    )
+                                                                    .addEventListener(
+                                                                        'click',
+                                                                        () => {
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#cartInfo'
+                                                                                )
+                                                                                .classList.add(
+                                                                                    'closeNice'
+                                                                                )
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#cartInfo'
+                                                                                )
+                                                                                .classList.remove(
+                                                                                    'showNice'
+                                                                                )
 
-                                            document
-                                                .querySelector('#infoIcon')
-                                                .addEventListener(
-                                                    'click',
-                                                    () => {
-                                                        document
-                                                            .querySelector(
-                                                                '#infoCard'
-                                                            )
-                                                            .classList.add(
-                                                                'showNice'
-                                                            )
-                                                        document
-                                                            .querySelector(
-                                                                '#infoCard'
-                                                            )
-                                                            .classList.remove(
-                                                                'closeNice'
-                                                            )
+                                                                            setTimeout(() => {
+                                                                                document.querySelector(
+                                                                                        '#cartInfo'
+                                                                                    ).style.display =
+                                                                                    'none'
+                                                                            }, 300)
 
-                                                        setTimeout(() => {
-                                                            document.querySelector(
-                                                                    '#infoCard'
-                                                                ).style.display =
-                                                                'block'
-                                                        }, 300)
+                                                                            document.getElementById(
+                                                                                'cover'
+                                                                            ).style.display = 'none'
+                                                                            setTimeout(() => {
+                                                                                document.getElementById(
+                                                                                        'cover'
+                                                                                    ).style.opacity =
+                                                                                    '0'
+                                                                            }, 300)
+                                                                        }
+                                                                    )
 
-                                                        document.getElementById(
-                                                                'cover'
-                                                            ).style.display =
-                                                            'block'
-                                                        setTimeout(() => {
-                                                            document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
-                                                                '1'
-                                                        }, 300)
-                                                    }
-                                                )
+                                                                document
+                                                                    .querySelector('#infoIcon')
+                                                                    .addEventListener(
+                                                                        'click',
+                                                                        () => {
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#infoCard'
+                                                                                )
+                                                                                .classList.add(
+                                                                                    'showNice'
+                                                                                )
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#infoCard'
+                                                                                )
+                                                                                .classList.remove(
+                                                                                    'closeNice'
+                                                                                )
 
-                                            document
-                                                .querySelector(
-                                                    '#infoCardCancel'
-                                                )
-                                                .addEventListener(
-                                                    'click',
-                                                    () => {
-                                                        document
-                                                            .querySelector(
-                                                                '#infoCard'
-                                                            )
-                                                            .classList.add(
-                                                                'closeNice'
-                                                            )
-                                                        document
-                                                            .querySelector(
-                                                                '#infoCard'
-                                                            )
-                                                            .classList.remove(
-                                                                'showNice'
-                                                            )
+                                                                            setTimeout(() => {
+                                                                                document.querySelector(
+                                                                                        '#infoCard'
+                                                                                    ).style.display =
+                                                                                    'block'
+                                                                            }, 300)
 
-                                                        setTimeout(() => {
-                                                            document.querySelector(
-                                                                    '#infoCard'
-                                                                ).style.display =
-                                                                'none'
-                                                        }, 300)
+                                                                            document.getElementById(
+                                                                                    'cover'
+                                                                                ).style.display =
+                                                                                'block'
+                                                                            setTimeout(() => {
+                                                                                document.getElementById(
+                                                                                        'cover'
+                                                                                    ).style.opacity =
+                                                                                    '1'
+                                                                            }, 300)
+                                                                        }
+                                                                    )
 
-                                                        document.getElementById(
-                                                            'cover'
-                                                        ).style.display = 'none'
-                                                        setTimeout(() => {
-                                                            document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
-                                                                '0'
-                                                        }, 300)
-                                                    }
-                                                )
+                                                                document
+                                                                    .querySelector(
+                                                                        '#infoCardCancel'
+                                                                    )
+                                                                    .addEventListener(
+                                                                        'click',
+                                                                        () => {
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#infoCard'
+                                                                                )
+                                                                                .classList.add(
+                                                                                    'closeNice'
+                                                                                )
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#infoCard'
+                                                                                )
+                                                                                .classList.remove(
+                                                                                    'showNice'
+                                                                                )
 
-                                            document
-                                                .querySelector('#cover')
-                                                .addEventListener(
-                                                    'click',
-                                                    () => {
-                                                        document
-                                                            .querySelector(
-                                                                '#infoCard'
-                                                            )
-                                                            .classList.add(
-                                                                'closeNice'
-                                                            )
-                                                        document
-                                                            .querySelector(
-                                                                '#infoCard'
-                                                            )
-                                                            .classList.remove(
-                                                                'showNice'
-                                                            )
-                                                        document
-                                                            .querySelector(
-                                                                '#cartInfo'
-                                                            )
-                                                            .classList.add(
-                                                                'closeNice'
-                                                            )
-                                                        document
-                                                            .querySelector(
-                                                                '#cartInfo'
-                                                            )
-                                                            .classList.remove(
-                                                                'showNice'
-                                                            )
+                                                                            setTimeout(() => {
+                                                                                document.querySelector(
+                                                                                        '#infoCard'
+                                                                                    ).style.display =
+                                                                                    'none'
+                                                                            }, 300)
 
-                                                        setTimeout(() => {
-                                                            document.querySelector(
-                                                                    '#cartInfo'
-                                                                ).style.display =
-                                                                'none'
-                                                        }, 300)
-                                                        setTimeout(() => {
-                                                            document.querySelector(
-                                                                    '#infoCard'
-                                                                ).style.display =
-                                                                'none'
-                                                        }, 300)
+                                                                            document.getElementById(
+                                                                                'cover'
+                                                                            ).style.display = 'none'
+                                                                            setTimeout(() => {
+                                                                                document.getElementById(
+                                                                                        'cover'
+                                                                                    ).style.opacity =
+                                                                                    '0'
+                                                                            }, 300)
+                                                                        }
+                                                                    )
 
-                                                        document.getElementById(
-                                                            'cover'
-                                                        ).style.display = 'none'
-                                                        setTimeout(() => {
-                                                            document.getElementById(
-                                                                    'cover'
-                                                                ).style.opacity =
-                                                                '0'
-                                                        }, 300)
-                                                    }
-                                                )
+                                                                document
+                                                                    .querySelector('#cover')
+                                                                    .addEventListener(
+                                                                        'click',
+                                                                        () => {
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#infoCard'
+                                                                                )
+                                                                                .classList.add(
+                                                                                    'closeNice'
+                                                                                )
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#infoCard'
+                                                                                )
+                                                                                .classList.remove(
+                                                                                    'showNice'
+                                                                                )
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#cartInfo'
+                                                                                )
+                                                                                .classList.add(
+                                                                                    'closeNice'
+                                                                                )
+                                                                            document
+                                                                                .querySelector(
+                                                                                    '#cartInfo'
+                                                                                )
+                                                                                .classList.remove(
+                                                                                    'showNice'
+                                                                                )
 
-                                            let num = 1
-                                            let numNotRepeat = 0
-                                            const container =
-                                                document.querySelector(
-                                                    '#cardContainer'
-                                                )
-                                            for (
-                                                let i = 0; i < Object.keys(data).length; i++
-                                            ) {
-                                                if (data.statCode == 204) {
-                                                    document.querySelector(
-                                                        '#msgNotFetched'
-                                                    ).style.display = 'block'
-                                                    break
-                                                } else {
-                                                    document.querySelector(
-                                                        '#msgNotFetched'
-                                                    ).style.display = 'none'
-                                                }
-                                                num =
-                                                    Math.floor(
-                                                        Math.random() * 8
-                                                    ) + 1
-                                                while (num == numNotRepeat) {
-                                                    num =
-                                                        Math.floor(
-                                                            Math.random() * 8
-                                                        ) + 1
-                                                }
-                                                numNotRepeat = num
+                                                                            setTimeout(() => {
+                                                                                document.querySelector(
+                                                                                        '#cartInfo'
+                                                                                    ).style.display =
+                                                                                    'none'
+                                                                            }, 300)
+                                                                            setTimeout(() => {
+                                                                                document.querySelector(
+                                                                                        '#infoCard'
+                                                                                    ).style.display =
+                                                                                    'none'
+                                                                            }, 300)
 
-                                                container.innerHTML += ` 
+                                                                            document.getElementById(
+                                                                                'cover'
+                                                                            ).style.display = 'none'
+                                                                            setTimeout(() => {
+                                                                                document.getElementById(
+                                                                                        'cover'
+                                                                                    ).style.opacity =
+                                                                                    '0'
+                                                                            }, 300)
+                                                                        }
+                                                                    )
+
+                                                                let num = 1
+                                                                let numNotRepeat = 0
+                                                                const container =
+                                                                    document.querySelector(
+                                                                        '#cardContainer'
+                                                                    )
+                                                                for (
+                                                                    let i = 0; i < Object.keys(data).length; i++
+                                                                ) {
+                                                                    if (data.statCode == 204) {
+                                                                        document.querySelector(
+                                                                            '#msgNotFetched'
+                                                                        ).style.display = 'block'
+                                                                        break
+                                                                    } else {
+                                                                        document.querySelector(
+                                                                            '#msgNotFetched'
+                                                                        ).style.display = 'none'
+                                                                    }
+                                                                    num =
+                                                                        Math.floor(
+                                                                            Math.random() * 8
+                                                                        ) + 1
+                                                                    while (num == numNotRepeat) {
+                                                                        num =
+                                                                            Math.floor(
+                                                                                Math.random() * 8
+                                                                            ) + 1
+                                                                    }
+                                                                    numNotRepeat = num
+
+                                                                    container.innerHTML += ` 
     <div id="form" class="card" style="width: 18rem;">
         <img style="width: 257px; height: 257px;" src="data:image/png;base64,${
             data[Object.keys(data)[i]].img
-        }" class="card-img-top" alt="Product">
+        }" class="card-img-top" alt="${data[Object.keys(data)[i]].title}">
         <div class="card-body">
             <h5 class="card-title">${data[Object.keys(data)[i]].title}</h5>
         </div>
@@ -381,118 +381,118 @@ function firstFetch() {
         </div>
     </div>
 `
-                                            }
-                                            var allButtons =
-                                                document.querySelectorAll(
-                                                    'a.addToCartBtn'
-                                                )
+                                                                }
+                                                                var allButtons =
+                                                                    document.querySelectorAll(
+                                                                        'a.addToCartBtn'
+                                                                    )
 
-                                            for (
-                                                var i = 0; i < allButtons.length; i++
-                                            ) {
-                                                allButtons[i].addEventListener(
-                                                    'click',
-                                                    function() {
-                                                        // to allow to enter promo code again
-                                                        if (
-                                                            firstPassCart == 1
-                                                        ) {
-                                                            beforeDiscount =
-                                                                undefined
-                                                            thereIsApastDiscount = true
-                                                            document
-                                                                .querySelectorAll(
-                                                                    '.submitCode'
-                                                                )[0]
-                                                                .classList.remove(
-                                                                    'submitCodeDisabled'
-                                                                )
-                                                            document
-                                                                .querySelectorAll(
-                                                                    '.submitCode'
-                                                                )[0]
-                                                                .classList.add(
-                                                                    'submitCodeEnabled'
-                                                                )
-                                                        }
-                                                        // END
-                                                        // to know prud id, and its quentity
-                                                        const content =
-                                                            this.parentElement
-                                                            .innerHTML
-                                                        id = content
-                                                            .split('id:')[1]
-                                                            .split('\t')[0]
+                                                                for (
+                                                                    var i = 0; i < allButtons.length; i++
+                                                                ) {
+                                                                    allButtons[i].addEventListener(
+                                                                        'click',
+                                                                        function() {
+                                                                            // to allow to enter promo code again
+                                                                            if (
+                                                                                firstPassCart == 1
+                                                                            ) {
+                                                                                beforeDiscount =
+                                                                                    undefined
+                                                                                thereIsApastDiscount = true
+                                                                                document
+                                                                                    .querySelectorAll(
+                                                                                        '.submitCode'
+                                                                                    )[0]
+                                                                                    .classList.remove(
+                                                                                        'submitCodeDisabled'
+                                                                                    )
+                                                                                document
+                                                                                    .querySelectorAll(
+                                                                                        '.submitCode'
+                                                                                    )[0]
+                                                                                    .classList.add(
+                                                                                        'submitCodeEnabled'
+                                                                                    )
+                                                                            }
+                                                                            // END
+                                                                            // to know prud id, and its quentity
+                                                                            const content =
+                                                                                this.parentElement
+                                                                                .innerHTML
+                                                                            id = content
+                                                                                .split('id:')[1]
+                                                                                .split('\t')[0]
 
-                                                        console.log(
-                                                            'You clicked:',
-                                                            id
-                                                        )
+                                                                            console.log(
+                                                                                'You clicked:',
+                                                                                id
+                                                                            )
 
-                                                        let valueOfQuentity =
-                                                            Number(
-                                                                document.getElementById(
-                                                                    `quentity-${id}`
-                                                                ).value
-                                                            )
-                                                        if (
-                                                            isNaN(
-                                                                valueOfQuentity
-                                                            ) == true
-                                                        ) {
-                                                            valueOfQuentity = false
-                                                        }
-                                                        // END
-                                                        // to put titles and prices in cart
-                                                        if (
-                                                            valueOfQuentity ==
-                                                            false
-                                                        ) {
-                                                            valueOfQuentity = 1
-                                                        }
-                                                        // count for quentity(select)
-                                                        for (
-                                                            let k = 0; k < valueOfQuentity; k++
-                                                        ) {
-                                                            cartInfo.titles.push(
-                                                                data[`${id}`]
-                                                                .title
-                                                            )
-                                                            cartInfo.prices.push(
-                                                                data[`${id}`]
-                                                                .price
-                                                            )
-                                                        }
-                                                        // END
+                                                                            let valueOfQuentity =
+                                                                                Number(
+                                                                                    document.getElementById(
+                                                                                        `quentity-${id}`
+                                                                                    ).value
+                                                                                )
+                                                                            if (
+                                                                                isNaN(
+                                                                                    valueOfQuentity
+                                                                                ) == true
+                                                                            ) {
+                                                                                valueOfQuentity = false
+                                                                            }
+                                                                            // END
+                                                                            // to put titles and prices in cart
+                                                                            if (
+                                                                                valueOfQuentity ==
+                                                                                false
+                                                                            ) {
+                                                                                valueOfQuentity = 1
+                                                                            }
+                                                                            // count for quentity(select)
+                                                                            for (
+                                                                                let k = 0; k < valueOfQuentity; k++
+                                                                            ) {
+                                                                                cartInfo.titles.push(
+                                                                                    data[`${id}`]
+                                                                                    .title
+                                                                                )
+                                                                                cartInfo.prices.push(
+                                                                                    data[`${id}`]
+                                                                                    .price
+                                                                                )
+                                                                            }
+                                                                            // END
 
-                                                        const sumOfPrices =
-                                                            cartInfo.prices.reduce(
-                                                                (a, b) =>
-                                                                Number(a) +
-                                                                Number(b),
-                                                                0
-                                                            ) // sum all price array elements
-                                                        let sumOfTitles = ''
-                                                        const countsSumOfTitles = {}
-                                                        cartInfo.titles.forEach(
-                                                            function(x) {
-                                                                countsSumOfTitles[
-                                                                        x
-                                                                    ] =
-                                                                    (countsSumOfTitles[
-                                                                        x
-                                                                    ] || 0) + 1
-                                                            }
-                                                        )
-                                                        for (
-                                                            let j = 0; j <
-                                                            Object.keys(
-                                                                countsSumOfTitles
-                                                            ).length; j++
-                                                        ) {
-                                                            sumOfTitles =
-                                                                sumOfTitles.concat(
-                                                                    `المنتج:<b>${
+                                                                            const sumOfPrices =
+                                                                                cartInfo.prices.reduce(
+                                                                                    (a, b) =>
+                                                                                    Number(a) +
+                                                                                    Number(b),
+                                                                                    0
+                                                                                ) // sum all price array elements
+                                                                            let sumOfTitles = ''
+                                                                            const countsSumOfTitles = {}
+                                                                            cartInfo.titles.forEach(
+                                                                                function(x) {
+                                                                                    countsSumOfTitles[
+                                                                                            x
+                                                                                        ] =
+                                                                                        (countsSumOfTitles[
+                                                                                            x
+                                                                                        ] || 0) + 1
+                                                                                }
+                                                                            )
+                                                                            for (
+                                                                                let j = 0; j <
+                                                                                Object.keys(
+                                                                                    countsSumOfTitles
+                                                                                ).length; j++
+                                                                            ) {
+                                                                                sumOfTitles =
+                                                                                    sumOfTitles.concat(
+                                                                                        `المنتج:<b>${
                                                                         Object.keys(
                                                                             countsSumOfTitles
                                                                         )[j]
@@ -501,205 +501,205 @@ function firstFetch() {
                                                                             countsSumOfTitles
                                                                         )[j]
                                                                     )}</b> <br>`
-                                                                )
-                                                        }
-                                                        document.querySelector(
-                                                            '#groupOfTitles'
-                                                        ).innerHTML = `${sumOfTitles}`
-                                                        document.querySelector(
-                                                                '#groupOfPrices'
-                                                            ).innerText = `المجموع: ${sumOfPrices} ﷼`
-                                                            // to allow to enter promo code again
-                                                        if (
-                                                            firstPassCart == 1
-                                                        ) {
-                                                            priceBeforeDiscount =
-                                                                Number(
-                                                                    sumOfPrices
-                                                                )
-                                                        }
-                                                        // END
-                                                        shoppingCartIcon =
-                                                            document.querySelector(
-                                                                '#shoppingCartIcon'
-                                                            )
-                                                        shoppingCartIcon.classList.add(
-                                                            'cartAnimation'
-                                                        )
-                                                        setTimeout(() => {
-                                                                shoppingCartIcon.classList.remove(
-                                                                    'cartAnimation'
-                                                                )
-                                                            }, 100)
-                                                            // END
-                                                    }
-                                                )
-                                            }
-                                            var allButtons =
-                                                document.querySelectorAll(
-                                                    'a.delToCartBtn'
-                                                )
+                                                                                    )
+                                                                            }
+                                                                            document.querySelector(
+                                                                                '#groupOfTitles'
+                                                                            ).innerHTML = `${sumOfTitles}`
+                                                                            document.querySelector(
+                                                                                    '#groupOfPrices'
+                                                                                ).innerText = `المجموع: ${sumOfPrices} ﷼`
+                                                                                // to allow to enter promo code again
+                                                                            if (
+                                                                                firstPassCart == 1
+                                                                            ) {
+                                                                                priceBeforeDiscount =
+                                                                                    Number(
+                                                                                        sumOfPrices
+                                                                                    )
+                                                                            }
+                                                                            // END
+                                                                            shoppingCartIcon =
+                                                                                document.querySelector(
+                                                                                    '#shoppingCartIcon'
+                                                                                )
+                                                                            shoppingCartIcon.classList.add(
+                                                                                'cartAnimation'
+                                                                            )
+                                                                            setTimeout(() => {
+                                                                                    shoppingCartIcon.classList.remove(
+                                                                                        'cartAnimation'
+                                                                                    )
+                                                                                }, 100)
+                                                                                // END
+                                                                        }
+                                                                    )
+                                                                }
+                                                                var allButtons =
+                                                                    document.querySelectorAll(
+                                                                        'a.delToCartBtn'
+                                                                    )
 
-                                            for (
-                                                var i = 0; i < allButtons.length; i++
-                                            ) {
-                                                allButtons[i].addEventListener(
-                                                    'click',
-                                                    function() {
-                                                        // to allow to enter promo code again
-                                                        if (
-                                                            firstPassCart == 1
-                                                        ) {
-                                                            beforeDiscount =
-                                                                undefined
-                                                            thereIsApastDiscount = true
-                                                            document
-                                                                .querySelectorAll(
-                                                                    '.submitCode'
-                                                                )[0]
-                                                                .classList.remove(
-                                                                    'submitCodeDisabled'
-                                                                )
-                                                            document
-                                                                .querySelectorAll(
-                                                                    '.submitCode'
-                                                                )[0]
-                                                                .classList.add(
-                                                                    'submitCodeEnabled'
-                                                                )
-                                                        }
-                                                        // END
-                                                        // to know prud id, and its quentity
-                                                        const content =
-                                                            this.parentElement
-                                                            .innerHTML
-                                                        id = content
-                                                            .split('id:')[1]
-                                                            .split('\t')[0]
+                                                                for (
+                                                                    var i = 0; i < allButtons.length; i++
+                                                                ) {
+                                                                    allButtons[i].addEventListener(
+                                                                            'click',
+                                                                            function() {
+                                                                                // to allow to enter promo code again
+                                                                                if (
+                                                                                    firstPassCart == 1
+                                                                                ) {
+                                                                                    beforeDiscount =
+                                                                                        undefined
+                                                                                    thereIsApastDiscount = true
+                                                                                    document
+                                                                                        .querySelectorAll(
+                                                                                            '.submitCode'
+                                                                                        )[0]
+                                                                                        .classList.remove(
+                                                                                            'submitCodeDisabled'
+                                                                                        )
+                                                                                    document
+                                                                                        .querySelectorAll(
+                                                                                            '.submitCode'
+                                                                                        )[0]
+                                                                                        .classList.add(
+                                                                                            'submitCodeEnabled'
+                                                                                        )
+                                                                                }
+                                                                                // END
+                                                                                // to know prud id, and its quentity
+                                                                                const content =
+                                                                                    this.parentElement
+                                                                                    .innerHTML
+                                                                                id = content
+                                                                                    .split('id:')[1]
+                                                                                    .split('\t')[0]
 
-                                                        console.log(
-                                                            'You clicked:',
-                                                            id
-                                                        )
+                                                                                console.log(
+                                                                                    'You clicked:',
+                                                                                    id
+                                                                                )
 
-                                                        let valueOfQuentity =
-                                                            Number(
-                                                                document.getElementById(
-                                                                    `quentity-${id}`
-                                                                ).value
-                                                            )
-                                                        if (
-                                                            isNaN(
-                                                                valueOfQuentity
-                                                            ) == true
-                                                        ) {
-                                                            valueOfQuentity = false
-                                                        }
-                                                        // END
-                                                        // to put titles and prices in cart
-                                                        if (
-                                                            valueOfQuentity ==
-                                                            false
-                                                        ) {
-                                                            valueOfQuentity = 1
-                                                        }
-                                                        // count for quentity(select)
-                                                        if (
-                                                            cartInfo.prices.findIndex(
-                                                                (a) =>
-                                                                a ===
-                                                                data[
-                                                                    `${id}`
-                                                                ].price
-                                                            ) != -1
-                                                        ) {
-                                                            for (
-                                                                let k = 0; k <
-                                                                valueOfQuentity; k++
-                                                            ) {
-                                                                cartInfo.titles.splice(
-                                                                    cartInfo.titles.findIndex(
-                                                                        (a) =>
-                                                                        a ===
-                                                                        data[
-                                                                            `${id}`
-                                                                        ]
-                                                                        .title
-                                                                    ),
-                                                                    1
-                                                                )
-                                                                cartInfo.prices.splice(
-                                                                    cartInfo.prices.findIndex(
-                                                                        (a) =>
-                                                                        a ===
-                                                                        data[
-                                                                            `${id}`
-                                                                        ]
-                                                                        .price
-                                                                    ),
-                                                                    1
-                                                                )
-                                                            }
-                                                        }
-                                                        // END
-                                                        else {
-                                                            shoppingCartIcon =
-                                                                document.querySelector(
-                                                                    '#shoppingCartIcon'
-                                                                )
-                                                            shoppingCartIcon.classList.add(
-                                                                'cartAnimationDelFin'
-                                                            )
-                                                            setTimeout(() => {
-                                                                shoppingCartIcon.classList.remove(
-                                                                    'cartAnimationDelFin'
-                                                                )
-                                                            }, 500)
+                                                                                let valueOfQuentity =
+                                                                                    Number(
+                                                                                        document.getElementById(
+                                                                                            `quentity-${id}`
+                                                                                        ).value
+                                                                                    )
+                                                                                if (
+                                                                                    isNaN(
+                                                                                        valueOfQuentity
+                                                                                    ) == true
+                                                                                ) {
+                                                                                    valueOfQuentity = false
+                                                                                }
+                                                                                // END
+                                                                                // to put titles and prices in cart
+                                                                                if (
+                                                                                    valueOfQuentity ==
+                                                                                    false
+                                                                                ) {
+                                                                                    valueOfQuentity = 1
+                                                                                }
+                                                                                // count for quentity(select)
+                                                                                if (
+                                                                                    cartInfo.prices.findIndex(
+                                                                                        (a) =>
+                                                                                        a ===
+                                                                                        data[
+                                                                                            `${id}`
+                                                                                        ].price
+                                                                                    ) != -1
+                                                                                ) {
+                                                                                    for (
+                                                                                        let k = 0; k <
+                                                                                        valueOfQuentity; k++
+                                                                                    ) {
+                                                                                        cartInfo.titles.splice(
+                                                                                            cartInfo.titles.findIndex(
+                                                                                                (a) =>
+                                                                                                a ===
+                                                                                                data[
+                                                                                                    `${id}`
+                                                                                                ]
+                                                                                                .title
+                                                                                            ),
+                                                                                            1
+                                                                                        )
+                                                                                        cartInfo.prices.splice(
+                                                                                            cartInfo.prices.findIndex(
+                                                                                                (a) =>
+                                                                                                a ===
+                                                                                                data[
+                                                                                                    `${id}`
+                                                                                                ]
+                                                                                                .price
+                                                                                            ),
+                                                                                            1
+                                                                                        )
+                                                                                    }
+                                                                                }
+                                                                                // END
+                                                                                else {
+                                                                                    shoppingCartIcon =
+                                                                                        document.querySelector(
+                                                                                            '#shoppingCartIcon'
+                                                                                        )
+                                                                                    shoppingCartIcon.classList.add(
+                                                                                        'cartAnimationDelFin'
+                                                                                    )
+                                                                                    setTimeout(() => {
+                                                                                        shoppingCartIcon.classList.remove(
+                                                                                            'cartAnimationDelFin'
+                                                                                        )
+                                                                                    }, 500)
 
-                                                            if (
-                                                                cartInfo.prices
-                                                                .length == 0
-                                                            ) {
-                                                                document.querySelector(
-                                                                        '#groupOfTitles'
-                                                                    ).innerHTML =
-                                                                    'لا يوجد أي منتج في سلتك حتى الآن'
-                                                                document.querySelector(
-                                                                        '#groupOfPrices'
-                                                                    ).innerText =
-                                                                    'المجموع 0﷼'
-                                                            }
-                                                            return
-                                                        }
+                                                                                    if (
+                                                                                        cartInfo.prices
+                                                                                        .length == 0
+                                                                                    ) {
+                                                                                        document.querySelector(
+                                                                                                '#groupOfTitles'
+                                                                                            ).innerHTML =
+                                                                                            'لا يوجد أي منتج في سلتك حتى الآن'
+                                                                                        document.querySelector(
+                                                                                                '#groupOfPrices'
+                                                                                            ).innerText =
+                                                                                            'المجموع 0﷼'
+                                                                                    }
+                                                                                    return
+                                                                                }
 
-                                                        const sumOfPrices =
-                                                            cartInfo.prices.reduce(
-                                                                (a, b) =>
-                                                                Number(a) +
-                                                                Number(b),
-                                                                0
-                                                            ) // sum all price array elements
-                                                        let sumOfTitles = ''
-                                                        const countsSumOfTitles = {}
-                                                        cartInfo.titles.forEach(
-                                                            function(x) {
-                                                                countsSumOfTitles[
-                                                                        x
-                                                                    ] =
-                                                                    (countsSumOfTitles[
-                                                                        x
-                                                                    ] || 0) + 1
-                                                            }
-                                                        )
-                                                        for (
-                                                            let j = 0; j <
-                                                            Object.keys(
-                                                                countsSumOfTitles
-                                                            ).length; j++
-                                                        ) {
-                                                            sumOfTitles =
-                                                                sumOfTitles.concat(
-                                                                    `المنتج:<b>${
+                                                                                const sumOfPrices =
+                                                                                    cartInfo.prices.reduce(
+                                                                                        (a, b) =>
+                                                                                        Number(a) +
+                                                                                        Number(b),
+                                                                                        0
+                                                                                    ) // sum all price array elements
+                                                                                let sumOfTitles = ''
+                                                                                const countsSumOfTitles = {}
+                                                                                cartInfo.titles.forEach(
+                                                                                    function(x) {
+                                                                                        countsSumOfTitles[
+                                                                                                x
+                                                                                            ] =
+                                                                                            (countsSumOfTitles[
+                                                                                                x
+                                                                                            ] || 0) + 1
+                                                                                    }
+                                                                                )
+                                                                                for (
+                                                                                    let j = 0; j <
+                                                                                    Object.keys(
+                                                                                        countsSumOfTitles
+                                                                                    ).length; j++
+                                                                                ) {
+                                                                                    sumOfTitles =
+                                                                                        sumOfTitles.concat(
+                                                                                            `المنتج:<b>${
                                                                         Object.keys(
                                                                             countsSumOfTitles
                                                                         )[j]
@@ -707,7 +707,7 @@ function firstFetch() {
                                                                         Object.values(
                                                                             countsSumOfTitles
                                                                         )[j]
-                                                                    )}</b> <br>`
+                                                                    )}</b>، <img style="border: 1px solid #8f8d85; border-radius: 10px; width: 25px; height: 25px; margin: 0;" src="data:image/png;base64,${data[`${id}`].img}" alt="${data[`${id}`].title}"> <br>`
                                                                 )
                                                         }
                                                         document.querySelector(
