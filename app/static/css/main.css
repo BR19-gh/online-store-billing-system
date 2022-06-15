@@ -220,6 +220,10 @@ input::placeholder {
     text-align: center;
 }
 
+input {
+    font-size: 12px;
+}
+
 input:hover.personalInfo {
     background-color: var(--inputHover);
 }
@@ -323,26 +327,20 @@ div#shoppingCartIcon {
 
 #infoCard {
     height: 55%;
-    top: 229px;
-    right: 115px;
-}
-
-@media only screen and (max-width: 800px) {
-    #infoCard {
-        width: 90%;
-        height: 55%;
-        right: auto;
-    }
-    #cartInfo,
-    #infoCard {
-        background-color: var(--infoCard);
-    }
 }
 
 @media only screen and (max-width: 800px) {
     #cartInfo {
-        width: 90%;
-        height: 90%;
+        width: 95%;
+        height: 95%;
+    }
+    #infoCard {
+        width: 95%;
+        height: 55%;
+    }
+    #cartInfo,
+    #infoCard {
+        background-color: var(--infoCard);
     }
 }
 

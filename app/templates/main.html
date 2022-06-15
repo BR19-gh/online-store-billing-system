@@ -110,27 +110,28 @@
                         <label style="direction: rtl; width:25%; font-weight: bold;">العنوان:</label>
                         <input id="personalInfoAddr" class="input-label personalInfo" type="text" placeholder="رقم المبنى، الشارع، الحي، المدينة"><br><br>
                         <label style="direction: rtl; width:25%; font-weight: bold;">الاستلام:</label>
-                        <input id="personalInfoTime" style="font-size:10px; width: 198px;" class="input-label personalInfo" type="datetime-local" aria-valuemin="" value="">
+                        <input id="personalInfoTime" style="font-size:10px; width: 198px;" class="input-label personalInfo" type="datetime-local">
                         <script>
                             let date = new Date();
+
                             function formatDate(date) {
-    let hours = date.getHours()
-    let minutes = date.getMinutes();
-    // minutes = minutes < 10 ? '0' + minutes : minutes;
-    const year = date.getFullYear()
-    let month = date.getMonth()
-    month =
-        Number(month) + 1 < 10 ? '0' + (Number(month) + 1) : Number(month) + 1
-    var date = date.getDate()
-    date = date < 10 ? '0' + date : date
-    hours = hours < 10 ? '0' + hours : hours
-    minutes = minutes < 10 ? '0' + minutes : minutes
-    const strTime =
-        year + '-' + month + '-' + date + 'T' + hours + ':' + minutes
-    return strTime
-}
+                                let hours = date.getHours()
+                                let minutes = date.getMinutes();
+                                // minutes = minutes < 10 ? '0' + minutes : minutes;
+                                const year = date.getFullYear()
+                                let month = date.getMonth()
+                                month =
+                                    Number(month) + 1 < 10 ? '0' + (Number(month) + 1) : Number(month) + 1
+                                var date = date.getDate()
+                                date = date < 10 ? '0' + date : date
+                                hours = hours < 10 ? '0' + hours : hours
+                                minutes = minutes < 10 ? '0' + minutes : minutes
+                                const strTime =
+                                    year + '-' + month + '-' + date + 'T' + hours + ':' + minutes
+                                return strTime
+                            }
                             document.querySelector('#personalInfoTime').value = `${formatDate(date)}`;
-                            document.querySelector('#personalInfoTime').setAttribute("aria-valuemin", `${formatDate(date)}`);
+                            document.querySelector('#personalInfoTime').min = `${formatDate(date)}`;
                         </script>
 
                     </div>
@@ -151,7 +152,7 @@
                 <i style="font-size: smaller;" class="fas fa-info-circle"></i>
             </div>
         </h1>
-        <div id="form" class="card" style="width: 20rem;">
+        <div id="form" class="card" style="width: 21rem;">
             <div class="devInfo" class="card-body">
                 <h5 style="direction: rtl; font-size: 25px; margin-top: 8px;" class="card-title">وصف المتجر:</h5>
             </div>
@@ -160,11 +161,7 @@
                     لا يوجد وصف
                 </h5>
             </div>
-            <div class="devInfo" class="card-body">
-                <h5 style="direction:rtl; font-size: 25px;" class="card-title">
-
-                </h5>
-            </div>
+            <hr>
             <div class="devInfo" class="card-body">
                 <h5 style="direction:rtl; font-size: 25px; " class="card-title">
                     تم التطوير من قبل:
@@ -175,14 +172,10 @@
                     br19.herokuapp.com
                 </h5>
             </div>
-            <div class="devInfo" class="card-body">
-                <h5 style="direction:rtl; font-size: 25px;" class="card-title">
-
-                </h5>
-            </div>
+            <hr>
             <div class="devInfo" class="card-body">
                 <h5 style="direction:rtl; font-size: 15px;" class="card-title">
-                    الإصدار:3.0</h5>
+                    الإصدار: gamma ver3.0</h5>
             </div>
         </div>
 
