@@ -1086,9 +1086,33 @@ function firstFetch() {
                                                                 /\s/gi,
                                                                 '%20'
                                                             )
+                                                        
+                                                        let datearray = date.split('-');
+                                                        // ['yyyy', 'M', 'dThh:mm']
+                                                        datearray[3]=datearray[2].split('T');
+                                                        // ['yyyy', 'M', 'dThh:mm', ['d', 'hh:mm'] ]
+                                                        datearray[2]=datearray[3][0];
+                                                        // ['yyyy', 'M', 'd', ['d', 'hh:mm']]
+                                                        datearray[3]=datearray[3][1];
+                                                        // ['yyyy', 'M', 'd', 'hh:mm']
+                                                        datearray[4]=datearray[3].split(':');
+                                                        // ['yyyy', 'M', 'd', 'hh:mm',['hh','mm']]
+                                                        datearray[3]=datearray[4][0];
+                                                        // ['yyyy', 'M', 'd', 'hh',['hh','mm']]
+                                                        datearray[4]=datearray[4][1];
+                                                        // ['yyyy', 'M', 'd', 'hh','mm']
+
+                                                        const ampm = datearray[3] >= 12 ? 'م' : 'ص'
+                                                        datearray[3] = datearray[3] % 12
+                                                        datearray[3] = datearray[3] || 12
+                                                        datearray[3] = datearray[3] < 10 ? '0' + datearray[3] : datearray[3]
+                                                        datearray[1] = datearray[1] < 10 ? '0' + datearray[1] : datearray[1]
+                                                        datearray[2] = datearray[2] < 10 ? '0' + datearray[2] : datearray[2]
+                                                        datearray[4] = datearray[4] < 10 ? '0' + datearray[4] : datearray[4]
+
                                                         personalInfo.time = `${
                                                             'وقت الاستلام: ' +
-                                                            date
+                                                            `${datearray[0]}-${datearray[1]}-${datearray[2]}, ${datearray[3]}:${datearray[4]}${ampm}`
                                                         }`.replace(
                                                             /\s/gi,
                                                             '%20'
