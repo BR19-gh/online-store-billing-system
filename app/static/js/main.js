@@ -1106,13 +1106,13 @@ function firstFetch() {
                                                         datearray[3] = datearray[3] % 12
                                                         datearray[3] = datearray[3] || 12
                                                         datearray[3] = datearray[3] < 10 ? '0' + datearray[3] : datearray[3]
-                                                        datearray[1] = datearray[1] < 10 ? '0' + datearray[1] : datearray[1]
+                                                        //datearray[1] = datearray[1] < 10 ? '0' + datearray[1] : datearray[1]
                                                         datearray[2] = datearray[2] < 10 ? '0' + datearray[2] : datearray[2]
                                                         datearray[4] = datearray[4] < 10 ? '0' + datearray[4] : datearray[4]
 
                                                         personalInfo.time = `${
                                                             'وقت الاستلام: ' +
-                                                            `${datearray[0]}-${datearray[1]}-${datearray[2]}, ${datearray[3]}:${datearray[4]}${ampm}`
+                                                            `${datearray[0]}/${datearray[1]}/${datearray[2]}, ${datearray[3]}:${datearray[4]}${ampm}`
                                                         }`.replace(
                                                             /\s/gi,
                                                             '%20'
