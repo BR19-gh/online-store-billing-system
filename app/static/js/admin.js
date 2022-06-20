@@ -160,13 +160,13 @@ function expOrNarProduct(expOrNarProductKey) {
         productsList.childNodes[
                 productsList.childNodes.length - 1
             ].innerHTML =
-            '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>'
+            '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإخفاء المنتجات &nbsp;  <i class="fas fa-angle-up"></i></div>'
         productsList.childNodes[0].innerHTML = ''
     } else {
         document.querySelector('#productsList').style.height = '30px'
         document.querySelector('#productsList').style.overflow = 'hidden'
         productsList.childNodes[0].innerHTML =
-            '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات</div>'
+            '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار المنتجات &nbsp; <i class="fas fa-angle-down"></i></div>'
     }
 }
 
@@ -177,13 +177,13 @@ function expOrNarPromo(expOrNarPromoKey) {
         codesList.childNodes[
                 codesList.childNodes.length - 1
             ].innerHTML =
-            '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء القسائم </div>'
+            '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإخفاء القسائم &nbsp;  <i class="fas fa-angle-up"></i></div>'
         codesList.childNodes[0].innerHTML = ''
     } else {
         document.querySelector('#codesList').style.height = '30px'
         document.querySelector('#codesList').style.overflow = 'hidden'
         codesList.childNodes[0].innerHTML =
-            '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار القسائم </div>'
+            '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار القسائم &nbsp;  <i class="fas fa-angle-down"></i></div>'
     }
 }
 
@@ -964,7 +964,7 @@ function fetchStoreInfo() {
 function isNarrowed(responseJson) { // ** for products
     listOfProducts = responseJson
     document.querySelector('#productsList').innerHTML =
-        '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell">إجراءات</b></div>'
+        '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار المنتجات &nbsp;  <i class="fas fa-angle-down"></i></div><div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell">إجراءات</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1020,7 +1020,7 @@ function isExpanded(responseJson) { // ** for products
     productsList.childNodes[
             productsList.childNodes.length - 1
         ].innerHTML =
-        '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>'
+        '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإخفاء المنتجات &nbsp;  <i class="fas fa-angle-up"></i></div>'
 }
 
 function fetchProducts() {
@@ -1080,7 +1080,7 @@ function addToListOfInfo(infoType, infoData) {
 function isNarrowedCode(responseJson) {
     listOfPromos = responseJson
     document.querySelector('#codesList').innerHTML =
-        '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار القسائم </div><div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">الاسم</b><b class="cell">النسبة</b><b class="cell">إجراءات</b></div>'
+        '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار القسائم &nbsp;  <i class="fas fa-angle-down"></i></div><div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">الاسم</b><b class="cell">النسبة</b><b class="cell">إجراءات</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1131,7 +1131,7 @@ function isExpandedCode(responseJson) {
     codesList.childNodes[
             codesList.childNodes.length - 1
         ].innerHTML =
-        '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء القسائم </div>'
+        '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإخفاء القسائم &nbsp;  <i class="fas fa-angle-up"></i></div>'
 }
 
 function fetchPromocodes() {
