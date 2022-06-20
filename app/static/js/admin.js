@@ -166,7 +166,7 @@ function expOrNarProduct(expOrNarProductKey) {
         document.querySelector('#productsList').style.height = '30px'
         document.querySelector('#productsList').style.overflow = 'hidden'
         productsList.childNodes[0].innerHTML =
-            '<div class="expOrNar" id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار المنتجات &nbsp; <i class="fas fa-angle-down"></i></div>'
+            '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار المنتجات &nbsp; <i class="fas fa-angle-down"></i></div>'
     }
 }
 
@@ -183,7 +183,7 @@ function expOrNarPromo(expOrNarPromoKey) {
         document.querySelector('#codesList').style.height = '30px'
         document.querySelector('#codesList').style.overflow = 'hidden'
         codesList.childNodes[0].innerHTML =
-            '<div class="expOrNar" id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار القسائم &nbsp;  <i class="fas fa-angle-down"></i></div>'
+            '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار القسائم &nbsp;  <i class="fas fa-angle-down"></i></div>'
     }
 }
 
@@ -964,7 +964,7 @@ function fetchStoreInfo() {
 function isNarrowed(responseJson) { // ** for products
     listOfProducts = responseJson
     document.querySelector('#productsList').innerHTML =
-        '<div class="expOrNar" id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار المنتجات &nbsp;  <i class="fas fa-angle-down"></i></div><div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell">إجراءات</b></div>'
+        '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار المنتجات &nbsp;  <i class="fas fa-angle-down"></i></div><div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell">إجراءات</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1080,7 +1080,7 @@ function addToListOfInfo(infoType, infoData) {
 function isNarrowedCode(responseJson) {
     listOfPromos = responseJson
     document.querySelector('#codesList').innerHTML =
-        '<div class="expOrNar" id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار القسائم &nbsp;  <i class="fas fa-angle-down"></i></div><div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">الاسم</b><b class="cell">النسبة</b><b class="cell">إجراءات</b></div>'
+        '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px">اضغط لإظهار القسائم &nbsp;  <i class="fas fa-angle-down"></i></div><div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">الاسم</b><b class="cell">النسبة</b><b class="cell">إجراءات</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
