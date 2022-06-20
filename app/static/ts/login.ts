@@ -22,7 +22,8 @@ function firstFetch() : void {
 }
 
 firstFetch()
-let username = <HTMLInputElement> document.querySelector('#username');
+let username  = <HTMLInputElement> document.querySelector('#username');
+username as HTMLInputElement;
 let password = <HTMLInputElement> document.querySelector('#password');
 function login(): void {
     location.assign(

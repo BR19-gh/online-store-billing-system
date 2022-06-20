@@ -1,7 +1,9 @@
+// ii working on it
+
 /// / theme related
 fetch('/storeTheme/show', {
-        method: 'GET',
-    })
+    method: 'GET',
+})
     .then((responseTheme) => {
         return responseTheme.json()
     })
@@ -35,7 +37,7 @@ fetch('/storeTheme/show', {
 
 const themeBtns = document.querySelectorAll('div.circleTheme')
 for (var i = 0; i < themeBtns.length; i++) {
-    themeBtns[i].onclick = function() {
+    themeBtns[i].onclick = function () {
         for (let i = 0; i < themesContainer.childNodes.length; i++) {
             themesContainer.childNodes[i].className = 'circleTheme'
         }
@@ -43,8 +45,8 @@ for (var i = 0; i < themeBtns.length; i++) {
         console.log(this.id)
 
         fetch('/storeTheme/show', {
-                method: 'GET',
-            })
+            method: 'GET',
+        })
             .then((responseTheme) => {
                 return responseTheme.json()
             })
@@ -57,16 +59,16 @@ for (var i = 0; i < themeBtns.length; i++) {
                 }
 
                 fetch('/storeTheme', {
-                        headers: {
-                            Method: `${method}`,
-                            'Content-Type': 'application/json',
-                            Accept: 'application/json',
-                        },
-                        method: `${method}`,
-                        body: JSON.stringify({
-                            storeTheme: this.id,
-                        }),
-                    })
+                    headers: {
+                        Method: `${method}`,
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                    },
+                    method: `${method}`,
+                    body: JSON.stringify({
+                        storeTheme: this.id,
+                    }),
+                })
                     .then((response) => {
                         return response.json()
                     })
@@ -86,8 +88,8 @@ for (var i = 0; i < themeBtns.length; i++) {
                             return
                         }
                         fetch('/storeTheme/show', {
-                                method: 'GET',
-                            })
+                            method: 'GET',
+                        })
                             .then((responseTheme) => {
                                 return responseTheme.json()
                             })
@@ -155,99 +157,82 @@ for (var i = 0; i < themeBtns.length; i++) {
 
 function expOrNarProduct(expOrNarProductKey) {
     if (expOrNarProductKey == 1) {
-        document.querySelector('#productsList').style.height = '100%'
-        document.querySelector('#productsList').style.overflow = 'auto'
-        productsList.childNodes[
-                productsList.childNodes.length - 1
-            ].innerHTML =
-            '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>'
-        productsList.childNodes[0].innerHTML = ''
+        (<HTMLElement>document.querySelector('#productsList')).style.height = '100%';
+        (<HTMLElement>document.querySelector('#productsList')).style.overflow = 'auto';
+        (<ChildNode>(<unknown>(<HTMLElement>document.querySelector('#productsList')).childNodes))[
+            Object.keys((<HTMLElement>document.querySelector('#productsList')).childNodes).length - 1
+        ].innerHTML =
+            '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>';
+        (<ChildNode>(<unknown>(<HTMLElement>document.querySelector('#productsList')).childNodes))[0].innerHTML = '';
     } else {
-        document.querySelector('#productsList').style.height = '30px'
-        document.querySelector('#productsList').style.overflow = 'hidden'
-        productsList.childNodes[0].innerHTML =
-            '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات</div>'
+        (<HTMLElement>document.querySelector('#productsList')).style.height = '30px';
+        (<HTMLElement>document.querySelector('#productsList')).style.overflow = 'hidden';
+        (<ChildNode>(<unknown>(<HTMLElement>document.querySelector('#productsList')).childNodes))[0].innerHTML =
+            '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات</div>';
     }
 }
 
 function expOrNarPromo(expOrNarPromoKey) {
     if (expOrNarPromoKey == 1) {
-        document.querySelector('#codesList').style.height = '100%'
-        document.querySelector('#codesList').style.overflow = 'auto'
-        codesList.childNodes[
-                codesList.childNodes.length - 1
-            ].innerHTML =
-            '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء القسائم </div>'
-        codesList.childNodes[0].innerHTML = ''
+         (<HTMLElement>document.querySelector('#codesList')).style.height = '100%';
+         (<HTMLElement>document.querySelector('#codesList')).style.overflow = 'auto';
+         (<ChildNode>(<unknown>(<HTMLElement>document.querySelector('#codesList')).childNodes))[
+            Object.keys( (<ChildNode>(<unknown>(<HTMLElement>document.querySelector('#codesList')).childNodes))).length - 1
+        ].innerHTML =
+            '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء القسائم </div>';
+            (<ChildNode>(<unknown>(<HTMLElement>document.querySelector('#codesList')).childNodes))[0].innerHTML = '';
     } else {
-        document.querySelector('#codesList').style.height = '30px'
-        document.querySelector('#codesList').style.overflow = 'hidden'
-        codesList.childNodes[0].innerHTML =
-            '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار القسائم </div>'
-    }
-}
-
-function expOrNarInfo(expOrNarInfoKey) {
-    if (expOrNarPromoKey == 1) {
-        document.querySelector('#infoList').style.height = '100%'
-        document.querySelector('#infoList').style.overflow = 'auto'
-        document.querySelector('#pressToShowInfoBtn').style.display = 'none';
-        document.querySelector('#pressToHideInfoBtn').style.display = 'block';
-
-    } else {
-        document.querySelector('#infoList').style.height = '30px'
-        document.querySelector('#infoList').style.overflow = 'hidden'
-        document.querySelector('#pressToShowInfoBtn').style.display = 'block';
-        document.querySelector('#pressToHideInfoBtn').style.display = 'none';
+         (<HTMLElement>document.querySelector('#codesList')).style.height = '30px';
+         (<HTMLElement>document.querySelector('#codesList')).style.overflow = 'hidden';
+         (<ChildNode>(<unknown>(<HTMLElement>document.querySelector('#codesList')).childNodes))[0].innerHTML =
+            '<div id="expOrNarPromo" onclick="expOrNarPromo(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار القسائم </div>';
     }
 }
 
 function deleteOrEditPromo(id, opration) {
     if (opration == 'edit') {
         // show btn
-        document.querySelector('#addCode').style.display = 'none'
-        document.querySelector('#updCode').style.display = 'block'
-        document.querySelector('#delCode').style.display = 'none'
-            // fill input
+         (<HTMLElement>document.querySelector('#addCode')).style.display = 'none';
+         (<HTMLElement>document.querySelector('#updCode')).style.display = 'block';
+         (<HTMLElement>document.querySelector('#delCode')).style.display = 'none';
+        // fill input
         document.querySelector(
             '#promoModalLongTitle'
-        ).innerHTML = `تعديل القسيمة رقم: ${id}`
-        document.querySelector('#codeID').value = `${id}`
-        document.querySelector('#codeName').value = `${listOfPromos[id].code}`
-        document.querySelector('#codeAmount').value = `${listOfPromos[id].amount * 100
-            }`
-            // disable input
-        document.querySelector('#codeID').disabled = true
-        document.querySelector('#codeName').disabled = false
-        document.querySelector('#codeAmount').disabled = false
+        )!.innerHTML = `تعديل القسيمة رقم: ${id}`;
+        (<HTMLInputElement>document.querySelector('#codeID')).value = `${id}`;
+        (<HTMLInputElement>document.querySelector('#codeName')).value = `${listOfPromos[id].code}`;
+        (<HTMLInputElement>document.querySelector('#codeAmount')).value = `${listOfPromos[id].amount * 100}`;
+        // disable input
+        (<HTMLInputElement>document.querySelector('#codeID')).disabled = true;
+        (<HTMLInputElement>document.querySelector('#codeName')).disabled = false;
+        (<HTMLInputElement>document.querySelector('#codeAmount')).disabled = false;
     } else if (opration == 'delete') {
         // show btn
-        document.querySelector('#addCode').style.display = 'none'
-        document.querySelector('#updCode').style.display = 'none'
-        document.querySelector('#delCode').style.display = 'block'
-            // fill input
+        (<HTMLElement>document.querySelector('#addCode')).style.display = 'none';
+        (<HTMLElement>document.querySelector('#updCode')).style.display = 'none';
+        (<HTMLElement>document.querySelector('#delCode')).style.display = 'block';
+        // fill input
         document.querySelector(
             '#promoModalLongTitle'
-        ).innerHTML = `هل أنت متأكد من رغبتك بحذف القسيمة رقم: ${id}؟`
-        document.querySelector('#codeID').value = `${id}`
-        document.querySelector('#codeName').value = `${listOfPromos[id].code}`
-        document.querySelector('#codeAmount').value = `${listOfPromos[id].amount * 100
-            }`
-            // disable input
-        document.querySelector('#codeID').disabled = true
-        document.querySelector('#codeName').disabled = true
-        document.querySelector('#codeAmount').disabled = true
+        )!.innerHTML = `هل أنت متأكد من رغبتك بحذف القسيمة رقم: ${id}؟`;
+        (<HTMLInputElement>document.querySelector('#codeID')).value = `${id}`;
+        (<HTMLInputElement>document.querySelector('#codeName')).value = `${listOfPromos[id].code}`;
+        (<HTMLInputElement>document.querySelector('#codeAmount')).value = `${listOfPromos[id].amount * 100}`;
+        // disable input
+        (<HTMLInputElement>document.querySelector('#codeID')).disabled = true;
+        (<HTMLInputElement>document.querySelector('#codeName')).disabled = true;
+        (<HTMLInputElement>document.querySelector('#codeAmount')).disabled = true;
     } else if (opration == 'add') {
         // show btn
-        document.querySelector('#addCode').style.display = 'block'
-        document.querySelector('#updCode').style.display = 'none'
-        document.querySelector('#delCode').style.display = 'none'
-            // fill input
-        document.querySelector('#promoModalLongTitle').innerHTML = 'إضافة قسيمة'
-            // disable input
-        document.querySelector('#codeID').disabled = false
-        document.querySelector('#codeName').disabled = false
-        document.querySelector('#codeAmount').disabled = false
+        (<HTMLElement>document.querySelector('#addCode')).style.display = 'block';
+        (<HTMLElement>document.querySelector('#updCode')).style.display = 'none';
+        (<HTMLElement>document.querySelector('#delCode')).style.display = 'none';
+        // fill input
+        (<HTMLElement>document.querySelector('#promoModalLongTitle')).innerHTML = 'إضافة قسيمة';
+        // disable input
+        (<HTMLInputElement>document.querySelector('#codeID')).disabled = false;
+        (<HTMLInputElement>document.querySelector('#codeName')).disabled = false;
+        (<HTMLInputElement>document.querySelector('#codeAmount')).disabled = false;
     } else {
         alert(
             'هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 507-admin'
@@ -261,7 +246,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#addProd').style.display = 'none'
         document.querySelector('#updProd').style.display = 'block'
         document.querySelector('#delProd').style.display = 'none'
-            // fill input
+        // fill input
         document.querySelector(
             '#productModalLongTitle'
         ).innerHTML = `تعديل المنتج رقم: ${id}`
@@ -273,9 +258,9 @@ function deleteOrEditProd(id, opration) {
             '#productPrice'
         ).value = `${listOfProducts[id].price}`
         document.querySelector(
-                '#browseImg'
-            ).innerHTML = `يمكنك حفظ الصورة الحالية من هذا المربع <img style="border: 1px solid #8f8d85; border-radius: 10px; width: 35px; height: 35px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها. <a style="color:blue; text-decoration: underline;" href="../static/img/how_Safari_iOS.GIF">كيف؟</a>`
-            // disable input
+            '#browseImg'
+        ).innerHTML = `يمكنك حفظ الصورة الحالية من هذا المربع <img style="border: 1px solid #8f8d85; border-radius: 10px; width: 35px; height: 35px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها. <a style="color:blue; text-decoration: underline;" href="../static/img/how_Safari_iOS.GIF">كيف؟</a>`
+        // disable input
         document.querySelector('#productID').disabled = true
         document.querySelector('#productTitle').disabled = false
         document.querySelector('#productPrice').disabled = false
@@ -286,7 +271,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#addProd').style.display = 'none'
         document.querySelector('#updProd').style.display = 'none'
         document.querySelector('#delProd').style.display = 'block'
-            // fill input
+        // fill input
         document.querySelector(
             '#productModalLongTitle'
         ).innerHTML = `هل أنت متأكد من رغبتك بحذف المنتج رقم: ${id}`
@@ -298,9 +283,9 @@ function deleteOrEditProd(id, opration) {
             '#productPrice'
         ).value = `${listOfProducts[id].price}`
         document.querySelector(
-                '#browseImg'
-            ).innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> `
-            // disable input
+            '#browseImg'
+        ).innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> `
+        // disable input
         document.querySelector('#productID').disabled = true
         document.querySelector('#productTitle').disabled = true
         document.querySelector('#productPrice').disabled = true
@@ -311,11 +296,11 @@ function deleteOrEditProd(id, opration) {
         document.querySelector('#addProd').style.display = 'block'
         document.querySelector('#updProd').style.display = 'none'
         document.querySelector('#delProd').style.display = 'none'
-            // fill input
+        // fill input
         document.querySelector('#productModalLongTitle').innerHTML =
             'إضافة منتج'
         document.querySelector('#browseImg').innerHTML = ''
-            // disable input
+        // disable input
         document.querySelector('#productID').disabled = false
         document.querySelector('#productTitle').disabled = false
         document.querySelector('#productPrice').disabled = false
@@ -333,7 +318,7 @@ function deleteOrEditStoreInfo(id, opration) {
         // show btn
         document.querySelector('#addInfo').style.display = 'none'
         document.querySelector('#updInfo').style.display = 'block'
-            // fill input
+        // fill input
         document.querySelector('#storeInfoModalLongTitle').innerHTML =
             'تعديل المعلومات'
         document.querySelector('#storeName').value = `${listOfInfo.name}`
@@ -346,15 +331,15 @@ function deleteOrEditStoreInfo(id, opration) {
         }
         document.querySelector('#storeDetails').value = `${listOfInfo.details}`
         document.querySelector('#billDetails').value = `${listOfInfo.bDetails}`
-            // disable input
+        // disable input
     } else if (opration == 'add') {
         // show btn
         document.querySelector('#addInfo').style.display = 'block'
         document.querySelector('#updInfo').style.display = 'none'
-            // fill input
+        // fill input
         document.querySelector('#storeInfoModalLongTitle').innerHTML =
             'إضافة المعلومات'
-            // disable input
+        // disable input
     } else {
         alert(
             'هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 509-admin'
@@ -378,8 +363,8 @@ firstFetches()
 
 function fetchThemes() {
     fetch('/storeTheme/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseTheme) => {
             return responseTheme.json()
         })
@@ -838,13 +823,13 @@ function fetchThemes() {
 
 function fetchStoreInfo() {
     fetch('/storeNum/show', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((responseNum) => {
             return responseNum.json()
         })
@@ -870,13 +855,13 @@ function fetchStoreInfo() {
         })
 
     fetch('/storeName/show', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((responseName) => {
             return responseName.json()
         })
@@ -898,13 +883,13 @@ function fetchStoreInfo() {
         })
 
     fetch('/storeDetails/show', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((responseDetails) => {
             return responseDetails.json()
         })
@@ -926,13 +911,13 @@ function fetchStoreInfo() {
         })
 
     fetch('/billDetails/show', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((responseBillDetails) => {
             return responseBillDetails.json()
         })
@@ -961,16 +946,16 @@ function fetchStoreInfo() {
 
 // for fetchProducts()
 
-function isNarrowed(responseJson) { // ** for products
+function isNarrowed(responseJson) {
     listOfProducts = responseJson
-    document.querySelector('#productsList').innerHTML =
+        (<HTMLElement>document.querySelector('#productsList')).innerHTML =
         '<div id="expOrNarProduct" onclick="expOrNarProduct(1)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-down"></i> &nbsp; اضغط لإظهار المنتجات </div><div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell">إجراءات</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
                 '#productsList'
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
-                }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
+            }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
                 }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].price
                 }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
                 }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
@@ -981,7 +966,7 @@ function isNarrowed(responseJson) { // ** for products
         document.querySelector(
             '#productsList'
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
-            }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
+        }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
             }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].price
             }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
             }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
@@ -990,16 +975,16 @@ function isNarrowed(responseJson) { // ** for products
     }
 }
 
-function isExpanded(responseJson) { // ** for products
+function isExpanded(responseJson) {
     listOfProducts = responseJson
-    document.querySelector('#productsList').innerHTML =
+        (<HTMLElement>document.querySelector('#productsList')).innerHTML =
         '<div></div><div style="display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; padding-bottom: 3px; font-size: 20px"><b class="cell">الرقم</b><b class="cell">العنوان</b><b class="cell">السعر</b><b class="cell">الصورة</b><b class="cell">إجراءات</b></div>'
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
                 '#productsList'
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
-                }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
+            }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
                 }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].price
                 }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
                 }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
@@ -1010,7 +995,7 @@ function isExpanded(responseJson) { // ** for products
         document.querySelector(
             '#productsList'
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
-            }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
+        }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
             }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].price
             }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
             }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
@@ -1018,20 +1003,20 @@ function isExpanded(responseJson) { // ** for products
             },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`
     }
     productsList.childNodes[
-            productsList.childNodes.length - 1
-        ].innerHTML =
+        Object.keys(productsList.childNodes).length - 1
+    ].innerHTML =
         '<div id="expOrNarProduct" onclick="expOrNarProduct(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء المنتجات </div>'
 }
 
 function fetchProducts() {
     fetch('/products', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((response) => {
             return response.json()
         })
@@ -1048,8 +1033,8 @@ function fetchProducts() {
                 return
             }
 
-            if (productsList.style.height == '30px') isNarrowed(responseJson) // ** for products
-            if (productsList.style.height == '100%') isExpanded(responseJson) // ** for products
+            if (productsList.style.height == '30px') isNarrowed(responseJson)
+            if (productsList.style.height == '100%') isExpanded(responseJson)
         })
         .catch((error) => {
             alert(
@@ -1086,7 +1071,7 @@ function isNarrowedCode(responseJson) {
             document.querySelector(
                 '#codesList'
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
-                }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
+            }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
                 }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
                 }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
                 },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
@@ -1095,7 +1080,7 @@ function isNarrowedCode(responseJson) {
         document.querySelector(
             '#codesList'
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
-            }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
+        }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
             }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
             }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
             },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
@@ -1113,7 +1098,7 @@ function isExpandedCode(responseJson) {
             document.querySelector(
                 '#codesList'
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
-                }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
+            }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
                 }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
                 }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
                 },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
@@ -1122,27 +1107,27 @@ function isExpandedCode(responseJson) {
         document.querySelector(
             '#codesList'
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
-            }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
+        }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
             }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
             }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
             },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
             },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`
     }
-    codesList.childNodes[
-            codesList.childNodes.length - 1
-        ].innerHTML =
+     (<ChildNode>(<unknown>(<HTMLElement>document.querySelector('#codesList')).childNodes))[
+        Object.keys( (<ChildNode>(<unknown>(<HTMLElement>document.querySelector('#codesList')).childNodes))).length - 1
+    ].innerHTML =
         '<div id="expOrNarPromo" onclick="expOrNarPromo(0)" style="cursor: pointer; display: flex; justify-content: center; padding-bottom: 3px; font-size: 20px"><i class="fas fa-angle-up"></i> &nbsp; اضغط لإخفاء القسائم </div>'
 }
 
 function fetchPromocodes() {
     fetch('/promocodes', {
-            headers: {
-                Method: 'GET',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'GET',
-        })
+        headers: {
+            Method: 'GET',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'GET',
+    })
         .then((response) => {
             return response.json()
         })
@@ -1200,18 +1185,18 @@ document.querySelector('#addProd').addEventListener('click', () => {
         return
     }
     fetch('/product', {
-            headers: {
-                id: encodeURIComponent(document.querySelector('#productID').value),
-                title: encodeURIComponent(
-                    document.querySelector('#productTitle').value
-                ),
-                price: encodeURIComponent(
-                    document.querySelector('#productPrice').value
-                ),
-            },
-            method: 'POST',
-            body: uploadImgForm,
-        })
+        headers: {
+            id: encodeURIComponent(document.querySelector('#productID').value),
+            title: encodeURIComponent(
+                document.querySelector('#productTitle').value
+            ),
+            price: encodeURIComponent(
+                document.querySelector('#productPrice').value
+            ),
+        },
+        method: 'POST',
+        body: uploadImgForm,
+    })
         .then((response) => {
             return response.json()
         })
@@ -1276,17 +1261,17 @@ document.querySelector('#updProd').addEventListener('click', () => {
         return
     }
     fetch(`/product/${document.querySelector('#productID').value}`, {
-            headers: {
-                title: encodeURIComponent(
-                    document.querySelector('#productTitle').value
-                ),
-                price: encodeURIComponent(
-                    document.querySelector('#productPrice').value
-                ),
-            },
-            method: 'PUT',
-            body: uploadImgForm,
-        })
+        headers: {
+            title: encodeURIComponent(
+                document.querySelector('#productTitle').value
+            ),
+            price: encodeURIComponent(
+                document.querySelector('#productPrice').value
+            ),
+        },
+        method: 'PUT',
+        body: uploadImgForm,
+    })
         .then((response) => {
             return response.json()
         })
@@ -1336,13 +1321,13 @@ document.querySelector('#updProd').addEventListener('click', () => {
 
 document.querySelector('#delProd').addEventListener('click', () => {
     fetch(`/product/${document.querySelector('#productID').value}`, {
-            headers: {
-                Method: 'DELETE',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'DELETE',
-        })
+        headers: {
+            Method: 'DELETE',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'DELETE',
+    })
         .then((response) => {
             return response.json()
         })
@@ -1394,18 +1379,18 @@ document.querySelector('#addCode').addEventListener('click', () => {
         return
     }
     fetch('/promocode', {
-            headers: {
-                Method: 'POST',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                id: document.querySelector('#codeID').value,
-                code: document.querySelector('#codeName').value,
-                amount: document.querySelector('#codeAmount').value,
-            }),
-        })
+        headers: {
+            Method: 'POST',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            id: document.querySelector('#codeID').value,
+            code: document.querySelector('#codeName').value,
+            amount: document.querySelector('#codeAmount').value,
+        }),
+    })
         .then((response) => {
             return response.json()
         })
@@ -1465,17 +1450,17 @@ document.querySelector('#updCode').addEventListener('click', () => {
         return
     }
     fetch(`/promocode/${document.querySelector('#codeID').value}`, {
-            headers: {
-                Method: 'PUT',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'PUT',
-            body: JSON.stringify({
-                code: document.querySelector('#codeName').value,
-                amount: document.querySelector('#codeAmount').value,
-            }),
-        })
+        headers: {
+            Method: 'PUT',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'PUT',
+        body: JSON.stringify({
+            code: document.querySelector('#codeName').value,
+            amount: document.querySelector('#codeAmount').value,
+        }),
+    })
         .then((response) => {
             return response.json()
         })
@@ -1517,13 +1502,13 @@ document.querySelector('#updCode').addEventListener('click', () => {
 
 document.querySelector('#delCode').addEventListener('click', () => {
     fetch(`/promocode/${document.querySelector('#codeID').value}`, {
-            headers: {
-                Method: 'DELETE',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'DELETE',
-        })
+        headers: {
+            Method: 'DELETE',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'DELETE',
+    })
         .then((response) => {
             return response.json()
         })
@@ -1575,20 +1560,20 @@ document.querySelector('#addInfo').addEventListener('click', () => {
     }
 
     fetch('/storeInfo', {
-            headers: {
-                Method: 'POST',
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                storeName: document.querySelector('#storeName').value,
-                storeNum: currentCountryCodeSelected +
-                    document.querySelector('#storeNum').value,
-                storeDetails: document.querySelector('#storeDetails').value,
-                billDetails: document.querySelector('#billDetails').value,
-            }),
-        })
+        headers: {
+            Method: 'POST',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            storeName: document.querySelector('#storeName').value,
+            storeNum: currentCountryCodeSelected +
+                document.querySelector('#storeNum').value,
+            storeDetails: document.querySelector('#storeDetails').value,
+            billDetails: document.querySelector('#billDetails').value,
+        }),
+    })
         .then((response) => {
             return response.json()
         })
@@ -1639,8 +1624,8 @@ document.querySelector('#updInfo').addEventListener('click', () => {
     }
 
     fetch('/storeNum/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseNum) => {
             return responseNum.json()
         })
@@ -1661,8 +1646,8 @@ document.querySelector('#updInfo').addEventListener('click', () => {
         })
 
     fetch('/storeName/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseName) => {
             return responseName.json()
         })
@@ -1683,8 +1668,8 @@ document.querySelector('#updInfo').addEventListener('click', () => {
         })
 
     fetch('/storeDetails/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseDetails) => {
             return responseDetails.json()
         })
@@ -1705,8 +1690,8 @@ document.querySelector('#updInfo').addEventListener('click', () => {
         })
 
     fetch('/billDetails/show', {
-            method: 'GET',
-        })
+        method: 'GET',
+    })
         .then((responseBillDetails) => {
             return responseBillDetails.json()
         })
@@ -1732,16 +1717,16 @@ document.querySelector('#updInfo').addEventListener('click', () => {
         document.querySelector('#storeDetails').value != ''
     ) {
         fetch('/storeName', {
-                headers: {
-                    Method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                method: 'PUT',
-                body: JSON.stringify({
-                    storeName: document.querySelector('#storeName').value,
-                }),
-            })
+            headers: {
+                Method: 'PUT',
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            method: 'PUT',
+            body: JSON.stringify({
+                storeName: document.querySelector('#storeName').value,
+            }),
+        })
             .then((response) => {
                 return response.json()
             })
@@ -1796,17 +1781,17 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             return
         }
         fetch('/storeNum', {
-                headers: {
-                    Method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                method: 'PUT',
-                body: JSON.stringify({
-                    storeNum: currentCountryCodeSelected +
-                        document.querySelector('#storeNum').value,
-                }),
-            })
+            headers: {
+                Method: 'PUT',
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            method: 'PUT',
+            body: JSON.stringify({
+                storeNum: currentCountryCodeSelected +
+                    document.querySelector('#storeNum').value,
+            }),
+        })
             .then((response) => {
                 return response.json()
             })
@@ -1863,16 +1848,16 @@ document.querySelector('#updInfo').addEventListener('click', () => {
         document.querySelector('#storeNum').value != ''
     ) {
         fetch('/storeDetails', {
-                headers: {
-                    Method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                method: 'PUT',
-                body: JSON.stringify({
-                    storeDetails: document.querySelector('#storeDetails').value,
-                }),
-            })
+            headers: {
+                Method: 'PUT',
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            method: 'PUT',
+            body: JSON.stringify({
+                storeDetails: document.querySelector('#storeDetails').value,
+            }),
+        })
             .then((response) => {
                 return response.json()
             })
@@ -1912,16 +1897,16 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                 )
             })
         fetch('/billDetails', {
-                headers: {
-                    Method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                method: 'PUT',
-                body: JSON.stringify({
-                    billDetails: document.querySelector('#billDetails').value,
-                }),
-            })
+            headers: {
+                Method: 'PUT',
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            method: 'PUT',
+            body: JSON.stringify({
+                billDetails: document.querySelector('#billDetails').value,
+            }),
+        })
             .then((response) => {
                 return response.json()
             })
@@ -1976,52 +1961,52 @@ document.querySelector('#updInfo').addEventListener('click', () => {
             return
         }
         Promise.all([
-                fetch('/storeNum', {
-                    headers: {
-                        Method: 'PUT',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        storeNum: currentCountryCodeSelected +
-                            document.querySelector('#storeNum').value,
-                    }),
+            fetch('/storeNum', {
+                headers: {
+                    Method: 'PUT',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    storeNum: currentCountryCodeSelected +
+                        document.querySelector('#storeNum').value,
                 }),
-                fetch('/storeName', {
-                    headers: {
-                        Method: 'PUT',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        storeName: document.querySelector('#storeName').value,
-                    }),
+            }),
+            fetch('/storeName', {
+                headers: {
+                    Method: 'PUT',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    storeName: document.querySelector('#storeName').value,
                 }),
-                fetch('/storeDetails', {
-                    headers: {
-                        Method: 'PUT',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        storeDetails: document.querySelector('#storeDetails').value,
-                    }),
+            }),
+            fetch('/storeDetails', {
+                headers: {
+                    Method: 'PUT',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    storeDetails: document.querySelector('#storeDetails').value,
                 }),
-                fetch('/billDetails', {
-                    headers: {
-                        Method: 'PUT',
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    },
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        billDetails: document.querySelector('#billDetails').value,
-                    }),
+            }),
+            fetch('/billDetails', {
+                headers: {
+                    Method: 'PUT',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    billDetails: document.querySelector('#billDetails').value,
                 }),
-            ])
+            }),
+        ])
             .then(
                 ([
                     responseNum,
@@ -2082,7 +2067,7 @@ document.querySelector('#updInfo').addEventListener('click', () => {
                     )}`
                 )
             })
-    } else {}
+    } else { }
 })
 
 const countriesCodes = {
@@ -2177,7 +2162,7 @@ console.log(
     'a which class:"dropdown-item".'
 )
 for (var i = 0; i < allCountriesAncors.length; i++) {
-    allCountriesAncors[i].addEventListener('click', function() {
+    allCountriesAncors[i].addEventListener('click', function () {
         let content = this.innerText
         content = content.split(':')
         let id = content[0]
@@ -2191,7 +2176,7 @@ for (
     var i = 0; i < document.querySelectorAll('[aria-label="Close"]').length; i++
 ) {
     document
-        .querySelectorAll('[aria-label="Close"]')[i].addEventListener('click', function() {
+        .querySelectorAll('[aria-label="Close"]')[i].addEventListener('click', function () {
             document.querySelector('#codeID').value = ''
             document.querySelector('#codeName').value = ''
             document.querySelector('#codeAmount').value = ''
@@ -2240,7 +2225,7 @@ function formatDate(date) {
     const ampm = hours >= 12 ? 'م' : 'ص'
     hours = hours % 12
     hours = hours || 12
-        // minutes = minutes < 10 ? '0' + minutes : minutes;
+    // minutes = minutes < 10 ? '0' + minutes : minutes;
     const year = date.getFullYear()
     let month = date.getMonth()
     month =
