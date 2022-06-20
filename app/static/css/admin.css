@@ -258,6 +258,18 @@ input#storeNum {
     background-color: var(--containerHover);
 }
 
+
+/*just when page starts*/
+
+#infoList {
+    height: 30px;
+    overflow: hidden;
+}
+
+
+/*just when page starts*/
+
+.expOrNarInfo:hover,
 #expOrNarPromo:hover,
 #expOrNarProduct:hover {
     font-weight: bold;

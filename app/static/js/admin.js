@@ -188,7 +188,7 @@ function expOrNarPromo(expOrNarPromoKey) {
 }
 
 function expOrNarInfo(expOrNarInfoKey) {
-    if (expOrNarPromoKey == 1) {
+    if (expOrNarInfoKey == 1) {
         document.querySelector('#infoList').style.height = '100%'
         document.querySelector('#infoList').style.overflow = 'auto'
         document.querySelector('#pressToShowInfoBtn').style.display = 'none';
