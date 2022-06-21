@@ -501,7 +501,9 @@ function firstFetch() {
 																countsSumOfTitles
 															).length; j++
 														) {
-
+                                                                console.log(Object.keys(
+                                                                    countsSumOfTitles
+                                                                )[j])
 															sumOfTitles =
 																sumOfTitles.concat(
 																	`<b>المنتج:</b>${Object.keys(
