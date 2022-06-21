@@ -491,7 +491,7 @@ function firstFetch() {
 																	] || 0) + 1;
 															}
 														);
-                                                        
+                                                        console.log(()=>{let i=0,j=0; while(j==0){ if(Object.keys(countsSumOfTitles)[j] == data[Object.keys(data)[i]].title){return Object.keys(data)[i]}else{i++;} } })
 														for (
 															let j = 0; j <
 															Object.keys(
