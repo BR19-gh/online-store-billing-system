@@ -381,8 +381,7 @@ function firstFetch() {
     </div>
 `;
 											}
-                                            let arrayOfIds = new Array();
-                                            let idNo = -1;
+                                           
 
 											var allButtons =
 												document.querySelectorAll(
@@ -429,9 +428,7 @@ function firstFetch() {
 															.split("id:")[1]
 															.split("\t")[0];
 
-                                                        arrayOfIds.push(id);
-                                                        idNo++;
-                                                        console.log(`arrayOfIds:${arrayOfIds}\nidNo:${idNo}`);
+                                                        
                                                         
 
 														console.log(
@@ -514,7 +511,7 @@ function firstFetch() {
                                                                             countsSumOfTitles
                                                                         )[j]
                                                                     )}، <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" 
-                                                                    src="data:image/png;base64,${data[arrayOfIds[idNo]].img}" alt="${data[arrayOfIds[idNo]].title}"><br>
+                                                                    src="data:image/png;base64,${data[()=>{let i=0,j=0; while(j==0){ if(Object.keys(countsSumOfTitles)[j] == data[Object.keys(data)[i]].title){return Object.keys(data)[i]}else{i++;} } }].img}"><br>
                                                                     `
 																);
 														}
@@ -722,7 +719,7 @@ function firstFetch() {
                                                                             countsSumOfTitles
                                                                         )[j]
                                                                     )}، <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" 
-                                                                    src="data:image/png;base64,${data[arrayOfIds[idNo]].img}" alt="${data[arrayOfIds[idNo]].title}"><br>
+                                                                    src="data:image/png;base64,${data[()=>{let i=0,j=0; while(j==0){ if(Object.keys(countsSumOfTitles)[j] == data[Object.keys(data)[i]].title){return Object.keys(data)[i]}else{i++;} } }].img}"><br>
                                                                     `
 																);
 														}
