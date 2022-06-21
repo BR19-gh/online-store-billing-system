@@ -431,6 +431,7 @@ function firstFetch() {
 
                                                         arrayOfIds.push(id);
                                                         idNo++;
+                                                        console.log(`arrayOfIds:${arrayOfIds}\nidNo:${idNo}`);
                                                         
 
 														console.log(
@@ -510,7 +511,7 @@ function firstFetch() {
                                                                         Object.values(
                                                                             countsSumOfTitles
                                                                         )[j]
-                                                                    )}، <b>الصورة:</b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" 
+                                                                    )}، <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" 
                                                                     src="data:image/png;base64,${data[arrayOfIds[idNo]].img}" alt="${data[arrayOfIds[idNo]].title}"><br>
                                                                     `
 																);
@@ -718,7 +719,7 @@ function firstFetch() {
                                                                         Object.values(
                                                                             countsSumOfTitles
                                                                         )[j]
-                                                                    )}، <b>الصورة:</b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" 
+                                                                    )}، <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" 
                                                                     src="data:image/png;base64,${data[arrayOfIds[idNo]].img}" alt="${data[arrayOfIds[idNo]].title}"><br>
                                                                     `
 																);
