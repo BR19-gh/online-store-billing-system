@@ -491,16 +491,19 @@ function firstFetch() {
 																	] || 0) + 1;
 															}
 														);
-                                                        ()=>{let i=0,j=0; while(j==0){ if(Object.keys(countsSumOfTitles)[j] == data[Object.keys(data)[i]].title){return console.log(Object.keys(data)[i])}else{i++;} } }
 														for (
 															let j = 0; j <
 															Object.keys(
 																countsSumOfTitles
 															).length; j++
-														) {
+														) {     
+                                                            // iiiiiiiiiiiiiiii
+                                                            // ii  <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" 
+                                                            //ii src="data:image/png;base64,${data[()=>{let i=0,j=0; while(j==0){ if(Object.keys(countsSumOfTitles)[j] == data[Object.keys(data)[i]].title){return Object.keys(data)[i]}else{i++;} } }].img}">
                                                                 console.log(Object.keys(
                                                                     countsSumOfTitles
                                                                 )[j])
+                                                                // ii: مهمه للصور بالسلة
 															sumOfTitles =
 																sumOfTitles.concat(
 																	`<b>المنتج:</b>${Object.keys(
@@ -510,8 +513,7 @@ function firstFetch() {
                                                                         Object.values(
                                                                             countsSumOfTitles
                                                                         )[j]
-                                                                    )}، <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" 
-                                                                    src="data:image/png;base64,${data[()=>{let i=0,j=0; while(j==0){ if(Object.keys(countsSumOfTitles)[j] == data[Object.keys(data)[i]].title){return Object.keys(data)[i]}else{i++;} } }].img}"><br>
+                                                                    )}<br>
                                                                     `
 																);
 														}
@@ -718,8 +720,7 @@ function firstFetch() {
                                                                         Object.values(
                                                                             countsSumOfTitles
                                                                         )[j]
-                                                                    )}، <img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" 
-                                                                    src="data:image/png;base64,${data[()=>{let i=0,j=0; while(j==0){ if(Object.keys(countsSumOfTitles)[j] == data[Object.keys(data)[i]].title){return Object.keys(data)[i]}else{i++;} } }].img}"><br>
+                                                                    )}<br>
                                                                     `
 																);
 														}
