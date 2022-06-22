@@ -460,18 +460,18 @@ div#shoppingCartIcon {
 @keyframes cartAnimationDelFin {
     0% {
         font-size: 30px;
-        rotate: 0deg;
+        transform: rotate(0deg);
     }
     25% {
         font-size: 25px;
-        rotate: 45deg;
+        transform: rotate(45deg);
     }
     50% {
         font-size: 25px;
-        rotate: -45deg;
+        transform: rotate(-45deg);
     }
     100% {
         font-size: 30px;
-        rotate: 0deg;
+        transform: rotate(0deg);
     }
 }
