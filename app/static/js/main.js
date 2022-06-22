@@ -2,6 +2,7 @@ let data = {};
 let data2 = {};
 let listOfTitles = [];
 let isCartOpenWithoutChange = false;
+let groupOfTitlesInnerHTML;
 
 function firstFetch() {
     fetch("/products", {
@@ -751,6 +752,7 @@ function firstFetch() {
                                                         document.querySelector(
                                                             "#groupOfTitles"
                                                         ).innerHTML = `${sumOfTitles}`;
+                                                        groupOfTitlesInnerHTML = `${sumOfTitles}`;;
                                                         document.querySelector(
                                                             "#groupOfPrices"
                                                         ).innerText = `المجموع: ${sumOfPrices} ﷼`;
@@ -1057,14 +1059,10 @@ function firstFetch() {
                                                         let discount =
                                                             "قسيمة الخصم: " +
                                                             restDiscountMsg;
-                                                        titles = document
-                                                            .querySelector(
-                                                                "#groupOfTitles"
-                                                            )
-                                                            .innerHTML.replace(
-                                                                /\s/gi,
-                                                                "%20"
-                                                            );
+                                                        titles = `${groupOfTitlesInnerHTML}`.replace(
+                                                            /\s/gi,
+                                                            "%20"
+                                                        );
                                                         titles = titles.replace(
                                                             /<br>/gi,
                                                             "%0a"
