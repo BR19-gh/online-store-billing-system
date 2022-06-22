@@ -424,7 +424,7 @@ div#shoppingCartIcon {
 }
 
 .cartAnimationDelFin {
-    animation: cartAnimationDel 0.5s linear;
+    animation: cartAnimationDelFin 0.5s linear;
 }
 
 @keyframes cartAnimation {
@@ -432,6 +432,7 @@ div#shoppingCartIcon {
         font-size: 30px;
     }
     50% {
+        color: darkgreen;
         font-size: 35px;
     }
     100% {
@@ -444,6 +445,7 @@ div#shoppingCartIcon {
         font-size: 30px;
     }
     50% {
+        color: darkred;
         font-size: 25px;
     }
     100% {
