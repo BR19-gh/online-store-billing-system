@@ -432,7 +432,7 @@ div#shoppingCartIcon {
         font-size: 30px;
     }
     50% {
-        color: darkgreen;
+        color: green;
         font-size: 35px;
     }
     100% {
@@ -445,7 +445,7 @@ div#shoppingCartIcon {
         font-size: 30px;
     }
     50% {
-        color: darkred;
+        color: red;
         font-size: 25px;
     }
     100% {
