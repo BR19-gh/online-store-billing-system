@@ -112,7 +112,8 @@ function firstFetch() {
                                                                                 listOfImgs = convertTitleToImg(listOfTitles, data);
                                                                                 let i = 0
                                                                                 innerHTMLofGroupOfTitles.forEach((ihgt) => {
-                                                                                    innerHTMLofGroupOfTitlesNew.push(`${innerHTMLofGroupOfTitles}، <b>الصورة:</b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" src="data:image/png;base64,${listOfImgs[i++]}" alt="${listOfTitles[i++]}"><br>`);
+                                                                                    innerHTMLofGroupOfTitlesNew.push(`${ihgt}، <b>الصورة:</b><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 25px; height: 25px; margin: 0;" src="data:image/png;base64,${listOfImgs[i]}" alt="${listOfTitles[i]}"><br>`);
+                                                                                    i++;
                                                                                 });
                                                                                 innerHTMLofGroupOfTitlesNew.forEach((innerHTMLofGroupOfTitleNew) => { document.querySelector('#groupOfTitles').innerHTML += innerHTMLofGroupOfTitleNew; })
                                                                             }
