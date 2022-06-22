@@ -429,30 +429,30 @@ div#shoppingCartIcon {
 
 @keyframes cartAnimation {
     0% {
-        color: green;
+        color: darkgreen;
         font-size: 30px;
     }
     50% {
-        color: green;
+        color: darkgreen;
         font-size: 35px;
     }
     100% {
-        color: green;
+        color: darkgreen;
         font-size: 30px;
     }
 }
 
 @keyframes cartAnimationDel {
     0% {
-        color: red;
+        color: darkred;
         font-size: 30px;
     }
     50% {
-        color: red;
+        color: darkred;
         font-size: 25px;
     }
     100% {
-        color: red;
+        color: darkred;
         font-size: 30px;
     }
 }
