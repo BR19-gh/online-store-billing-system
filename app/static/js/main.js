@@ -515,7 +515,7 @@ function firstFetch() {
                                                                             ) {
 
 
-                                                                                listOfTitles = countsSumOfTitles
+                                                                                listOfTitles = Object.keys(countsSumOfTitles)
 
 
                                                                                 sumOfTitles =
@@ -727,7 +727,7 @@ function firstFetch() {
                                                                             ) {
 
 
-                                                                                listOfTitles = countsSumOfTitles
+
 
 
                                                                                 sumOfTitles =
