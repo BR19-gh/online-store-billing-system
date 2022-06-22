@@ -106,6 +106,7 @@ function firstFetch() {
                                                     () => {
                                                         let listOfImgs;
                                                         let innerHTMLofGroupOfTitlesNew = [];
+                                                        groupOfTitlesInnerHTML = document.querySelector('#groupOfTitles').innerHTML;
                                                         let innerHTMLofGroupOfTitles = document.querySelector('#groupOfTitles').innerHTML.split('<br>');
                                                         innerHTMLofGroupOfTitles.pop();
                                                         console.log(listOfTitles);
