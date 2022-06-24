@@ -458,16 +458,28 @@ div#shoppingCartIcon {
 }
 
 @keyframes cartAnimationDelFin {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(45deg);
-    }
-    50% {
-        transform: rotate(-45deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
+  0% {
+    font-size: 30px;
+    transform: rotate(0deg);
+  }
+  20% {
+    font-size: 25px;
+    transform: rotate(0deg);
+  }
+  25% {
+    font-size: 25px;
+    transform: rotate(45deg);
+  }
+  50% {
+    font-size: 25px;
+    transform: rotate(-45deg);
+  }
+  55% {
+    font-size: 25px;
+    transform: rotate(0deg);
+  }
+  100% {
+    font-size: 30px;
+    transform: rotate(0deg);
+  }
 }
