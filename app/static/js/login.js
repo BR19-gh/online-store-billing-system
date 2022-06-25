@@ -1,4 +1,4 @@
-function firstFetch () {
+function firstFetch() {
   fetch("/storeName/show")
     .then((response) => {
       return response.json();
@@ -14,20 +14,19 @@ function firstFetch () {
     })
     .catch((error) => {
       alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: ${error}//login:storeName// 506\n التاريخ: ${formatDate(
-                    new Date()
-                )}`
+        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-login:storeName\n التاريخ: ${formatDate(
+          new Date()
+        )}`
       );
     });
 }
 
 firstFetch();
 
-function login () {
+function login() {
   location.assign(
-        `/verify/${document.querySelector("#username").value}/${
-            document.querySelector("#password").value
-        }`
+    `/verify/${document.querySelector("#username").value}/${document.querySelector("#password").value
+    }`
   );
 }
 document.querySelector("#loginBtn").addEventListener("click", (event) => {
