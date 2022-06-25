@@ -1243,7 +1243,7 @@ function firstFetch() {
                                         })
                                         .catch((error) => {
                                             alert(
-                                                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 510\n err-fetch-main:billDetails\n التاريخ: ${formatDate(
+                                                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 510\n err-fetch-main: billDetails\n التاريخ: ${formatDate(
                                                     new Date()
                                                 )}`
                                             );
@@ -1251,7 +1251,7 @@ function firstFetch() {
                                 })
                                 .catch((error) => {
                                     alert(
-                                        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-main:storeNum\n التاريخ: ${formatDate(
+                                        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-main: storeNum\n التاريخ: ${formatDate(
                                             new Date()
                                         )}`
                                     );
@@ -1259,7 +1259,7 @@ function firstFetch() {
                         })
                         .catch((error) => {
                             alert(
-                                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 507\n err-fetch-main:storeName\n التاريخ: ${formatDate(
+                                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 507\n err-fetch-main: storeName\n التاريخ: ${formatDate(
                                     new Date()
                                 )}`
                             );
@@ -1267,7 +1267,7 @@ function firstFetch() {
                 })
                 .catch((error) => {
                     alert(
-                        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 508\n err-fetch-main:promocodes\n التاريخ: ${formatDate(
+                        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 508\n err-fetch-main: promocodes\n التاريخ: ${formatDate(
                             new Date()
                         )}`
                     );
@@ -1275,7 +1275,7 @@ function firstFetch() {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-main:products\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-main: products\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );

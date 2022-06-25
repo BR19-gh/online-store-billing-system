@@ -27,7 +27,7 @@ fetch("/storeTheme/show", {
     })
     .catch((error) => {
         alert(
-            `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 505\n err-fetch-admin:storetheme\n التاريخ: ${formatDate(
+            `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 505\n err-fetch-admin: storetheme\n التاريخ: ${formatDate(
                 new Date()
             )}`
         );
@@ -126,7 +126,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             })
                             .catch((error) => {
                                 alert(
-                                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-admin:storetheme\n التاريخ: ${formatDate(
+                                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-admin: storetheme\n التاريخ: ${formatDate(
                                         new Date()
                                     )}`
                                 );
@@ -135,7 +135,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                     })
                     .catch((error) => {
                         alert(
-                            `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 507\n err-fetch-admin:storetheme\n التاريخ: ${formatDate(
+                            `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 507\n err-fetch-admin: storetheme\n التاريخ: ${formatDate(
                                 new Date()
                             )}`
                         );
@@ -143,7 +143,7 @@ for (var i = 0; i < themeBtns.length; i++) {
             })
             .catch((error) => {
                 alert(
-                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 508\n err-fetch-admin:storetheme\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 508\n err-fetch-admin: storetheme\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 );
@@ -828,7 +828,7 @@ function fetchThemes() {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-admin:storetheme\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-admin: storetheme\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -862,7 +862,7 @@ function fetchStoreInfo() {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 510\n err-fetch-admin:storeNum\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 510\n err-fetch-admin: storeNum\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -890,7 +890,7 @@ function fetchStoreInfo() {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 511\n err-fetch-admin:storeName\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 511\n err-fetch-admin: storeName\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -918,7 +918,7 @@ function fetchStoreInfo() {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 512\n err-fetch-admin:storeDetails\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 512\n err-fetch-admin: storeDetails\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -951,7 +951,7 @@ function fetchStoreInfo() {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 513\n err-fetch-admin:billdetails\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 513\n err-fetch-admin: billdetails\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1052,7 +1052,7 @@ function fetchProducts() {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 514\n err-fetch-admin:products\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 514\n err-fetch-admin: products\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1162,7 +1162,7 @@ function fetchPromocodes() {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 515\n err-fetch-admin:products\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 515\n err-fetch-admin: products\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1251,7 +1251,7 @@ document.querySelector("#addProd").addEventListener("click", () => {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 516\n err-fetch-admin:product\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 516\n err-fetch-admin: product\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1326,7 +1326,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 517\n err-fetch-admin:product\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 517\n err-fetch-admin: product\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1444,7 +1444,7 @@ document.querySelector("#addCode").addEventListener("click", () => {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 518\n err-fetch-admin:promocode\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 518\n err-fetch-admin: promocode\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1617,7 +1617,7 @@ document.querySelector("#addInfo").addEventListener("click", () => {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 519\n err-fetch-admin:storeInfo\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 519\n err-fetch-admin: storeInfo\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1653,7 +1653,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 520\n err-fetch-admin:storeNum\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 520\n err-fetch-admin: storeNum\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1675,7 +1675,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 521\n err-fetch-admin:storeName\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 521\n err-fetch-admin: storeName\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1697,7 +1697,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 522\n err-fetch-admin:storeName\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 522\n err-fetch-admin: storeName\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1719,7 +1719,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         })
         .catch((error) => {
             alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 523\n err-fetch-admin:billDetails\n التاريخ: ${formatDate(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 523\n err-fetch-admin: billDetails\n التاريخ: ${formatDate(
                     new Date()
                 )}`
             );
@@ -1775,7 +1775,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             })
             .catch((error) => {
                 alert(
-                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 524\n err-fetch-admin:storeName\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 524\n err-fetch-admin: storeName\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 );
@@ -1851,7 +1851,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             })
             .catch((error) => {
                 alert(
-                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 525\n err-fetch-admin:storeNum\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 525\n err-fetch-admin: storeNum\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 );
@@ -1905,7 +1905,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             })
             .catch((error) => {
                 alert(
-                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 526\n err-fetch-admin:storeDetails\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 526\n err-fetch-admin: storeDetails\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 );
@@ -1955,7 +1955,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             })
             .catch((error) => {
                 alert(
-                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 527\n err-fetch-admin:billdetails\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 527\n err-fetch-admin: billdetails\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 );
@@ -2076,7 +2076,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             })
             .catch((error) => {
                 alert(
-                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 555\n err-fetch-admin:ALL\n التاريخ: ${formatDate(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 555\n err-fetch-admin: ALL\n التاريخ: ${formatDate(
                         new Date()
                     )}`
                 );
