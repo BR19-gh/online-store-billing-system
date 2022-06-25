@@ -249,7 +249,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector("#codeAmount").disabled = false;
     } else {
         alert(
-            "هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 507-admin"
+            "هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 557-admin"
         );
     }
 }
@@ -322,7 +322,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#productImg").style.display = "block";
     } else {
         alert(
-            "هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 508-admin"
+            "هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 558-admin"
         );
     }
 }
@@ -356,7 +356,7 @@ function deleteOrEditStoreInfo(id, opration) {
         // disable input
     } else {
         alert(
-            "هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 509-admin"
+            "هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 559-admin"
         );
     }
 }
@@ -1235,7 +1235,7 @@ document.querySelector("#addProd").addEventListener("click", () => {
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 530-admin"
                 ) | $("#productModal").modal("show");
                 return;
             }
@@ -1310,7 +1310,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 531-admin"
                 ) | $("#productModal").modal("show");
                 return;
             }
@@ -1366,7 +1366,7 @@ document.querySelector("#delProd").addEventListener("click", () => {
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 532-admin"
                 ) | $("#productModal").modal("show");
                 return;
             }
@@ -1429,7 +1429,7 @@ document.querySelector("#addCode").addEventListener("click", () => {
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 533-admin"
                 ) | $("#promoModal").modal("show");
                 return;
             }
@@ -1499,7 +1499,7 @@ document.querySelector("#updCode").addEventListener("click", () => {
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 534-admin"
                 ) | $("#promoModal").modal("show");
                 return;
             }
@@ -1541,7 +1541,7 @@ document.querySelector("#delCode").addEventListener("click", () => {
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 535-admin"
                 ) | $("#promoModal").modal("show");
                 return;
             }
@@ -1600,7 +1600,7 @@ document.querySelector("#addInfo").addEventListener("click", () => {
             }
             if (responseJson.statCode == 500) {
                 alert(
-                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 536-admin"
                 );
                 return;
             }
@@ -1756,7 +1756,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 537-admin"
                     );
                     setTimeout(() => {
                         $("#storeInfoModal").modal("show");
@@ -1830,7 +1830,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 538-admin"
                     );
                     setTimeout(() => {
                         $("#storeInfoModal").modal("show");
@@ -1887,7 +1887,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 539-admin"
                     );
                     setTimeout(() => {
                         $("#storeInfoModal").modal("show");
@@ -1936,7 +1936,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 540-admin"
                     );
                     setTimeout(() => {
                         $("#storeInfoModal").modal("show");
@@ -2057,7 +2057,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 }
                 if (responseJson.statCode == 500) {
                     alert(
-                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 500-admin"
+                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 541-admin"
                     );
                     setTimeout(() => {
                         $("#storeInfoModal").modal("show");

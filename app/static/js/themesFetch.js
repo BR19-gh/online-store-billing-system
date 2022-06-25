@@ -450,7 +450,7 @@ export function fetchThemes() {
       console.log("current theme is " + responseJson.storeTheme);
     }).catch((error) => {
       alert(
-        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-admin:storetheme\n التاريخ: ${formatDate(
+        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 500\n err-fetch-themeFetch:storetheme\n التاريخ: ${formatDate(
           new Date()
         )}`
       );
