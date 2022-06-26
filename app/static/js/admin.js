@@ -2168,7 +2168,7 @@ for (let i = 0; i < /* Object.keys(countriesCodes).length */ 10; i++) {
         }</a></li>`;
 }
 
-const countryCodeTitle = document.querySelector("#countryCodeTitle");
+let countryCodeTitle = document.querySelector("#countryCodeTitle");
 const allCountriesAncors = document.querySelectorAll("a[class^=dropdown-item]");
 let currentCountryCodeSelected = -1;
 console.log(
