@@ -340,7 +340,7 @@ function deleteOrEditStoreInfo(id, opration) {
         if (sliceNum != "err404") {
             document.querySelector("#storeNum").value =
                 `${listOfInfo.num}`.slice(sliceNum);
-            countryCodeTitle = `${listOfInfo.num}`.substring(0, sliceNum - 1)
+            document.querySelector("#countryCodeTitle").innerText = `${listOfInfo.num}`.substring(0, sliceNum - 1)
         } else {
             document.querySelector("#storeNum").value = "";
         }
@@ -2168,7 +2168,7 @@ for (let i = 0; i < /* Object.keys(countriesCodes).length */ 10; i++) {
         }</a></li>`;
 }
 
-let countryCodeTitle = document.querySelector("#countryCodeTitle");
+const countryCodeTitle = document.querySelector("#countryCodeTitle");
 const allCountriesAncors = document.querySelectorAll("a[class^=dropdown-item]");
 let currentCountryCodeSelected = -1;
 console.log(
