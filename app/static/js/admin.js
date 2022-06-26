@@ -1,7 +1,7 @@
 /// / theme related
 fetch("/storeTheme/show", {
-    method: "GET"
-})
+        method: "GET"
+    })
     .then((responseTheme) => {
         return responseTheme.json();
     })
@@ -35,7 +35,7 @@ fetch("/storeTheme/show", {
 
 const themeBtns = document.querySelectorAll("div.circleTheme");
 for (var i = 0; i < themeBtns.length; i++) {
-    themeBtns[i].onclick = function () {
+    themeBtns[i].onclick = function() {
         for (let i = 0; i < themesContainer.childNodes.length; i++) {
             themesContainer.childNodes[i].className = "circleTheme";
         }
@@ -43,8 +43,8 @@ for (var i = 0; i < themeBtns.length; i++) {
         console.log(this.id);
 
         fetch("/storeTheme/show", {
-            method: "GET"
-        })
+                method: "GET"
+            })
             .then((responseTheme) => {
                 return responseTheme.json();
             })
@@ -57,16 +57,16 @@ for (var i = 0; i < themeBtns.length; i++) {
                 }
 
                 fetch("/storeTheme", {
-                    headers: {
-                        Method: `${method}`,
-                        "Content-Type": "application/json",
-                        Accept: "application/json"
-                    },
-                    method: `${method}`,
-                    body: JSON.stringify({
-                        storeTheme: this.id
+                        headers: {
+                            Method: `${method}`,
+                            "Content-Type": "application/json",
+                            Accept: "application/json"
+                        },
+                        method: `${method}`,
+                        body: JSON.stringify({
+                            storeTheme: this.id
+                        })
                     })
-                })
                     .then((response) => {
                         return response.json();
                     })
@@ -86,8 +86,8 @@ for (var i = 0; i < themeBtns.length; i++) {
                             return;
                         }
                         fetch("/storeTheme/show", {
-                            method: "GET"
-                        })
+                                method: "GET"
+                            })
                             .then((responseTheme) => {
                                 return responseTheme.json();
                             })
@@ -158,8 +158,8 @@ function expOrNarProduct(expOrNarProductKey) {
         document.querySelector("#productsList").style.height = "100%";
         document.querySelector("#productsList").style.overflow = "auto";
         productsList.childNodes[
-            productsList.childNodes.length - 1
-        ].innerHTML =
+                productsList.childNodes.length - 1
+            ].innerHTML =
             "<div class=\"expOrNar\" id=\"expOrNarProduct\" onclick=\"expOrNarProduct(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء المنتجات &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
         productsList.childNodes[0].innerHTML = "";
     } else {
@@ -175,8 +175,8 @@ function expOrNarPromo(expOrNarPromoKey) {
         document.querySelector("#codesList").style.height = "100%";
         document.querySelector("#codesList").style.overflow = "auto";
         codesList.childNodes[
-            codesList.childNodes.length - 1
-        ].innerHTML =
+                codesList.childNodes.length - 1
+            ].innerHTML =
             "<div class=\"expOrNar\" id=\"expOrNarPromo\" onclick=\"expOrNarPromo(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء القسائم &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
         codesList.childNodes[0].innerHTML = "";
     } else {
@@ -340,6 +340,7 @@ function deleteOrEditStoreInfo(id, opration) {
         if (sliceNum != "err404") {
             document.querySelector("#storeNum").value =
                 `${listOfInfo.num}`.slice(sliceNum);
+            countryCodeTitle = `${listOfInfo.num}`.substring(0, sliceNum - 1)
         } else {
             document.querySelector("#storeNum").value = "";
         }
@@ -377,8 +378,8 @@ firstFetches();
 
 function fetchThemes() {
     fetch("/storeTheme/show", {
-        method: "GET"
-    })
+            method: "GET"
+        })
         .then((responseTheme) => {
             return responseTheme.json();
         })
@@ -837,13 +838,13 @@ function fetchThemes() {
 
 function fetchStoreInfo() {
     fetch("/storeNum/show", {
-        headers: {
-            Method: "GET",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "GET"
-    })
+            headers: {
+                Method: "GET",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "GET"
+        })
         .then((responseNum) => {
             return responseNum.json();
         })
@@ -869,13 +870,13 @@ function fetchStoreInfo() {
         });
 
     fetch("/storeName/show", {
-        headers: {
-            Method: "GET",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "GET"
-    })
+            headers: {
+                Method: "GET",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "GET"
+        })
         .then((responseName) => {
             return responseName.json();
         })
@@ -897,13 +898,13 @@ function fetchStoreInfo() {
         });
 
     fetch("/storeDetails/show", {
-        headers: {
-            Method: "GET",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "GET"
-    })
+            headers: {
+                Method: "GET",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "GET"
+        })
         .then((responseDetails) => {
             return responseDetails.json();
         })
@@ -925,13 +926,13 @@ function fetchStoreInfo() {
         });
 
     fetch("/billDetails/show", {
-        headers: {
-            Method: "GET",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "GET"
-    })
+            headers: {
+                Method: "GET",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "GET"
+        })
         .then((responseBillDetails) => {
             return responseBillDetails.json();
         })
@@ -1017,20 +1018,20 @@ function isExpanded(responseJson) { // ** for products
             },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
     productsList.childNodes[
-        productsList.childNodes.length - 1
-    ].innerHTML =
+            productsList.childNodes.length - 1
+        ].innerHTML =
         "<div class=\"expOrNar\" id=\"expOrNarProduct\" onclick=\"expOrNarProduct(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء المنتجات &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
 }
 
 function fetchProducts() {
     fetch("/products", {
-        headers: {
-            Method: "GET",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "GET"
-    })
+            headers: {
+                Method: "GET",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "GET"
+        })
         .then((response) => {
             return response.json();
         })
@@ -1128,20 +1129,20 @@ function isExpandedCode(responseJson) {
             },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
     codesList.childNodes[
-        codesList.childNodes.length - 1
-    ].innerHTML =
+            codesList.childNodes.length - 1
+        ].innerHTML =
         "<div class=\"expOrNar\" id=\"expOrNarPromo\" onclick=\"expOrNarPromo(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء القسائم &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
 }
 
 function fetchPromocodes() {
     fetch("/promocodes", {
-        headers: {
-            Method: "GET",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "GET"
-    })
+            headers: {
+                Method: "GET",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "GET"
+        })
         .then((response) => {
             return response.json();
         })
@@ -1199,18 +1200,18 @@ document.querySelector("#addProd").addEventListener("click", () => {
         return;
     }
     fetch("/product", {
-        headers: {
-            id: encodeURIComponent(document.querySelector("#productID").value),
-            title: encodeURIComponent(
-                document.querySelector("#productTitle").value
-            ),
-            price: encodeURIComponent(
-                document.querySelector("#productPrice").value
-            )
-        },
-        method: "POST",
-        body: uploadImgForm
-    })
+            headers: {
+                id: encodeURIComponent(document.querySelector("#productID").value),
+                title: encodeURIComponent(
+                    document.querySelector("#productTitle").value
+                ),
+                price: encodeURIComponent(
+                    document.querySelector("#productPrice").value
+                )
+            },
+            method: "POST",
+            body: uploadImgForm
+        })
         .then((response) => {
             return response.json();
         })
@@ -1275,17 +1276,17 @@ document.querySelector("#updProd").addEventListener("click", () => {
         return;
     }
     fetch(`/product/${document.querySelector("#productID").value}`, {
-        headers: {
-            title: encodeURIComponent(
-                document.querySelector("#productTitle").value
-            ),
-            price: encodeURIComponent(
-                document.querySelector("#productPrice").value
-            )
-        },
-        method: "PUT",
-        body: uploadImgForm
-    })
+            headers: {
+                title: encodeURIComponent(
+                    document.querySelector("#productTitle").value
+                ),
+                price: encodeURIComponent(
+                    document.querySelector("#productPrice").value
+                )
+            },
+            method: "PUT",
+            body: uploadImgForm
+        })
         .then((response) => {
             return response.json();
         })
@@ -1335,13 +1336,13 @@ document.querySelector("#updProd").addEventListener("click", () => {
 
 document.querySelector("#delProd").addEventListener("click", () => {
     fetch(`/product/${document.querySelector("#productID").value}`, {
-        headers: {
-            Method: "DELETE",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "DELETE"
-    })
+            headers: {
+                Method: "DELETE",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "DELETE"
+        })
         .then((response) => {
             return response.json();
         })
@@ -1393,18 +1394,18 @@ document.querySelector("#addCode").addEventListener("click", () => {
         return;
     }
     fetch("/promocode", {
-        headers: {
-            Method: "POST",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "POST",
-        body: JSON.stringify({
-            id: document.querySelector("#codeID").value,
-            code: document.querySelector("#codeName").value,
-            amount: document.querySelector("#codeAmount").value
+            headers: {
+                Method: "POST",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "POST",
+            body: JSON.stringify({
+                id: document.querySelector("#codeID").value,
+                code: document.querySelector("#codeName").value,
+                amount: document.querySelector("#codeAmount").value
+            })
         })
-    })
         .then((response) => {
             return response.json();
         })
@@ -1464,17 +1465,17 @@ document.querySelector("#updCode").addEventListener("click", () => {
         return;
     }
     fetch(`/promocode/${document.querySelector("#codeID").value}`, {
-        headers: {
-            Method: "PUT",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "PUT",
-        body: JSON.stringify({
-            code: document.querySelector("#codeName").value,
-            amount: document.querySelector("#codeAmount").value
+            headers: {
+                Method: "PUT",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "PUT",
+            body: JSON.stringify({
+                code: document.querySelector("#codeName").value,
+                amount: document.querySelector("#codeAmount").value
+            })
         })
-    })
         .then((response) => {
             return response.json();
         })
@@ -1516,13 +1517,13 @@ document.querySelector("#updCode").addEventListener("click", () => {
 
 document.querySelector("#delCode").addEventListener("click", () => {
     fetch(`/promocode/${document.querySelector("#codeID").value}`, {
-        headers: {
-            Method: "DELETE",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "DELETE"
-    })
+            headers: {
+                Method: "DELETE",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "DELETE"
+        })
         .then((response) => {
             return response.json();
         })
@@ -1574,20 +1575,20 @@ document.querySelector("#addInfo").addEventListener("click", () => {
     }
 
     fetch("/storeInfo", {
-        headers: {
-            Method: "POST",
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        method: "POST",
-        body: JSON.stringify({
-            storeName: document.querySelector("#storeName").value,
-            storeNum: currentCountryCodeSelected +
-                document.querySelector("#storeNum").value,
-            storeDetails: document.querySelector("#storeDetails").value,
-            billDetails: document.querySelector("#billDetails").value
+            headers: {
+                Method: "POST",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "POST",
+            body: JSON.stringify({
+                storeName: document.querySelector("#storeName").value,
+                storeNum: currentCountryCodeSelected +
+                    document.querySelector("#storeNum").value,
+                storeDetails: document.querySelector("#storeDetails").value,
+                billDetails: document.querySelector("#billDetails").value
+            })
         })
-    })
         .then((response) => {
             return response.json();
         })
@@ -1638,8 +1639,8 @@ document.querySelector("#updInfo").addEventListener("click", () => {
     }
 
     fetch("/storeNum/show", {
-        method: "GET"
-    })
+            method: "GET"
+        })
         .then((responseNum) => {
             return responseNum.json();
         })
@@ -1660,8 +1661,8 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         });
 
     fetch("/storeName/show", {
-        method: "GET"
-    })
+            method: "GET"
+        })
         .then((responseName) => {
             return responseName.json();
         })
@@ -1682,8 +1683,8 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         });
 
     fetch("/storeDetails/show", {
-        method: "GET"
-    })
+            method: "GET"
+        })
         .then((responseDetails) => {
             return responseDetails.json();
         })
@@ -1704,8 +1705,8 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         });
 
     fetch("/billDetails/show", {
-        method: "GET"
-    })
+            method: "GET"
+        })
         .then((responseBillDetails) => {
             return responseBillDetails.json();
         })
@@ -1731,16 +1732,16 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         document.querySelector("#storeDetails").value != ""
     ) {
         fetch("/storeName", {
-            headers: {
-                Method: "PUT",
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            method: "PUT",
-            body: JSON.stringify({
-                storeName: document.querySelector("#storeName").value
+                headers: {
+                    Method: "PUT",
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                method: "PUT",
+                body: JSON.stringify({
+                    storeName: document.querySelector("#storeName").value
+                })
             })
-        })
             .then((response) => {
                 return response.json();
             })
@@ -1795,17 +1796,17 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             return;
         }
         fetch("/storeNum", {
-            headers: {
-                Method: "PUT",
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            method: "PUT",
-            body: JSON.stringify({
-                storeNum: currentCountryCodeSelected +
-                    document.querySelector("#storeNum").value
+                headers: {
+                    Method: "PUT",
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                method: "PUT",
+                body: JSON.stringify({
+                    storeNum: currentCountryCodeSelected +
+                        document.querySelector("#storeNum").value
+                })
             })
-        })
             .then((response) => {
                 return response.json();
             })
@@ -1862,16 +1863,16 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         document.querySelector("#storeNum").value != ""
     ) {
         fetch("/storeDetails", {
-            headers: {
-                Method: "PUT",
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            method: "PUT",
-            body: JSON.stringify({
-                storeDetails: document.querySelector("#storeDetails").value
+                headers: {
+                    Method: "PUT",
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                method: "PUT",
+                body: JSON.stringify({
+                    storeDetails: document.querySelector("#storeDetails").value
+                })
             })
-        })
             .then((response) => {
                 return response.json();
             })
@@ -1911,16 +1912,16 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 );
             });
         fetch("/billDetails", {
-            headers: {
-                Method: "PUT",
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            method: "PUT",
-            body: JSON.stringify({
-                billDetails: document.querySelector("#billDetails").value
+                headers: {
+                    Method: "PUT",
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                method: "PUT",
+                body: JSON.stringify({
+                    billDetails: document.querySelector("#billDetails").value
+                })
             })
-        })
             .then((response) => {
                 return response.json();
             })
@@ -1975,52 +1976,52 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             return;
         }
         Promise.all([
-            fetch("/storeNum", {
-                headers: {
-                    Method: "PUT",
-                    "Content-Type": "application/json",
-                    Accept: "application/json"
-                },
-                method: "PUT",
-                body: JSON.stringify({
-                    storeNum: currentCountryCodeSelected +
-                        document.querySelector("#storeNum").value
+                fetch("/storeNum", {
+                    headers: {
+                        Method: "PUT",
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    method: "PUT",
+                    body: JSON.stringify({
+                        storeNum: currentCountryCodeSelected +
+                            document.querySelector("#storeNum").value
+                    })
+                }),
+                fetch("/storeName", {
+                    headers: {
+                        Method: "PUT",
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    method: "PUT",
+                    body: JSON.stringify({
+                        storeName: document.querySelector("#storeName").value
+                    })
+                }),
+                fetch("/storeDetails", {
+                    headers: {
+                        Method: "PUT",
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    method: "PUT",
+                    body: JSON.stringify({
+                        storeDetails: document.querySelector("#storeDetails").value
+                    })
+                }),
+                fetch("/billDetails", {
+                    headers: {
+                        Method: "PUT",
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    method: "PUT",
+                    body: JSON.stringify({
+                        billDetails: document.querySelector("#billDetails").value
+                    })
                 })
-            }),
-            fetch("/storeName", {
-                headers: {
-                    Method: "PUT",
-                    "Content-Type": "application/json",
-                    Accept: "application/json"
-                },
-                method: "PUT",
-                body: JSON.stringify({
-                    storeName: document.querySelector("#storeName").value
-                })
-            }),
-            fetch("/storeDetails", {
-                headers: {
-                    Method: "PUT",
-                    "Content-Type": "application/json",
-                    Accept: "application/json"
-                },
-                method: "PUT",
-                body: JSON.stringify({
-                    storeDetails: document.querySelector("#storeDetails").value
-                })
-            }),
-            fetch("/billDetails", {
-                headers: {
-                    Method: "PUT",
-                    "Content-Type": "application/json",
-                    Accept: "application/json"
-                },
-                method: "PUT",
-                body: JSON.stringify({
-                    billDetails: document.querySelector("#billDetails").value
-                })
-            })
-        ])
+            ])
             .then(
                 ([
                     responseNum,
@@ -2081,7 +2082,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                     )}`
                 );
             });
-    } else { }
+    } else {}
 });
 
 const countriesCodes = {
@@ -2176,7 +2177,7 @@ console.log(
     "a which class:\"dropdown-item\"."
 );
 for (var i = 0; i < allCountriesAncors.length; i++) {
-    allCountriesAncors[i].addEventListener("click", function () {
+    allCountriesAncors[i].addEventListener("click", function() {
         let content = this.innerText;
         content = content.split(":");
         let id = content[0];
@@ -2190,7 +2191,7 @@ for (
     var i = 0; i < document.querySelectorAll("[aria-label=\"Close\"]").length; i++
 ) {
     document
-        .querySelectorAll("[aria-label=\"Close\"]")[i].addEventListener("click", function () {
+        .querySelectorAll("[aria-label=\"Close\"]")[i].addEventListener("click", function() {
             document.querySelector("#codeID").value = "";
             document.querySelector("#codeName").value = "";
             document.querySelector("#codeAmount").value = "";
