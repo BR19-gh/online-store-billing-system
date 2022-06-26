@@ -340,7 +340,7 @@ function deleteOrEditStoreInfo(id, opration) {
         if (sliceNum != "err404") {
             document.querySelector("#storeNum").value =
                 `${listOfInfo.num}`.slice(sliceNum);
-            document.querySelector("#countryCodeTitle").innerText = `${listOfInfo.num}`.substring(0, sliceNum - 1)
+            document.querySelector("#countryCodeTitle").innerText = `${listOfInfo.num}`.substring(0, sliceNum)
         } else {
             document.querySelector("#storeNum").value = "";
         }
