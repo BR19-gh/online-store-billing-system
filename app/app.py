@@ -67,7 +67,7 @@ def login_view():
     return render_template('login.html')
 
 
-@app.route("/verify/<username>/<password>")
+@app.route("/verify/<username>/<password>", methods=['POST'])
 @limiter.exempt
 def verify(username, password):
 
