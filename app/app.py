@@ -86,7 +86,7 @@ def verify(username, password):
 @app.route(f"/{ADMIN_ROUTE}/{secret}")
 @limiter.exempt
 def admin_view():
-
+    print(secret)
     return render_template('admin.html')
 ########################
 ###### Routes END ######
