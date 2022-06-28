@@ -1,6 +1,7 @@
 #####################
 ###### Imports ######
 #####################
+import random
 import sqlite3
 from flask import Flask, render_template, jsonify, request, abort, redirect
 import os
@@ -35,6 +36,8 @@ limiter = Limiter(
     key_func=get_remote_address,
     default_limits=["1 per 30seconds", "50 per hour"]
 )
+
+secret = random.randint(0, 100)
 #########################
 ###### Configs END ######
 #########################
@@ -67,20 +70,20 @@ def login_view():
     return render_template('login.html')
 
 
-@app.route("/verify/<username>/<password>", methods=['POST'])
+@app.route("/verify/<username>/<password>")
 @limiter.exempt
 def verify(username, password):
 
     if(username == USERNAME and password == PASSWORD):
         print(200)
-        return redirect(f'../../{ADMIN_ROUTE}')
+        return redirect(f'../../{ADMIN_ROUTE}/{secret}')
 
     else:
         print(401)
         abort(401)
 
 
-@app.route(f"/{ADMIN_ROUTE}")
+@app.route(f"/{ADMIN_ROUTE}/{secret}")
 @limiter.exempt
 def admin_view():
 

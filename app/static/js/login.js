@@ -25,23 +25,11 @@ function firstFetch() {
 firstFetch();
 
 function login() {
-    fetch(`/verify/${document.querySelector("#username").value}/${
-        document.querySelector("#password").value
-    }`, {
-            method: "POST"
-        })
-        .catch((error) => {
-            alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 501\n err-fetch-login: verify\n التاريخ: ${formatDate(
-                    new Date()
-                )}`
-            );
-        });
-    // location.assign(
-    //     `/verify/${document.querySelector("#username").value}/${
-    //         document.querySelector("#password").value
-    //     }`
-    // );
+    location.assign(
+        `/verify/${document.querySelector("#username").value}/${
+            document.querySelector("#password").value
+        }`
+    );
 }
 document.querySelector("#loginBtn").addEventListener("click", (event) => {
     login();
