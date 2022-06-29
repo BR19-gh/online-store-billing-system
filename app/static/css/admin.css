@@ -262,8 +262,8 @@ input#storeNum {
     color: var(--bs-danger);
 }
 
-.delProd:hover,
-.delCode:hover {
+#delProd:hover,
+#delCode:hover {
     color: var(--bs-danger);
 }
 
