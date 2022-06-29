@@ -91,7 +91,7 @@ def admin_view():
 
 
 ##########################
-###### Backend APIs ######
+###### Backend Endpoints ######
 ##########################
 @app.route("/product", methods=['POST'])
 @app.route("/product/<idIn>", methods=['PUT', 'DELETE', 'GET'])
@@ -640,7 +640,7 @@ def storeThemeGet():
         return jsonify({"storeTheme": storeCustomObj.search()})
 
 ##############################
-###### Backend APIs END ######
+###### Backend Endpoints END ######
 ##############################
 
 
