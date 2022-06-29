@@ -273,6 +273,10 @@ input#storeNum {
     margin-top: 14px;
 }
 
+.nohover:hover {
+    color: black;
+}
+
 
 /*just when page starts*/
 
