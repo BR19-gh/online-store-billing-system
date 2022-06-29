@@ -315,6 +315,10 @@ button.btn-close.btn-close-black {
     color: var(--bs-danger);
 }
 
+.delToCartBtn:hover {
+    color: var(--bs-danger);
+}
+
 div#shoppingCartIcon {
     margin-top: 15px;
 }

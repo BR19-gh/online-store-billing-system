@@ -1,5 +1,7 @@
+/* eslint-disable no-var */
+/* eslint-disable no-redeclare */
 /* eslint-disable indent */
-function firstFetch() {
+function firstFetch () {
     fetch("/storeName/show")
         .then((response) => {
             return response.json();
@@ -24,7 +26,7 @@ function firstFetch() {
 
 firstFetch();
 
-function login() {
+function login () {
     location.assign(
         `/verify/${document.querySelector("#username").value}/${
             document.querySelector("#password").value
@@ -36,7 +38,7 @@ document.querySelector("#loginBtn").addEventListener("click", (event) => {
     event.preventDefault();
 });
 
-function formatDate(date) {
+function formatDate (date) {
     let hours = date.getHours();
     let minutes = date.getMinutes();
     const ampm = hours >= 12 ? "م" : "ص";
