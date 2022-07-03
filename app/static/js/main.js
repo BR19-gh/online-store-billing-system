@@ -1383,7 +1383,7 @@ function formatDate (date) {
   month =
         Number(month) + 1 < 10 ? "0" + (Number(month) + 1) : Number(month) + 1;
   var date = date.getDate();
-  date = date < 10 ? "0" + date : date;
+  // date = date < 10 ? "0" + date : date;
   hours = hours < 10 ? "0" + hours : hours;
   minutes = minutes < 10 ? "0" + minutes : minutes;
   const strTime =
