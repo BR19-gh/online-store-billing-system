@@ -1355,9 +1355,10 @@ function formatTheDate(date) {
   const year = date.getFullYear();
   let month = date.getMonth();
   month = Number(month) + 1 < 10 ? "0" + (Number(month) + 1) : Number(month) + 1;
-  const day = date.getDate();
+  let day = date.getDate();
   hours = hours < 10 ? "0" + hours : hours;
   minutes = minutes < 10 ? "0" + minutes : minutes;
+  day = day < 10 ? "0" + day : day;
   const strTime =
     year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
   return strTime;
