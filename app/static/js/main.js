@@ -1387,7 +1387,7 @@ function formatDate (date) {
   hours = hours < 10 ? "0" + hours : hours;
   minutes = minutes < 10 ? "0" + minutes : minutes;
   const strTime =
-        year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
+        year + "/" + month + "/" + day + "dddd" + ", " + hours + ":" + minutes + ampm;
   return strTime;
 }
 
