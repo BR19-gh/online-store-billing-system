@@ -279,6 +279,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector(
             "#productPrice"
         ).value = `${listOfProducts[id].price}`;
+        document.querySelector("#productAvail").checked = listOfProducts[id].avail;
         document.querySelector(
             "#browseImg"
         ).innerHTML = `يمكنك حفظ الصورة الحالية من هذا المربع <img style="border: 1px solid #8f8d85; border-radius: 10px; width: 35px; height: 35px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها. <a style="color:blue; text-decoration: underline;" href="../static/img/how_Safari_iOS.GIF">كيف؟</a>`;
@@ -305,6 +306,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector(
             "#productPrice"
         ).value = `${listOfProducts[id].price}`;
+        document.querySelector("#productAvail").checked = listOfProducts[id].avail;
         document.querySelector(
             "#browseImg"
         ).innerHTML = `<img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> `;
@@ -1347,7 +1349,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
             document.querySelector("#productID").value = "";
             document.querySelector("#productTitle").value = "";
             document.querySelector("#productPrice").value = "";
-            document.querySelector("#productAvail").value = false;
+            document.querySelector("#productAvail").checked = false;
             document.querySelector("#productImg").value = "";
         })
         .catch((error) => {
@@ -1402,7 +1404,7 @@ document.querySelector("#delProd").addEventListener("click", () => {
             document.querySelector("#productID").value = "";
             document.querySelector("#productTitle").value = "";
             document.querySelector("#productPrice").value = "";
-            document.querySelector("#productAvail").value = false;
+            document.querySelector("#productAvail").checked = false;
             document.querySelector("#productImg").value = "";
         });
 });
