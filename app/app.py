@@ -709,7 +709,7 @@ def exexuteSql(sql):
     conn.commit()
 
 @app.route("/playground/on/1", methods=['POST'])
-def playground():
+def playground1():
     sql='ALTER TABLE products ADD COLUMN avail BOOLEAN;'
     try:
         exexuteSql(sql)
@@ -718,7 +718,7 @@ def playground():
         return jsonify("coudn't playground 1")
 
 @app.route("/playground/on/2", methods=['POST'])
-def playground():
+def playground2():
     sql="ALTER TABLE products ALTER COLUMN avail SET NOT NULL;"
     try:
         exexuteSql(sql)
