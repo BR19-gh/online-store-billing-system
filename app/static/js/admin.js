@@ -170,13 +170,13 @@ function expOrNarProduct(expOrNarProductKey) {
         document.querySelector("#productsList").style.height = "100%";
         document.querySelector("#productsList").style.overflow = "auto";
         productsList.childNodes[productsList.childNodes.length - 1].innerHTML =
-            "<div class=\"expOrNar\" id=\"expOrNarProduct\" onclick=\"expOrNarProduct(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 15.5px\">اضغط لإخفاء المنتجات &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
+            "<div class=\"expOrNar\" id=\"expOrNarProduct\" onclick=\"expOrNarProduct(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء المنتجات &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
         productsList.childNodes[0].innerHTML = "";
     } else {
         document.querySelector("#productsList").style.height = "30px";
         document.querySelector("#productsList").style.overflow = "hidden";
         productsList.childNodes[0].innerHTML =
-            "<div id=\"expOrNarProduct\" onclick=\"expOrNarProduct(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 15.5px\">اضغط لإظهار المنتجات &nbsp; <i class=\"fas fa-angle-down\"></i></div>";
+            "<div id=\"expOrNarProduct\" onclick=\"expOrNarProduct(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار المنتجات &nbsp; <i class=\"fas fa-angle-down\"></i></div>";
     }
 }
 
@@ -185,13 +185,13 @@ function expOrNarPromo(expOrNarPromoKey) {
         document.querySelector("#codesList").style.height = "100%";
         document.querySelector("#codesList").style.overflow = "auto";
         codesList.childNodes[codesList.childNodes.length - 1].innerHTML =
-            "<div class=\"expOrNar\" id=\"expOrNarPromo\" onclick=\"expOrNarPromo(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 15.5px\">اضغط لإخفاء القسائم &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
+            "<div class=\"expOrNar\" id=\"expOrNarPromo\" onclick=\"expOrNarPromo(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء القسائم &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
         codesList.childNodes[0].innerHTML = "";
     } else {
         document.querySelector("#codesList").style.height = "30px";
         document.querySelector("#codesList").style.overflow = "hidden";
         codesList.childNodes[0].innerHTML =
-            "<div id=\"expOrNarPromo\" onclick=\"expOrNarPromo(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 15.5px\">اضغط لإظهار القسائم &nbsp;  <i class=\"fas fa-angle-down\"></i></div>";
+            "<div id=\"expOrNarPromo\" onclick=\"expOrNarPromo(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار القسائم &nbsp;  <i class=\"fas fa-angle-down\"></i></div>";
     }
 }
 
@@ -982,7 +982,7 @@ function isNarrowed(responseJson) {
     // ** for products
     listOfProducts = responseJson;
     document.querySelector("#productsList").innerHTML =
-        "<div id=\"expOrNarProduct\" onclick=\"expOrNarProduct(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 15.5px\">اضغط لإظهار المنتجات &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 15.5px\"><b class=\"cell\">الرقم</b><b class=\"cell\">العنوان</b><b class=\"cell\">السعر</b><b class=\"cell\">التوفر</b><b class=\"cell\">الصورة</b><b class=\"cell\">إجراءات</b></div>";
+        "<div id=\"expOrNarProduct\" onclick=\"expOrNarProduct(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار المنتجات &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">العنوان</b><b class=\"cell\">السعر</b><b class=\"cell\">التوفر</b><b class=\"cell\">الصورة</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1014,7 +1014,7 @@ function isExpanded(responseJson) {
     // ** for products
     listOfProducts = responseJson;
     document.querySelector("#productsList").innerHTML =
-        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 15.5px\"><b class=\"cell\">الرقم</b><b class=\"cell\">العنوان</b><b class=\"cell\">السعر</b><b class=\"cell\">التوفر</b><b class=\"cell\">الصورة</b><b class=\"cell\">إجراءات</b></div>";
+        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">العنوان</b><b class=\"cell\">السعر</b><b class=\"cell\">التوفر</b><b class=\"cell\">الصورة</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1041,7 +1041,7 @@ function isExpanded(responseJson) {
       },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
     productsList.childNodes[productsList.childNodes.length - 1].innerHTML =
-        "<div class=\"expOrNar\" id=\"expOrNarProduct\" onclick=\"expOrNarProduct(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 15.5px\">اضغط لإخفاء المنتجات &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
+        "<div class=\"expOrNar\" id=\"expOrNarProduct\" onclick=\"expOrNarProduct(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء المنتجات &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
 }
 
 function fetchProducts() {
@@ -1101,7 +1101,7 @@ function addToListOfInfo(infoType, infoData) {
 function isNarrowedCode(responseJson) {
     listOfPromos = responseJson;
     document.querySelector("#codesList").innerHTML =
-        "<div id=\"expOrNarPromo\" onclick=\"expOrNarPromo(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 15.5px\">اضغط لإظهار القسائم &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 15.5px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إجراءات</b></div>";
+        "<div id=\"expOrNarPromo\" onclick=\"expOrNarPromo(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار القسائم &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1128,7 +1128,7 @@ function isExpandedCode(responseJson) {
     listOfPromos = responseJson;
 
     document.querySelector("#codesList").innerHTML =
-        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 15.5px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إجراءات</b></div>";
+        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1150,7 +1150,7 @@ function isExpandedCode(responseJson) {
       },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
     codesList.childNodes[codesList.childNodes.length - 1].innerHTML =
-        "<div class=\"expOrNar\" id=\"expOrNarPromo\" onclick=\"expOrNarPromo(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 15.5px\">اضغط لإخفاء القسائم &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
+        "<div class=\"expOrNar\" id=\"expOrNarPromo\" onclick=\"expOrNarPromo(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء القسائم &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
 }
 
 function fetchPromocodes() {
