@@ -415,7 +415,8 @@ function firstFetch() {
                                                                     }
                                                                     numNotRepeat = num;
 
-                                                                    container.innerHTML += ` 
+                                                                    if (data[Object.keys(data)[i]].avail != false) {
+                                                                        container.innerHTML += ` 
     <div id="form" class="card" style="width: 18rem;">
         <img style="width: 257px; height: 257px;" src="data:image/png;base64,${data[Object.keys(data)[i]].img
                           }" class="card-img-top" alt="${data[Object.keys(data)[i]].title}">
@@ -447,6 +448,7 @@ function firstFetch() {
         </div>
     </div>
 `;
+                                                                    }
                                                                 }
 
                                                                 var allButtons =

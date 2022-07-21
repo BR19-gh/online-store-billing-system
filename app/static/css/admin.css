@@ -78,6 +78,10 @@ b.cell {
     font-size: 15.5px;
 }
 
+b#browseImg {
+    margin: 0;
+}
+
 div#name {
     margin-top: 14px;
 }
