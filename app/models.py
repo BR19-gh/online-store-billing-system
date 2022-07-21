@@ -35,10 +35,12 @@ class ProductsTable:
                         id    INTEGER NOT NULL,
                         title TEXT NOT NULL,
                         price INTEGER NOT NULL,
-                        img   TEXT NOT NULL
+                        img   TEXT NOT NULL,
+                        avail BOOLEAN NOT NULL 
                     ) 
                             
                         """)
+                        #avail is short for availability
 
     def display(self):
         self.cur.execute("""
@@ -61,8 +63,8 @@ class ProductsTable:
         self.record = self.cur.fetchone()
         return self.record
 
-    def insert(self, id, title, price, img):
-        if (id == "" or price == "" or title == ""):
+    def insert(self, id, title, price, img, avail):
+        if (id == "" or price == "" or title == "" or img == "" or avail == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
 
@@ -71,20 +73,22 @@ class ProductsTable:
                                 id,
                                 title,
                                 price,
-                                img
+                                img,
+                                avail
                             )
                 VALUES
                             {( 
                                 id , 
                                 title, 
                                 price, 
-                                img 
+                                img,
+                                avail
                             )};
 
                         """)
         self.conn.commit()
 
-    def update(self, id, title, price, img):
+    def update(self, id, title, price, img, avail):
         self.cur.execute(f"""
 
                 UPDATE products 
@@ -103,6 +107,13 @@ class ProductsTable:
 
                 UPDATE products 
                 SET img = '{img}' 
+                WHERE id = '{id}'
+
+                        """)
+        self.cur.execute(f"""
+
+                UPDATE products 
+                SET avail = '{avail}' 
                 WHERE id = '{id}'
 
                         """)

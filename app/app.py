@@ -111,6 +111,7 @@ def product(idIn=None):
         id = unquote(data['id'])
         title = unquote(data['title'])
         price = unquote(data['price'])
+        avail = unquote(data['avail'])
 
         try:
             result = productObj.search(id)
@@ -126,7 +127,7 @@ def product(idIn=None):
         #     imgFile = 'no image was provided'
 
         try:
-            productObj.insert(id, title, price, imgFile)
+            productObj.insert(id, title, price, imgFile, avail)
 
             recordSearched = productObj.search(id)
             if (recordSearched[0] == int(id)):
@@ -147,13 +148,14 @@ def product(idIn=None):
         data = request.headers
         title = unquote(data['title'])
         price = unquote(data['price'])
+        price = unquote(data['avail'])
 
         # if imgFilename == '':
         #     imgFilename = 'no image was provided'
 
         try:
             oldPrudRecord = productObj.search(idIn)
-            productObj.update(idIn, title, price, imgFile)
+            productObj.update(idIn, title, price, imgFile, avail)
 
             recordSearched = productObj.search(idIn)
             if recordSearched == None:
@@ -211,7 +213,8 @@ def products():
     j = 0
     for i in result:
         dictOfResult[i[0]] = {'id': i[0], 'title': i[1],
-                              'price': i[2], 'img': i[3]}
+                              'price': i[2], 'img': i[3], 
+                              'avail': i[4]}
 
     newIndex = sorted(dictOfResult, key=lambda d: d)
     dictOfResult = {k: dictOfResult[k] for k in newIndex}
@@ -705,13 +708,23 @@ def exexuteSql(sql):
     cur.execute(sql)
     conn.commit()
 
-# @app.route("/playground/on", methods=['POST'])
-# def playground():
-#     try:
-#         exexuteSql("ALTER TABLE storeInfo ADD COLUMN billDetails text;")
-#         return jsonify("[exexuteSql('ALTER TABLE storeInfo ADD COLUMN billDetails text;')] was done successfully.")
-#     except:
-#         return jsonify("coudn't playground")
+@app.route("/playground/on/1", methods=['POST'])
+def playground():
+    sql='ALTER TABLE products ADD COLUMN avail BOOLEAN;'
+    try:
+        exexuteSql(sql)
+        return jsonify(f"[exexuteSql('{sql}')] was done successfully.")
+    except:
+        return jsonify("coudn't playground 1")
+
+@app.route("/playground/on/2", methods=['POST'])
+def playground():
+    sql="ALTER TABLE products ALTER COLUMN avail SET NOT NULL;"
+    try:
+        exexuteSql(sql)
+        return jsonify(f"[exexuteSql('{sql}')] was done successfully.")
+    except:
+        return jsonify("coudn't playground 2")
 ############################
 ##### Play Ground End ######
 ############################

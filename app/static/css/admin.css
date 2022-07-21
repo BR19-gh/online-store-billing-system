@@ -277,6 +277,19 @@ input#storeNum {
     color: black;
 }
 
+.form-check-input:hover {
+    background-color: white;
+}
+
+.form-check-input:focus {
+    background-color: white;
+}
+
+.form-check-input:checked {
+    background-color: var(--webkitScrollbarThumbHover);
+    border-color: var(--webkitScrollbarThumbHover);
+}
+
 
 /*just when page starts*/
 

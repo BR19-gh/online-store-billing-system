@@ -977,7 +977,7 @@ function isNarrowed(responseJson) {
     // ** for products
     listOfProducts = responseJson;
     document.querySelector("#productsList").innerHTML =
-        "<div id=\"expOrNarProduct\" onclick=\"expOrNarProduct(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار المنتجات &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">العنوان</b><b class=\"cell\">السعر</b><b class=\"cell\">الصورة</b><b class=\"cell\">إجراءات</b></div>";
+        "<div id=\"expOrNarProduct\" onclick=\"expOrNarProduct(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار المنتجات &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">العنوان</b><b class=\"cell\">السعر</b><b class=\"cell\">التوفر</b><b class=\"cell\">الصورة</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -985,7 +985,8 @@ function isNarrowed(responseJson) {
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].price
-        }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
+        }﷼</b><b class="cell">${checkAvail(responseJson[Object.keys(responseJson)[i]].avail)
+        }</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
         }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
@@ -996,7 +997,8 @@ function isNarrowed(responseJson) {
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].price
-      }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
+      }﷼</b><b class="cell">${checkAvail(responseJson[Object.keys(responseJson)[i]].avail)
+      }</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
       }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
       },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
       },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
@@ -1007,7 +1009,7 @@ function isExpanded(responseJson) {
     // ** for products
     listOfProducts = responseJson;
     document.querySelector("#productsList").innerHTML =
-        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">العنوان</b><b class=\"cell\">السعر</b><b class=\"cell\">الصورة</b><b class=\"cell\">إجراءات</b></div>";
+        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">العنوان</b><b class=\"cell\">السعر</b><b class=\"cell\">التوفر</b><b class=\"cell\">الصورة</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1015,7 +1017,8 @@ function isExpanded(responseJson) {
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].price
-        }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
+        }﷼</b><b class="cell">${checkAvail(responseJson[Object.keys(responseJson)[i]].avail)
+        }</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
         }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
@@ -1026,7 +1029,8 @@ function isExpanded(responseJson) {
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].title
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].price
-      }﷼</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
+      }﷼</b><b class="cell">${checkAvail(responseJson[Object.keys(responseJson)[i]].avail)
+      }</b><b class="cell"><img style="border: 1px solid #8f8d85 ; border-radius: 10px; width: 45px; height: 45px; margin: 0;" src="data:image/png;base64,${responseJson[Object.keys(responseJson)[i]].img
       }" alt="img"></b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#productModal" title="تعديل" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
       },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#productModal" title="حذف" onclick="deleteOrEditProd(${responseJson[Object.keys(responseJson)[i]].id
       },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
@@ -1217,6 +1221,9 @@ document.querySelector("#addProd").addEventListener("click", () => {
                 ),
                 price: encodeURIComponent(
                     document.querySelector("#productPrice").value
+                ),
+                avail: encodeURIComponent(
+                    `${document.querySelector("#productAvail").checked}`
                 )
             },
             method: "POST",
@@ -1258,6 +1265,7 @@ document.querySelector("#addProd").addEventListener("click", () => {
             document.querySelector("#productID").value = "";
             document.querySelector("#productTitle").value = "";
             document.querySelector("#productPrice").value = "";
+            document.querySelector("#productAvail").checked = false;
             document.querySelector("#productImg").value = "";
         })
         .catch((error) => {
@@ -1292,6 +1300,9 @@ document.querySelector("#updProd").addEventListener("click", () => {
                 ),
                 price: encodeURIComponent(
                     document.querySelector("#productPrice").value
+                ),
+                avail: encodeURIComponent(
+                    `${document.querySelector("#productAvail").checked}`
                 )
             },
             method: "PUT",
@@ -1333,6 +1344,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
             document.querySelector("#productID").value = "";
             document.querySelector("#productTitle").value = "";
             document.querySelector("#productPrice").value = "";
+            document.querySelector("#productAvail").value = false;
             document.querySelector("#productImg").value = "";
         })
         .catch((error) => {
@@ -1387,6 +1399,7 @@ document.querySelector("#delProd").addEventListener("click", () => {
             document.querySelector("#productID").value = "";
             document.querySelector("#productTitle").value = "";
             document.querySelector("#productPrice").value = "";
+            document.querySelector("#productAvail").value = false;
             document.querySelector("#productImg").value = "";
         });
 });
@@ -2261,3 +2274,8 @@ function formatTheDate(date) {
         year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
     return strTime;
 }
+
+const checkAvail = (value) => {
+    if (value == "true") return "نعم";
+    else if (value == "false") return "لا";
+};
