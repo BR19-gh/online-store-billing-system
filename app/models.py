@@ -64,7 +64,7 @@ class ProductsTable:
         return self.record
 
     def insert(self, id, title, price, img, avail):
-        if (id == "" or price == "" or title == "" or img == "" or avail == ""):
+        if (id == "" or price == "" or title == "" or img == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
 

@@ -112,6 +112,7 @@ def product(idIn=None):
         title = unquote(data['title'])
         price = unquote(data['price'])
         avail = unquote(data['avail'])
+        print(avail)
 
         try:
             result = productObj.search(id)
@@ -148,7 +149,7 @@ def product(idIn=None):
         data = request.headers
         title = unquote(data['title'])
         price = unquote(data['price'])
-        price = unquote(data['avail'])
+        avail = unquote(data['avail'])
 
         # if imgFilename == '':
         #     imgFilename = 'no image was provided'
