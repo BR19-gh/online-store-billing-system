@@ -2279,6 +2279,6 @@ function formatTheDate(date) {
 }
 
 const checkAvail = (value) => {
-    if (value == "true") return "نعم";
-    else if (value == "false") return "لا";
+    if (value == true) return "نعم";
+    else if (value == false) return "لا";
 };
