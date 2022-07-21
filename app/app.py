@@ -709,23 +709,23 @@ def exexuteSql(sql):
     cur.execute(sql)
     conn.commit()
 
-@app.route("/playground/on/1", methods=['POST'])
-def playground1():
-    sql='ALTER TABLE products ADD COLUMN avail BOOLEAN;'
-    try:
-        exexuteSql(sql)
-        return jsonify(f"[exexuteSql('{sql}')] was done successfully.")
-    except:
-        return jsonify("coudn't playground 1")
+# @app.route("/playground/on/1", methods=['POST'])
+# def playground1():
+#     sql='ALTER TABLE products ADD COLUMN avail BOOLEAN;'
+#     try:
+#         exexuteSql(sql)
+#         return jsonify(f"[exexuteSql('{sql}')] was done successfully.")
+#     except:
+#         return jsonify("coudn't playground 1")
 
-@app.route("/playground/on/2", methods=['POST'])
-def playground2():
-    sql="ALTER TABLE products ALTER COLUMN avail SET NOT NULL;"
-    try:
-        exexuteSql(sql)
-        return jsonify(f"[exexuteSql('{sql}')] was done successfully.")
-    except:
-        return jsonify("coudn't playground 2")
+# @app.route("/playground/on/2", methods=['POST'])
+# def playground2():
+#     sql="ALTER TABLE products ALTER COLUMN avail SET NOT NULL;"
+#     try:
+#         exexuteSql(sql)
+#         return jsonify(f"[exexuteSql('{sql}')] was done successfully.")
+#     except:
+#         return jsonify("coudn't playground 2")
 ############################
 ##### Play Ground End ######
 ############################

@@ -36,7 +36,7 @@ class ProductsTable:
                         title TEXT NOT NULL,
                         price INTEGER NOT NULL,
                         img   TEXT NOT NULL,
-                        avail BOOLEAN NOT NULL 
+                        avail BOOLEAN 
                     ) 
                             
                         """)
