@@ -78,7 +78,8 @@ b.cell {
     font-size: 15.5px;
 }
 
-b#browseImg {
+b#browseImg,
+#browsePrevImg {
     margin: 0;
 }
 
