@@ -40,7 +40,7 @@ body {
 
 @supports (-webkit-touch-callout: none) {
     body {
-        zoom: .85;
+        zoom: .75;
     }
     b.cell {
         font-size: smaller;
