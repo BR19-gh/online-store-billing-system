@@ -283,6 +283,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector(
             "#browseImg"
         ).innerHTML = `يمكنك حفظ الصورة الحالية من هذا المربع <img style="border: 1px solid #8f8d85; border-radius: 10px; width: 35px; height: 35px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها. <a style="color:blue; text-decoration: underline;" href="../static/img/how_Safari_iOS.GIF">كيف؟</a>`;
+        document.querySelector("#browsePrevImg").innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img">`;
         // disable input
         document.querySelector("#productID").disabled = true;
         document.querySelector("#productTitle").disabled = false;
@@ -1361,6 +1362,82 @@ document.querySelector("#updProd").addEventListener("click", () => {
         });
 });
 
+document.querySelector("#updProdImg").addEventListener("click", () => {
+    const productImg = document.querySelector("#productImg");
+    const uploadImgForm = new FormData();
+    uploadImgForm.append("image", productImg.files[0]);
+    if (
+        document.querySelector("#productImg").value == ""
+    ) {
+        alert("إرفع صورة أولًا!");
+        setTimeout(() => {
+            $("#productModal").modal("show");
+        }, 200);
+        return;
+    }
+    fetch(`/product/${document.querySelector("#productID").value}`, {
+            headers: {
+                title: encodeURIComponent(
+                    document.querySelector("#productTitle").value
+                ),
+                price: encodeURIComponent(
+                    document.querySelector("#productPrice").value
+                ),
+                avail: encodeURIComponent(
+                    `${document.querySelector("#productAvail").checked}`
+                )
+            },
+            method: "PUT",
+            body: uploadImgForm
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((responseJson) => {
+            if (responseJson.statCode == 404) {
+                alert(
+                    "الرقم التعريفي للمنتج المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404-admin"
+                ) | $("#productModal").modal("show");
+                return;
+            }
+            if (responseJson.statCode == 400) {
+                alert(
+                    "هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400-admin"
+                ) | $("#productModal").modal("show");
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert(
+                    "لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin"
+                ) | $("#productModal").modal("show");
+                return;
+            }
+            if (responseJson.statCode == 500) {
+                alert(
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 531-admin"
+                ) | $("#productModal").modal("show");
+                return;
+            }
+
+            alert(
+                "تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+            );
+            fetchProducts();
+            document.querySelector("#productID").value = "";
+            document.querySelector("#productTitle").value = "";
+            document.querySelector("#productPrice").value = "";
+            document.querySelector("#productAvail").checked = false;
+            document.querySelector("#productImg").value = "";
+        })
+        .catch((error) => {
+            alert(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 517\n err-fetch-admin: product\n التاريخ: ${formatTheDate(
+          new Date()
+        )}`
+            );
+        });
+});
+
 document.querySelector("#delProd").addEventListener("click", () => {
     fetch(`/product/${document.querySelector("#productID").value}`, {
             headers: {
@@ -2216,10 +2293,10 @@ for (var i = 0; i < allCountriesAncors.length; i++) {
     });
 }
 for (
-    var i = 0; i < document.querySelectorAll("[aria-label=\"Close\"]").length; i++
+    var i = 0; i < document.querySelectorAll(".delete-input").length; i++
 ) {
     document
-        .querySelectorAll("[aria-label=\"Close\"]")[i].addEventListener("click", function() {
+        .querySelectorAll(".delete-input")[i].addEventListener("click", function() {
             document.querySelector("#codeID").value = "";
             document.querySelector("#codeName").value = "";
             document.querySelector("#codeAmount").value = "";
