@@ -40,7 +40,7 @@ body {
 
 @supports (-webkit-touch-callout: none) {
     body {
-        zoom: .75;
+        zoom: .65;
     }
     b.cell {
         font-size: smaller;
@@ -55,6 +55,7 @@ body {
         opacity: 1;
     }
 }
+
 
 .fa,
 .fas {
@@ -150,6 +151,7 @@ b {
     height: 70px;
     text-align: center;
     margin-top: 15px;
+    font-size: smaller;
 }
 
 @media only screen and (max-width: 800px) {
