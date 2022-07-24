@@ -1312,10 +1312,10 @@ document.querySelector("#updProd").addEventListener("click", () => {
                 ),
                 avail: encodeURIComponent(
                     `${document.querySelector("#productAvail").checked}`
-                ),
-                img: encodeURIComponent(listOfProducts[document.querySelector("#productID").value].img)
+                )
             },
-            method: "PUT"
+            method: "PUT",
+            body: listOfProducts[document.querySelector("#productID").value].img
         })
         .then((response) => {
             return response.json();

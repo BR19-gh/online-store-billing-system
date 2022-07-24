@@ -144,12 +144,11 @@ def product(idIn=None):
 
         elif request.method == 'PUT':
 
-
             data = request.headers
-            imgFile = unquote(data['img'])
             title = unquote(data['title'])
             price = unquote(data['price'])
             avail = unquote(data['avail'])
+            imgFile = request.data
 
 
             try:
