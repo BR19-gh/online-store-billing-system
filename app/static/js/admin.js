@@ -1415,10 +1415,10 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
             }
 
             alert(
-                `تم التعديل صورة المنتج رقم ${document.querySelector("#productID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
+                `تم تعديل صورة المنتج رقم ${document.querySelector("#productID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchProducts();
-            document.querySelector("#productImg").value = "";
+            document.querySelector("#productImgEdit").value = "";
         })
         .catch((error) => {
             alert(

@@ -203,10 +203,11 @@ def product(idIn=None):
 def productImageUpdate(idIn=None):
     print('The ip address: ', get_remote_address())
     productObj = ProductsTable()
-
+    print()
     file = request.files['image']
 
     imgFile = render_picture(file.read())
+    print(imgFile)
 
     try:
         oldPrudRecord = productObj.search(idIn)
