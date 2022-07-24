@@ -1021,6 +1021,10 @@ function isNarrowed(responseJson) {
 function isExpanded(responseJson) {
     // ** for products
     listOfProducts = responseJson;
+
+    document.querySelector("#browseImg").innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 55px; height: 55px; margin: 0;" src="data:image/png;base64,${listOfProducts[document.querySelector("#productID").value].img}" alt="img">`;
+    document.querySelector("#browsePrevImg").innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[document.querySelector("#productID").value].img}" alt="img">`;
+
     document.querySelector("#productsList").innerHTML =
         "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">العنوان</b><b class=\"cell\">السعر</b><b class=\"cell\">التوفر</b><b class=\"cell\">الصورة</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
@@ -1415,10 +1419,6 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
                 `تم تعديل صورة المنتج رقم ${document.querySelector("#productID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchProducts();
-            document.querySelector(
-                "#browseImg"
-            ).innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 55px; height: 55px; margin: 0;" src="data:image/png;base64,${listOfProducts[document.querySelector("#productID").value].img}" alt="img">`;
-            document.querySelector("#browsePrevImg").innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[document.querySelector("#productID").value].img}" alt="img">`;
             document.querySelector("#productImgEdit").value = "";
         })
         .catch((error) => {
