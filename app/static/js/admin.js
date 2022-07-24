@@ -287,7 +287,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#productAvail").checked = listOfProducts[id].avail;
         document.querySelector(
             "#browseImg"
-        ).innerHTML = `يمكنك حفظ الصورة الحالية من هذا المربع <img style="border: 1px solid #8f8d85; border-radius: 10px; width: 35px; height: 35px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img"> ورفعها مجددا إذا كنت لا تريد تغييرها. <a style="color:blue; text-decoration: underline;" href="../static/img/how_Safari_iOS.GIF">كيف؟</a>`;
+        ).innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 55px; height: 55px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img">`;
         document.querySelector("#browsePrevImg").innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img">`;
         // disable input
         document.querySelector("#productID").disabled = true;
@@ -1297,8 +1297,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
     if (
         document.querySelector("#productID").value == "" ||
         document.querySelector("#productTitle").value == "" ||
-        document.querySelector("#productPrice").value == "" ||
-        document.querySelector("#productImg").value == ""
+        document.querySelector("#productPrice").value == ""
     ) {
         alert("يجب ملئ جميع الخانات أولا");
         setTimeout(() => {
@@ -1319,7 +1318,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
                 )
             },
             method: "PUT",
-            body: uploadImgForm
+            body: listOfProducts[document.querySelector("#productID").value].img
         })
         .then((response) => {
             return response.json();
