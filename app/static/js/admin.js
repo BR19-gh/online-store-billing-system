@@ -268,8 +268,6 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#addProd").style.display = "none";
         document.querySelector("#updProd").style.display = "block";
         document.querySelector("#delProd").style.display = "none";
-        document.querySelector("#productImgEdit").style.display = "none";
-        document.querySelector("#productImgEditBtn").style.display = "block";
         // fill input
         document.querySelector(
             "#productModalLongTitle"
@@ -295,13 +293,14 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#productPrice").disabled = false;
         document.querySelector("#productAvail").disabled = false;
         document.querySelector("#productImg").disabled = false;
+        document.querySelector("#productImgEdit").style.display = "block";
+        document.querySelector("#productImg").style.display = "none";
+        document.querySelector("#productImgEditBtn").style.display = "block";
     } else if (opration == "delete") {
         // show btn
         document.querySelector("#addProd").style.display = "none";
         document.querySelector("#updProd").style.display = "none";
         document.querySelector("#delProd").style.display = "block";
-        document.querySelector("#productImgEdit").style.display = "none";
-        document.querySelector("#productImgEditBtn").style.display = "none";
         // fill input
         document.querySelector(
             "#productModalLongTitle"
@@ -324,13 +323,12 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#productAvail").disabled = true;
         document.querySelector("#productImg").disabled = true;
         document.querySelector("#productImg").style.display = "none";
+        document.querySelector("#productImgEditBtn").style.display = "none";
     } else if (opration == "add") {
         // show btn
         document.querySelector("#addProd").style.display = "block";
         document.querySelector("#updProd").style.display = "none";
         document.querySelector("#delProd").style.display = "none";
-        document.querySelector("#productImgEditBtn").style.display = "none";
-        document.querySelector("#productImgEdit").style.display = "block";
         // fill input
         document.querySelector("#productModalLongTitle").innerHTML =
             "إضافة منتج";
@@ -342,6 +340,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#productAvail").disabled = false;
         document.querySelector("#productImg").disabled = false;
         document.querySelector("#productImg").style.display = "block";
+        document.querySelector("#productImgEditBtn").style.display = "none";
     } else {
         alert(
             "هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 558-admin"
