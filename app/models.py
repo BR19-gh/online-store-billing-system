@@ -118,6 +118,16 @@ class ProductsTable:
 
                         """)
         self.conn.commit()
+    
+    
+    def updateImage(self, id, img):
+        self.cur.execute(f"""
+
+                UPDATE products 
+                SET img = '{img}' 
+                WHERE id = '{id}'
+
+                        """)
 
     def delete(self, id):
         if (id == None):

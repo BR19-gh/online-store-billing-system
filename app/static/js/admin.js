@@ -268,10 +268,15 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#addProd").style.display = "none";
         document.querySelector("#updProd").style.display = "block";
         document.querySelector("#delProd").style.display = "none";
+        document.querySelector("#productImgEdit").style.display = "block";
+        document.querySelector("#productImg").style.display = "none";
         // fill input
         document.querySelector(
             "#productModalLongTitle"
         ).innerHTML = `تعديل المنتج رقم: ${id}`;
+        document.querySelector(
+            "#productImageEditModalLongTitle"
+        ).innerHTML = `تعديل صورة المنتج رقم: ${id}`;
         document.querySelector("#productID").value = `${id}`;
         document.querySelector(
             "#productTitle"
@@ -323,6 +328,8 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#addProd").style.display = "block";
         document.querySelector("#updProd").style.display = "none";
         document.querySelector("#delProd").style.display = "none";
+        document.querySelector("#productImgEdit").style.display = "none";
+        document.querySelector("#productImg").style.display = "block";
         // fill input
         document.querySelector("#productModalLongTitle").innerHTML =
             "إضافة منتج";
@@ -1344,7 +1351,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
             }
 
             alert(
-                "تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                `تم تعديل المنتج رقم ${document.querySelector("#productID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchProducts();
             document.querySelector("#productID").value = "";
@@ -1369,24 +1376,13 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
     if (
         document.querySelector("#productImg").value == ""
     ) {
-        alert("إرفع صورة أولًا!");
+        alert("إرفع الصورة أولًا");
         setTimeout(() => {
             $("#productModal").modal("show");
         }, 200);
         return;
     }
-    fetch(`/product/${document.querySelector("#productID").value}`, {
-            headers: {
-                title: encodeURIComponent(
-                    document.querySelector("#productTitle").value
-                ),
-                price: encodeURIComponent(
-                    document.querySelector("#productPrice").value
-                ),
-                avail: encodeURIComponent(
-                    `${document.querySelector("#productAvail").checked}`
-                )
-            },
+    fetch(`/product/image/edit/${document.querySelector("#productID").value}`, {
             method: "PUT",
             body: uploadImgForm
         })
@@ -1396,13 +1392,13 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
         .then((responseJson) => {
             if (responseJson.statCode == 404) {
                 alert(
-                    "الرقم التعريفي للمنتج المراد تحديثه غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404-admin"
+                    "الرقم التعريفي للمنتج المراد تحديث صورته غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404-admin"
                 ) | $("#productModal").modal("show");
                 return;
             }
             if (responseJson.statCode == 400) {
                 alert(
-                    "هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو السعر أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400-admin"
+                    "هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي ، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400-admin"
                 ) | $("#productModal").modal("show");
                 return;
             }
@@ -1420,13 +1416,9 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
             }
 
             alert(
-                "تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                `تم التعديل صورة المنتج رقم ${document.querySelector("#productID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchProducts();
-            document.querySelector("#productID").value = "";
-            document.querySelector("#productTitle").value = "";
-            document.querySelector("#productPrice").value = "";
-            document.querySelector("#productAvail").checked = false;
             document.querySelector("#productImg").value = "";
         })
         .catch((error) => {
@@ -1476,7 +1468,7 @@ document.querySelector("#delProd").addEventListener("click", () => {
                 return;
             }
 
-            alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+            alert(`تم حذف المنتج رقم ${document.querySelector("#productID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`);
             fetchProducts();
             document.querySelector("#productID").value = "";
             document.querySelector("#productTitle").value = "";
@@ -1611,7 +1603,7 @@ document.querySelector("#updCode").addEventListener("click", () => {
             }
 
             alert(
-                "تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                `تم تعديل الكود رقم ${document.querySelector("#codeID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchPromocodes();
             document.querySelector("#codeID").value = "";
@@ -1658,7 +1650,7 @@ document.querySelector("#delCode").addEventListener("click", () => {
                 return;
             }
 
-            alert("تــم الــحــذف بــنــجــاح، إنتظر قليلا وستظهر التحديثات");
+            alert(`تم حذف الكود رقم ${document.querySelector("#codeID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`);
             fetchPromocodes();
             document.querySelector("#codeID").value = "";
             document.querySelector("#codeName").value = "";
@@ -1712,7 +1704,7 @@ document.querySelector("#addInfo").addEventListener("click", () => {
             }
 
             alert(
-                "تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                "تــمــت إضــافة المعلومات بنجاح إنتظر قليلا وستظهر التحديثات"
             );
 
             fetchStoreInfo();
@@ -1871,7 +1863,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 }
 
                 alert(
-                    "تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                    "تم تعديل المعلومات بنجاح، إنتظر قليلا وستظهر التحديثات"
                 );
                 fetchStoreInfo();
                 document.querySelector("#storeName").value = "";
@@ -1947,7 +1939,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 console.log(responseJson);
 
                 alert(
-                    "تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                    "تم تعديل المعلومات بنجاح، إنتظر قليلا وستظهر التحديثات"
                 );
                 fetchStoreInfo();
                 document.querySelector("#storeName").value = "";
@@ -2002,7 +1994,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 }
 
                 alert(
-                    "تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                    "تم تعديل المعلومات بنجاح، إنتظر قليلا وستظهر التحديثات"
                 );
                 fetchStoreInfo();
                 document.querySelector("#storeName").value = "";
@@ -2051,7 +2043,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 }
 
                 alert(
-                    "تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                    "تم تعديل المعلومات بنجاح، إنتظر قليلا وستظهر التحديثات"
                 );
                 fetchStoreInfo();
                 document.querySelector("#storeName").value = "";
@@ -2172,7 +2164,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 }
 
                 alert(
-                    "تــم الــتــعــديـــل بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                    "تم تعديل المعلومات بنجاح، إنتظر قليلا وستظهر التحديثات"
                 );
                 fetchStoreInfo();
                 document.querySelector("#storeName").value = "";

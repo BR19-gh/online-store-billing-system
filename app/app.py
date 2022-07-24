@@ -203,6 +203,33 @@ def product(idIn=None):
             return jsonify({"msg": f"Error 500: failed to delete product_idIn:{idIn}, product_idIn:{idIn} still exists", "statCode": 500})
 
 
+@app.route("/product/image/edit/<idIn>", methods=['PUT'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT'])
+def product(idIn=None):
+    print('The ip address: ', get_remote_address())
+    productObj = ProductsTable()
+
+    file = request.files['image']
+
+    imgFile = render_picture(file.read())
+
+    try:
+        oldPrudRecord = productObj.search(idIn)
+        productObj.updateImage(idIn, imgFile)
+
+        recordSearched = productObj.search(idIn)
+        if recordSearched == None:
+            return jsonify({"msg": f"Error 404: product_idIn:{idIn} image was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
+        else:
+            return jsonify({"msg": f"Success 200: product_idIn:{idIn} image is updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 200})
+    except:
+        if (isinstance(idIn, int) == False):
+            return jsonify({"msg": f"Bad Request 400: product image was not updated, even the provided id is not integer, or it contains illegal form of characters", "statCode": 400})
+        else:
+            return jsonify({"msg": f"Unkown Error 500: product_idIn:{idIn} image was not updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 500})
+    
+
+
 @app.route("/products", methods=['GET'])
 @limiter.exempt
 def products():
