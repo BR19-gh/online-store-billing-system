@@ -1377,7 +1377,7 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
     ) {
         alert("إرفع الصورة أولًا");
         setTimeout(() => {
-            ("#productImageEditModal").modal("show");
+            $("#productImageEditModal").modal("show");
         }, 200);
         return;
     }
