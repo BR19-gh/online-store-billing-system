@@ -1315,7 +1315,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
                 )
             },
             method: "PUT",
-            body: listOfProducts[document.querySelector("#productID").value].img
+            body: encodeURIComponent(listOfProducts[document.querySelector("#productID").value].img)
         })
         .then((response) => {
             return response.json();
