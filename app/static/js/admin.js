@@ -1272,7 +1272,7 @@ document.querySelector("#addProd").addEventListener("click", () => {
             }
 
             alert(
-                "تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                `تم إضافة المنتج رقم ${document.querySelector("#productID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchProducts();
             document.querySelector("#productID").value = "";
@@ -1533,7 +1533,7 @@ document.querySelector("#addCode").addEventListener("click", () => {
             }
 
             alert(
-                "تــمــت الإضــافــة بــنــجــاح، إنتظر قليلا وستظهر التحديثات"
+                `تم إضافة الكود رقم ${document.querySelector("#codeID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchPromocodes();
             document.querySelector("#codeID").value = "";
