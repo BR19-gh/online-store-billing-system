@@ -1415,7 +1415,6 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
             alert(
                 `تم تعديل صورة المنتج رقم ${document.querySelector("#productID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
-            $("#productImageEditModal").modal("toggle");
             $("#productModal").modal("toggle");
             fetchProducts();
             document.querySelector("#productImgEdit").value = "";
