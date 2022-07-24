@@ -208,13 +208,12 @@ def product(idIn=None):
 def productImageUpdate(idIn=None):
     print('The ip address: ', get_remote_address())
     productObj = ProductsTable()
-    file = request.files['image']
-    imgFile = render_picture(file.read())
-    print(imgFile[0:500] == productObj.searchImg(idIn)[0:500])
+    fileEdit = request.files['image']
+    imgFileEdit = render_picture(fileEdit.read())
 
     try:
         oldPrudRecord = productObj.search(idIn)
-        productObj.updateImage(idIn, imgFile)
+        productObj.updateImage(idIn, imgFileEdit)
 
         recordSearched = productObj.search(idIn)
         if recordSearched == None:

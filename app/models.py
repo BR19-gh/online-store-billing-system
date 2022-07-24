@@ -132,6 +132,7 @@ class ProductsTable:
     
 
     def updateImage(self, id, img):
+        print("yes it does run")
         self.cur.execute(f"""
 
                 UPDATE products 
