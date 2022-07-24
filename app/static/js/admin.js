@@ -1369,7 +1369,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
 });
 
 document.querySelector("#updProdImg").addEventListener("click", () => {
-    const productImg = document.querySelector("#productImg");
+    const productImg = document.querySelector("#productImgEdit");
     const uploadImgForm = new FormData();
     uploadImgForm.append("image", productImg.files[0]);
     if (
