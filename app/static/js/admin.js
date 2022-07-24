@@ -1377,7 +1377,7 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
     ) {
         alert("إرفع الصورة أولًا");
         setTimeout(() => {
-            $("#productModal").modal("show");
+            ("#productImageEditModal").modal("show");
         }, 200);
         return;
     }
@@ -1392,25 +1392,25 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
             if (responseJson.statCode == 404) {
                 alert(
                     "الرقم التعريفي للمنتج المراد تحديث صورته غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404-admin"
-                ) | $("#productModal").modal("show");
+                ) | ("#productImageEditModal").modal("show");
                 return;
             }
             if (responseJson.statCode == 400) {
                 alert(
                     "هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي ، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400-admin"
-                ) | $("#productModal").modal("show");
+                ) | ("#productImageEditModal").modal("show");
                 return;
             }
             if (responseJson.statCode == 429) {
                 alert(
                     "لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin"
-                ) | $("#productModal").modal("show");
+                ) | ("#productImageEditModal").modal("show");
                 return;
             }
             if (responseJson.statCode == 500) {
                 alert(
                     "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 531-admin"
-                ) | $("#productModal").modal("show");
+                ) | ("#productImageEditModal").modal("show");
                 return;
             }
 
