@@ -63,6 +63,17 @@ class ProductsTable:
         self.record = self.cur.fetchone()
         return self.record
 
+    def searchImg(self, id):
+        self.cur.execute(f"""
+
+                SELECT img 
+                FROM products 
+                WHERE id = '{id}'
+
+                        """)
+        self.record = self.cur.fetchone()
+        return self.record
+
     def insert(self, id, title, price, img, avail):
         if (id == "" or price == "" or title == "" or img == ""):
             raise Exception("One of the entries is empty")
@@ -119,7 +130,7 @@ class ProductsTable:
                         """)
         self.conn.commit()
     
-    
+
     def updateImage(self, id, img):
         self.cur.execute(f"""
 

@@ -207,7 +207,7 @@ def productImageUpdate(idIn=None):
     file = request.files['image']
 
     imgFile = render_picture(file.read())
-    print(imgFile)
+    print(imgFile == productObj.searchImg(idIn))
 
     try:
         oldPrudRecord = productObj.search(idIn)
