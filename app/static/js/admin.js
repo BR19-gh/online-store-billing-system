@@ -1272,7 +1272,7 @@ document.querySelector("#addProd").addEventListener("click", () => {
             }
 
             alert(
-                `تم إضافة المنتج رقم ${document.querySelector("#productID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`
+                `تم إضافة المنتج رقم ${document.querySelector("#productID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchProducts();
             document.querySelector("#productID").value = "";
@@ -1468,7 +1468,7 @@ document.querySelector("#delProd").addEventListener("click", () => {
                 return;
             }
 
-            alert(`تم حذف المنتج رقم ${document.querySelector("#productID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`);
+            alert(`تم حذف المنتج رقم ${document.querySelector("#productID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`);
             fetchProducts();
             document.querySelector("#productID").value = "";
             document.querySelector("#productTitle").value = "";
@@ -1533,7 +1533,7 @@ document.querySelector("#addCode").addEventListener("click", () => {
             }
 
             alert(
-                `تم إضافة الكود رقم ${document.querySelector("#codeID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`
+                `تم إضافة الكود رقم ${document.querySelector("#codeID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchPromocodes();
             document.querySelector("#codeID").value = "";
@@ -1603,7 +1603,7 @@ document.querySelector("#updCode").addEventListener("click", () => {
             }
 
             alert(
-                `تم تعديل الكود رقم ${document.querySelector("#codeID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`
+                `تم تعديل الكود رقم ${document.querySelector("#codeID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchPromocodes();
             document.querySelector("#codeID").value = "";
@@ -1650,7 +1650,7 @@ document.querySelector("#delCode").addEventListener("click", () => {
                 return;
             }
 
-            alert(`تم حذف الكود رقم ${document.querySelector("#codeID").value}  بنجاح، إنتظر قليلا وستظهر التحديثات`);
+            alert(`تم حذف الكود رقم ${document.querySelector("#codeID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`);
             fetchPromocodes();
             document.querySelector("#codeID").value = "";
             document.querySelector("#codeName").value = "";
