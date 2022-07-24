@@ -296,7 +296,7 @@ input#storeNum {
 }
 
 .form-check-input:checked {
-    background-color: var(--webkitScrollbarThumbHover);
+    background-color: var(--body);
     border-color: var(--webkitScrollbarThumbHover);
 }
 
