@@ -133,6 +133,7 @@ class ProductsTable:
                 WHERE id = '{id}'
 
                         """)
+        self.conn.commit()
 
     def delete(self, id):
         if (id == None):
