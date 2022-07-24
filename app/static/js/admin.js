@@ -1291,9 +1291,6 @@ document.querySelector("#addProd").addEventListener("click", () => {
 });
 
 document.querySelector("#updProd").addEventListener("click", () => {
-    const productImg = document.querySelector("#productImg");
-    const uploadImgForm = new FormData();
-    uploadImgForm.append("image", productImg.files[0]);
     if (
         document.querySelector("#productID").value == "" ||
         document.querySelector("#productTitle").value == "" ||
@@ -1373,7 +1370,7 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
     const uploadImgForm = new FormData();
     uploadImgForm.append("image", productImg.files[0]);
     if (
-        document.querySelector("#productImgEdit").value == ""
+        document.querySelector("#productID").value == ""
     ) {
         alert("إرفع الصورة أولًا");
         setTimeout(() => {
