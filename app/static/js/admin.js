@@ -1315,10 +1315,10 @@ document.querySelector("#updProd").addEventListener("click", () => {
                 ),
                 avail: encodeURIComponent(
                     `${document.querySelector("#productAvail").checked}`
-                )
+                ),
+                img: encodeURIComponent(listOfProducts[document.querySelector("#productID").value].img)
             },
-            method: "PUT",
-            body: listOfProducts[document.querySelector("#productID").value].img
+            method: "PUT"
         })
         .then((response) => {
             return response.json();
@@ -1373,7 +1373,7 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
     const uploadImgForm = new FormData();
     uploadImgForm.append("image", productImg.files[0]);
     if (
-        document.querySelector("#productImg").value == ""
+        document.querySelector("#productImgEdit").value == ""
     ) {
         alert("إرفع الصورة أولًا");
         setTimeout(() => {
@@ -1392,25 +1392,25 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
             if (responseJson.statCode == 404) {
                 alert(
                     "الرقم التعريفي للمنتج المراد تحديث صورته غير موجود\nالرجاء المحاولة مجددًا باستخدام رقم آخر. \n\n ErrCode: 404-admin"
-                ) | ("#productImageEditModal").modal("show");
+                ) | $("#productImageEditModal").modal("show");
                 return;
             }
             if (responseJson.statCode == 400) {
                 alert(
                     "هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي ، يجب إدخاله على شكل رقم فقط. \n\n ErrCode: 400-admin"
-                ) | ("#productImageEditModal").modal("show");
+                ) | $("#productImageEditModal").modal("show");
                 return;
             }
             if (responseJson.statCode == 429) {
                 alert(
                     "لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin"
-                ) | ("#productImageEditModal").modal("show");
+                ) | $("#productImageEditModal").modal("show");
                 return;
             }
             if (responseJson.statCode == 500) {
                 alert(
                     "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 531-admin"
-                ) | ("#productImageEditModal").modal("show");
+                ) | $("#productImageEditModal").modal("show");
                 return;
             }
 

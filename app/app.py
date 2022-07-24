@@ -141,18 +141,13 @@ def product(idIn=None):
 
     elif request.method == 'PUT':
 
-        file = request.files['image']
-        # fileName = file.filename
-        imgFile = render_picture(file.read())
-        # render_file = render_picture(imgFile)
 
         data = request.headers
+        imgFile = unquote(data['img'])
         title = unquote(data['title'])
         price = unquote(data['price'])
         avail = unquote(data['avail'])
 
-        # if imgFilename == '':
-        #     imgFilename = 'no image was provided'
 
         try:
             oldPrudRecord = productObj.search(idIn)
