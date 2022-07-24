@@ -205,7 +205,7 @@ def product(idIn=None):
 
 @app.route("/product/image/edit/<idIn>", methods=['PUT'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT'])
-def product(idIn=None):
+def productImageUpdate(idIn=None):
     print('The ip address: ', get_remote_address())
     productObj = ProductsTable()
 
