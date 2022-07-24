@@ -502,7 +502,8 @@ input::-webkit-file-upload-button {
     border: 0px;
 }
 
-input#productImg {
+input#productImg,
+#productImgEdit {
     font-size: 17px;
     background-color: white;
 }
