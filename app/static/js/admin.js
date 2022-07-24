@@ -1372,6 +1372,8 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
     uploadImgForm.append("image", productImg.files[0]);
     if (
         document.querySelector("#productID").value == ""
+||
+document.querySelector("#productImgEdit").value == ""
     ) {
         alert("إرفع الصورة أولًا");
         setTimeout(() => {
