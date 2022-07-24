@@ -1371,9 +1371,8 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
     const uploadImgForm = new FormData();
     uploadImgForm.append("image", productImg.files[0]);
     if (
-        document.querySelector("#productID").value == ""
-||
-document.querySelector("#productImgEdit").value == ""
+        document.querySelector("#productID").value == "" ||
+        document.querySelector("#productImgEdit").value == ""
     ) {
         alert("إرفع الصورة أولًا");
         setTimeout(() => {
@@ -1420,7 +1419,7 @@ document.querySelector("#productImgEdit").value == ""
             $("#productModal").modal("toggle");
             fetchProducts();
             document.querySelector("#productImgEdit").value = "";
-document.querySelector("#productID").value = "";
+            document.querySelector("#productID").value = "";
             document.querySelector("#productTitle").value = "";
             document.querySelector("#productPrice").value = "";
             document.querySelector("#productAvail").checked = false;
