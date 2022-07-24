@@ -99,7 +99,7 @@ class ProductsTable:
                         """)
         self.conn.commit()
 
-    def update(self, id, title, price, img, avail):
+    def update(self, id, title, price, avail):
         self.cur.execute(f"""
 
                 UPDATE products 
@@ -111,13 +111,6 @@ class ProductsTable:
 
                 UPDATE products 
                 SET price = '{price}' 
-                WHERE id = '{id}'
-
-                        """)
-        self.cur.execute(f"""
-
-                UPDATE products 
-                SET img = '{img}' 
                 WHERE id = '{id}'
 
                         """)

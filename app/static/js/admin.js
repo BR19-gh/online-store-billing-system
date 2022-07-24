@@ -1312,8 +1312,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
                 ),
                 avail: encodeURIComponent(
                     `${document.querySelector("#productAvail").checked}`
-                ),
-                img: listOfProducts[document.querySelector("#productID").value].img
+                )
             },
             method: "PUT"
 

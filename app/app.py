@@ -148,11 +148,10 @@ def product(idIn=None):
             title = unquote(data['title'])
             price = unquote(data['price'])
             avail = unquote(data['avail'])
-            imgFile = unquote(data['img'])
 
             try:
                 oldPrudRecord = productObj.search(idIn)
-                productObj.update(idIn, title, price, imgFile, avail)
+                productObj.update(idIn, title, price, avail)
 
                 recordSearched = productObj.search(idIn)
                 if recordSearched == None:
