@@ -268,8 +268,8 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#addProd").style.display = "none";
         document.querySelector("#updProd").style.display = "block";
         document.querySelector("#delProd").style.display = "none";
-        document.querySelector("#productImgEdit").style.display = "block";
-        document.querySelector("#productImg").style.display = "none";
+        document.querySelector("#productImgEdit").style.display = "none";
+        document.querySelector("#productImgEditBtn").style.display = "block";
         // fill input
         document.querySelector(
             "#productModalLongTitle"
@@ -301,6 +301,7 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#updProd").style.display = "none";
         document.querySelector("#delProd").style.display = "block";
         document.querySelector("#productImgEdit").style.display = "none";
+        document.querySelector("#productImgEditBtn").style.display = "none";
         // fill input
         document.querySelector(
             "#productModalLongTitle"
@@ -328,8 +329,8 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#addProd").style.display = "block";
         document.querySelector("#updProd").style.display = "none";
         document.querySelector("#delProd").style.display = "none";
-        document.querySelector("#productImgEdit").style.display = "none";
-        document.querySelector("#productImg").style.display = "block";
+        document.querySelector("#productImgEditBtn").style.display = "none";
+        document.querySelector("#productImgEdit").style.display = "block";
         // fill input
         document.querySelector("#productModalLongTitle").innerHTML =
             "إضافة منتج";
