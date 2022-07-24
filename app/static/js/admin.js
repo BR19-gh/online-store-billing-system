@@ -1420,6 +1420,11 @@ document.querySelector("#productImgEdit").value == ""
             $("#productModal").modal("toggle");
             fetchProducts();
             document.querySelector("#productImgEdit").value = "";
+document.querySelector("#productID").value = "";
+            document.querySelector("#productTitle").value = "";
+            document.querySelector("#productPrice").value = "";
+            document.querySelector("#productAvail").checked = false;
+            document.querySelector("#productImg").value = "";
         })
         .catch((error) => {
             alert(
