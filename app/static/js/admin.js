@@ -1417,8 +1417,8 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
             fetchProducts();
             document.querySelector(
                 "#browseImg"
-            ).innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 55px; height: 55px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img">`;
-            document.querySelector("#browsePrevImg").innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[id].img}" alt="img">`;
+            ).innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 55px; height: 55px; margin: 0;" src="data:image/png;base64,${listOfProducts[document.querySelector("#productID").value].img}" alt="img">`;
+            document.querySelector("#browsePrevImg").innerHTML = `<img style="border: 1px solid #8f8d85; border-radius: 10px; width: 70px; height: 70px; margin: 0;" src="data:image/png;base64,${listOfProducts[document.querySelector("#productID").value].img}" alt="img">`;
             document.querySelector("#productImgEdit").value = "";
         })
         .catch((error) => {
