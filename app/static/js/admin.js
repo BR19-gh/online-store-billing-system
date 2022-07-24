@@ -295,12 +295,12 @@ function deleteOrEditProd(id, opration) {
         document.querySelector("#productPrice").disabled = false;
         document.querySelector("#productAvail").disabled = false;
         document.querySelector("#productImg").disabled = false;
-        document.querySelector("#productImg").style.display = "block";
     } else if (opration == "delete") {
         // show btn
         document.querySelector("#addProd").style.display = "none";
         document.querySelector("#updProd").style.display = "none";
         document.querySelector("#delProd").style.display = "block";
+        document.querySelector("#productImgEdit").style.display = "none";
         // fill input
         document.querySelector(
             "#productModalLongTitle"
