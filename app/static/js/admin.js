@@ -1291,9 +1291,6 @@ document.querySelector("#addProd").addEventListener("click", () => {
 });
 
 document.querySelector("#updProd").addEventListener("click", () => {
-    const productImg = listOfProducts[document.querySelector("#productID").value].img;
-    const uploadImgForm = new FormData();
-    uploadImgForm.append("image", productImg);
     if (
         document.querySelector("#productID").value == "" ||
         document.querySelector("#productTitle").value == "" ||
@@ -1316,7 +1313,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
                 avail: encodeURIComponent(
                     `${document.querySelector("#productAvail").checked}`
                 ),
-                img: listOfProducts[document.querySelector("#productID").value].img;
+                img: listOfProducts[document.querySelector("#productID").value].img
             },
             method: "PUT"
 
