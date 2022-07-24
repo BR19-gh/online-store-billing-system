@@ -1291,6 +1291,9 @@ document.querySelector("#addProd").addEventListener("click", () => {
 });
 
 document.querySelector("#updProd").addEventListener("click", () => {
+    const productImg = listOfProducts[document.querySelector("#productID").value].img;
+    const uploadImgForm = new FormData();
+    uploadImgForm.append("image", productImg.files[0]);
     if (
         document.querySelector("#productID").value == "" ||
         document.querySelector("#productTitle").value == "" ||
@@ -1315,7 +1318,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
                 )
             },
             method: "PUT",
-            body: encodeURIComponent(listOfProducts[document.querySelector("#productID").value].img)
+            body: uploadImgForm
         })
         .then((response) => {
             return response.json();
