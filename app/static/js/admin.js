@@ -1121,7 +1121,7 @@ function isNarrowedCode(responseJson) {
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
-        }%</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].exp
+        }%</b><b class="cell">${checkExp(responseJson[Object.keys(responseJson)[i]].exp)
         }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
@@ -1131,7 +1131,7 @@ function isNarrowedCode(responseJson) {
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
-      }%</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].exp
+      }%</b><b class="cell">${checkExp(responseJson[Object.keys(responseJson)[i]].exp)
       }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
       },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
       },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
@@ -1150,7 +1150,7 @@ function isExpandedCode(responseJson) {
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
-        }%</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].exp
+        }%</b><b class="cell">${checkExp(responseJson[Object.keys(responseJson)[i]].exp)
         }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
@@ -1160,7 +1160,7 @@ function isExpandedCode(responseJson) {
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
-      }%</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].exp
+      }%</b><b class="cell">${checkExp(responseJson[Object.keys(responseJson)[i]].exp)
       }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
       },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
       },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
@@ -2376,4 +2376,9 @@ const checkAvail = (value) => {
     if (value == true) return "نعم";
     else if (value == false) return "لا";
     else if (value == undefined) return "لم يحدد";
+};
+
+const checkExp = (date) => {
+    if (date == "") return "إلى الأبد";
+    else return date;
 };
