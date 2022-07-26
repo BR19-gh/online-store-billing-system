@@ -1113,7 +1113,7 @@ function addToListOfInfo(infoType, infoData) {
 function isNarrowedCode(responseJson) {
     listOfPromos = responseJson;
     document.querySelector("#codesList").innerHTML =
-        "<div id=\"expOrNarPromo\" onclick=\"expOrNarPromo(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار القسائم &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إنتهاء الصلاحية</b><b class=\"cell\">إجراءات</b></div>";
+        "<div id=\"expOrNarPromo\" onclick=\"expOrNarPromo(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار القسائم &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">الصلاحية</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1142,7 +1142,7 @@ function isExpandedCode(responseJson) {
     listOfPromos = responseJson;
 
     document.querySelector("#codesList").innerHTML =
-        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إنتهاء الصلاحية</b><b class=\"cell\">إجراءات</b></div>";
+        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">الصلاحية</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -2379,6 +2379,6 @@ const checkAvail = (value) => {
 };
 
 const checkExp = (date) => {
-    if (date == "") return "إلى الأبد";
+    if (date == "" || date == undefined) return "إلى الأبد";
     else return date;
 };
