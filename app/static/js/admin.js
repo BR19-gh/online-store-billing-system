@@ -1512,7 +1512,7 @@ document.querySelector("#addCode").addEventListener("click", () => {
                 id: document.querySelector("#codeID").value,
                 code: document.querySelector("#codeName").value,
                 amount: document.querySelector("#codeAmount").value,
-                exp: formatTheDate(document.querySelector("#codeExp").value, 2)
+                exp: formatTheDate(new Date(document.querySelector("#codeExp").value), 2)
             })
         })
         .then((response) => {
@@ -1584,7 +1584,7 @@ document.querySelector("#updCode").addEventListener("click", () => {
             body: JSON.stringify({
                 code: document.querySelector("#codeName").value,
                 amount: document.querySelector("#codeAmount").value,
-                exp: formatTheDate(document.querySelector("#codeExp").value, 2)
+                exp: formatTheDate(new Date(document.querySelector("#codeExp").value), 2)
             })
         })
         .then((response) => {
