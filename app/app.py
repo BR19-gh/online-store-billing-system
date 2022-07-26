@@ -750,14 +750,14 @@ def exexuteSql(sql):
     cur.execute(sql)
     conn.commit()
 
-# @app.route("/playground/on/1", methods=['POST'])
-# def playground1():
-#     sql='ALTER TABLE products ADD COLUMN avail BOOLEAN;'
-#     try:
-#         exexuteSql(sql)
-#         return jsonify(f"[exexuteSql('{sql}')] was done successfully.")
-#     except Exception as err:
-#         return jsonify("coudn't playground 1")
+@app.route("/playground/on/1", methods=['POST'])
+def playground1():
+    sql='ALTER TABLE promocodes ADD COLUMN exp DATE;'
+    try:
+        exexuteSql(sql)
+        return jsonify(f"OK: ({sql}) was done successfully.")
+    except Exception as err:
+        return jsonify(f"ERR {err}: coudn't playground ({sql})")
 
 # @app.route("/playground/on/2", methods=['POST'])
 # def playground2():

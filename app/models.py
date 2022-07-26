@@ -162,7 +162,8 @@ class PromocodesTable:
                     (
                         id     INTEGER NOT NULL,
                         code   TEXT NOT NULL,
-                        amount FLOAT NOT NULL
+                        amount FLOAT NOT NULL,
+                        exp    DATE
                     ) 
             
                         """)
@@ -188,7 +189,7 @@ class PromocodesTable:
         self.record = self.cur.fetchone()
         return self.record
 
-    def insert(self, id, code, amount):
+    def insert(self, id, code, amount, exp):
         if (id == "" or code == "" or amount == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
@@ -203,13 +204,14 @@ class PromocodesTable:
                             {( 
                                 id, 
                                 code , 
-                                amount 
+                                amount,
+                                exp
                             )};
 
                         """)
         self.conn.commit()
 
-    def update(self, id, code, amount):
+    def update(self, id, code, amount, exp):
         self.cur.execute(f"""
 
                 UPDATE promocodes 
@@ -221,6 +223,14 @@ class PromocodesTable:
 
                 UPDATE promocodes 
                 SET amount = '{amount}' 
+                WHERE id = '{id}'
+
+                        """)
+
+        self.cur.execute(f"""
+
+                UPDATE promocodes 
+                SET exp = '{exp}' 
                 WHERE id = '{id}'
 
                         """)

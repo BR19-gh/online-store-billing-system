@@ -40,7 +40,7 @@ fetch("/storeTheme/show", {
     .catch((error) => {
         alert(
             `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 505\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-        new Date()
+        new Date(), 1, 1
       )}`
         );
     });
@@ -139,7 +139,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             .catch((error) => {
                                 alert(
                                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-                    new Date()
+                    new Date(), 1, 1
                   )}`
                                 );
                             });
@@ -148,7 +148,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                     .catch((error) => {
                         alert(
                             `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 507\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-                new Date()
+                new Date(), 1, 1
               )}`
                         );
                     });
@@ -156,7 +156,7 @@ for (var i = 0; i < themeBtns.length; i++) {
             .catch((error) => {
                 alert(
                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 508\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-            new Date()
+            new Date(), 1, 1
           )}`
                 );
             });
@@ -221,12 +221,13 @@ function deleteOrEditPromo(id, opration) {
         ).innerHTML = `تعديل القسيمة رقم: ${id}`;
         document.querySelector("#codeID").value = `${id}`;
         document.querySelector("#codeName").value = `${listOfPromos[id].code}`;
-        document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100
-      }`;
+        document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100}`;
+        document.querySelector("#codeExp").value = `${listOfPromos[id].exp}`;
         // disable input
         document.querySelector("#codeID").disabled = true;
         document.querySelector("#codeName").disabled = false;
         document.querySelector("#codeAmount").disabled = false;
+        document.querySelector("#codeExp").disabled = false;
     } else if (opration == "delete") {
         // show btn
         document.querySelector("#addCode").style.display = "none";
@@ -238,12 +239,13 @@ function deleteOrEditPromo(id, opration) {
         ).innerHTML = `هل أنت متأكد من رغبتك بحذف القسيمة رقم: ${id}؟`;
         document.querySelector("#codeID").value = `${id}`;
         document.querySelector("#codeName").value = `${listOfPromos[id].code}`;
-        document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100
-      }`;
+        document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100}`;
+        document.querySelector("#codeExp").value = `${listOfPromos[id].exp}`;
         // disable input
         document.querySelector("#codeID").disabled = true;
         document.querySelector("#codeName").disabled = true;
         document.querySelector("#codeAmount").disabled = true;
+        document.querySelector("#codeExp").disabled = true;
     } else if (opration == "add") {
         // show btn
         document.querySelector("#addCode").style.display = "block";
@@ -255,6 +257,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector("#codeID").disabled = false;
         document.querySelector("#codeName").disabled = false;
         document.querySelector("#codeAmount").disabled = false;
+        document.querySelector("#codeExp").disabled = false;
     } else {
         alert(
             "هناك خطأ ما،  تواصل مع المطور لحل المشكلة. \n\n ErrCode: 557-admin"
@@ -855,7 +858,7 @@ function fetchThemes() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1, 1
         )}`
             );
         });
@@ -889,7 +892,7 @@ function fetchStoreInfo() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 510\n err-fetch-admin: storeNum\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1, 1
         )}`
             );
         });
@@ -917,7 +920,7 @@ function fetchStoreInfo() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 511\n err-fetch-admin: storeName\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1, 1
         )}`
             );
         });
@@ -945,7 +948,7 @@ function fetchStoreInfo() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 512\n err-fetch-admin: storeDetails\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -978,7 +981,7 @@ function fetchStoreInfo() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 513\n err-fetch-admin: billdetails\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1084,7 +1087,7 @@ function fetchProducts() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 514\n err-fetch-admin: products\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1110,7 +1113,7 @@ function addToListOfInfo(infoType, infoData) {
 function isNarrowedCode(responseJson) {
     listOfPromos = responseJson;
     document.querySelector("#codesList").innerHTML =
-        "<div id=\"expOrNarPromo\" onclick=\"expOrNarPromo(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار القسائم &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إجراءات</b></div>";
+        "<div id=\"expOrNarPromo\" onclick=\"expOrNarPromo(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار القسائم &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إنتهاء الصلاحية</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1118,7 +1121,8 @@ function isNarrowedCode(responseJson) {
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
-        }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
+        }%</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].exp
+        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
         }
@@ -1127,7 +1131,8 @@ function isNarrowedCode(responseJson) {
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
-      }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
+      }%</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].exp
+      }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
       },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
       },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
@@ -1137,7 +1142,7 @@ function isExpandedCode(responseJson) {
     listOfPromos = responseJson;
 
     document.querySelector("#codesList").innerHTML =
-        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إجراءات</b></div>";
+        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">الاسم</b><b class=\"cell\">النسبة</b><b class=\"cell\">إنتهاء الصلاحية</b><b class=\"cell\">إجراءات</b></div>";
     for (let i = 0; i < Object.keys(responseJson).length; i++) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
@@ -1145,7 +1150,8 @@ function isExpandedCode(responseJson) {
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
-        }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
+        }%</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].exp
+        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
         },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
         },'delete')"><i class="fas fa-trash-alt"></i></div></b></div>`;
         }
@@ -1154,7 +1160,8 @@ function isExpandedCode(responseJson) {
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${responseJson[Object.keys(responseJson)[i]].id
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].code
       }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].amount * 100
-      }%</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
+      }%</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].exp
+      }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#promoModal" title="تعديل" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
       },'edit')"><i class="fas fa-edit"></i></div>|<div data-bs-toggle="modal" data-bs-target="#promoModal" title="حذف" onclick="deleteOrEditPromo(${responseJson[Object.keys(responseJson)[i]].id
       },'delete')"><i class="fas fa-trash-alt"></i></div></b></div><br><div></div>`;
     }
@@ -1192,7 +1199,7 @@ function fetchPromocodes() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 515\n err-fetch-admin: products\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1285,7 +1292,7 @@ document.querySelector("#addProd").addEventListener("click", () => {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 516\n err-fetch-admin: product\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1360,7 +1367,7 @@ document.querySelector("#updProd").addEventListener("click", () => {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 517\n err-fetch-admin: product\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1428,7 +1435,7 @@ document.querySelector("#updProdImg").addEventListener("click", () => {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 517\n err-fetch-admin: product\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1504,7 +1511,8 @@ document.querySelector("#addCode").addEventListener("click", () => {
             body: JSON.stringify({
                 id: document.querySelector("#codeID").value,
                 code: document.querySelector("#codeName").value,
-                amount: document.querySelector("#codeAmount").value
+                amount: document.querySelector("#codeAmount").value,
+                exp: formatTheDate(document.querySelector("#codeExp").value, 2)
             })
         })
         .then((response) => {
@@ -1543,11 +1551,12 @@ document.querySelector("#addCode").addEventListener("click", () => {
             document.querySelector("#codeID").value = "";
             document.querySelector("#codeName").value = "";
             document.querySelector("#codeAmount").value = "";
+            document.querySelector("#codeExp").value = "";
         })
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 518\n err-fetch-admin: promocode\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1574,7 +1583,8 @@ document.querySelector("#updCode").addEventListener("click", () => {
             method: "PUT",
             body: JSON.stringify({
                 code: document.querySelector("#codeName").value,
-                amount: document.querySelector("#codeAmount").value
+                amount: document.querySelector("#codeAmount").value,
+                exp: formatTheDate(document.querySelector("#codeExp").value, 2)
             })
         })
         .then((response) => {
@@ -1613,6 +1623,7 @@ document.querySelector("#updCode").addEventListener("click", () => {
             document.querySelector("#codeID").value = "";
             document.querySelector("#codeName").value = "";
             document.querySelector("#codeAmount").value = "";
+            document.querySelector("#codeExp").value = "";
         });
 });
 
@@ -1659,6 +1670,7 @@ document.querySelector("#delCode").addEventListener("click", () => {
             document.querySelector("#codeID").value = "";
             document.querySelector("#codeName").value = "";
             document.querySelector("#codeAmount").value = "";
+            document.querySelector("#codeExp").value = "";
         });
 });
 
@@ -1720,7 +1732,7 @@ document.querySelector("#addInfo").addEventListener("click", () => {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 519\n err-fetch-admin: storeInfo\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1756,7 +1768,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 520\n err-fetch-admin: storeNum\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1778,7 +1790,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 521\n err-fetch-admin: storeName\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1800,7 +1812,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 522\n err-fetch-admin: storeName\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1822,7 +1834,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 523\n err-fetch-admin: billDetails\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
             );
         });
@@ -1878,7 +1890,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             .catch((error) => {
                 alert(
                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 524\n err-fetch-admin: storeName\n التاريخ: ${formatTheDate(
-            new Date()
+            new Date(), 1
           )}`
                 );
             });
@@ -1954,7 +1966,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             .catch((error) => {
                 alert(
                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 525\n err-fetch-admin: storeNum\n التاريخ: ${formatTheDate(
-            new Date()
+            new Date(), 1
           )}`
                 );
             });
@@ -2008,7 +2020,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             .catch((error) => {
                 alert(
                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 526\n err-fetch-admin: storeDetails\n التاريخ: ${formatTheDate(
-            new Date()
+            new Date(), 1
           )}`
                 );
             });
@@ -2058,7 +2070,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             .catch((error) => {
                 alert(
                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 527\n err-fetch-admin: billdetails\n التاريخ: ${formatTheDate(
-            new Date()
+            new Date(), 1
           )}`
                 );
             });
@@ -2179,7 +2191,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             .catch((error) => {
                 alert(
                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 555\n err-fetch-admin: ALL\n التاريخ: ${formatTheDate(
-            new Date()
+            new Date(), 1
           )}`
                 );
             });
@@ -2296,6 +2308,7 @@ for (
             document.querySelector("#codeID").value = "";
             document.querySelector("#codeName").value = "";
             document.querySelector("#codeAmount").value = "";
+            document.querySelector("#codeExp").value = "";
             document.querySelector("#productID").value = "";
             document.querySelector("#productTitle").value = "";
             document.querySelector("#productPrice").value = "";
@@ -2335,7 +2348,7 @@ function findHowMuchToSliceByNumber(text) {
     return "err404";
 }
 
-function formatTheDate(date) {
+function formatTheDate(date, typeOfFormat) {
     let hours = date.getHours();
     let minutes = date.getMinutes();
     const ampm = hours >= 12 ? "م" : "ص";
@@ -2348,9 +2361,15 @@ function formatTheDate(date) {
     hours = hours < 10 ? "0" + hours : hours;
     minutes = minutes < 10 ? "0" + minutes : minutes;
     day = day < 10 ? "0" + day : day;
-    const strTime =
-        year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
-    return strTime;
+    if (typeOfFormat == 1) {
+        const strTime =
+            year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
+        return strTime;
+    } else {
+        const strTime =
+            year + "-" + month + "-" + day;
+        return strTime;
+    }
 }
 
 const checkAvail = (value) => {

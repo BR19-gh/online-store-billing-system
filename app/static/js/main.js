@@ -1088,7 +1088,7 @@ function firstFetch() {
                                                                                     new Date(
                                                                                         document.querySelector(
                                                                                             "#personalInfoTime"
-                                                                                        ).value
+                                                                                        ).value, 1
                                                                                     )
                                                                                 );
                                                                             }
@@ -1308,7 +1308,7 @@ function firstFetch() {
                     .catch((error) => {
                       alert(
                         `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 510\n err-fetch-main: billDetails\n التاريخ: ${formatTheDate(
-                          new Date()
+                          new Date(), 1
                         )}`
                       );
                     });
@@ -1316,7 +1316,7 @@ function firstFetch() {
                 .catch((error) => {
                   alert(
                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-main: storeNum\n التاريخ: ${formatTheDate(
-                      new Date()
+                      new Date(), 1
                     )}`
                   );
                 });
@@ -1324,7 +1324,7 @@ function firstFetch() {
             .catch((error) => {
               alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 507\n err-fetch-main: storeName\n التاريخ: ${formatTheDate(
-                  new Date()
+                  new Date(), 1
                 )}`
               );
             });
@@ -1332,7 +1332,7 @@ function firstFetch() {
         .catch((error) => {
           alert(
             `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 508\n err-fetch-main: promocodes\n التاريخ: ${formatTheDate(
-              new Date()
+              new Date(), 1
             )}`
           );
         });
@@ -1340,7 +1340,7 @@ function firstFetch() {
     .catch((error) => {
       alert(
         `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-main: products\n التاريخ: ${formatTheDate(
-          new Date()
+          new Date(), 1
         )}`
       );
     });
@@ -1348,23 +1348,28 @@ function firstFetch() {
 
 firstFetch();
 
-function formatTheDate(date) {
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  const ampm = hours >= 12 ? "م" : "ص";
-  hours = hours % 12;
-  hours = hours || 12;
-  const year = date.getFullYear();
-  let month = date.getMonth();
-  month = Number(month) + 1 < 10 ? "0" + (Number(month) + 1) : Number(month) + 1;
-  let day = date.getDate();
-  hours = hours < 10 ? "0" + hours : hours;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  day = day < 10 ? "0" + day : day;
-  const strTime =
-    year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
-  return strTime;
-}
+function formatTheDate(date, typeOfFormat) {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "م" : "ص";
+    hours = hours % 12;
+    hours = hours || 12;
+    const year = date.getFullYear();
+    let month = date.getMonth();
+    month = Number(month) + 1 < 10 ? "0" + (Number(month) + 1) : Number(month) + 1;
+    let day = date.getDate();
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    day = day < 10 ? "0" + day : day;
+    if (typeOfFormat == 1) {
+        const strTime =
+            year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
+        return strTime;
+    } else {
+        const strTime =
+            year + "-" + month + "-" + day;
+        return strTime;
+    } }
 
 let i = 0;
 const loading = setInterval(() => {
