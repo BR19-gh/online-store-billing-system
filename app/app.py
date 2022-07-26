@@ -725,7 +725,9 @@ def ratelimit_handler(e):
 @app.errorhandler(405)
 def ratelimit_handler(e):
 
-    return jsonify({"msg": f"Error 405: the method used is not allowed, please try again with correct method", "statCode": 405})
+    msg = '"msg": f"Error 405: the method used is not allowed, please try again with correct method", "statCode": 405}'
+    print(msg)
+    return render_template('err/err405.html', msg=msg)
 
 
 @app.errorhandler(404)
