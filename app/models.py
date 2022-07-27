@@ -192,7 +192,7 @@ class PromocodesTable:
     def insert(self, id, code, amount, exp):
         if (id == "" or code == "" or amount == ""):
             raise Exception("One of the entries is empty")
-        if exp == None: exp = 'NULL'
+        if exp == None: exp = '0001-01-01'
         self.cur.execute(f"""
 
                 INSERT INTO promocodes
