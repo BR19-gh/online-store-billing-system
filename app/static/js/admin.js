@@ -1547,7 +1547,7 @@ document.querySelector("#addCode").addEventListener("click", () => {
             }
 
             alert(
-                `تم إضافة الكود رقم ${document.querySelector("#codeID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
+                `تم إضافة القسيمة رقم ${document.querySelector("#codeID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchPromocodes();
             document.querySelector("#codeID").value = "";
@@ -1619,7 +1619,7 @@ document.querySelector("#updCode").addEventListener("click", () => {
             }
 
             alert(
-                `تم تعديل الكود رقم ${document.querySelector("#codeID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
+                `تم تعديل القسيمة رقم ${document.querySelector("#codeID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`
             );
             fetchPromocodes();
             document.querySelector("#codeID").value = "";
@@ -1667,7 +1667,7 @@ document.querySelector("#delCode").addEventListener("click", () => {
                 return;
             }
 
-            alert(`تم حذف الكود رقم ${document.querySelector("#codeID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`);
+            alert(`تم حذف القسيمة رقم ${document.querySelector("#codeID").value} بنجاح، إنتظر قليلا وستظهر التحديثات`);
             fetchPromocodes();
             document.querySelector("#codeID").value = "";
             document.querySelector("#codeName").value = "";
