@@ -372,7 +372,7 @@ def promocodes():
     dictOfResult = {}
 
     for i in result:
-        dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2], 'exp': '{:%y/%m/%d}'.format(i[3])}
+        dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2], 'exp': i[3]}
 
     newIndex = sorted(dictOfResult, key=lambda d: d)
     dictOfResult = {k: dictOfResult[k] for k in newIndex}
@@ -756,21 +756,21 @@ def exexuteSql(sql):
 
 @app.route("/playground/on/1", methods=['POST'])
 def playground1():
-    sql='ALTER TABLE promocodes ADD COLUMN exp DATE;'
+    sql='ALTER TABLE promocodes ADD COLUMN exp TEXT;'
     try:
         exexuteSql(sql)
         return jsonify(f"OK: ({sql}) was done successfully.")
     except Exception as err:
         return jsonify(f"ERR {err}: coudn't playground ({sql})")
 
-# @app.route("/playground/on/2", methods=['POST'])
-# def playground2():
-#     sql="ALTER TABLE products ALTER COLUMN avail SET NOT NULL;"
-#     try:
-#         exexuteSql(sql)
-#         return jsonify(f"[exexuteSql('{sql}')] was done successfully.")
-#     except Exception as err:
-#         return jsonify("coudn't playground 2")
+@app.route("/playground/on/2", methods=['POST'])
+def playground2():
+    sql="ALTER TABLE promocodes ALTER COLUMN exp TYPE TEXT;"
+    try:
+        exexuteSql(sql)
+        return jsonify(f"OK: ({sql}) was done successfully.")
+    except Exception as err:
+        return jsonify(f"ERR {err}: coudn't playground ({sql})")
 ############################
 ##### Play Ground End ######
 ############################

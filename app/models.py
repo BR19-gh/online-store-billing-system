@@ -163,7 +163,7 @@ class PromocodesTable:
                         id     INTEGER NOT NULL,
                         code   TEXT NOT NULL,
                         amount FLOAT NOT NULL,
-                        exp    DATE
+                        exp    TEXT
                     ) 
             
                         """)
