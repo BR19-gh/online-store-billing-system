@@ -222,7 +222,8 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector("#codeID").value = `${id}`;
         document.querySelector("#codeName").value = `${listOfPromos[id].code}`;
         document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100}`;
-        document.querySelector("#codeExp").value = `${listOfPromos[id].exp + "T00:00"}`;
+        if (listOfPromos[id].exp == "9999-09-09") document.querySelector("#codeExp").value = "";
+        else document.querySelector("#codeExp").value = `${listOfPromos[id].exp + "T00:00"}`;
         // disable input
         document.querySelector("#codeID").disabled = true;
         document.querySelector("#codeName").disabled = false;
@@ -240,7 +241,8 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector("#codeID").value = `${id}`;
         document.querySelector("#codeName").value = `${listOfPromos[id].code}`;
         document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100}`;
-        document.querySelector("#codeExp").value = `${listOfPromos[id].exp + "T00:00"}`;
+        if (listOfPromos[id].exp == "9999-09-09") document.querySelector("#codeExp").value = "";
+        else document.querySelector("#codeExp").value = `${listOfPromos[id].exp + "T00:00"}`;
         // disable input
         document.querySelector("#codeID").disabled = true;
         document.querySelector("#codeName").disabled = true;
