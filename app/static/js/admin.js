@@ -2363,14 +2363,14 @@ function formatTheDate(date, typeOfFormat) {
     day = day < 10 ? "0" + day : day;
     if (typeOfFormat == 1) {
         if (isNaN(year) == true) {
-            return "";
+            return null;
         }
         const strTime =
             year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
         return strTime;
     } else {
         if (isNaN(year) == true) {
-            return "";
+            return null;
         }
         const strTime =
             year + "-" + month + "-" + day;
@@ -2385,6 +2385,6 @@ const checkAvail = (value) => {
 };
 
 const checkExp = (date) => {
-    if (date == "" || date == undefined) return "إلى الأبد";
+    if (date == "" || date == undefined || date == null) return "إلى الأبد";
     else return date;
 };
