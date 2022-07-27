@@ -243,7 +243,7 @@ button.btn.btn-outline-secondary.dropdown-toggle {
     margin-bottom: 20px;
 }
 
-input#storeNum {
+input#storeNum,#codeExp {
     width: 80%;
 }
 
