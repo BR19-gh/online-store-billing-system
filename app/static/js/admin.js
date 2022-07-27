@@ -2362,6 +2362,9 @@ function formatTheDate(date, typeOfFormat) {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     day = day < 10 ? "0" + day : day;
     if (typeOfFormat == 1) {
+        if (isNaN(year) == true) {
+            return "";
+        }
         const strTime =
             year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
         return strTime;
