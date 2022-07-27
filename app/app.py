@@ -373,7 +373,9 @@ def promocodes():
 
     for i in result:
         dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2], 'exp': i[3]}
-        print('{:%y/%m/%d}'.format(i[3]))
+        print(type(i[3]))
+        print(i[3])
+        #print('{:%y/%m/%d}'.format(i[3]))
 
     newIndex = sorted(dictOfResult, key=lambda d: d)
     dictOfResult = {k: dictOfResult[k] for k in newIndex}
