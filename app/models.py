@@ -198,7 +198,8 @@ class PromocodesTable:
                             (
                                 id,
                                 code,
-                                amount
+                                amount,
+                                exp
                             )
                 VALUES
                             {( 
