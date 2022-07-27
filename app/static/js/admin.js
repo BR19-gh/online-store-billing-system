@@ -1527,7 +1527,7 @@ document.querySelector("#addCode").addEventListener("click", () => {
             }
             if (responseJson.statCode == 400) {
                 alert(
-                    "هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400-admin"
+                    "هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n إن لم تكن تلك هي المشكلة، الرجاء إبلاغ المطور. \n\n ErrCode: 400-admin"
                 ) | $("#promoModal").modal("show");
                 return;
             }
@@ -1599,7 +1599,7 @@ document.querySelector("#updCode").addEventListener("click", () => {
             }
             if (responseJson.statCode == 400) {
                 alert(
-                    "هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n\n ErrCode: 400-admin"
+                    "هناك مدخلات أُدخلت بشكل خاطئ\nالرقم التعريفي أو نسبة التخفيض أُدخل فيه نص، يجب إدخالها على شكل رقم فقط. \n إن لم تكن تلك هي المشكلة، الرجاء إبلاغ المطور. \n\n ErrCode: 400-admin"
                 ) | $("#promoModal").modal("show");
                 return;
             }

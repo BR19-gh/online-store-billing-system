@@ -266,6 +266,7 @@ def promocode(idIn=None):
             data = request.get_json()
             id = data['id']
             code = data['code']
+            exp = data['exp']
             try:
                 amount = int(data['amount'])/100
             except Exception as err:
@@ -284,7 +285,7 @@ def promocode(idIn=None):
                     return jsonify({"msg": f"Bad Request 400:  id is not integer, or it contains illegal form of characters", "statCode": 400})
 
             try:
-                promoObj.insert(id, code, amount)
+                promoObj.insert(id, code, amount, exp)
 
                 recordSearched = promoObj.search(id)
                 if (recordSearched[0] == int(id)):
@@ -300,6 +301,7 @@ def promocode(idIn=None):
 
             data = request.get_json()
             code = data['code']
+            exp = data['exp']
             try:
                 amount = int(data['amount'])/100
 
