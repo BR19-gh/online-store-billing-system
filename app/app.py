@@ -285,6 +285,7 @@ def promocode(idIn=None):
                     return jsonify({"msg": f"Bad Request 400:  id is not integer, or it contains illegal form of characters", "statCode": 400})
 
             try:
+                print(exp)
                 promoObj.insert(id, code, amount, exp)
 
                 recordSearched = promoObj.search(id)
