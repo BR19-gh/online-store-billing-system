@@ -214,6 +214,7 @@ class PromocodesTable:
         self.conn.commit()
 
     def update(self, id, code, amount, exp):
+        if exp == None or exp == "None" or exp == "": exp = '9999-09-09'
         self.cur.execute(f"""
 
                 UPDATE promocodes 
