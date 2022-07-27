@@ -890,7 +890,7 @@ function firstFetch() {
                                                                                     ) {
                                                                                         break;
                                                                                     } // if date of expartiy is older than today's date, then exit.
-                                                                                    if ((new Date(data2[`${Object.keys(data2)[i]}`].exp)) < (new Date())) { alert("الكود المستخدم منتهي الصلاحية، الرجاء استخدام كودًا آخر"); break; }
+                                                                                    if ((new Date(data2[`${Object.keys(data2)[i]}`].exp)) < (new Date()) && (new Date(data2[`${Object.keys(data2)[i]}`].exp)) != (new Date(null))) { alert("الكود المستخدم منتهي الصلاحية، الرجاء استخدام كودًا آخر"); break; }
                                                                                     theCurrentDiscount =
                                                                                         data2[
                                                                                             `${Object.keys(

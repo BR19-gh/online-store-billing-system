@@ -2385,6 +2385,6 @@ const checkAvail = (value) => {
 };
 
 const checkExp = (date) => {
-    if (date == "0001-01-01" || date == undefined || date == null) return "إلى الأبد";
+    if (date == "9999-09-09" || date == undefined || date == null) return "إلى الأبد";
     else return date;
 };
