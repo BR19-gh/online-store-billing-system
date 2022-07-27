@@ -222,9 +222,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector("#codeID").value = `${id}`;
         document.querySelector("#codeName").value = `${listOfPromos[id].code}`;
         document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100}`;
-        document.querySelector("#codeExp").value = `${new Date(listOfPromos[id].exp)}`;
-        console.log(`${new Date(listOfPromos[id].exp)}`);
-        console.log(`${(listOfPromos[id].exp)}`);
+        document.querySelector("#codeExp").value = `${listOfPromos[id].exp + "T00:00"}`;
         // disable input
         document.querySelector("#codeID").disabled = true;
         document.querySelector("#codeName").disabled = false;
@@ -242,7 +240,7 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector("#codeID").value = `${id}`;
         document.querySelector("#codeName").value = `${listOfPromos[id].code}`;
         document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100}`;
-        document.querySelector("#codeExp").value = `${new Date(listOfPromos[id].exp)}`;
+        document.querySelector("#codeExp").value = `${listOfPromos[id].exp + "T00:00"}`;
         // disable input
         document.querySelector("#codeID").disabled = true;
         document.querySelector("#codeName").disabled = true;
