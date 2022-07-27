@@ -285,7 +285,6 @@ def promocode(idIn=None):
                     return jsonify({"msg": f"Bad Request 400:  id is not integer, or it contains illegal form of characters", "statCode": 400})
 
             try:
-                print(type(exp))
                 promoObj.insert(id, code, amount, exp)
 
                 recordSearched = promoObj.search(id)
@@ -374,6 +373,8 @@ def promocodes():
 
     for i in result:
         dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2], 'exp': i[3]}
+        print(type(i[3]))
+        print(i[3])
 
     newIndex = sorted(dictOfResult, key=lambda d: d)
     dictOfResult = {k: dictOfResult[k] for k in newIndex}
