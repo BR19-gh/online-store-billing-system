@@ -747,30 +747,31 @@ def ratelimit_handler(e):
 ##### Play Ground ######
 ########################
 
-def exexuteSql(sql):
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-    #conn = sqlite3.connect("spdb.db")
-    cur = conn.cursor(cursor_factory=ext.DictCursor)
-    cur.execute(sql)
-    conn.commit()
+# def exexuteSql(sql):
+#     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#     #conn = sqlite3.connect("spdb.db")
+#     cur = conn.cursor(cursor_factory=ext.DictCursor)
+#     cur.execute(sql)
+#     conn.commit()
 
-@app.route("/playground/on/1", methods=['POST'])
-def playground1():
-    sql='ALTER TABLE promocodes ADD COLUMN exp TEXT;'
-    try:
-        exexuteSql(sql)
-        return jsonify(f"OK: ({sql}) was done successfully.")
-    except Exception as err:
-        return jsonify(f"ERR {err}: coudn't playground ({sql})")
+# @app.route("/playground/on/1", methods=['POST'])
+# def playground1():
+#     sql='ALTER TABLE promocodes ADD COLUMN exp TEXT;'
+#     try:
+#         exexuteSql(sql)
+#         return jsonify(f"OK: ({sql}) was done successfully.")
+#     except Exception as err:
+#         return jsonify(f"ERR {err}: coudn't playground ({sql})")
 
-@app.route("/playground/on/2", methods=['POST'])
-def playground2():
-    sql="ALTER TABLE promocodes ALTER COLUMN exp TYPE TEXT;"
-    try:
-        exexuteSql(sql)
-        return jsonify(f"OK: ({sql}) was done successfully.")
-    except Exception as err:
-        return jsonify(f"ERR {err}: coudn't playground ({sql})")
+# @app.route("/playground/on/2", methods=['POST'])
+# def playground2():
+#     sql="ALTER TABLE promocodes ALTER COLUMN exp TYPE TEXT;"
+#     try:
+#         exexuteSql(sql)
+#         return jsonify(f"OK: ({sql}) was done successfully.")
+#     except Exception as err:
+#         return jsonify(f"ERR {err}: coudn't playground ({sql})")
+
 ############################
 ##### Play Ground End ######
 ############################
