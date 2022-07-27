@@ -312,7 +312,7 @@ def promocode(idIn=None):
             try:
 
                 oldPrudRecord = promoObj.search(idIn)
-                promoObj.update(idIn, code, amount)
+                promoObj.update(idIn, code, amount, exp)
 
                 recordSearched = promoObj.search(idIn)
                 if recordSearched == None:
@@ -372,7 +372,7 @@ def promocodes():
     dictOfResult = {}
 
     for i in result:
-        dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2]}
+        dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2], 'exp': i[3]}
 
     newIndex = sorted(dictOfResult, key=lambda d: d)
     dictOfResult = {k: dictOfResult[k] for k in newIndex}
