@@ -419,7 +419,7 @@ function firstFetch() {
                                                                         container.innerHTML += ` 
     <div id="form" class="card" style="width: 18rem;">
         <img style="width: 257px; height: 257px;" src="data:image/png;base64,${data[Object.keys(data)[i]].img
-                          }" class="card-img-top" alt="${data[Object.keys(data)[i]].title}">
+                                                        }" class="card-img-top" alt="${data[Object.keys(data)[i]].title}">
         <div class="card-body">
             <h5 class="card-title">${data[Object.keys(data)[i]].title}</h5>
         </div>
@@ -570,13 +570,13 @@ function firstFetch() {
                                                                                 sumOfTitles =
                                                                                     sumOfTitles.concat(
                                                                                         `<b>المنتج:</b> ${Object.keys(
-                                    countsSumOfTitles
-                                  )[j]
-                                  }، <b>الكمية:</b> ${Number(
-                                    Object.values(
-                                      countsSumOfTitles
-                                    )[j]
-                                  )}<br>`
+                                                                        countsSumOfTitles
+                                                                    )[j]
+                                                                    }، <b>الكمية:</b> ${Number(
+                                                                        Object.values(
+                                                                            countsSumOfTitles
+                                                                        )[j]
+                                                                    )}<br>`
                                                                                     );
                                                                             }
                                                                             document.querySelector(
@@ -777,13 +777,13 @@ function firstFetch() {
                                                                                 sumOfTitles =
                                                                                     sumOfTitles.concat(
                                                                                         `<b>المنتج:</b> ${Object.keys(
-                                    countsSumOfTitles
-                                  )[j]
-                                  }، <b>الكمية:</b> ${Number(
-                                    Object.values(
-                                      countsSumOfTitles
-                                    )[j]
-                                  )}<br>`
+                                                                        countsSumOfTitles
+                                                                    )[j]
+                                                                    }، <b>الكمية:</b> ${Number(
+                                                                        Object.values(
+                                                                            countsSumOfTitles
+                                                                        )[j]
+                                                                    )}<br>`
                                                                                     );
                                                                             }
                                                                             document.querySelector(
@@ -836,9 +836,9 @@ function firstFetch() {
                                                                             if (
                                                                                 data2[
                                                                                     `${Object.keys(
-                                data2
-                              )[0]
-                              }`
+                                                                data2
+                                                            )[0]
+                                                            }`
                                                                                 ] == null
                                                                             ) {
                                                                                 alert(
@@ -867,9 +867,9 @@ function firstFetch() {
                                                                                     ).value ==
                                                                                     data2[
                                                                                         `${Object.keys(
-                                    data2
-                                  )[i]
-                                  }`
+                                                                        data2
+                                                                    )[i]
+                                                                    }`
                                                                                     ].code
                                                                                 ) {
                                                                                     if (
@@ -889,21 +889,22 @@ function firstFetch() {
                                                                                         ) == true
                                                                                     ) {
                                                                                         break;
-                                                                                    }
+                                                                                    } // if date of expartiy is older than today's date, then exit.
+                                                                                    if ((new Date(data2[`${Object.keys(data2)[i]}`].exp)) < (new Date())) { alert("الكود المستخدم منتهي الصلاحية، الرجاء استخدام كودًا آخر"); break; }
                                                                                     theCurrentDiscount =
                                                                                         data2[
                                                                                             `${Object.keys(
-                                      data2
-                                    )[i]
-                                    }`
+                                                                            data2
+                                                                        )[i]
+                                                                        }`
                                                                                         ].code;
                                                                                     if (
                                                                                         beforeDiscount ==
                                                                                         data2[
                                                                                             `${Object.keys(
-                                      data2
-                                    )[i]
-                                    }`
+                                                                            data2
+                                                                        )[i]
+                                                                        }`
                                                                                         ].code
                                                                                     ) {
                                                                                         thereIsApastDiscount = true;
@@ -912,9 +913,9 @@ function firstFetch() {
                                                                                     beforeDiscount =
                                                                                         data2[
                                                                                             `${Object.keys(
-                                      data2
-                                    )[i]
-                                    }`
+                                                                            data2
+                                                                        )[i]
+                                                                        }`
                                                                                         ].code;
                                                                                     if (
                                                                                         thereIsApastDiscount ==
@@ -946,11 +947,11 @@ function firstFetch() {
                                                                                         ) *
                                                                                         data2[
                                                                                             `${Object.keys(
-                                      data2
-                                    )[
-                                    i
-                                    ]
-                                    }`
+                                                                            data2
+                                                                        )[
+                                                                        i
+                                                                        ]
+                                                                        }`
                                                                                         ].amount;
                                                                                     document.querySelector(
                                                                                         "#groupOfPrices"
@@ -1116,16 +1117,16 @@ function firstFetch() {
 
                                                                             // eslint-disable-next-line prefer-const
                                                                             prices = `~قبل الخصم: ${priceBeforeDiscount}~%0a*${document
-                              .querySelector(
-                                "#groupOfPrices"
-                              )
-                              .innerText.split(
-                                "\n"
-                              )[0]
-                              .replace(
-                                /\s/gi,
-                                "%20"
-                              )}*`;
+                                                            .querySelector(
+                                                                "#groupOfPrices"
+                                                            )
+                                                            .innerText.split(
+                                                                "\n"
+                                                            )[0]
+                                                            .replace(
+                                                                /\s/gi,
+                                                                "%20"
+                                                            )}*`;
 
                                                                             personalInfo.name =
                                                                                 document
@@ -1203,147 +1204,147 @@ function firstFetch() {
                                                                             // // xx datearray[4] = datearray[4] < 10 ? '0' + datearray[4] : datearray[4]
 
                                                                             personalInfo.time = `${"وقت الاستلام: " + `${date}`
-                              //  `${datearray[0]}/${datearray[1]}/${datearray[2]}, ${datearray[3]}:${datearray[4]}${ampm}`
-                              }`.replace(
-                                /\s/gi,
-                                "%20"
-                              );
-                            if (
-                              personalInfo.name ==
-                              "" ||
-                              personalInfo.numb ==
-                              "" ||
-                              personalInfo.addr ==
-                              "" ||
-                              personalInfo.time ==
-                              ""
-                            ) {
-                              alert(
-                                "الرجاء تعبئة كل البيانات الشخصية"
-                              );
-                              return;
-                            }
-                            for (
-                              let i = 0;
-                              i <
-                              Object.keys(
-                                personalInfo
-                              ).length;
-                              i++
-                            ) {
-                              personalInfoOutput =
-                                personalInfoOutput.concat(
-                                  personalInfo[
-                                  `${Object.keys(
-                                    personalInfo
-                                  )[i]
-                                  }`
-                                  ] + "%0a"
-                                );
-                            }
+                                                            //  `${datearray[0]}/${datearray[1]}/${datearray[2]}, ${datearray[3]}:${datearray[4]}${ampm}`
+                                                            }`.replace(
+                                                                /\s/gi,
+                                                                "%20"
+                                                            );
+                                                        if (
+                                                            personalInfo.name ==
+                                                            "" ||
+                                                            personalInfo.numb ==
+                                                            "" ||
+                                                            personalInfo.addr ==
+                                                            "" ||
+                                                            personalInfo.time ==
+                                                            ""
+                                                        ) {
+                                                            alert(
+                                                                "الرجاء تعبئة كل البيانات الشخصية"
+                                                            );
+                                                            return;
+                                                        }
+                                                        for (
+                                                            let i = 0;
+                                                            i <
+                                                            Object.keys(
+                                                                personalInfo
+                                                            ).length;
+                                                            i++
+                                                        ) {
+                                                            personalInfoOutput =
+                                                                personalInfoOutput.concat(
+                                                                    personalInfo[
+                                                                    `${Object.keys(
+                                                                        personalInfo
+                                                                    )[i]
+                                                                    }`
+                                                                    ] + "%0a"
+                                                                );
+                                                        }
 
-                            discount =
-                              discount.replace(
-                                /\s/gi,
-                                "%20"
-                              );
+                                                        discount =
+                                                            discount.replace(
+                                                                /\s/gi,
+                                                                "%20"
+                                                            );
 
-                            bill =
-                              `فاتورة متجر ${data3.storeName}` +
-                              "%0a%0a" +
-                              "معلومات الزبون:" +
-                              "%0a" +
-                              personalInfoOutput +
-                              "%0a%0a" +
-                              "معلومات المنتجات:" +
-                              "%0a" +
-                              titles +
-                              "%0a%0a" +
-                              discount +
-                              "%0a" +
-                              prices +
-                              "%0a%0a%0a" +
-                              `${data5.billDetails}`;
+                                                        bill =
+                                                            `فاتورة متجر ${data3.storeName}` +
+                                                            "%0a%0a" +
+                                                            "معلومات الزبون:" +
+                                                            "%0a" +
+                                                            personalInfoOutput +
+                                                            "%0a%0a" +
+                                                            "معلومات المنتجات:" +
+                                                            "%0a" +
+                                                            titles +
+                                                            "%0a%0a" +
+                                                            discount +
+                                                            "%0a" +
+                                                            prices +
+                                                            "%0a%0a%0a" +
+                                                            `${data5.billDetails}`;
 
-                            if (
-                              Number(
-                                document
-                                  .querySelector(
-                                    "#groupOfPrices"
-                                  )
-                                  .innerText.split(
-                                    ": "
-                                  )[1]
-                                  .split(
-                                    " "
-                                  )[0]
-                              ) == 0 ||
-                              isNaN(
-                                Number(
-                                  document
-                                    .querySelector(
-                                      "#groupOfPrices"
-                                    )
-                                    .innerText.split(
-                                      ": "
-                                    )[1]
-                                    .split(
-                                      " "
-                                    )[0]
-                                )
-                              ) == true
-                            ) {
-                              alert(
-                                "يجب أن يكون في سلتك منتجات \nأو يكون مبلغ الشراء أعلى من 0﷼ لإتمام العملية"
-                              );
-                              return;
-                            }
+                                                        if (
+                                                            Number(
+                                                                document
+                                                                    .querySelector(
+                                                                        "#groupOfPrices"
+                                                                    )
+                                                                    .innerText.split(
+                                                                        ": "
+                                                                    )[1]
+                                                                    .split(
+                                                                        " "
+                                                                    )[0]
+                                                            ) == 0 ||
+                                                            isNaN(
+                                                                Number(
+                                                                    document
+                                                                        .querySelector(
+                                                                            "#groupOfPrices"
+                                                                        )
+                                                                        .innerText.split(
+                                                                            ": "
+                                                                        )[1]
+                                                                        .split(
+                                                                            " "
+                                                                        )[0]
+                                                                )
+                                                            ) == true
+                                                        ) {
+                                                            alert(
+                                                                "يجب أن يكون في سلتك منتجات \nأو يكون مبلغ الشراء أعلى من 0﷼ لإتمام العملية"
+                                                            );
+                                                            return;
+                                                        }
 
-                            location.assign(
-                              `https://wa.me/${phoneNum}?text=${bill}`
+                                                        location.assign(
+                                                            `https://wa.me/${phoneNum}?text=${bill}`
+                                                        );
+                                                    }
+                                                );
+                                        })
+                                        .catch((error) => {
+                                            alert(
+                                                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 510\n err-fetch-main: billDetails\n التاريخ: ${formatTheDate(
+                                                    new Date(), 1
+                                                )}`
+                                            );
+                                        });
+                                })
+                                .catch((error) => {
+                                    alert(
+                                        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-main: storeNum\n التاريخ: ${formatTheDate(
+                                            new Date(), 1
+                                        )}`
+                                    );
+                                });
+                        })
+                        .catch((error) => {
+                            alert(
+                                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 507\n err-fetch-main: storeName\n التاريخ: ${formatTheDate(
+                                    new Date(), 1
+                                )}`
                             );
-                          }
-                        );
-                    })
-                    .catch((error) => {
-                      alert(
-                        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 510\n err-fetch-main: billDetails\n التاريخ: ${formatTheDate(
-                          new Date(), 1
-                        )}`
-                      );
-                    });
+                        });
                 })
                 .catch((error) => {
-                  alert(
-                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-main: storeNum\n التاريخ: ${formatTheDate(
-                      new Date(), 1
-                    )}`
-                  );
+                    alert(
+                        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 508\n err-fetch-main: promocodes\n التاريخ: ${formatTheDate(
+                            new Date(), 1
+                        )}`
+                    );
                 });
-            })
-            .catch((error) => {
-              alert(
-                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 507\n err-fetch-main: storeName\n التاريخ: ${formatTheDate(
-                  new Date(), 1
-                )}`
-              );
-            });
         })
         .catch((error) => {
-          alert(
-            `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 508\n err-fetch-main: promocodes\n التاريخ: ${formatTheDate(
-              new Date(), 1
-            )}`
-          );
+            alert(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-main: products\n التاريخ: ${formatTheDate(
+                    new Date(), 1
+                )}`
+            );
         });
-    })
-    .catch((error) => {
-      alert(
-        `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور أو صاحب المتجر. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-main: products\n التاريخ: ${formatTheDate(
-          new Date(), 1
-        )}`
-      );
-    });
 }
 
 firstFetch();
@@ -1369,24 +1370,25 @@ function formatTheDate(date, typeOfFormat) {
         const strTime =
             year + "-" + month + "-" + day;
         return strTime;
-    } }
+    }
+}
 
 let i = 0;
 const loading = setInterval(() => {
-  if (i < 3) i++;
-  else i = 0;
-  document.querySelector("#storeName").innerText = `جار التحميل${".".repeat(
-    i
-  )}`;
+    if (i < 3) i++;
+    else i = 0;
+    document.querySelector("#storeName").innerText = `جار التحميل${".".repeat(
+        i
+    )}`;
 }, 500);
 
 const convertTitleToImg = (listOftitles, dict) => {
-  const listofIds = [];
-  listOftitles.forEach((title) => {
-    for (let i = 0; i < Object.keys(dict).length; i++) {
-      if (title == dict[Object.keys(dict)[i]].title) { listofIds.push(dict[Object.keys(dict)[i]].img); };
-    }
-  });
+    const listofIds = [];
+    listOftitles.forEach((title) => {
+        for (let i = 0; i < Object.keys(dict).length; i++) {
+            if (title == dict[Object.keys(dict)[i]].title) { listofIds.push(dict[Object.keys(dict)[i]].img); };
+        }
+    });
 
-  return listofIds;
+    return listofIds;
 };
