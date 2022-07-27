@@ -2385,6 +2385,6 @@ const checkAvail = (value) => {
 };
 
 const checkExp = (date) => {
-    if (date == "Mon, 01 Jan 0001 00:00:00 GMT" || date == undefined || date == null) return "إلى الأبد";
+    if (date == "0001-01-01" || date == undefined || date == null) return "إلى الأبد";
     else return date;
 };
