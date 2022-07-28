@@ -567,7 +567,7 @@ button.btn-close.btn-close-black {
     -webkit-backdrop-filter: blur(10px) contrast(100%);
 }
 
-input {
+#codeExp {
     width: 350px;
 }
 
