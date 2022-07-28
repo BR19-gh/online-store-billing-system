@@ -75,7 +75,7 @@ b.cell {
     margin-bottom: 10px;
     align-items: center;
     align-self: center;
-    font-size: 15.5px;
+    font-size: 14.5px;
 }
 
 b#browseImg,
@@ -243,7 +243,7 @@ button.btn.btn-outline-secondary.dropdown-toggle {
     margin-bottom: 20px;
 }
 
-input#storeNum {
+input#storeNum,#codeExp {
     width: 80%;
 }
 
