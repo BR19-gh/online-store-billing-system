@@ -567,6 +567,10 @@ button.btn-close.btn-close-black {
     -webkit-backdrop-filter: blur(10px) contrast(100%);
 }
 
+input {
+    width: 350px;
+}
+
 @keyframes cartAnimation {
     0% {
         font-size: 30px;
