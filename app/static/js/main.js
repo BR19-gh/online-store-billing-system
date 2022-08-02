@@ -1090,8 +1090,8 @@ function firstFetch() {
                                                                                     new Date(
                                                                                         document.querySelector(
                                                                                             "#personalInfoTime"
-                                                                                        ).value, 1
-                                                                                    )
+                                                                                        ).value
+                                                                                    ), 1
                                                                                 );
                                                                             }
 
