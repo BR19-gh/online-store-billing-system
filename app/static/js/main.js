@@ -1304,11 +1304,16 @@ function firstFetch() {
 
                                                             fetch("/billingHistory", {
                                                                 headers: {
-                                                                    // eslint-disable-next-line object-shorthand
-                                                                    bill: encodeURIComponent(bill),
-                                                                    billDate: encodeURIComponent(formatTheDate(new Date(), 3))
+                                                                    Method: "POST",
+                                                                    "Content-Type": "application/json",
+                                                                    Accept: "application/json"
                                                                 },
-                                                                method: "POST"
+                                                                method: "POST",
+                                                                body: JSON.stringify({
+                                                                    // eslint-disable-next-line object-shorthand
+                                                                    bill: bill,
+                                                                    billDate: formatTheDate(new Date(), 3)
+                                                                })
 
                                                             })
                                                             .then((response) => {
@@ -1334,9 +1339,9 @@ function firstFetch() {
                                                                 );
                                                             });
 
-                                                        // location.assign(
-                                                        //     `https://wa.me/${phoneNum}?text=${bill}`
-                                                        // );
+                                                        location.assign(
+                                                            `https://wa.me/${phoneNum}?text=${bill}`
+                                                        );
                                                     }
                                                 );
                                         })
