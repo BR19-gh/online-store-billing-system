@@ -596,7 +596,7 @@ def billingHistory_show():
     billHisObj = billingHistoryTable()
 
     result = billHisObj.display()
-    print("00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",result)
+   
     dictOfResult = {}
     for i in result:
         dictOfResult[i[0]] = {'bill': i[0], 'billDate': i[1]}

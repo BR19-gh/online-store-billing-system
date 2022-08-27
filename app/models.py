@@ -519,7 +519,9 @@ class billingHistoryTable:
                 FROM billingHistory
 
                         """)
-
+        self.records = self.cur.fetchall()
+        return self.records
+        
     def search(self, bill):
         self.cur.execute(f"""
 
