@@ -598,8 +598,9 @@ def billingHistory_show():
     result = billHisObj.display()
    
     dictOfResult = {}
+    i = 0
     for i in result:
-        dictOfResult[i[0]] = {'bill': i[0], 'billDate': i[1]}
+        dictOfResult[i+1] = {'bill': i[0], 'billDate': i[1]}
 
     if dictOfResult == {} :
         return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
