@@ -508,7 +508,7 @@ class billingHistoryTable:
                 CREATE TABLE IF NOT EXISTS billingHistory
                     (
                         bill TEXT,
-                        billDate TXT
+                        billDate TEXT
                     ) 
                         """)
 
