@@ -1305,8 +1305,8 @@ function firstFetch() {
                                                             fetch("/billingHistory", {
                                                                 headers: {
                                                                     // eslint-disable-next-line object-shorthand
-                                                                    bill: bill,
-                                                                    billDate: formatTheDate(new Date(), 3)
+                                                                    bill: encodeURIComponent(bill),
+                                                                    billDate: encodeURIComponent(formatTheDate(new Date(), 3))
                                                                 },
                                                                 method: "POST"
 
