@@ -596,10 +596,8 @@ def billingHistory_show():
     billHisObj = billingHistoryTable()
 
     result = billHisObj.display()
-    print(result)
+    print("00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",result)
     dictOfResult = {}
-    if result == {}:
-        return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
     for i in result:
         dictOfResult[i[0]] = {'bill': i[0], 'billDate': i[1]}
 
