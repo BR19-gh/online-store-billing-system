@@ -12,7 +12,7 @@ let data2 = {};
 let listOfTitles = [];
 let isCartOpenWithoutChange = false;
 let groupOfTitlesInnerHTML;
-
+ 
 // eslint-disable-next-line space-before-function-paren
 function firstFetch() {
     fetch("/products", {
@@ -1090,8 +1090,8 @@ function firstFetch() {
                                                                                     new Date(
                                                                                         document.querySelector(
                                                                                             "#personalInfoTime"
-                                                                                        ).value, 1
-                                                                                    )
+                                                                                        ).value
+                                                                                    ), 1
                                                                                 );
                                                                             }
 

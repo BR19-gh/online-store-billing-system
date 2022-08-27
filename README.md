@@ -1,7 +1,7 @@
 
 #### (coming soon 3.0v update...)
 [New 2.0v Update Available !!!](#update-20v)
-  
+        
 
 # Online Store Billing System
 
@@ -11,8 +11,7 @@
 
   
 
-A full-stack online store model that gives the store owner the ability to add products and their prices, the ability to add promocodes which their customers can use, and the ability of a customer to send their bill to the owner's WhatsApp, The store uses Flask as its backend, PostgreSQL as database, and CSS, HTML, and JS as its frontend.
-
+A full-stack online store model that gives the store owner the ability to add products and their prices, the ability to add promocodes which their customers can use, and the ability of a customer to send their bill to the owner's WhatsApp, The store uses Flask as its backend, PostgreSQL as database, and CSS, HTML, JS/TS and Bootstrap as its Frontend
   
 
 The application is deployed on Heroku and can be accessed at <br> [br19-onlinestore.herokuapp.com](https://br19-onlinestore.herokuapp.com)
