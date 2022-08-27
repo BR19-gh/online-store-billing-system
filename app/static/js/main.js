@@ -1334,9 +1334,9 @@ function firstFetch() {
                                                                 );
                                                             });
 
-                                                        location.assign(
-                                                            `https://wa.me/${phoneNum}?text=${bill}`
-                                                        );
+                                                        // location.assign(
+                                                        //     `https://wa.me/${phoneNum}?text=${bill}`
+                                                        // );
                                                     }
                                                 );
                                         })
