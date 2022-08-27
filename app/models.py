@@ -507,7 +507,8 @@ class billingHistoryTable:
 
                 CREATE TABLE IF NOT EXISTS billingHistory
                     (
-                        bill TEXT
+                        bill TEXT,
+                        billDate TXT
                     ) 
                         """)
 
@@ -521,41 +522,23 @@ class billingHistoryTable:
         self.record = self.cur.fetchone()
         return self.record
 
-    def insert(self, bill):
+    def insert(self, bill, billDate):
         if (bill == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
 
                  INSERT INTO billingHistory 
                              (
-                                 bill
+                                 bill,
+                                 billDate
                              ) 
                  VALUES 
                              (
-                        '{bill}'
+                        '{bill}',
+                        '{billDate}'
                              );
         
                        """)
-        self.conn.commit()
-
-    def update(self, bill):
-        self.cur.execute(f"""
-        
-                UPDATE billingHistory 
-                SET bill = '{bill}'
-        
-                        """)
-        self.conn.commit()
-
-    def delete(self, bill):
-        if (bill == None):
-            raise Exception("You have to select an id to delete its values")
-        self.cur.execute(f"""
-
-                DELETE FROM billingHistory 
-                WHERE bill = '{bill}'
-
-                        """)
         self.conn.commit()
 
     def __del__(self):

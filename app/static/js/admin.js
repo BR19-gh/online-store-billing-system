@@ -2377,7 +2377,7 @@ function formatTheDate(date, typeOfFormat) {
         return strTime;
     } else if (typeOfFormat == 3) {
         const strTime =
-            year + "-" + month + "-" + day + "T" + hours24 + "-" + minutes + "-" + seconds;
+            year + "-" + month + "-" + day + "T" + hours24 + ":" + minutes + ":" + seconds;
         return strTime;
     } else {
         const strTime =

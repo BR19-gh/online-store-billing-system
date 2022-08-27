@@ -12,7 +12,7 @@ let data2 = {};
 let listOfTitles = [];
 let isCartOpenWithoutChange = false;
 let groupOfTitlesInnerHTML;
- 
+
 // eslint-disable-next-line space-before-function-paren
 function firstFetch() {
     fetch("/products", {
@@ -1374,7 +1374,7 @@ function formatTheDate(date, typeOfFormat) {
         return strTime;
     } else if (typeOfFormat == 3) {
         const strTime =
-            year + "-" + month + "-" + day + "T" + hours24 + "-" + minutes + "-" + seconds;
+            year + "-" + month + "-" + day + "T" + hours24 + ":" + minutes + ":" + seconds;
         return strTime;
     } else {
         const strTime =
