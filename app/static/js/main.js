@@ -1351,21 +1351,30 @@ function firstFetch() {
 firstFetch();
 
 function formatTheDate(date, typeOfFormat) {
-    let hours = date.getHours();
+    let hours12 = date.getHours();
+    const hours24 = hours12;
     let minutes = date.getMinutes();
-    const ampm = hours >= 12 ? "م" : "ص";
-    hours = hours % 12;
-    hours = hours || 12;
+    const seconds = date.getSeconds();
+    const ampm = hours12 >= 12 ? "م" : "ص";
+    hours12 = hours12 % 12;
+    hours12 = hours12 || 12;
     const year = date.getFullYear();
     let month = date.getMonth();
     month = Number(month) + 1 < 10 ? "0" + (Number(month) + 1) : Number(month) + 1;
     let day = date.getDate();
-    hours = hours < 10 ? "0" + hours : hours;
+    hours12 = hours12 < 10 ? "0" + hours12 : hours12;
     minutes = minutes < 10 ? "0" + minutes : minutes;
     day = day < 10 ? "0" + day : day;
+    if (isNaN(year) == true) {
+        return null;
+    }
     if (typeOfFormat == 1) {
         const strTime =
-            year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
+            year + "/" + month + "/" + day + ", " + hours12 + ":" + minutes + ampm;
+        return strTime;
+    } else if (typeOfFormat == 3) {
+        const strTime =
+            year + "-" + month + "-" + day + "T" + hours24 + "-" + minutes + "-" + seconds;
         return strTime;
     } else {
         const strTime =

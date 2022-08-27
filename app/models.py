@@ -494,6 +494,72 @@ class StoreCustomTable:
 
     def __del__(self):
         self.conn.close()
+
+
+
+class billingHistoryTable:
+
+    def __init__(self):
+        self.conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+        #self.conn = sqlite3.connect("spdb.db")
+        self.cur = self.conn.cursor(cursor_factory=ext.DictCursor)
+        self.cur.execute("""
+
+                CREATE TABLE IF NOT EXISTS billingHistory
+                    (
+                        bill TEXT
+                    ) 
+                        """)
+
+    def search(self):
+        self.cur.execute(f"""
+        
+                SELECT * 
+                FROM billingHistory
+
+                        """)
+        self.record = self.cur.fetchone()
+        return self.record
+
+    def insert(self, bill):
+        if (bill == ""):
+            raise Exception("One of the entries is empty")
+        self.cur.execute(f"""
+
+                 INSERT INTO billingHistory 
+                             (
+                                 bill
+                             ) 
+                 VALUES 
+                             (
+                        '{bill}'
+                             );
+        
+                       """)
+        self.conn.commit()
+
+    def update(self, bill):
+        self.cur.execute(f"""
+        
+                UPDATE billingHistory 
+                SET bill = '{bill}'
+        
+                        """)
+        self.conn.commit()
+
+    def delete(self, bill):
+        if (bill == None):
+            raise Exception("You have to select an id to delete its values")
+        self.cur.execute(f"""
+
+                DELETE FROM billingHistory 
+                WHERE bill = '{bill}'
+
+                        """)
+        self.conn.commit()
+
+    def __del__(self):
+        self.conn.close()
 ########################
 ###### Models END ######
 ########################

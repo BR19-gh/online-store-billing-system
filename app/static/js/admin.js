@@ -40,7 +40,7 @@ fetch("/storeTheme/show", {
     .catch((error) => {
         alert(
             `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 505\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-        new Date(), 1, 1
+        new Date(), 1//
       )}`
         );
     });
@@ -139,7 +139,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                             .catch((error) => {
                                 alert(
                                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 506\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-                    new Date(), 1, 1
+                    new Date(), 1//
                   )}`
                                 );
                             });
@@ -148,7 +148,7 @@ for (var i = 0; i < themeBtns.length; i++) {
                     .catch((error) => {
                         alert(
                             `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 507\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-                new Date(), 1, 1
+                new Date(), 1//
               )}`
                         );
                     });
@@ -156,7 +156,7 @@ for (var i = 0; i < themeBtns.length; i++) {
             .catch((error) => {
                 alert(
                     `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 508\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-            new Date(), 1, 1
+            new Date(), 1//
           )}`
                 );
             });
@@ -211,7 +211,7 @@ function expOrNarInfo(expOrNarInfoKey) {
 
 function deleteOrEditPromo(id, opration) {
     if (opration == "edit") {
-document.querySelector("#codeExpPara").style.display = "block";
+        document.querySelector("#codeExpPara").style.display = "block";
         // show btn
         document.querySelector("#addCode").style.display = "none";
         document.querySelector("#updCode").style.display = "block";
@@ -231,7 +231,7 @@ document.querySelector("#codeExpPara").style.display = "block";
         document.querySelector("#codeAmount").disabled = false;
         document.querySelector("#codeExp").disabled = false;
     } else if (opration == "delete") {
-document.querySelector("#codeExpPara").style.display = "none";
+        document.querySelector("#codeExpPara").style.display = "none";
         // show btn
         document.querySelector("#addCode").style.display = "none";
         document.querySelector("#updCode").style.display = "none";
@@ -251,7 +251,7 @@ document.querySelector("#codeExpPara").style.display = "none";
         document.querySelector("#codeAmount").disabled = true;
         document.querySelector("#codeExp").disabled = true;
     } else if (opration == "add") {
-document.querySelector("#codeExpPara").style.display = "block";
+        document.querySelector("#codeExpPara").style.display = "block";
         // show btn
         document.querySelector("#addCode").style.display = "block";
         document.querySelector("#updCode").style.display = "none";
@@ -863,7 +863,7 @@ function fetchThemes() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 509\n err-fetch-admin: storetheme\n التاريخ: ${formatTheDate(
-          new Date(), 1, 1
+          new Date(), 1//
         )}`
             );
         });
@@ -897,7 +897,7 @@ function fetchStoreInfo() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 510\n err-fetch-admin: storeNum\n التاريخ: ${formatTheDate(
-          new Date(), 1, 1
+          new Date(), 1//
         )}`
             );
         });
@@ -925,7 +925,7 @@ function fetchStoreInfo() {
         .catch((error) => {
             alert(
                 `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 511\n err-fetch-admin: storeName\n التاريخ: ${formatTheDate(
-          new Date(), 1, 1
+          new Date(), 1//
         )}`
             );
         });
@@ -2354,29 +2354,32 @@ function findHowMuchToSliceByNumber(text) {
 }
 
 function formatTheDate(date, typeOfFormat) {
-    let hours = date.getHours();
+    let hours12 = date.getHours();
+    const hours24 = hours12;
     let minutes = date.getMinutes();
-    const ampm = hours >= 12 ? "م" : "ص";
-    hours = hours % 12;
-    hours = hours || 12;
+    const seconds = date.getSeconds();
+    const ampm = hours12 >= 12 ? "م" : "ص";
+    hours12 = hours12 % 12;
+    hours12 = hours12 || 12;
     const year = date.getFullYear();
     let month = date.getMonth();
     month = Number(month) + 1 < 10 ? "0" + (Number(month) + 1) : Number(month) + 1;
     let day = date.getDate();
-    hours = hours < 10 ? "0" + hours : hours;
+    hours12 = hours12 < 10 ? "0" + hours12 : hours12;
     minutes = minutes < 10 ? "0" + minutes : minutes;
     day = day < 10 ? "0" + day : day;
+    if (isNaN(year) == true) {
+        return null;
+    }
     if (typeOfFormat == 1) {
-        if (isNaN(year) == true) {
-            return null;
-        }
         const strTime =
-            year + "/" + month + "/" + day + ", " + hours + ":" + minutes + ampm;
+            year + "/" + month + "/" + day + ", " + hours12 + ":" + minutes + ampm;
+        return strTime;
+    } else if (typeOfFormat == 3) {
+        const strTime =
+            year + "-" + month + "-" + day + "T" + hours24 + "-" + minutes + "-" + seconds;
         return strTime;
     } else {
-        if (isNaN(year) == true) {
-            return null;
-        }
         const strTime =
             year + "-" + month + "-" + day;
         return strTime;
