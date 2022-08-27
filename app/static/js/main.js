@@ -1073,7 +1073,7 @@ function firstFetch() {
                                                                             }
 
                                                                             let date;
-                                                                            let billDate;
+
                                                                             if (
                                                                                 document.querySelector(
                                                                                     "#personalInfoTime"
@@ -1093,13 +1093,6 @@ function firstFetch() {
                                                                                             "#personalInfoTime"
                                                                                         ).value
                                                                                     ), 1
-                                                                                );
-                                                                                billDate = formatTheDate(
-                                                                                    new Date(
-                                                                                        document.querySelector(
-                                                                                            "#personalInfoTime"
-                                                                                        ).value
-                                                                                    ), 3
                                                                                 );
                                                                             }
 
@@ -1311,10 +1304,9 @@ function firstFetch() {
 
                                                             fetch("/billingHistory", {
                                                                 headers: {
-
-                                                                    bill,
-                                                                    billDate
-
+                                                                    // eslint-disable-next-line object-shorthand
+                                                                    bill: bill,
+                                                                    billDate: formatTheDate(new Date(), 3)
                                                                 },
                                                                 method: "POST"
 
