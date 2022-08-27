@@ -512,13 +512,25 @@ class billingHistoryTable:
                     ) 
                         """)
 
-    def search(self):
+    def display(self):
         self.cur.execute(f"""
         
                 SELECT * 
                 FROM billingHistory
 
                         """)
+
+    def search(self, bill):
+        self.cur.execute(f"""
+
+                SELECT * 
+                FROM billingHistory 
+                WHERE bill = '{bill}'
+
+                        """)
+        self.record = self.cur.fetchone()
+        return self.record
+
         self.record = self.cur.fetchone()
         return self.record
 

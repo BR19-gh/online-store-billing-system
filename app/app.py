@@ -555,6 +555,60 @@ def billDetails():
         abort(405)
 
 
+
+@app.route("/billingHistory", methods=['POST'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
+def billingHistory():
+    try:
+        print('The ip address: ', get_remote_address())
+        billHisObj = billingHistoryTable()
+
+        if request.method == 'POST':
+
+            data = request.get_json()
+            bill = data['bill']
+            billDate = data['billDate']
+
+            try:
+                result = billHisObj.search(bill)
+                if result == None:
+                    pass
+                else:
+                    return jsonify({"msg": f"Status Code 403: the bill exists", "statCode": 403})
+            except Exception as err:
+                print({"msg":err,"statCode": 400})
+
+            try:
+                billHisObj.insert(bill, billDate)
+
+                recordSearched = billHisObj.search(bill)
+                if (recordSearched[0] == bill):
+                    return jsonify({"msg": f"Success 201: bill is recorded", "statCode": 201})
+            except Exception as err:
+               print({"msg":err,"statCode": 500})
+
+    except Exception as err:
+        print(err)
+
+@app.route("/billingHistory/show", methods=['GET'])
+@limiter.exempt
+def billingHistory_show():
+    billHisObj = billingHistoryTable()
+
+    result = billHisObj.display()
+    dictOfResult = {}
+
+    for i in result:
+        dictOfResult[i[0]] = {'bill': i[0], 'billDate': i[1]}
+
+    if(dictOfResult == {}):
+        return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
+    else:
+        return jsonify(dictOfResult)
+
+
+
+
 @app.route("/billDetails/show", methods=['GET'])
 @limiter.exempt
 def billDetailsGet():

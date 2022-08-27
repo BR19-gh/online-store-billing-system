@@ -1073,6 +1073,7 @@ function firstFetch() {
                                                                             }
 
                                                                             let date;
+                                                                            let billDate;
                                                                             if (
                                                                                 document.querySelector(
                                                                                     "#personalInfoTime"
@@ -1092,6 +1093,13 @@ function firstFetch() {
                                                                                             "#personalInfoTime"
                                                                                         ).value
                                                                                     ), 1
+                                                                                );
+                                                                                billDate = formatTheDate(
+                                                                                    new Date(
+                                                                                        document.querySelector(
+                                                                                            "#personalInfoTime"
+                                                                                        ).value
+                                                                                    ), 3
                                                                                 );
                                                                             }
 
@@ -1300,6 +1308,39 @@ function firstFetch() {
                                                             );
                                                             return;
                                                         }
+
+                                                            fetch("/billingHistory", {
+                                                                headers: {
+
+                                                                    bill,
+                                                                    billDate
+
+                                                                },
+                                                                method: "POST"
+
+                                                            })
+                                                            .then((response) => {
+                                                                return response.json();
+                                                            })
+                                                            .then((responseJson) => {
+                                                                if (responseJson.statCode == 201) {
+                                                                    console.log(
+                                                                        "bill was recorded successfully. \n\n msgCode: 201-main"
+                                                                    );
+                                                                }
+                                                                else {
+                                                                    console.log(
+                                                                        "recording bill failed. \n\n msgCode: 500-main"
+                                                                    );
+                                                                }
+                                                            })
+                                                            .catch((error) => {
+                                                                alert(
+                                                                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 516\n err-fetch-main: billingHistory\n التاريخ: ${formatTheDate(
+                                                              new Date(), 1
+                                                            )}`
+                                                                );
+                                                            });
 
                                                         location.assign(
                                                             `https://wa.me/${phoneNum}?text=${bill}`
