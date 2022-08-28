@@ -195,6 +195,21 @@ function expOrNarPromo(expOrNarPromoKey) {
     }
 }
 
+function expOrNarBillHis(expOrNarBillHisKey) {
+    if (expOrNarBillHisKey == 1) {
+        document.querySelector("#billsList").style.height = "100%";
+        document.querySelector("#billsList").style.overflow = "auto";
+        billsList.childNodes[billsList.childNodes.length - 1].innerHTML =
+            "<div class=\"expOrNar\" id=\"expOrNarBillHis\" onclick=\"expOrNarBillHis(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء الفواتير &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
+        billsList.childNodes[0].innerHTML = "";
+    } else {
+        document.querySelector("#billsList").style.height = "30px";
+        document.querySelector("#billsList").style.overflow = "hidden";
+        billsList.childNodes[0].innerHTML =
+            "<div id=\"expOrNarBillHis\" onclick=\"expOrNarBillHis(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار الفواتير &nbsp;  <i class=\"fas fa-angle-down\"></i></div>";
+    }
+}
+
 function expOrNarInfo(expOrNarInfoKey) {
     if (expOrNarInfoKey == 1) {
         document.querySelector("#infoList").style.height = "100%";
@@ -1174,6 +1189,50 @@ function isExpandedCode(responseJson) {
         "<div class=\"expOrNar\" id=\"expOrNarPromo\" onclick=\"expOrNarPromo(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء القسائم &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
 }
 
+function isNarrowedBillHis(responseJson) {
+    listOfBills = responseJson;
+    document.querySelector("#billsList").innerHTML =
+        "<div id=\"expOrNarBillHis\" onclick=\"expOrNarBillHis(1)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإظهار الفواتير &nbsp;  <i class=\"fas fa-angle-down\"></i></div><div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">التاريخ</b><b class=\"cell\">إجراءات</b></div>";
+    for (let i = 0; i < Object.keys(responseJson).length; i++) {
+        if (i == Object.keys(responseJson).length) {
+            document.querySelector(
+                "#billsList"
+            ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;">
+             <b class="cell">${Object.keys(responseJson)[i]
+        }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].billDate
+        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-search"></i></div>`;
+        }
+        document.querySelector(
+            "#billsList"
+        ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${Object.keys(responseJson)[i]
+        }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].billDate
+        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-search"></i></div></b></div><br><div></div>`;
+    }
+}
+
+function isExpandedBillHis(responseJson) {
+    listOfBills = responseJson;
+
+    document.querySelector("#billsList").innerHTML =
+        "<div></div><div style=\"display: flex; justify-content: space-around; border-bottom: rgba(0,0,0,.125) solid 1px; font-size: 20px\"><b class=\"cell\">الرقم</b><b class=\"cell\">التاريخ</b><b class=\"cell\">إجراءات</b></div>";
+    for (let i = 0; i < Object.keys(responseJson).length; i++) {
+        if (i == Object.keys(responseJson).length) {
+            document.querySelector(
+                "#billsList"
+            ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${Object.keys(responseJson)[i]
+            }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].billDate
+            }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-search"></i></div></b></div>`;
+        }
+        document.querySelector(
+            "#billsList"
+        ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${Object.keys(responseJson)[i]
+        }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].billDate
+        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-search"></i></div></b></div><br><div></div>`;
+    }
+    billsList.childNodes[billsList.childNodes.length - 1].innerHTML =
+        "<div class=\"expOrNar\" id=\"expOrNarBillHis\" onclick=\"expOrNarBillHis(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء الفواتير &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
+}
+
 function fetchPromocodes() {
     fetch("/promocodes", {
             headers: {
@@ -1200,6 +1259,42 @@ function fetchPromocodes() {
             }
             if (codesList.style.height == "30px") isNarrowedCode(responseJson);
             if (codesList.style.height == "100%") isExpandedCode(responseJson);
+        })
+        .catch((error) => {
+            alert(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 515\n err-fetch-admin: products\n التاريخ: ${formatTheDate(
+          new Date(), 1
+        )}`
+            );
+        });
+}
+
+function fetchBillHis() {
+    fetch("/billingHistory/show", {
+            headers: {
+                Method: "GET",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "GET"
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((responseJson) => {
+            console.log(responseJson);
+            if (responseJson.statCode == 204) {
+                billsList.innerHTML = "حدث وانتظر قليلا إذا كانت هناك فواتير";
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert(
+                    "لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 400-admin"
+                );
+                return;
+            }
+            if (billsList.style.height == "30px") isNarrowedBillHis(responseJson);
+            if (billsList.style.height == "100%") isExpandedBillHis(responseJson);
         })
         .catch((error) => {
             alert(
