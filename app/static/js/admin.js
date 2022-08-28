@@ -287,7 +287,12 @@ function deleteOrEditPromo(id, opration) {
 
 function showBill(id) {
     $("#billModal").modal("show");
-    document.querySelector("#billContent").innerHTML = listOfBills[id].bill;
+    document.querySelector("#billContent").innerHTML = `
+                ${(listOfBills[id].bill).replace("%20", /\s/gi)
+                                        .replace("*", /<\/b>/gi)
+                                        .replace("*", /<b>/gi)
+                                        .replace("%0a", /<br>/gi)}
+                                                        `;
 }
 
 function deleteOrEditProd(id, opration) {
