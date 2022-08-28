@@ -289,8 +289,8 @@ function showBill(id) {
     $("#billModal").modal("show");
     document.querySelector("#billContent").innerHTML = `
                 ${(listOfBills[id].bill).replace(/%20/gi, " ")
-                                        .replace(/\*/gi, "<b>")
-                                        .replace(/%0a/gi, "\n")}
+                                        .replace(/\*/gi, "")
+                                        .replace(/%0a/gi, "<br>")}
                                                         `;
     document.querySelector("#billTitle").innerHTML = `تفاصيل الفاتورة رقم ${id}`;
 }
