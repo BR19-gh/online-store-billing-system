@@ -18,7 +18,7 @@
     --webkitScrollbarThumbHover: #797464;
     --infoCard: #d6d6d6a8;
 }
- 
+
 * {
     transition: all 100ms ease-in-out;
 }
@@ -313,7 +313,8 @@ input#storeNum {
 
 .expOrNarInfo:hover,
 #expOrNarPromo:hover,
-#expOrNarProduct:hover {
+#expOrNarProduct:hover,
+#expOrNarBillHis:hover {
     font-weight: bold;
 }
 
