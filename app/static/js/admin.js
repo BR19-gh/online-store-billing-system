@@ -285,6 +285,11 @@ function deleteOrEditPromo(id, opration) {
     }
 }
 
+function showBill(id) {
+    $("#billModal").modal("show");
+    document.querySelector("#billContent").innerHTML = listOfBills[id].bill;
+}
+
 function deleteOrEditProd(id, opration) {
     if (opration == "edit") {
         // show btn
@@ -1118,6 +1123,7 @@ function fetchProducts() {
 // for fetchProducts()
 let listOfProducts;
 let listOfPromos;
+let listOfBills;
 const listOfInfo = {
     name: "name",
     num: "num",
@@ -1202,13 +1208,13 @@ function isNarrowedBillHis(responseJson) {
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;">
              <b class="cell">${Object.keys(responseJson)[i]
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].billDate
-        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-search"></i></div>`;
+        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-eye"></i></div>`;
         }
         document.querySelector(
             "#billsList"
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${Object.keys(responseJson)[i]
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].billDate
-        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-search"></i></div></b></div><br><div></div>`;
+        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-eye"></i></div></b></div><br><div></div>`;
     }
 }
 
@@ -1223,13 +1229,13 @@ function isExpandedBillHis(responseJson) {
                 "#billsList"
             ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${Object.keys(responseJson)[i]
             }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].billDate
-            }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-search"></i></div></b></div>`;
+            }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-eye"></i></div></b></div>`;
         }
         document.querySelector(
             "#billsList"
         ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${Object.keys(responseJson)[i]
         }</b><b class="cell">${responseJson[Object.keys(responseJson)[i]].billDate
-        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-search"></i></div></b></div><br><div></div>`;
+        }</b><b class="cell" style="display:flex;justify-content:space-evenly;"><div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"><i class="fas fa-eye"></i></div></b></div><br><div></div>`;
     }
     billsList.childNodes[billsList.childNodes.length - 1].innerHTML =
         "<div class=\"expOrNar\" id=\"expOrNarBillHis\" onclick=\"expOrNarBillHis(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء الفواتير &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
