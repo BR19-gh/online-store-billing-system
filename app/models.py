@@ -495,7 +495,12 @@ class StoreCustomTable:
     def __del__(self):
         self.conn.close()
 
-
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#conn = sqlite3.connect("spdb.db")
+cur = conn.cursor(cursor_factory=ext.DictCursor)
+cur.execute("DROP TABLE billingHistory;")
+print("#####################################\nbillingHistory deleted\n#####################################")
+conn.commit()
 
 class billingHistoryTable:
 
