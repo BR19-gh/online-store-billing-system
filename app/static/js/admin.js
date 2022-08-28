@@ -292,6 +292,7 @@ function showBill(id) {
                                         .replace("*", /<b>/gi)
                                         .replace("%0a", /<br>/gi)}
                                                         `;
+    document.querySelector("#billTitle").innerHTML = `تفاصيل الفاتورة رقم ${id}`;
 }
 
 function deleteOrEditProd(id, opration) {
