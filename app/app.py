@@ -39,6 +39,12 @@ limiter = Limiter(
 ###### Configs END ######
 #########################
 
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#conn = sqlite3.connect("spdb.db")
+cur = conn.cursor(cursor_factory=ext.DictCursor)
+cur.execute("DROP TABLE billingHistory;")
+print("#####################################\nbillingHistory deleted\n#####################################")
+conn.commit()
 
 ####################
 ###### Routes ######

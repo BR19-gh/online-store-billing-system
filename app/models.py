@@ -507,8 +507,9 @@ class billingHistoryTable:
 
                 CREATE TABLE IF NOT EXISTS billingHistory
                     (
-                        bill TEXT,
-                        billDate TEXT
+                        id INTEGER NOT NULL,
+                        bill TEXT NOT NULL,
+                        billDate TEXT NOT NULL
                     ) 
                         """)
 
@@ -521,7 +522,7 @@ class billingHistoryTable:
                         """)
         self.records = self.cur.fetchall()
         return self.records
-        
+
     def search(self, bill):
         self.cur.execute(f"""
 
