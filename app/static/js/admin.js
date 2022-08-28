@@ -420,6 +420,8 @@ function firstFetches() {
     fetchProducts();
 
     fetchPromocodes();
+
+    fetchBillHis();
 }
 
 firstFetches();
