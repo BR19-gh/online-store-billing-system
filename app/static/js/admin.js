@@ -288,9 +288,9 @@ function deleteOrEditPromo(id, opration) {
 function showBill(id) {
     $("#billModal").modal("show");
     document.querySelector("#billContent").innerHTML = `
-                ${(listOfBills[id].bill).replace("%20", /\s/gi)
-                                        .replace("*", /<b>/gi)
-                                        .replace("%0a", /<br>/gi)}
+                ${(listOfBills[id].bill).replace("%20", /\s/)
+                                        .replace("*", /<b>/)
+                                        .replace("%0a", /<br>/)}
                                                         `;
     document.querySelector("#billTitle").innerHTML = `تفاصيل الفاتورة رقم ${id}`;
 }
