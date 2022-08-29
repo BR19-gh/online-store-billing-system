@@ -1051,8 +1051,11 @@ function firstFetch() {
 
                                                                             let titles;
                                                                             let prices;
-                                                                            let personalInfoOutput =
-                                                                                "";
+                                                                            let personalInfoOutput = "";
+                                                                            const nowDate = new Date();
+                                                                            const billDate = formatTheDate(nowDate, 3);
+                                                                            const billId = `${formatTheDate(nowDate, "id")}${Math.floor(Math.random() * 999) + 100}`;
+                                                                            const billInfo = `تاريخ الفاتورة: ${formatTheDate(nowDate, 1)}%0aرقم الفاتورة: ${billId}`;
                                                                             const personalInfo = {};
                                                                             if (
                                                                                 theCurrentDiscount ==
@@ -1254,6 +1257,10 @@ function firstFetch() {
                                                         bill =
                                                             `فاتورة متجر ${data3.storeName}` +
                                                             "%0a%0a" +
+                                                            "معلومات الفاتورة:" +
+                                                            "%0a" +
+                                                            billInfo +
+                                                            "%0a%0a" +
                                                             "معلومات الزبون:" +
                                                             "%0a" +
                                                             personalInfoOutput +
@@ -1312,7 +1319,7 @@ function firstFetch() {
                                                                 body: JSON.stringify({
                                                                     // eslint-disable-next-line object-shorthand
                                                                     bill: bill,
-                                                                    billDate: formatTheDate(new Date(), 3)
+                                                                    billDate: billDate
                                                                 })
 
                                                             })
@@ -1413,6 +1420,10 @@ function formatTheDate(date, typeOfFormat) {
     } else if (typeOfFormat == 3) {
         const strTime =
             year + "-" + month + "-" + day + "T" + hours24 + ":" + minutes + ":" + seconds;
+        return strTime;
+    } else if (typeOfFormat == "id") {
+        const strTime =
+            `${month}${day}${hours24}${minutes}${seconds}`;
         return strTime;
     } else {
         const strTime =

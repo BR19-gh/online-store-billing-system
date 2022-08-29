@@ -495,12 +495,7 @@ class StoreCustomTable:
     def __del__(self):
         self.conn.close()
 
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-#conn = sqlite3.connect("spdb.db")
-cur = conn.cursor(cursor_factory=ext.DictCursor)
-cur.execute("DROP TABLE billingHistory;")
-print("#####################################\nbillingHistory deleted\n#####################################")
-conn.commit()
+
 
 class billingHistoryTable:
 
@@ -539,21 +534,21 @@ class billingHistoryTable:
         self.record = self.cur.fetchone()
         return self.record
 
-        self.record = self.cur.fetchone()
-        return self.record
 
-    def insert(self, bill, billDate):
+    def insert(self, id, bill, billDate):
         if (bill == ""):
             raise Exception("One of the entries is empty")
         self.cur.execute(f"""
 
                  INSERT INTO billingHistory 
                              (
+                                 id,
                                  bill,
                                  billDate
                              ) 
                  VALUES 
                              (
+                        '{id}',
                         '{bill}',
                         '{billDate}'
                              );

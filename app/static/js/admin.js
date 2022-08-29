@@ -2605,6 +2605,10 @@ function formatTheDate(date, typeOfFormat) {
         const strTime =
             year + "-" + month + "-" + day + "T" + hours24 + ":" + minutes + ":" + seconds;
         return strTime;
+    } else if (typeOfFormat == "id") {
+        const strTime =
+            `${month}${day}${hours24}${minutes}${seconds}`;
+        return strTime;
     } else {
         const strTime =
             year + "-" + month + "-" + day;

@@ -248,7 +248,7 @@ def products():
     dictOfResult = {k: dictOfResult[k] for k in newIndex}
 
     if(dictOfResult == {}):
-        return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
+        return jsonify({"msg": f"No Content 204: There is no content to get.", "statCode": 204})
     else:
         return jsonify(dictOfResult)
 
@@ -378,7 +378,7 @@ def promocodes():
     dictOfResult = {k: dictOfResult[k] for k in newIndex}
 
     if(dictOfResult == {}):
-        return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
+        return jsonify({"msg": f"No Content 204: There is no content to get.", "statCode": 204})
     else:
         return jsonify(dictOfResult)
 
@@ -566,6 +566,7 @@ def billingHistory():
         if request.method == 'POST':
 
             data = request.get_json()
+            id = data['id']
             bill = data['bill']
             billDate = data['billDate']
 
@@ -579,7 +580,7 @@ def billingHistory():
                 print({"msg":err,"statCode": 400})
 
             try:
-                billHisObj.insert(bill, billDate)
+                billHisObj.insert(id, bill, billDate)
 
                 recordSearched = billHisObj.search(bill)
                 if (recordSearched[0] == bill):
@@ -598,13 +599,12 @@ def billingHistory_show():
     result = billHisObj.display()
    
     dictOfResult = {}
-    count = 0
+
     for i in result:
-        dictOfResult[count] = {'bill': i[0], 'billDate': i[1]}
-        count += 1
+        dictOfResult[i[0]] = {'bill': i[1], 'billDate': i[2]}
 
     if dictOfResult == {} :
-        return jsonify({"msg": f"No Content 204: There is no content to get from", "statCode": 204})
+        return jsonify({"msg": f"No Content 204: There is no content to get.", "statCode": 204})
     else:
         return jsonify(dictOfResult)
 
