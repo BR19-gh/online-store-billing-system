@@ -577,7 +577,7 @@ def billingHistory():
                 else:
                     return jsonify({"msg": f"Status Code 403: the bill exists", "statCode": 403})
             except Exception as err:
-                print({"msg":err,"statCode": 400})
+                return jsonify({"msg":err,"statCode": 400})
 
             try:
                 billHisObj.insert(id, bill, billDate)
@@ -586,10 +586,10 @@ def billingHistory():
                 if (recordSearched[0] == bill):
                     return jsonify({"msg": f"Success 201: bill is recorded", "statCode": 201})
             except Exception as err:
-               print({"msg":err,"statCode": 500})
+               return jsonify({"msg":err,"statCode": 500})
 
     except Exception as err:
-        print(err)
+        return jsonify({"msg":err,"statCode": 500})
 
 @app.route("/billingHistory/show", methods=['GET'])
 @limiter.exempt
@@ -803,12 +803,12 @@ def ratelimit_handler(e):
 ##### Play Ground ######
 ########################
 
-# def exexuteSql(sql):
-#     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-#     #conn = sqlite3.connect("spdb.db")
-#     cur = conn.cursor(cursor_factory=ext.DictCursor)
-#     cur.execute(sql)
-#     conn.commit()
+def exexuteSql(sql):
+    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    #conn = sqlite3.connect("spdb.db")
+    cur = conn.cursor(cursor_factory=ext.DictCursor)
+    cur.execute(sql)
+    conn.commit()
 
 # @app.route("/playground/on/1", methods=['POST'])
 # def playground1():
@@ -819,14 +819,14 @@ def ratelimit_handler(e):
 #     except Exception as err:
 #         return jsonify(f"ERR {err}: coudn't playground ({sql})")
 
-# @app.route("/playground/on/2", methods=['POST'])
-# def playground2():
-#     sql="ALTER TABLE promocodes ALTER COLUMN exp TYPE TEXT;"
-#     try:
-#         exexuteSql(sql)
-#         return jsonify(f"OK: ({sql}) was done successfully.")
-#     except Exception as err:
-#         return jsonify(f"ERR {err}: coudn't playground ({sql})")
+@app.route("/playground/on/2", methods=['POST'])
+def playground2():
+    sql="ALTER TABLE billingHistory ALTER COLUMN id TYPE TEXT;"
+    try:
+        exexuteSql(sql)
+        return jsonify(f"OK: ({sql}) was done successfully.")
+    except Exception as err:
+        return jsonify(f"ERR {err}: coudn't playground ({sql})")
 
 ############################
 ##### Play Ground End ######
