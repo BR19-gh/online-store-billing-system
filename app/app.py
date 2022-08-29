@@ -577,7 +577,7 @@ def billingHistory():
                 else:
                     return jsonify({"msg": f"Status Code 403: the bill exists", "statCode": 403})
             except Exception as err:
-                return jsonify({"msg":err,"statCode": 400})
+                print({"msg":err,"statCode": 400})
 
             try:
                 billHisObj.insert(id, bill, billDate)
@@ -586,10 +586,10 @@ def billingHistory():
                 if (recordSearched[0] == bill):
                     return jsonify({"msg": f"Success 201: bill is recorded", "statCode": 201})
             except Exception as err:
-               return jsonify({"msg":err,"statCode": 500})
+               print({"msg":err,"statCode": 500})
 
     except Exception as err:
-        return jsonify({"msg":err,"statCode": 500})
+        print(err)
 
 @app.route("/billingHistory/show", methods=['GET'])
 @limiter.exempt
