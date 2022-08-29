@@ -602,7 +602,7 @@ def billingHistory_show():
     count = 0
     for i in result:
         dictOfResult[count] = {'billId': i[0], 'bill': i[1], 'billDate': i[2]}
-        count =+ 1
+        count += 1
 
     if dictOfResult == {} :
         return jsonify({"msg": f"No Content 204: There is no content to get.", "statCode": 204})
