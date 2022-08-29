@@ -556,7 +556,7 @@ def billDetails():
 
 
 
-@app.route("/billingHistory", methods=['POST'])
+@app.route("/billingHistory", methods=['POST', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def billingHistory():
     try:
@@ -593,7 +593,6 @@ def billingHistory():
             
             data = request.get_json()
             id = data['billId']
-            print("######################## ",id)
 
             try:
                 result = billHisObj.searchId(id)
