@@ -120,7 +120,7 @@ def product(idIn=None):
                 if result == None:
                     pass
                 else:
-                    return jsonify({"msg": f"Status Code 403: the product_id:{id} exists", "statCode": 403})
+                    return jsonify({"msg": f"Status Code 403: the product of id:{id} exists", "statCode": 403})
             except Exception as err:
                 print(err)
                 if (isinstance(id, int) == False):
@@ -134,13 +134,13 @@ def product(idIn=None):
 
                 recordSearched = productObj.search(id)
                 if (recordSearched[0] == int(id)):
-                    return jsonify({"msg": f"Success 201: product_id:{id} is recorded, the id matches {(productObj.search(id))[0]}", "statCode": 201})
+                    return jsonify({"msg": f"Success 201: product of id:{id} is recorded, the id matches {(productObj.search(id))[0]}", "statCode": 201})
             except Exception as err:
                 print(err)
                 if (isinstance(id, int) == False or isinstance(price, int) == False):
                     return jsonify({"msg": f"Bad Request 400: product was not added, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
                 else:
-                    return jsonify({"msg": f"Unkown Error 500: product_id:{id} was not recorded, the id doesn't match {(productObj.search(id))[0]}", "statCode": 500})
+                    return jsonify({"msg": f"Unkown Error 500: product of id:{id} was not recorded, the id doesn't match {(productObj.search(id))[0]}", "statCode": 500})
 
         elif request.method == 'PUT':
 
@@ -155,15 +155,15 @@ def product(idIn=None):
 
                 recordSearched = productObj.search(idIn)
                 if recordSearched == None:
-                    return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
+                    return jsonify({"msg": f"Error 404: product of idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
                 else:
-                    return jsonify({"msg": f"Success 200: product_idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 200})
+                    return jsonify({"msg": f"Success 200: product of idIn:{idIn} is updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 200})
             except Exception as err:
                 print(err)
                 if (isinstance(idIn, int) == False or isinstance(price, int) == False):
                     return jsonify({"msg": f"Bad Request 400: product was not updated, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
                 else:
-                    return jsonify({"msg": f"Unkown Error 500: product_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 500})
+                    return jsonify({"msg": f"Unkown Error 500: product of idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 500})
 
         elif request.method == 'GET':
 
@@ -171,13 +171,13 @@ def product(idIn=None):
                 result = productObj.search(idIn)
 
                 if result == None:
-                    return jsonify({"msg": f"Success 202: the product_idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
+                    return jsonify({"msg": f"Success 202: the product of idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
                 else:
-                    return jsonify({"msg": f"Status Code 403: the product_idIn {idIn} exists, {productObj.search(idIn)[0::2]}", "statCode": 403})
+                    return jsonify({"msg": f"Status Code 403: the product of idIn {idIn} exists, {productObj.search(idIn)[0::2]}", "statCode": 403})
             except Exception as err:
                 print(err)
                 if (isinstance(idIn, int) == False):
-                    return jsonify({"msg": f"Bad Request 400:  product_idIn is not integer, or it contains illegal form of characters", "statCode": 400})
+                    return jsonify({"msg": f"Bad Request 400:  product of idIn is not integer, or it contains illegal form of characters", "statCode": 400})
 
         elif request.method == 'DELETE':
 
@@ -185,20 +185,20 @@ def product(idIn=None):
                 result = productObj.search(idIn)
 
                 if result == None:
-                    return jsonify({"msg": f"Error 404: product_idIn:{idIn} was not found, it may not exist", "statCode": 404})
+                    return jsonify({"msg": f"Error 404: product of idIn:{idIn} was not found, it may not exist", "statCode": 404})
             except Exception as err:
                 print(err)
                 if (isinstance(idIn, int) == False):
-                    return jsonify({"msg": f"Bad Request 400:  product_idIn is not integer, or it contains illegal form of characters", "statCode": 400})
+                    return jsonify({"msg": f"Bad Request 400:  product of idIn is not integer, or it contains illegal form of characters", "statCode": 400})
 
             productObj.delete(idIn)
 
             result = productObj.search(idIn)
 
             if result == None:
-                return jsonify({"msg": f"Success 204: product_idIn:{idIn} is deleted successfully, product_idIn:{idIn} doesn't exist anymore", "statCode": 204})
+                return jsonify({"msg": f"Success 204: product of idIn:{idIn} is deleted successfully, product of idIn:{idIn} doesn't exist anymore", "statCode": 204})
             else:
-                return jsonify({"msg": f"Error 500: failed to delete product_idIn:{idIn}, product_idIn:{idIn} still exists", "statCode": 500})
+                return jsonify({"msg": f"Error 500: failed to delete product of idIn:{idIn}, product of idIn:{idIn} still exists", "statCode": 500})
     except Exception as err:
         print(err)
 
@@ -217,15 +217,15 @@ def productImageUpdate(idIn=None):
 
             recordSearched = productObj.search(idIn)
             if recordSearched == None:
-                return jsonify({"msg": f"Error 404: product_idIn:{idIn} image was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
+                return jsonify({"msg": f"Error 404: product of idIn:{idIn} image was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
             else:
-                return jsonify({"msg": f"Success 200: product_idIn:{idIn} image is updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 200})
+                return jsonify({"msg": f"Success 200: product of idIn:{idIn} image is updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 200})
         except Exception as err:
             print(err)
             if (isinstance(idIn, int) == False):
                 return jsonify({"msg": f"Bad Request 400: product image was not updated, even the provided id is not integer, or it contains illegal form of characters", "statCode": 400})
             else:
-                return jsonify({"msg": f"Unkown Error 500: product_idIn:{idIn} image was not updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 500})
+                return jsonify({"msg": f"Unkown Error 500: product of idIn:{idIn} image was not updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 500})
     except Exception as err:
         print(err)    
 
@@ -278,7 +278,7 @@ def promocode(idIn=None):
                 if result == None:
                     pass
                 else:
-                    return jsonify({"msg": f"Status Code 403: the product_id:{id} exists", "statCode": 403})
+                    return jsonify({"msg": f"Status Code 403: the product of id:{id} exists", "statCode": 403})
             except Exception as err:
                 print(err)
                 if (isinstance(id, int) == False):
@@ -289,13 +289,13 @@ def promocode(idIn=None):
 
                 recordSearched = promoObj.search(id)
                 if (recordSearched[0] == int(id)):
-                    return jsonify({"msg": f"Success 201: code_id:{id} is recorded, the id matches {(promoObj.search(id))[0]}", "statCode": 201})
+                    return jsonify({"msg": f"Success 201: code of id:{id} is recorded, the id matches {(promoObj.search(id))[0]}", "statCode": 201})
             except Exception as err:
                 print(err)
                 if (isinstance(id, int) == False or isinstance(amount, float) == False):
                     return jsonify({"msg": f"Bad Request 400: code was not added, even the provided id or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
                 else:
-                    return jsonify({"msg": f"Unkown Error 500: code_id:{id} was not recorded, the id doesn't match {(promoObj.search(id))[0]}", "statCode": 500})
+                    return jsonify({"msg": f"Unkown Error 500: code of id:{id} was not recorded, the id doesn't match {(promoObj.search(id))[0]}", "statCode": 500})
 
         elif request.method == 'PUT':
 
@@ -316,15 +316,15 @@ def promocode(idIn=None):
 
                 recordSearched = promoObj.search(idIn)
                 if recordSearched == None:
-                    return jsonify({"msg": f"Error 404: code_idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
+                    return jsonify({"msg": f"Error 404: code of idIn:{idIn} was not updated because they didn't have a record before (maybe first time adding?) ", "statCode": 404})
                 else:
-                    return jsonify({"msg": f"Success 200: code_idIn::{idIn} is updated, old data:{oldPrudRecord}, new data:{promoObj.search(idIn)}", "statCode": 200})
+                    return jsonify({"msg": f"Success 200: code of idIn::{idIn} is updated, old data:{oldPrudRecord}, new data:{promoObj.search(idIn)}", "statCode": 200})
             except Exception as err:
                 print(err)
                 if (isinstance(idIn, int) == False or isinstance(amount, float) == False):
                     return jsonify({"msg": f"Bad Request 400: code was not updated, even the provided idIn or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
                 else:
-                    return jsonify({"msg": f"Unkown Error 500: code_idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{promoObj.search(idIn)}", "statCode": 500})
+                    return jsonify({"msg": f"Unkown Error 500: code of idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{promoObj.search(idIn)}", "statCode": 500})
 
         elif request.method == 'GET':
 
@@ -332,13 +332,13 @@ def promocode(idIn=None):
                 result = promoObj.search(idIn)
 
                 if result == None:
-                    return jsonify({"msg": f"Success 202: the promocode_idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
+                    return jsonify({"msg": f"Success 202: the promocode of idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
                 else:
-                    return jsonify({"msg": f"Status Code 403: the promocode_idIn {idIn} exists, {promoObj.search(idIn)[0::2]}", "statCode": 403})
+                    return jsonify({"msg": f"Status Code 403: the promocode of idIn {idIn} exists, {promoObj.search(idIn)[0::2]}", "statCode": 403})
             except Exception as err:
                 print(err)
                 if (isinstance(idIn, int) == False):
-                    return jsonify({"msg": f"Bad Request 400:  promocode_idIn is not integer, or it contains illegal form of characters", "statCode": 400})
+                    return jsonify({"msg": f"Bad Request 400:  promocode of idIn is not integer, or it contains illegal form of characters", "statCode": 400})
 
         elif request.method == 'DELETE':
 
@@ -346,20 +346,20 @@ def promocode(idIn=None):
                 result = promoObj.search(idIn)
 
                 if result == None:
-                    return jsonify({"msg": f"Error 404: promocode_idIn:{idIn} was not found, it may not exist", "statCode": 404})
+                    return jsonify({"msg": f"Error 404: promocode of idIn:{idIn} was not found, it may not exist", "statCode": 404})
             except Exception as err:
                 print(err)
                 if (isinstance(idIn, int) == False):
-                    return jsonify({"msg": f"Bad Request 400:  promocode_idIn is not integer, or it contains illegal form of characters", "statCode": 400})
+                    return jsonify({"msg": f"Bad Request 400:  promocode of idIn is not integer, or it contains illegal form of characters", "statCode": 400})
 
             promoObj.delete(idIn)
 
             result = promoObj.search(idIn)
 
             if result == None:
-                return jsonify({"msg": f"Success 204: code_idIn:{idIn} is deleted successfully, code_idIn:{idIn} doesn't exist anymore", "statCode": 204})
+                return jsonify({"msg": f"Success 204: code of idIn:{idIn} is deleted successfully, code of idIn:{idIn} doesn't exist anymore", "statCode": 204})
             else:
-                return jsonify({"msg": f"Error 500: failed to delete code_idIn:{idIn}, code_idIn:{idIn} still exists", "statCode": 500})
+                return jsonify({"msg": f"Error 500: failed to delete code of idIn:{idIn}, code of idIn:{idIn} still exists", "statCode": 500})
     except Exception as err:
         print(err)
 
@@ -587,6 +587,34 @@ def billingHistory():
                     return jsonify({"msg": f"Success 201: bill is recorded", "statCode": 201})
             except Exception as err:
                return jsonify({"msg":err,"statCode": 500})
+        
+        elif request.method == 'DELETE':
+
+            
+            data = request.get_json()
+            id = data['billId']
+
+            try:
+                result = billHisObj.searchId(id)
+
+                if result == None:
+                    return jsonify({"msg": f"Error 404: billId:{id} was not found, it may not exist", "statCode": 404})
+            except Exception as err:
+                print(err)
+                if (isinstance(id, int) == False):
+                    return jsonify({"msg": f"Bad Request 400:  billId is not integer, or it contains illegal form of characters", "statCode": 400})
+
+            billHisObj.delete(id)
+
+            result = billHisObj.searchId(id)
+
+            if result == None:
+                return jsonify({"msg": f"Success 204: bill of id:{id} is deleted successfully, bill of id:{id} doesn't exist anymore", "statCode": 204})
+            else:
+                return jsonify({"msg": f"Error 500: failed to delete bill of id:{id}, bill of id:{id} still exists", "statCode": 500})
+    
+
+
 
     except Exception as err:
         return jsonify({"msg":err,"statCode": 500})

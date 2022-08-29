@@ -287,12 +287,26 @@ function deleteOrEditPromo(id, opration) {
 
 function showBill(count) {
     $("#billModal").modal("show");
+
+    document.querySelector("#delBillBtn").innerHTML = "";
     document.querySelector("#billContent").innerHTML = `
                 ${(listOfBills[count].bill).replace(/%20/gi, " ")
                                         .replace(/\*/gi, "")
                                         .replace(/%0a/gi, "<br>")}
                                                        `;
     document.querySelector("#billTitle").innerHTML = `تفاصيل الفاتورة رقم ${listOfBills[count].billId}`;
+}
+
+function showBillForDel(count) {
+    $("#billModal").modal("show");
+
+    document.querySelector("#delBillBtn").innerHTML = `<a data-bs-dismiss="modal" onclick="delBill(${listOfBills[count].billId})" id="delProd" class="card-link">حــذف <i class="fas fa-trash-alt"></i></a>`;
+    document.querySelector("#billContent").innerHTML = `
+                ${(listOfBills[count].bill).replace(/%20/gi, " ")
+                                        .replace(/\*/gi, "")
+                                        .replace(/%0a/gi, "<br>")}
+                                                       `;
+    document.querySelector("#billTitle").innerHTML = `هل أنت متأكد من حذف الفاتورة رقم ${listOfBills[count].billId}؟`;
 }
 
 function deleteOrEditProd(id, opration) {
@@ -1156,11 +1170,11 @@ function isNarrowedBillHis(responseJson) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
                 "#billsList"
-            ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"> <b class="cell" style="font-size: 14px;">${Object.keys(responseJson)[i]}</b> <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b> <b class="cell" style="display:flex;justify-content:space-evenly;"> <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"> <i class="fas fa-eye"></i> </div> </div>`;
+            ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"> <b class="cell" style="font-size: 12px;">${Object.keys(responseJson)[i]}</b> <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b> <b class="cell" style="display:flex;justify-content:space-evenly;"> <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"> <i class="fas fa-eye"></i> </div> | <div data-bs-toggle="modal" data-bs-target="#billModal" title="حذف" onclick="showBillForDell(${Object.keys(responseJson)[i]})"> <i class="fas fa-trash-alt"></i> </div> </b> </div>`;
         }
         document.querySelector(
             "#billsList"
-        ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell" style="font-size: 14px;">${responseJson[Object.keys(responseJson)[i]].billId}</b> <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b> <b class="cell" style="display:flex;justify-content:space-evenly;"> <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"> <i class="fas fa-eye"></i> </div> </b> </div><br><div></div>`;
+        ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell" style="font-size: 12px;">${responseJson[Object.keys(responseJson)[i]].billId}</b> <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b> <b class="cell" style="display:flex;justify-content:space-evenly;"> <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"> <i class="fas fa-eye"></i> </div> | <div data-bs-toggle="modal" data-bs-target="#billModal" title="حذف" onclick="showBillForDell(${Object.keys(responseJson)[i]})"> <i class="fas fa-trash-alt"></i> </div> </b> </div><br><div></div>`;
     }
 }
 
@@ -1173,11 +1187,11 @@ function isExpandedBillHis(responseJson) {
         if (i == Object.keys(responseJson).length) {
             document.querySelector(
                 "#billsList"
-            ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"> <b class="cell" style="font-size: 14px;">${Object.keys(responseJson)[i]}</b> <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b> <b class="cell" style="display:flex;justify-content:space-evenly;"> <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"> <i class="fas fa-eye"></i> </div> </div>`;
+            ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"> <b class="cell" style="font-size: 12px;">${Object.keys(responseJson)[i]}</b> <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b> <b class="cell" style="display:flex;justify-content:space-evenly;"> <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"> <i class="fas fa-eye"></i> </div> | <div data-bs-toggle="modal" data-bs-target="#billModal" title="حذف" onclick="showBillForDell(${Object.keys(responseJson)[i]})"> <i class="fas fa-trash-alt"></i> </div> </b> </div>`;
         }
         document.querySelector(
             "#billsList"
-        ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell" style="font-size: 14px;">${responseJson[Object.keys(responseJson)[i]].billId}</b> <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b> <b class="cell" style="display:flex;justify-content:space-evenly;"> <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"> <i class="fas fa-eye"></i> </div> </b> </div><br><div></div>`;
+        ).innerHTML += `<div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell" style="font-size: 12px;">${responseJson[Object.keys(responseJson)[i]].billId}</b> <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b> <b class="cell" style="display:flex;justify-content:space-evenly;"> <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})"> <i class="fas fa-eye"></i> </div> | <div data-bs-toggle="modal" data-bs-target="#billModal" title="حذف" onclick="showBillForDell(${Object.keys(responseJson)[i]})"> <i class="fas fa-trash-alt"></i> </div> </b> </div><br><div></div>`;
     }
     billsList.childNodes[billsList.childNodes.length - 1].innerHTML =
         "<div class=\"expOrNar\" id=\"expOrNarBillHis\" onclick=\"expOrNarBillHis(0)\" style=\"cursor: pointer; display: flex; justify-content: center; font-size: 20px\">اضغط لإخفاء الفواتير &nbsp;  <i class=\"fas fa-angle-up\"></i></div>";
@@ -2248,6 +2262,54 @@ document.querySelector("#updInfo").addEventListener("click", () => {
     };
 });
 
+const delBill = (id) => {
+    fetch("/billingHistory", {
+            headers: {
+                Method: "DELETE",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "DELETE",
+            body: JSON.stringify({
+                billId: id
+            })
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((responseJson) => {
+            if (responseJson.statCode == 204) {
+                alert(
+                    `تم حذف الفاتورة رقم ${id} بنجاح، إنتظر قليلا وستظهر التحديثات`
+                );
+                return;
+            }
+            if (responseJson.statCode == 404) {
+                alert(
+                    "هناك خطأ ما.\n الرجاء التواصل مع المطور إن استمرت المشكلة\n\n ErrCode: 404-admin-billingHistory"
+                );
+                return;
+            }
+            if (responseJson.statCode == 400) {
+                alert(
+                    "هناك خطأ ما.\n الرجاء التواصل مع المطور إن استمرت المشكلة\n\n ErrCode: 400-admin-billingHistory"
+                );
+                return;
+            }
+            if (responseJson.statCode == 500) {
+                alert(
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 535-admin-billingHistory"
+                );
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert(
+                    "لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin-billingHistory"
+                );
+            }
+        });
+};
+
 const countriesCodes = {
     SA: {
         code: "SA",
@@ -2400,9 +2462,9 @@ function findHowMuchToSliceByNumber(text) {
 
 function formatTheDate(date, typeOfFormat) {
     let hours12 = date.getHours();
-    const hours24 = hours12;
+    let hours24 = hours12;
     let minutes = date.getMinutes();
-    const seconds = date.getSeconds();
+    let seconds = date.getSeconds();
     const ampm = hours12 >= 12 ? "م" : "ص";
     hours12 = hours12 % 12;
     hours12 = hours12 || 12;
@@ -2411,7 +2473,9 @@ function formatTheDate(date, typeOfFormat) {
     month = Number(month) + 1 < 10 ? "0" + (Number(month) + 1) : Number(month) + 1;
     let day = date.getDate();
     hours12 = hours12 < 10 ? "0" + hours12 : hours12;
+    hours24 = hours24 < 10 ? "0" + hours24 : hours24;
     minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
     day = day < 10 ? "0" + day : day;
     if (isNaN(year) == true) {
         return null;

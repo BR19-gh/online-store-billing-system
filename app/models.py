@@ -531,6 +531,15 @@ class billingHistoryTable:
                 WHERE bill = '{bill}'
 
                         """)
+
+    def searchId(self, id):
+        self.cur.execute(f"""
+
+                SELECT * 
+                FROM billingHistory 
+                WHERE id = '{id}'
+
+                        """)
         self.record = self.cur.fetchone()
         return self.record
 
@@ -555,6 +564,16 @@ class billingHistoryTable:
         
                        """)
         self.conn.commit()
+
+    def delete(self, id):
+        if (id == None):
+            raise Exception("You have to select an id to delete its values")
+        self.cur.execute(f"""
+
+                DELETE FROM billingHistory 
+                WHERE id = '{id}'
+        
+                        """)
 
     def __del__(self):
         self.conn.close()

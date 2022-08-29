@@ -1398,9 +1398,9 @@ firstFetch();
 
 function formatTheDate(date, typeOfFormat) {
     let hours12 = date.getHours();
-    const hours24 = hours12;
+    let hours24 = hours12;
     let minutes = date.getMinutes();
-    const seconds = date.getSeconds();
+    let seconds = date.getSeconds();
     const ampm = hours12 >= 12 ? "م" : "ص";
     hours12 = hours12 % 12;
     hours12 = hours12 || 12;
@@ -1409,7 +1409,9 @@ function formatTheDate(date, typeOfFormat) {
     month = Number(month) + 1 < 10 ? "0" + (Number(month) + 1) : Number(month) + 1;
     let day = date.getDate();
     hours12 = hours12 < 10 ? "0" + hours12 : hours12;
+    hours24 = hours24 < 10 ? "0" + hours24 : hours24;
     minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
     day = day < 10 ? "0" + day : day;
     if (isNaN(year) == true) {
         return null;
