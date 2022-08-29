@@ -1318,6 +1318,7 @@ function firstFetch() {
                                                                 method: "POST",
                                                                 body: JSON.stringify({
                                                                     // eslint-disable-next-line object-shorthand
+                                                                    billId: billId,
                                                                     bill: bill,
                                                                     billDate: billDate
                                                                 })

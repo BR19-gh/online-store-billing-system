@@ -566,7 +566,7 @@ def billingHistory():
         if request.method == 'POST':
 
             data = request.get_json()
-            id = data['id']
+            id = data['billId']
             bill = data['bill']
             billDate = data['billDate']
 
