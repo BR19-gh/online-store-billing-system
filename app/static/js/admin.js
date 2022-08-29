@@ -2264,6 +2264,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
 
 const delBill = (id) => {
     console.log(typeof id);
+    console.log(id);
     // fetch("/billingHistory", {
     //         headers: {
     //             Method: "DELETE",
