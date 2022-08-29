@@ -300,7 +300,7 @@ function showBill(count) {
 function showBillForDel(count) {
     $("#billModal").modal("show");
 
-    document.querySelector("#delBillBtn").innerHTML = `<a data-bs-dismiss="modal" onclick="delBill(${listOfBills[count].billId})" id="delProd" class="card-link">حــذف <i class="fas fa-trash-alt"></i></a>`;
+    document.querySelector("#delBillBtn").innerHTML = `<a data-bs-dismiss="modal" onclick="delBill('${listOfBills[count].billId}')" id="delProd" class="card-link">حــذف <i class="fas fa-trash-alt"></i></a>`;
     document.querySelector("#billContent").innerHTML = `
                 ${(listOfBills[count].bill).replace(/%20/gi, " ")
                                         .replace(/\*/gi, "")
