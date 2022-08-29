@@ -1070,9 +1070,7 @@ function isNarrowed(responseJson) {
                     <i class="fas fa-trash-alt"></i>
                 </div>
             </b>
-        </div>
-        <br>
-        <div></div>
+        </div><br><div></div>
                         `;
     }
 }
@@ -1124,9 +1122,7 @@ function isExpanded(responseJson) {
                     <i class="fas fa-trash-alt"></i>
                 </div>
             </b>
-        </div>
-        <br>
-        <div></div>
+        </div><br><div></div>
                     `;
     }
     productsList.childNodes[productsList.childNodes.length - 1].innerHTML =
@@ -1230,9 +1226,7 @@ function isNarrowedCode(responseJson) {
                     <i class="fas fa-trash-alt"></i>
                 </div>
                 </b>
-        </div>
-        <br>
-        <div></div>
+        </div><br><div></div>
                         `;
     }
 }
@@ -1280,9 +1274,7 @@ function isExpandedCode(responseJson) {
                         <i class="fas fa-trash-alt"></i>
                     </div>
                     </b>
-            </div>
-            <br>
-            <div></div>
+            </div><br><div></div>
                     `;
     }
     codesList.childNodes[codesList.childNodes.length - 1].innerHTML =
@@ -1318,9 +1310,7 @@ function isNarrowedBillHis(responseJson) {
                     <i class="fas fa-eye"></i>
                 </div>
             </b>
-        </div>
-        <br>
-        <div></div>
+        </div><br><div></div>
                         `;
     }
 }
@@ -1355,9 +1345,7 @@ function isExpandedBillHis(responseJson) {
                         <i class="fas fa-eye"></i>
                     </div>
                 </b>
-            </div>
-            <br>
-            <div></div>
+            </div><br><div></div>
                             `;
     }
     billsList.childNodes[billsList.childNodes.length - 1].innerHTML =
