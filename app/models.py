@@ -507,7 +507,7 @@ class billingHistoryTable:
 
                 CREATE TABLE IF NOT EXISTS billingHistory
                     (
-                        id INTEGER NOT NULL,
+                        id BIGINT NOT NULL,
                         bill TEXT NOT NULL,
                         billDate TEXT NOT NULL
                     ) 
