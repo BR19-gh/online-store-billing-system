@@ -1308,44 +1308,44 @@ function firstFetch() {
                                                             );
                                                             return;
                                                         }
-                                                        console.log(typeof billId);
-                                                            // fetch("/billingHistory", {
-                                                            //     headers: {
-                                                            //         Method: "POST",
-                                                            //         "Content-Type": "application/json",
-                                                            //         Accept: "application/json"
-                                                            //     },
-                                                            //     method: "POST",
-                                                            //     body: JSON.stringify({
-                                                            //         // eslint-disable-next-line object-shorthand
-                                                            //         billId: billId,
-                                                            //         bill: bill,
-                                                            //         billDate: billDate
-                                                            //     })
 
-                                                            // })
-                                                            // .then((response) => {
-                                                            //     return response.json();
-                                                            // })
-                                                            // .then((responseJson) => {
-                                                            //     if (responseJson.statCode == 201) {
-                                                            //         console.log(
-                                                            //             "bill was recorded successfully. \n\n msgCode: 201-main"
-                                                            //         );
-                                                            //     }
-                                                            //     else {
-                                                            //         console.log(
-                                                            //             "recording bill failed. \n\n msgCode: 500-main"
-                                                            //         );
-                                                            //     }
-                                                            // })
-                                                            // .catch((error) => {
-                                                            //     alert(
-                                                            //         `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 516\n err-fetch-main: billingHistory\n التاريخ: ${formatTheDate(
-                                                            //   new Date(), 1
-                                                            // )}`
-                                                            //     );
-                                                            // });
+                                                            fetch("/billingHistory", {
+                                                                headers: {
+                                                                    Method: "POST",
+                                                                    "Content-Type": "application/json",
+                                                                    Accept: "application/json"
+                                                                },
+                                                                method: "POST",
+                                                                body: JSON.stringify({
+                                                                    // eslint-disable-next-line object-shorthand
+                                                                    billId: billId,
+                                                                    bill: bill,
+                                                                    billDate: billDate
+                                                                })
+
+                                                            })
+                                                            .then((response) => {
+                                                                return response.json();
+                                                            })
+                                                            .then((responseJson) => {
+                                                                if (responseJson.statCode == 201) {
+                                                                    console.log(
+                                                                        "bill was recorded successfully. \n\n msgCode: 201-main"
+                                                                    );
+                                                                }
+                                                                else {
+                                                                    console.log(
+                                                                        "recording bill failed. \n\n msgCode: 500-main"
+                                                                    );
+                                                                }
+                                                            })
+                                                            .catch((error) => {
+                                                                alert(
+                                                                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 516\n err-fetch-main: billingHistory\n التاريخ: ${formatTheDate(
+                                                              new Date(), 1
+                                                            )}`
+                                                                );
+                                                            });
 
                                                         // location.assign(
                                                         //     `https://wa.me/${phoneNum}?text=${bill}`
