@@ -292,7 +292,7 @@ function showBill(count) {
                                         .replace(/\*/gi, "")
                                         .replace(/%0a/gi, "<br>")}
                                                         `;
-    document.querySelector("#billTitle").innerHTML = `تفاصيل الفاتورة رقم ${listOfBills[count]}`;
+    document.querySelector("#billTitle").innerHTML = `تفاصيل الفاتورة رقم ${listOfBills[count].billId}`;
 }
 
 function deleteOrEditProd(id, opration) {
@@ -1302,7 +1302,7 @@ function isNarrowedBillHis(responseJson) {
                 <b class="cell">${Object.keys(responseJson)[i]}</b>
                 <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b>
                 <b class="cell" style="display:flex;justify-content:space-evenly;">
-                <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(i)">
+                <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})">
                     <i class="fas fa-eye"></i>
                 </div>
             </div>
@@ -1314,7 +1314,7 @@ function isNarrowedBillHis(responseJson) {
         <div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${Object.keys(responseJson)[i]}</b>
             <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b>
             <b class="cell" style="display:flex;justify-content:space-evenly;">
-                <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(i)">
+                <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})">
                     <i class="fas fa-eye"></i>
                 </div>
             </b>
@@ -1339,7 +1339,7 @@ function isExpandedBillHis(responseJson) {
                     <b class="cell">${Object.keys(responseJson)[i]}</b>
                     <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b>
                     <b class="cell" style="display:flex;justify-content:space-evenly;">
-                    <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(i)">
+                    <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})">
                         <i class="fas fa-eye"></i>
                     </div>
                 </div>
@@ -1351,7 +1351,7 @@ function isExpandedBillHis(responseJson) {
             <div style="display: flex; justify-content: space-around; color: #4b4b4b;"><b class="cell">${Object.keys(responseJson)[i]}</b>
                 <b style="font-size: 14px;" class="cell">${(responseJson[Object.keys(responseJson)[i]].billDate).replace(/T/gi, "<br>")}</b>
                 <b class="cell" style="display:flex;justify-content:space-evenly;">
-                    <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(i)">
+                    <div data-bs-toggle="modal" data-bs-target="#billModal" title="تفاصيل" onclick="showBill(${Object.keys(responseJson)[i]})">
                         <i class="fas fa-eye"></i>
                     </div>
                 </b>
