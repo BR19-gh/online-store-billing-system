@@ -597,8 +597,8 @@ def billingHistory():
             try:
                 result = billHisObj.searchId(id)
 
-                if result == None:
-                    return jsonify({"msg": f"Error 404: billId:{id} was not found, it may not exist", "statCode": 404})
+                # if result == None:
+                #     return jsonify({"msg": f"Error 404: billId:{id} was not found, it may not exist", "statCode": 404})
             except Exception as err:
                 print(err)
                 if (isinstance(id, int) == False):
