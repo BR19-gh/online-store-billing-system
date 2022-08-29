@@ -1308,7 +1308,7 @@ function firstFetch() {
                                                             );
                                                             return;
                                                         }
-                                                        console.log(billId);
+                                                        console.log(typeof billId);
                                                             // fetch("/billingHistory", {
                                                             //     headers: {
                                                             //         Method: "POST",
