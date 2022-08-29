@@ -288,7 +288,7 @@ function deleteOrEditPromo(id, opration) {
 function showBill(id) {
     $("#billModal").modal("show");
     document.querySelector("#billContent").innerHTML = `
-                ${(listOfBills[id].bill).replace(/%20/gi, " ")
+                ${(listOfBills[`${id}`].bill).replace(/%20/gi, " ")
                                         .replace(/\*/gi, "")
                                         .replace(/%0a/gi, "<br>")}
                                                         `;
