@@ -614,9 +614,6 @@ def billingHistory():
                 return jsonify({"msg": f"Success 204: bill of id:{id} is deleted successfully, bill of id:{id} doesn't exist anymore", "statCode": 204})
             else:
                 return jsonify({"msg": f"Error 500: failed to delete bill of id:{id}, bill of id:{id} still exists", "statCode": 500})
-    
-
-
 
     except Exception as err:
         return jsonify({"msg":err,"statCode": 500})
