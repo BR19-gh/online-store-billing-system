@@ -533,6 +533,7 @@ class billingHistoryTable:
                         """)
 
     def searchId(self, id):
+        print("searchId:", id)
         self.cur.execute(f"""
 
                 SELECT * 
@@ -566,6 +567,7 @@ class billingHistoryTable:
         self.conn.commit()
 
     def delete(self, id):
+        print("delete:", id)
         if (id == None):
             raise Exception("You have to select an id to delete its values")
         self.cur.execute(f"""
