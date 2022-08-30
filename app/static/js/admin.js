@@ -2282,6 +2282,7 @@ const delBill = (id) => {
                 alert(
                     `تم حذف الفاتورة رقم ${id} بنجاح، إنتظر قليلا وستظهر التحديثات`
                 );
+                fetchBillHis();
                 return;
             }
             if (responseJson.statCode == 404) {
