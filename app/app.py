@@ -584,11 +584,7 @@ def billingHistory():
                 billHisObj.insert(id, bill, billDate)
 
                 recordSearched = billHisObj.search(bill)
-                print(recordSearched[0] == bill)
-                print(recordSearched[0])
-                print(recordSearched)
-                print(bill)
-                if (recordSearched[0] == bill):
+                if (recordSearched[1] == bill):
                     return jsonify({"msg": f"Success 201: bill is recorded", "statCode": 201})
             except Exception as err:
                 print(err, "line: 590")
