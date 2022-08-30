@@ -125,7 +125,7 @@ def product(idIn=None):
                 print(err, "line: 125")
                 if (isinstance(id, int) == False):
                     return jsonify({"msg": f"Bad Request 400:  id is not integer, or it contains illegal form of characters", "statCode": 400})
-                
+
             # if imgFilename == '':
             #     imgFile = 'no image was provided'
 
@@ -202,6 +202,7 @@ def product(idIn=None):
     except Exception as err:
         print(err, "line: 203")
 
+
 @app.route("/product/image/edit/<idIn>", methods=['PUT'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT'])
 def productImageUpdate(idIn=None):
@@ -227,7 +228,7 @@ def productImageUpdate(idIn=None):
             else:
                 return jsonify({"msg": f"Unkown Error 500: product of idIn:{idIn} image was not updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 500})
     except Exception as err:
-        print(err, "line: 230")    
+        print(err, "line: 230")
 
 
 @app.route("/products", methods=['GET'])
@@ -241,7 +242,7 @@ def products():
     j = 0
     for i in result:
         dictOfResult[i[0]] = {'id': i[0], 'title': i[1],
-                              'price': i[2], 'img': i[3], 
+                              'price': i[2], 'img': i[3],
                               'avail': i[4]}
 
     newIndex = sorted(dictOfResult, key=lambda d: d)
@@ -363,6 +364,7 @@ def promocode(idIn=None):
     except Exception as err:
         print(err, "line: 364")
 
+
 @app.route("/promocodes", methods=['GET'])
 @limiter.exempt
 def promocodes():
@@ -372,7 +374,8 @@ def promocodes():
     dictOfResult = {}
 
     for i in result:
-        dictOfResult[i[0]] = {'id': i[0], 'code': i[1], 'amount': i[2], 'exp': i[3]}
+        dictOfResult[i[0]] = {'id': i[0],
+                              'code': i[1], 'amount': i[2], 'exp': i[3]}
 
     newIndex = sorted(dictOfResult, key=lambda d: d)
     dictOfResult = {k: dictOfResult[k] for k in newIndex}
@@ -555,7 +558,6 @@ def billDetails():
         abort(405)
 
 
-
 @app.route("/billingHistory", methods=['POST', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def billingHistory():
@@ -578,7 +580,7 @@ def billingHistory():
                     return jsonify({"msg": f"Status Code 403: the bill exists", "statCode": 403})
             except Exception as err:
                 print(err, "line: 580")
-                return jsonify({"msg":f"{err}","statCode": 400})
+                return jsonify({"msg": f"{err}", "statCode": 400})
 
             try:
                 billHisObj.insert(id, bill, billDate)
@@ -588,17 +590,16 @@ def billingHistory():
                     return jsonify({"msg": f"Success 201: bill is recorded", "statCode": 201})
             except Exception as err:
                 print(err, "line: 590")
-                return jsonify({"msg":f"{err}","statCode": 500})
-        
+                return jsonify({"msg": f"{err}", "statCode": 500})
+
         elif request.method == 'DELETE':
 
-            
             data = request.get_json()
             id = data['billId']
 
             try:
                 result = billHisObj.searchId(id)
-               
+
                 if result == None:
                     return jsonify({"msg": f"Error 404: billId:{id} was not found, it may not exist", "statCode": 404})
             except Exception as err:
@@ -616,7 +617,8 @@ def billingHistory():
                 return jsonify({"msg": f"Error 500: failed to delete bill of id:{id}, bill of id:{id} still exists", "statCode": 500})
 
     except Exception as err:
-        return jsonify({"msg":err,"statCode": 500})
+        return jsonify({"msg": err, "statCode": 500})
+
 
 @app.route("/billingHistory/show", methods=['GET'])
 @limiter.exempt
@@ -624,19 +626,17 @@ def billingHistory_show():
     billHisObj = billingHistoryTable()
 
     result = billHisObj.display()
-   
+
     dictOfResult = {}
     count = 0
     for i in result:
         dictOfResult[count] = {'billId': i[0], 'bill': i[1], 'billDate': i[2]}
         count += 1
 
-    if dictOfResult == {} :
+    if dictOfResult == {}:
         return jsonify({"msg": f"No Content 204: There is no content to get.", "statCode": 204})
     else:
         return jsonify(dictOfResult)
-
-
 
 
 @app.route("/billDetails/show", methods=['GET'])
