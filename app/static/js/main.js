@@ -1334,7 +1334,7 @@ function firstFetch() {
                                                             .then((responseJson) => {
                                                                 if (responseJson.statCode == 201) {
                                                                     console.log(
-                                                                        "bill was recorded successfully. \n\n msgCode: 201-main"
+                                                                        "bill was recorded successfully. \n\n msgCode: 201-main", responseJson.msg
                                                                     );
                                                                 }
                                                                 else {
