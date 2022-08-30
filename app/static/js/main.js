@@ -1308,9 +1308,7 @@ function firstFetch() {
                                                             );
                                                             return;
                                                         }
-                                                            console.log(billId, typeof billId);
-                                                            console.log(bill, typeof bill);
-                                                            console.log(billDate, typeof billDate);
+
                                                             fetch("/billingHistory", {
                                                                 headers: {
                                                                     Method: "POST",
