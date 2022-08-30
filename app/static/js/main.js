@@ -1334,12 +1334,12 @@ function firstFetch() {
                                                             .then((responseJson) => {
                                                                 if (responseJson.statCode == 201) {
                                                                     console.log(
-                                                                        "bill was recorded successfully. \n\n msgCode: 201-main", responseJson.msg
+                                                                        "bill was recorded successfully. \n\n msgCode: 201-main-billingHistory", `msg:${responseJson.msg}`
                                                                     );
                                                                 }
                                                                 else {
                                                                     console.log(
-                                                                        "recording bill failed. \n\n msgCode: 500-main"
+                                                                        "recording bill failed. \n\n msgCode: 500-main-billingHistory"
                                                                     );
                                                                 }
                                                             })
