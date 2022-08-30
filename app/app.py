@@ -567,8 +567,12 @@ def billingHistory():
 
             data = request.get_json()
             id = data['billId']
+            print(id, type(id))
             bill = data['bill']
+            print(bill, type(bill))
             billDate = data['billDate']
+            print(billDate, type(billDate))
+            return "###########"
 
             try:
                 result = billHisObj.search(bill)
