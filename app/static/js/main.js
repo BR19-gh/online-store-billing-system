@@ -1321,7 +1321,9 @@ function firstFetch() {
                                                                 body: JSON.stringify({
                                                                     // eslint-disable-next-line object-shorthand
                                                                     billId: billId,
+                                                                    // eslint-disable-next-line object-shorthand
                                                                     bill: bill,
+                                                                    // eslint-disable-next-line object-shorthand
                                                                     billDate: billDate
                                                                 })
 
