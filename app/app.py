@@ -567,12 +567,8 @@ def billingHistory():
 
             data = request.get_json()
             id = data['billId']
-            print(id, type(id))
             bill = data['bill']
-            print(bill, type(bill))
             billDate = data['billDate']
-            print(billDate, type(billDate))
-            return "###########"
 
             try:
                 result = billHisObj.search(bill)
@@ -600,7 +596,7 @@ def billingHistory():
 
             try:
                 result = billHisObj.searchId(id)
-                print("##############################################",id)
+               
                 if result == None:
                     return jsonify({"msg": f"Error 404: billId:{id} was not found, it may not exist", "statCode": 404})
             except Exception as err:
