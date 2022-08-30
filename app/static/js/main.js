@@ -1339,7 +1339,7 @@ function firstFetch() {
                                                                 }
                                                                 else {
                                                                     console.log(
-                                                                        "recording bill failed. \n\n msgCode: 500-main-billingHistory", `msg:${responseJson.msg},statcode:${responseJson.statCode}`
+                                                                        "recording bill failed. \n\n msgCode: 500-main-billingHistory"
                                                                     );
                                                                 }
                                                             })

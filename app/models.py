@@ -531,6 +531,8 @@ class billingHistoryTable:
                 WHERE bill = '{bill}'
 
                         """)
+        self.record = self.cur.fetchone()
+        return self.record
 
     def searchId(self, id):
         self.cur.execute(f"""
