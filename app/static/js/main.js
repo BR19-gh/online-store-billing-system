@@ -1331,9 +1331,14 @@ function firstFetch() {
                                                             })
                                                             .then((responseJson) => {
                                                                 if (responseJson.statCode == 201) {
+                                                                    if (responseJson.statCode == 204) {
+                                                                        alert(
+                                                                            `تم حذف الفاتورة رقم ${id} بنجاح، إنتظر قليلا وستظهر التحديثات`
+                                                                        );
                                                                     console.log(
                                                                         "bill was recorded successfully. \n\n msgCode: 201-main-billingHistory"
                                                                     );
+                                                                    }
                                                                 }
                                                                 else {
                                                                     console.log(
