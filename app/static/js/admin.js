@@ -2295,6 +2295,7 @@ const delBill = (id) => {
                 alert(
                     "هناك خطأ ما.\n الرجاء التواصل مع المطور إن استمرت المشكلة\n\n ErrCode: 400-admin-billingHistory"
                 );
+                fetchBillHis();
                 return;
             }
             if (responseJson.statCode == 500) {
