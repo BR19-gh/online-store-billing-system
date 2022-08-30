@@ -2263,53 +2263,51 @@ document.querySelector("#updInfo").addEventListener("click", () => {
 });
 
 const delBill = (id) => {
-    console.log(typeof id);
-    console.log(id);
-    // fetch("/billingHistory", {
-    //         headers: {
-    //             Method: "DELETE",
-    //             "Content-Type": "application/json",
-    //             Accept: "application/json"
-    //         },
-    //         method: "DELETE",
-    //         body: JSON.stringify({
-    //             billId: id
-    //         })
-    //     })
-    //     .then((response) => {
-    //         return response.json();
-    //     })
-    //     .then((responseJson) => {
-    //         if (responseJson.statCode == 204) {
-    //             alert(
-    //                 `تم حذف الفاتورة رقم ${id} بنجاح، إنتظر قليلا وستظهر التحديثات`
-    //             );
-    //             return;
-    //         }
-    //         if (responseJson.statCode == 404) {
-    //             alert(
-    //                 "هناك خطأ ما.\n الرجاء التواصل مع المطور إن استمرت المشكلة\n\n ErrCode: 404-admin-billingHistory"
-    //             );
-    //             return;
-    //         }
-    //         if (responseJson.statCode == 400) {
-    //             alert(
-    //                 "هناك خطأ ما.\n الرجاء التواصل مع المطور إن استمرت المشكلة\n\n ErrCode: 400-admin-billingHistory"
-    //             );
-    //             return;
-    //         }
-    //         if (responseJson.statCode == 500) {
-    //             alert(
-    //                 "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 535-admin-billingHistory"
-    //             );
-    //             return;
-    //         }
-    //         if (responseJson.statCode == 429) {
-    //             alert(
-    //                 "لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin-billingHistory"
-    //             );
-    //         }
-    //     });
+    fetch("/billingHistory", {
+            headers: {
+                Method: "DELETE",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "DELETE",
+            body: JSON.stringify({
+                billId: id
+            })
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((responseJson) => {
+            if (responseJson.statCode == 204) {
+                alert(
+                    `تم حذف الفاتورة رقم ${id} بنجاح، إنتظر قليلا وستظهر التحديثات`
+                );
+                return;
+            }
+            if (responseJson.statCode == 404) {
+                alert(
+                    "هناك خطأ ما.\n الرجاء التواصل مع المطور إن استمرت المشكلة\n\n ErrCode: 404-admin-billingHistory"
+                );
+                return;
+            }
+            if (responseJson.statCode == 400) {
+                alert(
+                    "هناك خطأ ما.\n الرجاء التواصل مع المطور إن استمرت المشكلة\n\n ErrCode: 400-admin-billingHistory"
+                );
+                return;
+            }
+            if (responseJson.statCode == 500) {
+                alert(
+                    "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 535-admin-billingHistory"
+                );
+                return;
+            }
+            if (responseJson.statCode == 429) {
+                alert(
+                    "لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin-billingHistory"
+                );
+            }
+        });
 };
 
 const countriesCodes = {
