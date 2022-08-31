@@ -617,12 +617,14 @@ def billingHistory():
                 return jsonify({"msg": f"Error 500: failed to delete bill of id:{id}, bill of id:{id} still exists", "statCode": 500})
 
     except Exception as err:
-        return jsonify({"msg": err, "statCode": 500})
+        print(err, "line: 620")
+        return jsonify({"msg": "internal err 500: err declared in backend consule", "statCode": 500})
 
 
 @app.route("/billingHistory/show", methods=['GET'])
 @limiter.exempt
 def billingHistory_show():
+   try:
     billHisObj = billingHistoryTable()
 
     result = billHisObj.display()
@@ -636,7 +638,16 @@ def billingHistory_show():
     if dictOfResult == {}:
         return jsonify({"msg": f"No Content 204: There is no content to get.", "statCode": 204})
     else:
-        return jsonify(dictOfResult)
+        count = 0
+        dictOfResultReversed = {}
+        reversedKeys = sorted(dictOfResult.keys(), reverse=True)
+        for i in reversedKeys:
+            dictOfResultReversed[i] = dictOfResult[count]
+            count += 1
+        return jsonify(dictOfResultReversed)
+   except Exception as err:
+        print(err, "line: 649")
+        return jsonify({"msg": "internal err 500: err declared in backend consule", "statCode": 500})
 
 
 @app.route("/billDetails/show", methods=['GET'])
