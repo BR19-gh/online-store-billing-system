@@ -618,36 +618,40 @@ def billingHistory():
 
     except Exception as err:
         print(err, "line: 620")
-        return jsonify({"msg": "internal err 500: err declared in backend consule", "statCode": 500})
+        return jsonify({"msg": "Error 500: error declared in backend console.", "statCode": 500})
 
 
 @app.route("/billingHistory/show", methods=['GET'])
 @limiter.exempt
 def billingHistory_show():
-   try:
-    billHisObj = billingHistoryTable()
+    try:
+        billHisObj = billingHistoryTable()
 
-    result = billHisObj.display()
+        result = billHisObj.display()
 
-    dictOfResult = {}
-    count = 0
-    for i in result:
-        dictOfResult[count] = {'billId': i[0], 'bill': i[1], 'billDate': i[2]}
-        count += 1
-
-    if dictOfResult == {}:
-        return jsonify({"msg": f"No Content 204: There is no content to get.", "statCode": 204})
-    else:
+        dictOfResult = {}
         count = 0
-        dictOfResultReversed = {}
-        reversedKeys = sorted(dictOfResult.keys(), reverse=True)
-        for i in reversedKeys:
-            dictOfResultReversed[i] = dictOfResult[count]
+        for i in result:
+            dictOfResult[count] = {'billId': i[0], 'bill': i[1], 'billDate': i[2]}
             count += 1
-        return jsonify(dictOfResultReversed)
-   except Exception as err:
+
+        if dictOfResult == {}:
+            return jsonify({"msg": f"No Content 204: There is no content to get.", "statCode": 204})
+        
+        else:
+            count = 0
+            dictOfResultReversed = {}
+            reversedKeysList = sorted(dictOfResult.keys(), reverse=True)
+
+            for i in reversedKeysList:
+                dictOfResultReversed[i] = dictOfResult[count]
+                count += 1
+
+            return jsonify(dictOfResultReversed)
+
+    except Exception as err:
         print(err, "line: 649")
-        return jsonify({"msg": "internal err 500: err declared in backend consule", "statCode": 500})
+        return jsonify({"msg": "Error 500: error declared in backend console.", "statCode": 500})
 
 
 @app.route("/billDetails/show", methods=['GET'])
