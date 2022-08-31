@@ -448,6 +448,21 @@ function firstFetches() {
     fetchBillHis();
 }
 
+function reload() {
+    fetchThemes();
+
+    fetchStoreInfo();
+
+    fetchProducts();
+
+    fetchPromocodes();
+
+    fetchBillHis();
+     
+    alert("تم تحديث بيانات الصفحة");
+}
+
+
 firstFetches();
 
 function fetchThemes() {
