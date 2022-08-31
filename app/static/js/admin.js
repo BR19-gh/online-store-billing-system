@@ -234,7 +234,7 @@ function deleteOrEditPromo(id, opration) {
         // fill input
         document.querySelector(
             "#promoModalLongTitle"
-        ).innerHTML = `تعديل القسيمة رقم: ${id}`;
+        ).innerHTML = `تعديل القسيمة رقم ${id}`;
         document.querySelector("#codeID").value = `${id}`;
         document.querySelector("#codeName").value = `${listOfPromos[id].code}`;
         document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100}`;
@@ -254,7 +254,7 @@ function deleteOrEditPromo(id, opration) {
         // fill input
         document.querySelector(
             "#promoModalLongTitle"
-        ).innerHTML = `هل أنت متأكد من رغبتك بحذف القسيمة رقم: ${id}؟`;
+        ).innerHTML = `هل أنت متأكد من رغبتك بحذف القسيمة رقم ${id}؟`;
         document.querySelector("#codeID").value = `${id}`;
         document.querySelector("#codeName").value = `${listOfPromos[id].code}`;
         document.querySelector("#codeAmount").value = `${listOfPromos[id].amount * 100}`;
@@ -318,10 +318,10 @@ function deleteOrEditProd(id, opration) {
         // fill input
         document.querySelector(
             "#productModalLongTitle"
-        ).innerHTML = `تعديل المنتج رقم: ${id}`;
+        ).innerHTML = `تعديل المنتج رقم ${id}`;
         document.querySelector(
             "#productImageEditModalLongTitle"
-        ).innerHTML = `تعديل صورة المنتج رقم: ${id}`;
+        ).innerHTML = `تعديل صورة المنتج رقم ${id}`;
         document.querySelector("#productID").value = `${id}`;
         document.querySelector(
             "#productTitle"
@@ -351,7 +351,7 @@ function deleteOrEditProd(id, opration) {
         // fill input
         document.querySelector(
             "#productModalLongTitle"
-        ).innerHTML = `هل أنت متأكد من رغبتك بحذف المنتج رقم: ${id}`;
+        ).innerHTML = `هل أنت متأكد من رغبتك بحذف المنتج رقم ${id}`;
         document.querySelector("#productID").value = `${id}`;
         document.querySelector(
             "#productTitle"
