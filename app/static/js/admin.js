@@ -449,16 +449,9 @@ function firstFetches() {
 }
 
 function reload() {
-    fetchThemes();
 
-    fetchStoreInfo();
+    firstFetches();
 
-    fetchProducts();
-
-    fetchPromocodes();
-
-    fetchBillHis();
-     
     alert("تم تحديث بيانات الصفحة");
 }
 
