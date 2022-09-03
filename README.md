@@ -1,5 +1,5 @@
 
-#### (coming soon 3.0v update...)
+#### (coming soon 3.5v update...)
 [New 2.0v Update Available !!!](#update-20v)
         
 
