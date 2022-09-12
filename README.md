@@ -1478,3 +1478,8 @@ Now the store owner can change the store theme!
 There are 5 themes for now (red 🔴, blue 🔵, grey ⚫⚪, green 🟢 and original "yellow" 🟡), more will be added later:
 
 ![Themes Section](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/themes.jpg "cc: store theme")
+### Update 3.5v
+New features has been added, which are:
+- brand new theme for the store! pink 🦩.
+- new billing system. Save, browse and delete all bills that've been issued.
+- inhancing the user experince with better UI and more accessibility.
