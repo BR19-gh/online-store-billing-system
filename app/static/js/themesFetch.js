@@ -1,7 +1,7 @@
 export function fetchThemes() {
     fetch('/storeTheme/show', {
-        method: 'GET',
-    })
+            method: 'GET',
+        })
         .then((responseTheme) => {
             return responseTheme.json()
         })
@@ -464,7 +464,7 @@ function formatDate(date) {
     const ampm = hours >= 12 ? 'م' : 'ص'
     hours = hours % 12
     hours = hours || 12
-    // minutes = minutes < 10 ? '0' + minutes : minutes;
+        // minutes = minutes < 10 ? '0' + minutes : minutes;
     const year = date.getFullYear()
     let month = date.getMonth()
     month =
