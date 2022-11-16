@@ -1481,3 +1481,5 @@ New features has been added, which are:
 - brand new theme for the store! pink 🦩.
 - new billing system. Save, browse and delete all bills that've been issued.
 - inhancing the user experince with better UI and more accessibility.
+
+![Update 3.5v](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v.gif "cc: Update 3.5v")
