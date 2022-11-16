@@ -1485,3 +1485,4 @@ New features has been added, which are:
 ![Update 3.5v](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v.gif "cc: Update 3.5v")
 ![Update 3.5v-Biling system](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v-1.png "cc: Biling system")
 ![Update 3.5v-Biling system](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v-2.png "cc: Delete bill")
+![Update 3.5v-Biling system](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v-3.png "cc: Pink theme")
