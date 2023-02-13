@@ -49,7 +49,7 @@ def main_view():
 
     storeInfoObj = StoreInfoTable()
 
-    return render_template('main.html', description=storeInfoObj.search('details')[0])
+    return render_template('main.html')
 
 
 @app.route("/")
@@ -58,7 +58,7 @@ def home_view():
 
     storeInfoObj = StoreInfoTable()
 
-    return render_template('main.html', description=storeInfoObj.search('details')[0])
+    return render_template('main.html')
 
 
 @app.route("/login")
