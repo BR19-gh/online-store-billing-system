@@ -138,7 +138,7 @@ def product(idIn=None):
             except Exception as err:
                 print(err, "line: 139")
                 if (isinstance(id, int) == False or isinstance(price, int) == False):
-                    return jsonify({"msg": f"Bad Request 400: product was not added, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
+                    return jsonify({"msg": f"Bad Request 400: product was not added, either the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
                 else:
                     return jsonify({"msg": f"Unkown Error 500: product of id:{id} was not recorded, the id doesn't match {(productObj.search(id))[0]}", "statCode": 500})
 
@@ -161,7 +161,7 @@ def product(idIn=None):
             except Exception as err:
                 print(err, "line: 162")
                 if (isinstance(idIn, int) == False or isinstance(price, int) == False):
-                    return jsonify({"msg": f"Bad Request 400: product was not updated, even the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
+                    return jsonify({"msg": f"Bad Request 400: product was not updated, either the provided id or price are not integer, or they contain illegal form of characters", "statCode": 400})
                 else:
                     return jsonify({"msg": f"Unkown Error 500: product of idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 500})
 
@@ -224,7 +224,7 @@ def productImageUpdate(idIn=None):
         except Exception as err:
             print(err, "line: 224")
             if (isinstance(idIn, int) == False):
-                return jsonify({"msg": f"Bad Request 400: product image was not updated, even the provided id is not integer, or it contains illegal form of characters", "statCode": 400})
+                return jsonify({"msg": f"Bad Request 400: product image was not updated, either the provided id is not integer, or it contains illegal form of characters", "statCode": 400})
             else:
                 return jsonify({"msg": f"Unkown Error 500: product of idIn:{idIn} image was not updated, old data:{oldPrudRecord}, new data:{productObj.search(idIn)}", "statCode": 500})
     except Exception as err:
@@ -272,7 +272,7 @@ def promocode(idIn=None):
                 amount = int(data['amount'])/100
             except Exception as err:
                 print(err, "line: 273")
-                return jsonify({"msg": f"Bad Request 400: code was not added, even the provided amount is not float, or it contains illegal form of characters", "statCode": 400})
+                return jsonify({"msg": f"Bad Request 400: code was not added, either the provided amount is not float, or it contains illegal form of characters", "statCode": 400})
 
             try:
                 result = promoObj.search(id)
@@ -294,7 +294,7 @@ def promocode(idIn=None):
             except Exception as err:
                 print(err, "line: 294")
                 if (isinstance(id, int) == False or isinstance(amount, float) == False):
-                    return jsonify({"msg": f"Bad Request 400: code was not added, even the provided id or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
+                    return jsonify({"msg": f"Bad Request 400: code was not added, either the provided id or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
                 else:
                     return jsonify({"msg": f"Unkown Error 500: code of id:{id} was not recorded, the id doesn't match {(promoObj.search(id))[0]}", "statCode": 500})
 
@@ -308,7 +308,7 @@ def promocode(idIn=None):
 
             except Exception as err:
                 print(err, "line: 309")
-                return jsonify({"msg": f"Bad Request 400: code was not added, even the provided amount is not float, or it contains illegal form of characters", "statCode": 400})
+                return jsonify({"msg": f"Bad Request 400: code was not added, either the provided amount is not float, or it contains illegal form of characters", "statCode": 400})
 
             try:
 
@@ -323,7 +323,7 @@ def promocode(idIn=None):
             except Exception as err:
                 print(err, "line: 323")
                 if (isinstance(idIn, int) == False or isinstance(amount, float) == False):
-                    return jsonify({"msg": f"Bad Request 400: code was not updated, even the provided idIn or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
+                    return jsonify({"msg": f"Bad Request 400: code was not updated, either the provided idIn or amount are not integer/float, or they contain illegal form of characters", "statCode": 400})
                 else:
                     return jsonify({"msg": f"Unkown Error 500: code of idIn:{idIn} was not updated, old data:{oldPrudRecord}, new data:{promoObj.search(idIn)}", "statCode": 500})
 
@@ -687,7 +687,7 @@ def storeNum():
         except Exception as err:
             print(err, "line: 676")
             if (isinstance(storeNum, int) == False):
-                return jsonify({"msg": f"Bad Request 400: storeNum was not updated, even the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
+                return jsonify({"msg": f"Bad Request 400: storeNum was not updated, either the provided storeNum is not integer, or it contains illegal form of characters", "statCode": 400})
             else:
                 return jsonify({"msg": f"Unkown Error 500: storeNum:{storeNum} was not updated, old data:{result}, new data:{storeInfoObj.search('num')}", "statCode": 500})
 
