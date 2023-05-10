@@ -173,7 +173,7 @@ def product(idIn=None):
                 if result == None:
                     return jsonify({"msg": f"No Content 204: the product with idIn of {idIn} does not exist", "statCode": 204})
                 else:
-                    return jsonify({f"{idIn}": f"{productObj.search(idIn)}", "statCode": 403})
+                    return jsonify({"result": f"{productObj.search(idIn)}", "msg": f"Already Exists 403: the product with idIn of {idIn} exists", "statCode": 403})
             except Exception as err:
                 print(err, "line: 178")
                 if (isinstance(idIn, int) == False):
@@ -335,7 +335,7 @@ def promocode(idIn=None):
                 if result == None:
                    return jsonify({"msg": f"No Content 204: the promocode with idIn of {idIn} does not exist", "statCode": 204})
                 else:
-                    return jsonify({f"{idIn}": f"{promoObj.search(idIn)}", "statCode": 403})
+                    return jsonify({"result": f"{promoObj.search(idIn)}", "msg": f"Already Exists 403: the promocode with idIn of {idIn} exists", "statCode": 403})
             except Exception as err:
                 print(err, "line: 339")
                 if (isinstance(idIn, int) == False):
