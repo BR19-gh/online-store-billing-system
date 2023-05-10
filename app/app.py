@@ -335,7 +335,7 @@ def promocode(idIn=None):
                 if result == None:
                     return jsonify({"msg": f"Success 202: the promocode of idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
                 else:
-                    return jsonify({{promoObj.search(idIn)[0:2]}, "msg": f"Status Code 403: the promocode of idIn {idIn} exists", "statCode": 403})
+                    return jsonify({"result": f"{promoObj.search(idIn)}", "msg": f"Status Code 403: the promocode of idIn {idIn} exists", "statCode": 403})
             except Exception as err:
                 print(err, "line: 339")
                 if (isinstance(idIn, int) == False):
