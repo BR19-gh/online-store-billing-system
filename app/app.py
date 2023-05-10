@@ -171,7 +171,7 @@ def product(idIn=None):
                 result = productObj.search(idIn)
 
                 if result == None:
-                    return jsonify({"msg": f"Success 202: the product of idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
+                    return jsonify({"msg": f"No Content 204: the product with idIn of {idIn} does not exist", "statCode": 204})
                 else:
                     return jsonify({f"{idIn}": f"{productObj.search(idIn)}", "statCode": 403})
             except Exception as err:
@@ -333,7 +333,7 @@ def promocode(idIn=None):
                 result = promoObj.search(idIn)
 
                 if result == None:
-                    return jsonify({"msg": f"Success 202: the promocode of idIn {idIn} doesn't exist, so it can be added", "statCode": 202})
+                   return jsonify({"msg": f"No Content 204: the promocode with idIn of {idIn} does not exist", "statCode": 204})
                 else:
                     return jsonify({f"{idIn}": f"{promoObj.search(idIn)}", "statCode": 403})
             except Exception as err:
