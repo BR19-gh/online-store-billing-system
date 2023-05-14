@@ -418,7 +418,8 @@ label {
 
 input#storeName,
 #storedetails,
-input#storeNum {
+input#storeNum,
+input#storeCurr {
     margin: 0;
 }
 
