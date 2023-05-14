@@ -723,7 +723,7 @@ def storeNumGet():
 
 @app.route("/storeCurr", methods=['PUT', 'DELETE'])
 @limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
-def storeNum():
+def storeCurr():
     print('The ip address: ', get_remote_address())
     storeInfoObj = StoreInfoTable()
 
@@ -733,8 +733,8 @@ def storeNum():
         result = storeInfoObj.search('storeCurr')
 
         try:
-            storeInfoObj.update('storeCurr', storeNum)
-            
+            storeInfoObj.update('storeCurr', storeCurr)
+
         except Exception as err:
             print(err, "line: 676")
             if (isinstance(storeCurr, int) == False):
