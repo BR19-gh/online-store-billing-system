@@ -330,7 +330,6 @@ class StoreInfoTable:
             raise Exception("One of the entries is empty")
 
         self.cur.execute(f"""
-                ALTER TABLE storeInfo ALTER COLUMN storeCurr TYPE TEXT;
                 INSERT INTO storeInfo 
                             (
                                 storeName,
