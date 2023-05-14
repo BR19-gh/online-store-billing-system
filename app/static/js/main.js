@@ -601,6 +601,9 @@ function firstFetch() {
                                                                                             "#groupOfTitles"
                                                                                         ).innerHTML = `${sumOfTitles}`;
                                                                                         document.querySelector(
+                                                                                            "#priceContainer"
+                                                                                        ).style.display = `block`;
+                                                                                        document.querySelector(
                                                                                             "#groupOfPrices"
                                                                                         ).innerText = `المجموع: ${sumOfPrices} ${data6.storeCurr}`;
                                                                                         // to allow to enter promo code again
