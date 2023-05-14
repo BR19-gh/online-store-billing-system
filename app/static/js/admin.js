@@ -1771,7 +1771,8 @@ document.querySelector("#addInfo").addEventListener("click", () => {
                 storeNum: currentCountryCodeSelected +
                     document.querySelector("#storeNum").value,
                 storeDetails: document.querySelector("#storeDetails").value,
-                billDetails: document.querySelector("#billDetails").value
+                billDetails: document.querySelector("#billDetails").value,
+                billDetails: document.querySelector("#storeCurr").value
             })
         })
         .then((response) => {
@@ -1800,6 +1801,7 @@ document.querySelector("#addInfo").addEventListener("click", () => {
             document.querySelector("#storeDetails").value = "";
             document.querySelector("#billDetails").value = "";
             document.querySelector("#storeNum").value = "";
+            document.querySelector("#storeCurr").value = "";
         })
         .catch((error) => {
             alert(
@@ -1814,7 +1816,8 @@ document.querySelector("#updInfo").addEventListener("click", () => {
     if (
         document.querySelector("#storeNum").value == "" ||
         document.querySelector("#storeName").value == "" ||
-        document.querySelector("#storeDetails").value == ""
+        document.querySelector("#storeDetails").value == "" ||
+        document.querySelector("#storeCurr").value == ""
     ) {
         alert("يجب ملئ جميع الخانات أولا");
         setTimeout(() => {
@@ -1831,7 +1834,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         })
         .then((responseJson) => {
             if (responseJson.storeNum == "none/لايوجد") {
-                alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث");
+                alert("يجب أولا إضافة معلومات المتجر المتجر للتحديث");
                 setTimeout(() => {
                     $("#storeInfoModal").modal("show");
                 }, 200);
@@ -1845,6 +1848,28 @@ document.querySelector("#updInfo").addEventListener("click", () => {
             );
         });
 
+    fetch("/storeCurr/show", {
+            method: "GET"
+        })
+        .then((responseNum) => {
+            return responseNum.json();
+        })
+        .then((responseJson) => {
+            if (responseJson.storeCurr == "none/لايوجد") {
+                alert("يجب أولا إضافة معلومات المتجر المتجر للتحديث");
+                setTimeout(() => {
+                    $("#storeInfoModal").modal("show");
+                }, 200);
+            }
+        })
+        .catch((error) => {
+            alert(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 520\n err-fetch-admin: storeCurr\n التاريخ: ${formatTheDate(
+                    new Date(), 1
+                )}`
+            );
+        });
+
     fetch("/storeName/show", {
             method: "GET"
         })
@@ -1853,7 +1878,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         })
         .then((responseJson) => {
             if (responseJson.storeName == "none/لايوجد") {
-                alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث");
+                alert("يجب أولا إضافة معلومات المتجر المتجر للتحديث");
                 setTimeout(() => {
                     $("#storeInfoModal").modal("show");
                 }, 200);
@@ -1875,7 +1900,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         })
         .then((responseJson) => {
             if (responseJson.storeDetails == "none/لايوجد") {
-                alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث");
+                alert("يجب أولا إضافة معلومات المتجر المتجر للتحديث");
                 setTimeout(() => {
                     $("#storeInfoModal").modal("show");
                 }, 200);
@@ -1897,7 +1922,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
         })
         .then((responseJson) => {
             if (responseJson.billDetails == "none/لايوجد") {
-                alert("يجب أولا إضافة كلًا من اسم ورقم المتجر للتحديث");
+                alert("يجب أولا إضافة معلومات المتجر المتجر للتحديث");
                 setTimeout(() => {
                     $("#storeInfoModal").modal("show");
                 }, 200);
@@ -1914,7 +1939,8 @@ document.querySelector("#updInfo").addEventListener("click", () => {
     if (
         document.querySelector("#storeNum").value == "" &&
         document.querySelector("#storeName").value != "" &&
-        document.querySelector("#storeDetails").value != ""
+        document.querySelector("#storeDetails").value != "" &&
+        document.querySelector("#storeCurr").value != ""
     ) {
         fetch("/storeName", {
                 headers: {
@@ -1958,6 +1984,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 document.querySelector("#storeDetails").value = "";
                 document.querySelector("#billDetails").value = "";
                 document.querySelector("#storeNum").value = "";
+                document.querySelector("#storeCurr").value = "";
             })
             .catch((error) => {
                 alert(
@@ -1969,7 +1996,8 @@ document.querySelector("#updInfo").addEventListener("click", () => {
     } else if (
         document.querySelector("#storeName").value == "" &&
         document.querySelector("#storeNum").value != "" &&
-        document.querySelector("#storeDetails").value != ""
+        document.querySelector("#storeDetails").value != "" &&
+        document.querySelector("#storeCurr").value != ""
     ) {
         if (currentCountryCodeSelected < 0) {
             alert(
@@ -2034,6 +2062,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 document.querySelector("#storeDetails").value = "";
                 document.querySelector("#billDetails").value = "";
                 document.querySelector("#storeNum").value = "";
+                document.querySelector("#storeCurr").value = "";
             })
             .catch((error) => {
                 alert(
@@ -2045,7 +2074,8 @@ document.querySelector("#updInfo").addEventListener("click", () => {
     } else if (
         document.querySelector("#storeDetails").value == "" &&
         document.querySelector("#storeName").value != "" &&
-        document.querySelector("#storeNum").value != ""
+        document.querySelector("#storeNum").value != "" &&
+        document.querySelector("#storeCurr").value != ""
     ) {
         fetch("/storeDetails", {
                 headers: {
@@ -2088,6 +2118,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 document.querySelector("#storeName").value = "";
                 document.querySelector("#storeDetails").value = "";
                 document.querySelector("#storeNum").value = "";
+                document.querySelector("#storeCurr").value = "";
             })
             .catch((error) => {
                 alert(
@@ -2138,6 +2169,58 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 document.querySelector("#storeDetails").value = "";
                 document.querySelector("#billDetails").value = "";
                 document.querySelector("#storeNum").value = "";
+                document.querySelector("#storeCurr").value = "";
+            })
+            .catch((error) => {
+                alert(
+                    `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 527\n err-fetch-admin: billdetails\n التاريخ: ${formatTheDate(
+                        new Date(), 1
+                    )}`
+                );
+            });
+        fetch("/storeCurr", {
+                headers: {
+                    Method: "PUT",
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                method: "PUT",
+                body: JSON.stringify({
+                    storeCurr: document.querySelector("#storeCurr").value
+                })
+            })
+            .then((response) => {
+                return response.json();
+            })
+            .then((responseJson) => {
+                if (responseJson.statCode == 429) {
+                    alert(
+                        "لقد تجاوزت العدد المسموح من الطلبات على السيرفر في وقت معين،\n إنتظر قليلا ثم حاول الطلب مجددا. \n\n ErrCode: 429-admin"
+                    );
+                    setTimeout(() => {
+                        $("#storeInfoModal").modal("show");
+                    }, 200);
+                    return;
+                }
+                if (responseJson.statCode == 500) {
+                    alert(
+                        "حدث خطأ من طرف السيرفر\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrCode: 540-admin"
+                    );
+                    setTimeout(() => {
+                        $("#storeInfoModal").modal("show");
+                    }, 200);
+                    return;
+                }
+
+                alert(
+                    "تم تعديل المعلومات بنجاح، إنتظر قليلا وستظهر التحديثات"
+                );
+                fetchStoreInfo();
+                document.querySelector("#storeName").value = "";
+                document.querySelector("#storeDetails").value = "";
+                document.querySelector("#billDetails").value = "";
+                document.querySelector("#storeNum").value = "";
+                document.querySelector("#storeCurr").value = "";
             })
             .catch((error) => {
                 alert(
@@ -2149,7 +2232,8 @@ document.querySelector("#updInfo").addEventListener("click", () => {
     } else if (
         document.querySelector("#storeNum").value != "" &&
         document.querySelector("#storeName").value != "" &&
-        document.querySelector("#storeDetails").value != ""
+        document.querySelector("#storeDetails").value != "" &&
+        document.querySelector("#storeCurr").value != ""
     ) {
         if (currentCountryCodeSelected < 0) {
             alert(
@@ -2205,6 +2289,17 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                     body: JSON.stringify({
                         billDetails: document.querySelector("#billDetails").value
                     })
+                }),
+                fetch("/storeCurr", {
+                    headers: {
+                        Method: "PUT",
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    method: "PUT",
+                    body: JSON.stringify({
+                        storeCurr: document.querySelector("#storeCurr").value
+                    })
                 })
             ])
             .then(
@@ -2212,13 +2307,15 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                     responseNum,
                     responseName,
                     responseDetails,
-                    responseBillDetails
+                    responseBillDetails,
+                    responseStoreCurr
                 ]) => {
                     return {
                         num: responseNum.json(),
                         name: responseName.json(),
                         details: responseDetails.json(),
-                        bDetails: responseBillDetails.json()
+                        bDetails: responseBillDetails.json(),
+                        curr: responseStoreCurr.json(),
                     };
                 }
             )
@@ -2259,6 +2356,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                 document.querySelector("#storeDetails").value = "";
                 document.querySelector("#billDetails").value = "";
                 document.querySelector("#storeNum").value = "";
+                document.querySelector("#storeCurr").value = "";
             })
             .catch((error) => {
                 alert(

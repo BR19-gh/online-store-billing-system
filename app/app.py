@@ -721,6 +721,59 @@ def storeNumGet():
         return jsonify({"storeNum": storeInfoObj.search('num')})
 
 
+@app.route("/storeCurr", methods=['PUT', 'DELETE'])
+@limiter.limit('1 per 10seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
+def storeNum():
+    print('The ip address: ', get_remote_address())
+    storeInfoObj = StoreInfoTable()
+
+    if request.method == 'PUT':
+        data = request.get_json()
+        storeCurr = data['storeCurr']
+        result = storeInfoObj.search('storeCurr')
+
+        try:
+            storeInfoObj.update('storeCurr', storeNum)
+            
+        except Exception as err:
+            print(err, "line: 676")
+            if (isinstance(storeCurr, int) == False):
+                return jsonify({"msg": f"Bad Request 400: storeCurr was not updated, either the provided storeCurr is not integer, or it contains illegal form of characters", "statCode": 400})
+            else:
+                return jsonify({"msg": f"Unkown Error 500: storeCurr:{storeCurr} was not updated, old data:{result}, new data:{storeInfoObj.search('storeCurr')}", "statCode": 500})
+
+    elif request.method == 'DELETE':
+        result = storeInfoObj.search('storeCurr')
+
+        if result == None:
+            return jsonify({"msg": f"Error 404: storeCurr:{result} was not found, it may not exist", "statCode": 404})
+
+        storeInfoObj.delete('storeCurr', storeInfoObj.search('storeCurr')[0])
+
+        result = storeInfoObj.search('storeCurr')
+
+        if result == None:
+            return jsonify({"msg": f"Success 204: storeCurr is deleted successfully", "statCode": 204})
+        else:
+            return jsonify({"msg": f"Error 500: failed to delete storeCurr:{result}, storeCurr:{result} still exists", "statCode": 500})
+    else:
+
+        abort(405)
+
+
+@app.route("/storeCurr/show", methods=['GET'])
+@limiter.exempt
+def storeCurrGet():
+    print('The ip address: ', get_remote_address())
+    storeInfoObj = StoreInfoTable()
+    if storeInfoObj.search('storeCurr') == None:
+        return jsonify({"storeCurr": "none/لايوجد"})
+    else:
+        return jsonify({"storeCurr": storeInfoObj.search('storeCurr')})
+
+
+
+
 @app.route("/storeTheme", methods=['POST', 'PUT', 'DELETE'])
 @limiter.limit('1 per 1seconds', per_method=True, methods=['PUT', 'POST', 'DELETE'])
 def storeTheme():

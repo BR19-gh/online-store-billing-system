@@ -266,7 +266,8 @@ class StoreInfoTable:
                         storeName TEXT NOT NULL,
                         storeDetails TEXT NOT NULL,
                         billDetails text,
-                        storeNum BIGINT NOT NULL
+                        storeNum BIGINT NOT NULL,
+                        storeCurr TEXT NOT NULL
                         
                     )
                             """)
@@ -309,6 +310,15 @@ class StoreInfoTable:
 
                         """)
 
+        elif infoType == 'storeCurr':
+
+            self.cur.execute(f"""
+
+                SELECT storeCurr
+                FROM storeInfo
+
+                        """)
+
         else:
             raise Exception("Error in variable 'infoType'")
 
@@ -320,20 +330,22 @@ class StoreInfoTable:
             raise Exception("One of the entries is empty")
 
         self.cur.execute(f"""
-                ALTER TABLE storeInfo ALTER COLUMN storenum TYPE bigint;
+                ALTER TABLE storeInfo ALTER COLUMN storeCurr TYPE TEXT;
                 INSERT INTO storeInfo 
                             (
                                 storeName,
                                 storeDetails,
                                 billDetails,
-                                storenum
+                                storenum,
+                                storeCurr
                             ) 
                 VALUES 
                             (
                                 '{inputData["storeName"]}',
                                 '{inputData["storeDetails"]}',
                                 '{inputData["billDetails"]}',
-                                '{inputData["storeNum"]}'
+                                '{inputData["storeNum"]}',
+                                '{inputData["storeCurr"]}'
                             );
                         
                         """)
@@ -374,6 +386,15 @@ class StoreInfoTable:
 
                 UPDATE storeInfo 
                 SET storeNum = '{inputData}'
+
+                        """)
+            
+        elif infoType == 'storeCurr':
+
+            self.cur.execute(f"""
+
+                UPDATE storeInfo 
+                SET storeCurr = '{inputData}'
 
                         """)
 
@@ -417,6 +438,15 @@ class StoreInfoTable:
 
                 DELETE FROM storeInfo 
                 SET storeNum = '{inputData}'
+
+                        """)
+
+        elif infoType == 'storeCurr':
+
+            self.cur.execute(f"""
+
+                DELETE FROM storeInfo 
+                SET storeCurr = '{inputData}'
 
                         """)
 
