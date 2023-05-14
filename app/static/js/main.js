@@ -762,7 +762,7 @@ function firstFetch() {
                                                                                                 document.querySelector(
                                                                                                         "#groupOfPrices"
                                                                                                     ).innerText =
-                                                                                                    "المجموع 0﷼";
+                                                                                                    `المجموع 0${data6.storeCurr}`;
                                                                                             }
                                                                                             return;
                                                                                         }
@@ -1274,7 +1274,7 @@ function firstFetch() {
                                                             ) == true
                                                         ) {
                                                             alert(
-                                                                "يجب أن يكون في سلتك منتجات \nأو يكون مبلغ الشراء أعلى من 0﷼ لإتمام العملية"
+                                                                `يجب أن يكون في سلتك منتجات \nأو يكون مبلغ الشراء أعلى من 0${data6.storeCurr} لإتمام العملية`
                                                             );
                                                             return;
                                                         }

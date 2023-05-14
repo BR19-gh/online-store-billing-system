@@ -423,6 +423,10 @@ input#storeCurr {
     margin: 0;
 }
 
+.storeInfo {
+    line-height: 18px;
+}
+
 .card {
     border-radius: 15px;
     margin: 15px;
