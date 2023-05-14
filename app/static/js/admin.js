@@ -1772,7 +1772,7 @@ document.querySelector("#addInfo").addEventListener("click", () => {
                     document.querySelector("#storeNum").value,
                 storeDetails: document.querySelector("#storeDetails").value,
                 billDetails: document.querySelector("#billDetails").value,
-                billDetails: document.querySelector("#storeCurr").value
+                storeCurr: document.querySelector("#storeCurr").value
             })
         })
         .then((response) => {
