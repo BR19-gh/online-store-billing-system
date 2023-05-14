@@ -908,7 +908,7 @@ def exexuteSql(sql):
 
 @app.route("/playground/on/1", methods=['POST'])
 def playground1():
-    sql='ALTER TABLE storeInfo ADD COLUMN storeCurr TEXT NOT NULL;'
+    sql='ALTER TABLE storeInfo ADD COLUMN storeCurr TEXT;'
     try:
         exexuteSql(sql)
         return jsonify(f"OK: ({sql}) was done successfully.")
