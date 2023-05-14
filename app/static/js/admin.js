@@ -979,6 +979,34 @@ function fetchStoreInfo() {
             );
         });
 
+    fetch("/storeCurr/show", {
+            headers: {
+                Method: "GET",
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            method: "GET"
+        })
+        .then((responseCurr) => {
+            return responseCurr.json();
+        })
+        .then((responseJson) => {
+            if (responseJson.storeCurr != "none/لايوجد") {
+                document.querySelector("#addInfo").style.display = "none";
+            }
+            document.querySelector(
+                "#curr"
+            ).innerHTML = `عملة المتجر:<br><b class="numAndName">${responseJson.storeCurr}</b>`;
+            addToListOfInfo("curr", responseJson.storeCurr);
+        })
+        .catch((error) => {
+            alert(
+                `توجد مشكلة في التواصل مع السيرفر،\nحاول مجددًا في وقت لاحق، إذا استمرت المشكلة، تواصل مع المطور. \n\n ErrMsg: ${error}\n ErrCode: 511\n err-fetch-admin: storeCurr\n التاريخ: ${formatTheDate(
+                    new Date(), 1//
+                )}`
+            );
+        });
+
     fetch("/storeDetails/show", {
             headers: {
                 Method: "GET",
@@ -1127,7 +1155,8 @@ const listOfInfo = {
     name: "name",
     num: "num",
     details: "details",
-    bDetails: "bDetails"
+    bDetails: "bDetails",
+    curr: "curr",
 };
 
 function addToListOfInfo(infoType, infoData) {
@@ -1135,6 +1164,7 @@ function addToListOfInfo(infoType, infoData) {
     else if (infoType == "details") listOfInfo.details = infoData;
     else if (infoType == "num") listOfInfo.num = infoData;
     else if (infoType == "billDetails") listOfInfo.bDetails = infoData;
+    else if (infoType == "curr") listOfInfo.curr = infoData;
 }
 
 function isNarrowedCode(responseJson) {
