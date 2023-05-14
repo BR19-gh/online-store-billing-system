@@ -1828,6 +1828,7 @@ document.querySelector("#addInfo").addEventListener("click", () => {
             );
 
             fetchStoreInfo();
+            fetchProducts();
             document.querySelector("#storeName").value = "";
             document.querySelector("#storeDetails").value = "";
             document.querySelector("#billDetails").value = "";
@@ -2247,6 +2248,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                     "تم تعديل المعلومات بنجاح، إنتظر قليلا وستظهر التحديثات"
                 );
                 fetchStoreInfo();
+                fetchProducts();
                 document.querySelector("#storeName").value = "";
                 document.querySelector("#storeDetails").value = "";
                 document.querySelector("#billDetails").value = "";
@@ -2383,6 +2385,7 @@ document.querySelector("#updInfo").addEventListener("click", () => {
                     "تم تعديل المعلومات بنجاح، إنتظر قليلا وستظهر التحديثات"
                 );
                 fetchStoreInfo();
+                fetchProducts();
                 document.querySelector("#storeName").value = "";
                 document.querySelector("#storeDetails").value = "";
                 document.querySelector("#billDetails").value = "";
