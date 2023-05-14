@@ -226,7 +226,7 @@ function expOrNarInfo(expOrNarInfoKey) {
 
 function deleteOrEditPromo(id, opration) {
     if (opration == "edit") {
-        document.querySelector("#codeExpPara").style.display = "block";
+        document.querySelector("#codeExpPara").style.display = "none";
         // show btn
         document.querySelector("#addCode").style.display = "none";
         document.querySelector("#updCode").style.display = "block";
