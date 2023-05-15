@@ -594,9 +594,12 @@ input {
     color: var(--textColor) !important;
 }
 
-ul#listOfCountriesCodes {
-    background-color: black !important;
-    color: white!important;
+a.dropdown-item {
+    background-color: var(--inputBG);
+}
+
+input#productImg {
+    color: black !important;
 }
 
 @keyframes cartAnimation {

@@ -930,7 +930,7 @@ function fetchThemes() {
                     )
                     document.documentElement.style.setProperty(
                         '--inputHover',
-                        '#3c3c3c'
+                        '#303030'
                     )
                     document.documentElement.style.setProperty(
                         '--inputBG',
@@ -938,7 +938,7 @@ function fetchThemes() {
                     )
                     document.documentElement.style.setProperty(
                         '--inputFocus',
-                        '#4f4f4f'
+                        '#222222'
                     )
                     document.documentElement.style.setProperty(
                         '--webkitScrollbarTrack',
