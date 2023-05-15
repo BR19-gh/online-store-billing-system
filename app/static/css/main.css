@@ -442,14 +442,6 @@ input {
     color: var(--textColor) !important;
 }
 
-a.dropdown-item {
-    background-color: var(--inputBG);
-}
-
-input#productImg {
-    color: black !important;
-}
-
 .fa-trash-alt:hover {
     color: var(--bs-danger) !important;
 }
