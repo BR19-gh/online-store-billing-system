@@ -477,7 +477,7 @@ function fetchThemes() {
                 if (responseJson.storeTheme == 'originalTheme') {
                     document.documentElement.style.setProperty(
                         '--textColor',
-                        '#ffffff'
+                        '#000000'
                     )
                     document.documentElement.style.setProperty(
                         '--body',
@@ -558,7 +558,7 @@ function fetchThemes() {
                 } else if (responseJson.storeTheme == 'blueTheme') {
                     document.documentElement.style.setProperty(
                         '--textColor',
-                        '#ffffff'
+                        '#000000'
                     )
                     document.documentElement.style.setProperty(
                         '--body',
@@ -639,7 +639,7 @@ function fetchThemes() {
                 } else if (responseJson.storeTheme == 'greenTheme') {
                     document.documentElement.style.setProperty(
                         '--textColor',
-                        '#ffffff'
+                        '#000000'
                     )
                     document.documentElement.style.setProperty(
                         '--body',
@@ -720,7 +720,7 @@ function fetchThemes() {
                 } else if (responseJson.storeTheme == 'redTheme') {
                     document.documentElement.style.setProperty(
                         '--textColor',
-                        '#ffffff'
+                        '#000000'
                     )
                     document.documentElement.style.setProperty(
                         '--body',
@@ -801,7 +801,7 @@ function fetchThemes() {
                 } else if (responseJson.storeTheme == 'pinkTheme') {
                     document.documentElement.style.setProperty(
                         '--textColor',
-                        '#ffffff'
+                        '#000000'
                     )
                     document.documentElement.style.setProperty(
                         '--body',
@@ -882,7 +882,7 @@ function fetchThemes() {
                 } else if (responseJson.storeTheme == 'blackTheme') {
                     document.documentElement.style.setProperty(
                         '--textColor',
-                        '#000000'
+                        '#ffffff'
                     )
                     document.documentElement.style.setProperty(
                         '--body',
