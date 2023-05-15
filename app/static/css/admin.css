@@ -398,6 +398,8 @@ input {
 }
 
 textarea {
+    background-color: var(--inputBG);
+    color: var(--textColor);
     border: 1px var(--borders) solid;
     border-radius: 15px;
     text-align: center;
@@ -588,8 +590,8 @@ input {
     background-color: var(--inputBG);
 }
 
-body {
-    color: var(--textColor);
+* {
+    color: var(--textColor) !important;
 }
 
 @keyframes cartAnimation {

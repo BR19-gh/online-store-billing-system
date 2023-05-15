@@ -963,7 +963,7 @@ function fetchThemes() {
                 } else {
                     document.documentElement.style.setProperty(
                         '--textColor',
-                        '#ffffff'
+                        '#000000'
                     )
                     document.documentElement.style.setProperty(
                         '--body',
