@@ -910,7 +910,7 @@ function fetchThemes() {
                     )
                     document.documentElement.style.setProperty(
                         '--h1',
-                        '#b9b9b9a0'
+                        '#3f3f3fa0'
                     )
                     document.documentElement.style.setProperty(
                         '--h1OtherScreen',
