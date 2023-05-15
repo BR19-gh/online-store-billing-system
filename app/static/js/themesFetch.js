@@ -9,6 +9,10 @@ export function fetchThemes() {
             if (responseJson.storeTheme != 'none/لايوجد') {
                 if (responseJson.storeTheme == 'originalTheme') {
                     document.documentElement.style.setProperty(
+                        '--textColor',
+                        '#ffffff'
+                    )
+                    document.documentElement.style.setProperty(
                         '--body',
                         '#f0e9c9'
                     )
@@ -53,6 +57,10 @@ export function fetchThemes() {
                         '#8f8d85'
                     )
                     document.documentElement.style.setProperty(
+                        '--inputBG',
+                        '#ffffff'
+                    )
+                    document.documentElement.style.setProperty(
                         '--inputHover',
                         '#aca588'
                     )
@@ -81,6 +89,10 @@ export function fetchThemes() {
                         '#d4cbaba8'
                     )
                 } else if (responseJson.storeTheme == 'blueTheme') {
+                    document.documentElement.style.setProperty(
+                        '--textColor',
+                        '#ffffff'
+                    )
                     document.documentElement.style.setProperty(
                         '--body',
                         '#c9cbf0'
@@ -126,6 +138,10 @@ export function fetchThemes() {
                         '#85858f'
                     )
                     document.documentElement.style.setProperty(
+                        '--inputBG',
+                        '#ffffff'
+                    )
+                    document.documentElement.style.setProperty(
                         '--inputHover',
                         '#8889ac'
                     )
@@ -154,6 +170,10 @@ export function fetchThemes() {
                         '#abaed4a8'
                     )
                 } else if (responseJson.storeTheme == 'greenTheme') {
+                    document.documentElement.style.setProperty(
+                        '--textColor',
+                        '#ffffff'
+                    )
                     document.documentElement.style.setProperty(
                         '--body',
                         '#c9f0cb'
@@ -199,6 +219,10 @@ export function fetchThemes() {
                         '#858f85'
                     )
                     document.documentElement.style.setProperty(
+                        '--inputBG',
+                        '#ffffff'
+                    )
+                    document.documentElement.style.setProperty(
                         '--inputHover',
                         '#88ac8b'
                     )
@@ -227,6 +251,10 @@ export function fetchThemes() {
                         '#abd4b0a8'
                     )
                 } else if (responseJson.storeTheme == 'redTheme') {
+                    document.documentElement.style.setProperty(
+                        '--textColor',
+                        '#ffffff'
+                    )
                     document.documentElement.style.setProperty(
                         '--body',
                         '#f0c9c9'
@@ -272,6 +300,10 @@ export function fetchThemes() {
                         '#8f8585'
                     )
                     document.documentElement.style.setProperty(
+                        '--inputBG',
+                        '#ffffff'
+                    )
+                    document.documentElement.style.setProperty(
                         '--inputHover',
                         '#ac8888'
                     )
@@ -300,6 +332,10 @@ export function fetchThemes() {
                         '#d4ababa8'
                     )
                 } else if (responseJson.storeTheme == 'pinkTheme') {
+                    document.documentElement.style.setProperty(
+                        '--textColor',
+                        '#ffffff'
+                    )
                     document.documentElement.style.setProperty(
                         '--body',
                         '#efc9f0'
@@ -345,6 +381,10 @@ export function fetchThemes() {
                         '#8f858f'
                     )
                     document.documentElement.style.setProperty(
+                        '--inputBG',
+                        '#ffffff'
+                    )
+                    document.documentElement.style.setProperty(
                         '--inputHover',
                         '#ac88a9'
                     )
@@ -372,7 +412,92 @@ export function fetchThemes() {
                         '--infoCard',
                         '#d4abcaa8'
                     )
+                } else if (responseJson.storeTheme == 'blackTheme') {
+                    document.documentElement.style.setProperty(
+                        '--textColor',
+                        '#000000'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--body',
+                        '#212121'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--borders',
+                        '#c4c4c4'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--btns',
+                        '#0d0d0d'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--btnsHover',
+                        '#262626'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--container',
+                        '#1e1e1ec0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--containerHover',
+                        '#292929b0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--h1',
+                        '#b9b9b9a0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--h1OtherScreen',
+                        '#2d2d2dd0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--form',
+                        '#2d2d2dc0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--formHover',
+                        '#3b3b3b'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--input',
+                        '#4e4e4e'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--inputHover',
+                        '#b7b7b7'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--inputBG',
+                        '#000000'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--inputFocus',
+                        '#a3a3a3'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--webkitScrollbarTrack',
+                        '#c3c3c3c0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--modals',
+                        '#252525'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--webkitScrollbarThumb',
+                        '#bababa'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--webkitScrollbarThumbHover',
+                        '#595959'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--infoCard',
+                        '#6f6f6fa8'
+                    )
                 } else {
+                    document.documentElement.style.setProperty(
+                        '--textColor',
+                        '#ffffff'
+                    )
                     document.documentElement.style.setProperty(
                         '--body',
                         '#bbc0c6'
@@ -416,6 +541,10 @@ export function fetchThemes() {
                     document.documentElement.style.setProperty(
                         '--input',
                         '#8a8a8a'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--inputBG',
+                        '#ffffff'
                     )
                     document.documentElement.style.setProperty(
                         '--inputHover',

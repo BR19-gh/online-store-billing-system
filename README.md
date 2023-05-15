@@ -1,4 +1,4 @@
-[New 3.5v Update Available !!!](#update-35v)
+[New 3.8v Update Available !!!](#update-35v)
         
 
 # Online Store Billing System
@@ -1473,16 +1473,22 @@ There are 8 `HTML` files in `app/templates` folder 5 of them are pages for [Erro
 ## Updates
 ### Update 2.0v
 Now the store owner can change the store theme! 
-There are 5 themes for now (red 🔴, blue 🔵, grey ⚫⚪, green 🟢 and original "yellow" 🟡), more will be added later:
+There are 5 themes for now (red 🔴, blue 🔵, gray 🌫️, green 🟢 and original "yellow" 🟡), more will be added later:
 
 ![Themes Section](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/themes.jpg "cc: store theme")
 ### Update 3.5v
 New features has been added, which are:
-- brand new theme for the store! pink 🦩.
-- new billing system. Save, browse and delete all bills that've been issued.
-- inhancing the user experince with better UI and more accessibility.
+- Brand-new theme for the store! Pink 🦩.
+- New billing system. Save, browse and delete all bills that've been issued.
+- Enhancing the user experience with better UI and more accessibility.
 
 ![Update 3.5v](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v.gif "cc: Update 3.5v")
 ![Update 3.5v-Biling system](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v-1.png "cc: Biling system")
 ![Update 3.5v-Biling system](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v-2.png "cc: Delete bill")
 ![Update 3.5v-Biling system](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v-3.png "cc: Pink theme")
+
+### Update 3.8v
+New features has been added, which are:
+- Now you can edit the currency used in the store!! Head to تعديل معلومات المتجر (edit store info), then type the currency you want to use in عملة المتجر (store currency).
+- Brand-new theme for the store! Black ⚫.
+- UI enhancements in Admin Page.
