@@ -590,7 +590,7 @@ a.dropdown-item {
     background-color: var(--inputBG);
 }
 
-input#productImg {
+input#productImg,#productImgEditBtn {
     color: black !important;
 }
 
