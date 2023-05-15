@@ -529,11 +529,6 @@ input#productAvail {
     justify-content: center;
 }
 
-button.btn-close.btn-close-black {
-    margin: 0;
-    background-color: var(--inputBG) !important;
-}
-
 .dashboardTitles {
     font-size: 35px;
     font-weight: bold;
@@ -601,6 +596,11 @@ input#productImg {
 
 .fa-trash-alt:hover {
     color: var(--bs-danger) !important;
+}
+
+button.btn-close.btn-close-black {
+    margin: 0;
+    background-color: var(--textColor) !important;
 }
 
 @keyframes cartAnimation {

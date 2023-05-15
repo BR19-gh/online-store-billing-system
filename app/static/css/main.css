@@ -314,10 +314,6 @@ button.btn-close.btn-close-black {
     margin-top: 15px;
 }
 
-.fa-trash-alt:hover {
-    color: var(--bs-danger);
-}
-
 .delToCartBtn:hover {
     color: var(--bs-danger);
 }
@@ -436,6 +432,31 @@ div#shoppingCartIcon {
 
 .cartAnimationDelFin {
     animation: cartAnimationDelFin 0.5s linear;
+}
+
+input {
+    background-color: var(--inputBG);
+}
+
+* {
+    color: var(--textColor) !important;
+}
+
+a.dropdown-item {
+    background-color: var(--inputBG);
+}
+
+input#productImg {
+    color: black !important;
+}
+
+.fa-trash-alt:hover {
+    color: var(--bs-danger) !important;
+}
+
+button.btn-close.btn-close-black {
+    margin: 0;
+    background-color: var(--textColor) !important;
 }
 
 @keyframes cartAnimation {
