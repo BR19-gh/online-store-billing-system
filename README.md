@@ -1,4 +1,4 @@
-[New 3.8v Update Available !!!](#update-35v)
+[New 4.0v Update Available !!!](#update-4.0v)
         
 
 # Online Store Billing System
@@ -1487,7 +1487,7 @@ New features has been added, which are:
 ![Update 3.5v-Biling system](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v-2.png "cc: Delete bill")
 ![Update 3.5v-Biling system](https://github.com/BR19-gh/online-store-billing-system/blob/master/imgs%20for%20github/Update3.5v-3.png "cc: Pink theme")
 
-### Update 3.8v
+### Update 4.0v
 New features has been added, which are:
 - Now you can edit the currency used in the store!! Head to تعديل معلومات المتجر (edit store info), then type the currency you want to use in عملة المتجر (store currency).
 - Brand-new theme for the store! Black ⚫.
