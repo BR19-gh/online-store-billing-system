@@ -296,11 +296,6 @@ input {
     font-size: 30px;
 }
 
-button.btn-close.btn-close-black {
-    margin: 0;
-    background-color: var(--inputBG) !important;
-}
-
 #title {
     padding-left: 15px;
 }
@@ -448,7 +443,7 @@ input {
 
 button.btn-close.btn-close-black {
     margin: 0;
-    background-color: var(--textColor) !important;
+    background-color: var(--h1) !important;
 }
 
 @keyframes cartAnimation {

@@ -476,6 +476,14 @@ function fetchThemes() {
             if (responseJson.storeTheme != "none/لايوجد") {
                 if (responseJson.storeTheme == 'originalTheme') {
                     document.documentElement.style.setProperty(
+                        '--circleTheme',
+                        '#000000a0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--circleThemeHA',
+                        '#00000060'
+                    )
+                    document.documentElement.style.setProperty(
                         '--textColor',
                         '#000000'
                     )
@@ -556,6 +564,14 @@ function fetchThemes() {
                         '#d4cbaba8'
                     )
                 } else if (responseJson.storeTheme == 'blueTheme') {
+                    document.documentElement.style.setProperty(
+                        '--circleTheme',
+                        '#000000a0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--circleThemeHA',
+                        '#00000060'
+                    )
                     document.documentElement.style.setProperty(
                         '--textColor',
                         '#000000'
@@ -638,6 +654,14 @@ function fetchThemes() {
                     )
                 } else if (responseJson.storeTheme == 'greenTheme') {
                     document.documentElement.style.setProperty(
+                        '--circleTheme',
+                        '#000000a0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--circleThemeHA',
+                        '#00000060'
+                    )
+                    document.documentElement.style.setProperty(
                         '--textColor',
                         '#000000'
                     )
@@ -718,6 +742,14 @@ function fetchThemes() {
                         '#abd4b0a8'
                     )
                 } else if (responseJson.storeTheme == 'redTheme') {
+                    document.documentElement.style.setProperty(
+                        '--circleTheme',
+                        '#000000a0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--circleThemeHA',
+                        '#00000060'
+                    )
                     document.documentElement.style.setProperty(
                         '--textColor',
                         '#000000'
@@ -800,6 +832,14 @@ function fetchThemes() {
                     )
                 } else if (responseJson.storeTheme == 'pinkTheme') {
                     document.documentElement.style.setProperty(
+                        '--circleTheme',
+                        '#000000a0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--circleThemeHA',
+                        '#00000060'
+                    )
+                    document.documentElement.style.setProperty(
                         '--textColor',
                         '#000000'
                     )
@@ -881,6 +921,14 @@ function fetchThemes() {
                     )
                 } else if (responseJson.storeTheme == 'blackTheme') {
                     document.documentElement.style.setProperty(
+                        '--circleTheme',
+                        '#ffffffa0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--circleThemeHA',
+                        '#ffffff60'
+                    )
+                    document.documentElement.style.setProperty(
                         '--textColor',
                         '#ffffff'
                     )
@@ -961,6 +1009,14 @@ function fetchThemes() {
                         '#6f6f6fa8'
                     )
                 } else {
+                    document.documentElement.style.setProperty(
+                        '--circleTheme',
+                        '#000000a0'
+                    )
+                    document.documentElement.style.setProperty(
+                        '--circleThemeHA',
+                        '#00000060'
+                    )
                     document.documentElement.style.setProperty(
                         '--textColor',
                         '#000000'

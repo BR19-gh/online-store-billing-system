@@ -227,15 +227,15 @@ button.btn.btn-outline-secondary.dropdown-toggle {
     height: 40px;
     border-radius: 100%;
     margin: 5px;
-    border: #000000a0 3px solid;
+    border: var(--circleTheme) 3px solid;
 }
 
 .circleTheme:hover {
-    border: #00000060 3px solid;
+    border: var(--circleThemeHA) 3px solid;
 }
 
 .circleTheme:active {
-    border: #00000060 20px solid;
+    border: var(--circleThemeHA) 20px solid;
 }
 
 #themesContainer {
@@ -590,7 +590,8 @@ a.dropdown-item {
     background-color: var(--inputBG);
 }
 
-input#productImg,#productImgEditBtn {
+input#productImg,
+#productImgEdit {
     color: black !important;
 }
 
@@ -600,7 +601,7 @@ input#productImg,#productImgEditBtn {
 
 button.btn-close.btn-close-black {
     margin: 0;
-    background-color: var(--textColor) !important;
+    background-color: var(--h1) !important;
 }
 
 @keyframes cartAnimation {
