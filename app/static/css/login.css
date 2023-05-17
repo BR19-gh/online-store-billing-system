@@ -152,3 +152,11 @@ input {
 #loginBtn:hover {
     background-color: var(--btnsHover);
 }
+
+input {
+    background-color: var(--inputBG);
+}
+
+* {
+    color: var(--textColor) !important;
+}
