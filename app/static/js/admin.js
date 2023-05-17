@@ -232,7 +232,8 @@ function expOrNarInfo(expOrNarInfoKey) {
 
 function deleteOrEditPromo(id, opration) {
     if (opration == "edit") {
-        document.querySelector("#codeExpPara").style.display = "none";
+        document.querySelector("#addCodeExpPara").style.display = "none";
+        document.querySelector("#editCodeExpPara").style.display = "block";
         // show btn
         document.querySelector("#addCode").style.display = "none";
         document.querySelector("#updCode").style.display = "block";
@@ -252,7 +253,8 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector("#codeAmount").disabled = false;
         document.querySelector("#codeExp").disabled = false;
     } else if (opration == "delete") {
-        document.querySelector("#codeExpPara").style.display = "none";
+        document.querySelector("#addCodeExpPara").style.display = "none";
+        document.querySelector("#editCodeExpPara").style.display = "none";
         // show btn
         document.querySelector("#addCode").style.display = "none";
         document.querySelector("#updCode").style.display = "none";
@@ -272,7 +274,8 @@ function deleteOrEditPromo(id, opration) {
         document.querySelector("#codeAmount").disabled = true;
         document.querySelector("#codeExp").disabled = true;
     } else if (opration == "add") {
-        document.querySelector("#codeExpPara").style.display = "block";
+        document.querySelector("#addCodeExpPara").style.display = "block";
+        document.querySelector("#editCodeExpPara").style.display = "none";
         // show btn
         document.querySelector("#addCode").style.display = "block";
         document.querySelector("#updCode").style.display = "none";
